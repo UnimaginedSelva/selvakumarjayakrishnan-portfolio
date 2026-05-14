@@ -13,7 +13,7 @@ export const hero = {
   linkedin: 'https://www.linkedin.com/in/passionateselva',
   phone: '+91 9036000220',
   location: 'Bengaluru, India',
-  resumeFile: '/Selvakumar_Jayakrishnan_Resume_May2026.docx',
+  resumeFile: '/Selvakumar_Jayakrishnan_Resume_May2026.pdf',
 }
 
 export const about = {
