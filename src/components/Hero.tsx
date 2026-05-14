@@ -21,9 +21,9 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Availability badge */}
-        <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 text-gold-400 text-sm px-4 py-1.5 rounded-full mb-8">
+        <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 text-gold-400 text-sm px-4 py-1.5 rounded-full mb-8 mt-16">
           <span className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
-          Open to Opportunities · Immediate Joiner
+          Open to Opportunities · India &amp; Overseas
         </div>
 
         {/* Name */}
