@@ -85,6 +85,24 @@ const load = () => {
       } else {
         merged.expenses = { ...base.expenses, ...(parsed.expenses || {}) };
       }
+      // Migrate old cards format (limit/balance) → new format (months with planned/outstanding)
+      if (Array.isArray(parsed.cards)) {
+        const cm = currentMonth();
+        merged.cards = parsed.cards.map((c, i) => {
+          if (c.months) return c; // already new format
+          return {
+            id: c.id || ('card-' + i),
+            name: c.name || '',
+            billingDate: c.billingDate || '',
+            months: {
+              [cm]: {
+                planned: c.limit || '',
+                outstanding: c.balance || ''
+              }
+            }
+          };
+        });
+      }
       return merged;
     }
   } catch (e) {}
@@ -432,8 +450,15 @@ function App() {
     const inc = getMonthIncome(month || selMonth);
     return (parseFloat(inc.salary) || 0) + (inc.other || []).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
   };
-  const totalExpenses = (month) =>
-    getMonthEntries(month || selMonth).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
+  const totalExpenses = (month) => {
+    const m = month || selMonth;
+    const catTotal = getMonthEntries(m).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
+    const cardTotal = (state.cards || []).reduce((a, card) => {
+      const md = card.months?.[m] || {};
+      return a + (parseFloat(md.outstanding) || 0);
+    }, 0);
+    return catTotal + cardTotal;
+  };
 
   const ritualScore = (key) => {
     const log = state.health.log[key];
@@ -473,11 +498,22 @@ function App() {
   const FinOverview = () => {
     const inc = totalIncome(), exp = totalExpenses(), net = inc - exp;
     const rate = inc > 0 ? Math.round((net / inc) * 100) : 0;
+
     const byCategory = {};
     getMonthEntries(selMonth).forEach(e => {
       byCategory[e.category] = (byCategory[e.category] || 0) + (parseFloat(e.amount) || 0);
     });
-    const topCats = Object.entries(byCategory).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    const catRows = Object.entries(byCategory).sort((a, b) => b[1] - a[1]);
+
+    const cardRows = (state.cards || [])
+      .map(card => ({ name: card.name, amt: parseFloat(card.months?.[selMonth]?.outstanding) || 0 }))
+      .filter(r => r.amt > 0);
+
+    const allRows = [
+      ...catRows.map(([name, amt]) => ({ name, amt, isCard: false })),
+      ...cardRows.map(r => ({ name: r.name + ' (card)', amt: r.amt, isCard: true }))
+    ].sort((a, b) => b.amt - a.amt);
+
     const hasData = inc > 0 || exp > 0;
     return React.createElement('div', null,
       !hasData && React.createElement('div', { className: 'card' },
@@ -496,16 +532,19 @@ function App() {
           )
         )
       ),
-      topCats.length > 0 && React.createElement('div', { className: 'card' },
+      allRows.length > 0 && React.createElement('div', { className: 'card' },
         React.createElement('div', { className: 'card-title' }, 'Spending breakdown'),
-        topCats.map(([cat, amt]) =>
-          React.createElement('div', { key: cat, style: { marginBottom: 12 } },
+        allRows.map(({ name, amt, isCard }) =>
+          React.createElement('div', { key: name, style: { marginBottom: 12 } },
             React.createElement('div', { className: 'row-between', style: { marginBottom: 4 } },
-              React.createElement('span', { style: { fontSize: 13 } }, cat),
+              React.createElement('div', null,
+                React.createElement('span', { style: { fontSize: 13 } }, name),
+                isCard && React.createElement('span', { style: { fontSize: 10, marginLeft: 5, color: 'var(--accent2)' } }, '💳')
+              ),
               React.createElement('span', { style: { fontSize: 13, fontWeight: 700 } }, fmt(amt, state.currency))
             ),
             React.createElement('div', { className: 'progress' },
-              React.createElement('div', { className: 'progress-fill', style: { width: exp > 0 ? `${Math.round((amt / exp) * 100)}%` : '0%', background: 'var(--accent)' } })
+              React.createElement('div', { className: 'progress-fill', style: { width: exp > 0 ? `${Math.round((amt / exp) * 100)}%` : '0%', background: isCard ? '#8b5cf6' : 'var(--accent)' } })
             )
           )
         )
@@ -626,64 +665,104 @@ function App() {
 
   // ── Finance: Cards ───────────────────────────────────────────────────────────
   const FinCards = () => {
-    const [form, setForm] = useState({ name: '', limit: '', billingDate: '', balance: '' });
+    const [form, setForm] = useState({ name: '', billingDate: '' });
+
+    const updateCardMonth = (cardId, field, value) => {
+      update(s => ({
+        ...s,
+        cards: s.cards.map(c => {
+          if (c.id !== cardId) return c;
+          const prev = c.months?.[selMonth] || {};
+          return { ...c, months: { ...c.months, [selMonth]: { ...prev, [field]: value } } };
+        })
+      }));
+    };
+
     const daysUntil = (day) => {
       const now = new Date();
       const next = new Date(now.getFullYear(), now.getMonth(), parseInt(day));
       if (next <= now) next.setMonth(next.getMonth() + 1);
       return Math.ceil((next - now) / 86400000);
     };
+
     return React.createElement('div', null,
-      (state.cards || []).map((card, i) => {
-        const used = parseFloat(card.balance || 0);
-        const limit = parseFloat(card.limit || 1);
-        const pct = Math.min(100, Math.round((used / limit) * 100));
-        const days = daysUntil(card.billingDate);
-        const barColor = pct > 80 ? 'var(--danger)' : pct > 50 ? 'var(--warn)' : 'var(--accent)';
-        const available = Math.max(0, limit - used);
-        return React.createElement('div', { key: i, className: 'cc-card' },
-          React.createElement('div', { className: 'row-between' },
+      (state.cards || []).length === 0 && React.createElement('div', { className: 'empty' }, 'No cards added yet'),
+
+      (state.cards || []).map(card => {
+        const md = card.months?.[selMonth] || {};
+        const planned = parseFloat(md.planned) || 0;
+        const outstanding = parseFloat(md.outstanding) || 0;
+        const remaining = planned - outstanding;
+        const pct = planned > 0 ? Math.min(100, Math.round((outstanding / planned) * 100)) : 0;
+        const overBudget = remaining < 0;
+        const barColor = pct > 90 ? 'var(--danger)' : pct > 70 ? 'var(--warn)' : 'var(--success)';
+
+        return React.createElement('div', { key: card.id, className: 'cc-card' },
+          React.createElement('div', { className: 'row-between', style: { marginBottom: 10 } },
             React.createElement('div', { className: 'cc-name' }, card.name),
-            React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => {
-              const cards = [...s.cards]; cards.splice(i, 1); return { ...s, cards };
-            }) }, 'Remove')
+            React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () =>
+              update(s => ({ ...s, cards: s.cards.filter(c => c.id !== card.id) }))
+            }, 'Remove')
           ),
-          React.createElement('div', { className: 'cc-stats' },
-            React.createElement('span', null, `Used: ${fmt(used, state.currency)}`),
-            React.createElement('span', null, `Available: ${fmt(available, state.currency)}`),
-            React.createElement('span', null, `Limit: ${fmt(limit, state.currency)}`)
+
+          // Plan vs Actual inputs
+          React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 } },
+            React.createElement('div', null,
+              React.createElement('div', { style: { fontSize: 11, color: 'var(--muted)', marginBottom: 3 } }, 'Planned spend'),
+              React.createElement('input', {
+                className: 'input', type: 'number', placeholder: '0',
+                defaultValue: md.planned || '',
+                key: selMonth + card.id + 'p',
+                onBlur: e => updateCardMonth(card.id, 'planned', e.target.value)
+              })
+            ),
+            React.createElement('div', null,
+              React.createElement('div', { style: { fontSize: 11, color: 'var(--muted)', marginBottom: 3 } }, 'Current outstanding'),
+              React.createElement('input', {
+                className: 'input', type: 'number', placeholder: '0',
+                defaultValue: md.outstanding || '',
+                key: selMonth + card.id + 'o',
+                onBlur: e => updateCardMonth(card.id, 'outstanding', e.target.value)
+              })
+            )
           ),
-          React.createElement('div', { className: 'progress' },
+
+          // Progress bar
+          planned > 0 && React.createElement('div', { className: 'progress', style: { marginBottom: 8 } },
             React.createElement('div', { className: 'progress-fill', style: { width: pct + '%', background: barColor } })
           ),
-          React.createElement('div', { className: 'cc-billing' }, `Billing cycle in ${days} day${days !== 1 ? 's' : ''} (day ${card.billingDate} of month) · ${pct}% utilized`)
+
+          // Summary row
+          React.createElement('div', { className: 'cc-stats' },
+            React.createElement('span', null, `Spent: ${fmt(outstanding, state.currency)}`),
+            React.createElement('span', { style: { color: overBudget ? 'var(--danger)' : 'var(--success)', fontWeight: 600 } },
+              overBudget ? `Over by ${fmt(Math.abs(remaining), state.currency)}` : `${fmt(remaining, state.currency)} left`
+            ),
+            planned > 0 && React.createElement('span', null, `${pct}% of plan`)
+          ),
+
+          card.billingDate && React.createElement('div', { className: 'cc-billing' },
+            `Billing in ${daysUntil(card.billingDate)} days (day ${card.billingDate})`
+          )
         );
       }),
-      (state.cards || []).length === 0 && React.createElement('div', { className: 'empty' }, 'No cards added yet'),
+
       (state.cards || []).length < 10 && React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, 'Add credit card'),
+        React.createElement('div', { className: 'card-title' }, 'Add card'),
         React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 } },
           React.createElement('div', { className: 'field', style: { margin: 0 } },
             React.createElement('label', null, 'Card name'),
-            React.createElement('input', { className: 'input', placeholder: 'e.g. Maybank Visa', value: form.name, onChange: e => setForm(f => ({ ...f, name: e.target.value })) })
-          ),
-          React.createElement('div', { className: 'field', style: { margin: 0 } },
-            React.createElement('label', null, 'Credit limit'),
-            React.createElement('input', { className: 'input', type: 'number', placeholder: '0', value: form.limit, onChange: e => setForm(f => ({ ...f, limit: e.target.value })) })
+            React.createElement('input', { className: 'input', placeholder: 'e.g. HDFC Visa', value: form.name, onChange: e => setForm(f => ({ ...f, name: e.target.value })) })
           ),
           React.createElement('div', { className: 'field', style: { margin: 0 } },
             React.createElement('label', null, 'Billing date (1–31)'),
             React.createElement('input', { className: 'input', type: 'number', min: 1, max: 31, placeholder: '15', value: form.billingDate, onChange: e => setForm(f => ({ ...f, billingDate: e.target.value })) })
-          ),
-          React.createElement('div', { className: 'field', style: { margin: 0 } },
-            React.createElement('label', null, 'Current balance'),
-            React.createElement('input', { className: 'input', type: 'number', placeholder: '0', value: form.balance, onChange: e => setForm(f => ({ ...f, balance: e.target.value })) })
           )
         ),
         React.createElement('button', { className: 'btn btn-primary', style: { width: '100%' }, onClick: () => {
-          if (!form.name || !form.limit || !form.billingDate) return;
-          update(s => ({ ...s, cards: [...(s.cards || []), { ...form }] }));
-          setForm({ name: '', limit: '', billingDate: '', balance: '' });
+          if (!form.name) return;
+          update(s => ({ ...s, cards: [...(s.cards || []), { id: 'card-' + Date.now(), name: form.name, billingDate: form.billingDate, months: {} }] }));
+          setForm({ name: '', billingDate: '' });
         } }, 'Add Card')
       )
     );
