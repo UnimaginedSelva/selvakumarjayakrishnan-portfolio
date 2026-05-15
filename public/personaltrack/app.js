@@ -352,6 +352,7 @@ function HelpGuide({ onClose }) {
       items: [
         { label: 'Currency', desc: 'Change your display currency from MYR to any other currency. All amounts will display in the chosen currency.' },
         { label: 'Expense categories', desc: 'Add new categories that fit your lifestyle. Remove any default categories you don\'t use. Changes apply across all months.' },
+        { label: 'Check for updates', desc: 'Tap "Check for updates" at the bottom of the Customize tab to get the latest version of LifeArch instantly — no settings, no data loss. Your budget and health data is always preserved.' },
       ]
     },
     {
