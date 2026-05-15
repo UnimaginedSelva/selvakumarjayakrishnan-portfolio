@@ -24,6 +24,18 @@ const DEFAULT_EVENING_RITUALS = [
 ];
 
 const todayStr = () => new Date().toISOString().split("T")[0];
+const currentMonth = () => new Date().toISOString().slice(0, 7);
+
+const fmtMonth = (ym) => {
+  const [y, m] = ym.split('-');
+  return new Date(+y, +m - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+};
+
+const shiftMonth = (ym, delta) => {
+  const [y, m] = ym.split('-').map(Number);
+  const d = new Date(y, m - 1 + delta, 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+};
 
 const fmt = (n, cur = "MYR") =>
   new Intl.NumberFormat("en-MY", {
@@ -33,8 +45,8 @@ const fmt = (n, cur = "MYR") =>
 
 const initState = () => ({
   currency: "MYR",
-  income: { salary: "", other: [] },
-  expenses: { categories: [...DEFAULT_EXPENSE_CATEGORIES], entries: [] },
+  income: { byMonth: {} },
+  expenses: { categories: [...DEFAULT_EXPENSE_CATEGORIES], byMonth: {} },
   cards: [],
   health: {
     morningRituals: [...DEFAULT_MORNING_RITUALS],
@@ -49,13 +61,31 @@ const load = () => {
     if (raw) {
       const parsed = JSON.parse(raw);
       const base = initState();
-      return {
+      const merged = {
         ...base,
         ...parsed,
         health: { ...base.health, ...(parsed.health || {}) },
-        income: { ...base.income, ...(parsed.income || {}) },
-        expenses: { ...base.expenses, ...(parsed.expenses || {}) }
       };
+      // Migrate old flat income → byMonth
+      if (parsed.income && !parsed.income.byMonth) {
+        const cm = currentMonth();
+        merged.income = {
+          byMonth: { [cm]: { salary: parsed.income.salary || "", other: parsed.income.other || [] } }
+        };
+      } else {
+        merged.income = { byMonth: {}, ...(parsed.income || {}) };
+      }
+      // Migrate old flat expenses → byMonth
+      if (parsed.expenses && !parsed.expenses.byMonth) {
+        const cm = currentMonth();
+        merged.expenses = {
+          categories: parsed.expenses.categories || [...DEFAULT_EXPENSE_CATEGORIES],
+          byMonth: { [cm]: { entries: parsed.expenses.entries || [] } }
+        };
+      } else {
+        merged.expenses = { ...base.expenses, ...(parsed.expenses || {}) };
+      }
+      return merged;
     }
   } catch (e) {}
   return initState();
@@ -127,6 +157,29 @@ const css = `
   }
   .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
 
+  /* Month navigator */
+  .month-nav {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--surface); border-radius: 20px;
+    padding: 4px 8px; border: 0.5px solid var(--border);
+  }
+  .month-nav-btn {
+    width: 24px; height: 24px; border-radius: 6px; border: none;
+    background: transparent; color: var(--muted); font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; padding: 0; line-height: 1;
+  }
+  .month-nav-btn:hover { background: var(--surface2); color: var(--text); }
+  .month-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .month-nav-label {
+    font-size: 12px; font-weight: 600; color: var(--text);
+    white-space: nowrap; min-width: 80px; text-align: center;
+  }
+  .month-badge {
+    font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 8px;
+    background: rgba(37,99,235,0.2); color: var(--accent2);
+  }
+
   /* Sub tabs */
   .sub-tabs { display: flex; gap: 6px; margin-bottom: 1.25rem; overflow-x: auto; padding-bottom: 4px; }
   .sub-tabs::-webkit-scrollbar { display: none; }
@@ -190,6 +243,7 @@ const css = `
   }
   .btn:active { transform: scale(0.97); }
   .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-ghost { background: var(--surface2); border-color: var(--border); color: var(--muted); font-size: 12px; }
   .btn-danger { background: rgba(220,38,38,0.15); border-color: var(--danger); color: var(--danger); }
   .btn-sm { padding: 5px 10px; font-size: 12px; }
 
@@ -297,9 +351,18 @@ const css = `
   .scroll-list::-webkit-scrollbar { width: 3px; }
   .scroll-list::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 2px; }
 
+  /* Carry-forward notice */
+  .carry-notice {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(37,99,235,0.08); border: 0.5px solid rgba(37,99,235,0.2);
+    border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 12px;
+  }
+  .carry-notice-text { font-size: 12px; color: var(--muted); }
+
   @media (max-width: 380px) {
     .content { padding: 1rem 0.75rem 5rem; }
     .metric-value { font-size: 17px; }
+    .month-nav-label { min-width: 68px; font-size: 11px; }
   }
 `;
 
@@ -332,6 +395,7 @@ function App() {
   const [healthTab, setHealthTab] = useState("today");
   const [showInstall, setShowInstall] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [selMonth, setSelMonth] = useState(currentMonth);
 
   useEffect(() => {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
@@ -346,7 +410,39 @@ function App() {
   const update = useCallback((fn) => setState(prev => fn(prev)), []);
 
   const today = todayStr();
+  const cm = currentMonth();
   const todayLog = state.health.log[today] || { morning: {}, evening: {} };
+
+  // ── Month-aware data accessors ───────────────────────────────────────────────
+  const getMonthIncome = (month) =>
+    state.income.byMonth?.[month] || { salary: "", other: [] };
+  const getMonthEntries = (month) =>
+    state.expenses.byMonth?.[month]?.entries || [];
+
+  const updateMonthIncome = (month, fn) => update(s => {
+    const cur = s.income.byMonth?.[month] || { salary: "", other: [] };
+    return { ...s, income: { ...s.income, byMonth: { ...s.income.byMonth, [month]: fn(cur) } } };
+  });
+  const updateMonthEntries = (month, fn) => update(s => {
+    const cur = s.expenses.byMonth?.[month] || { entries: [] };
+    return { ...s, expenses: { ...s.expenses, byMonth: { ...s.expenses.byMonth, [month]: { ...cur, entries: fn(cur.entries) } } } };
+  });
+
+  const totalIncome = (month) => {
+    const inc = getMonthIncome(month || selMonth);
+    return (parseFloat(inc.salary) || 0) + (inc.other || []).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
+  };
+  const totalExpenses = (month) =>
+    getMonthEntries(month || selMonth).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
+
+  const ritualScore = (key) => {
+    const log = state.health.log[key];
+    if (!log) return null;
+    const total = state.health.morningRituals.length + state.health.eveningRituals.length;
+    const done = Object.values(log.morning || {}).filter(Boolean).length
+      + Object.values(log.evening || {}).filter(Boolean).length;
+    return total > 0 ? Math.round((done / total) * 100) : 0;
+  };
 
   const toggleRitual = (period, id) => {
     update(s => {
@@ -358,20 +454,19 @@ function App() {
     });
   };
 
-  const totalIncome = () => {
-    const sal = parseFloat(state.income.salary) || 0;
-    return sal + (state.income.other || []).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
-  };
-  const totalExpenses = () =>
-    (state.expenses.entries || []).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
-
-  const ritualScore = (key) => {
-    const log = state.health.log[key];
-    if (!log) return null;
-    const total = state.health.morningRituals.length + state.health.eveningRituals.length;
-    const done = Object.values(log.morning || {}).filter(Boolean).length
-      + Object.values(log.evening || {}).filter(Boolean).length;
-    return total > 0 ? Math.round((done / total) * 100) : 0;
+  // ── Month Navigator ──────────────────────────────────────────────────────────
+  const MonthNav = () => {
+    const isCurrent = selMonth === cm;
+    const maxFuture = shiftMonth(cm, 12);
+    const atMax = selMonth >= maxFuture;
+    return React.createElement('div', { className: 'month-nav' },
+      React.createElement('button', { className: 'month-nav-btn', onClick: () => setSelMonth(shiftMonth(selMonth, -1)) }, '‹'),
+      React.createElement('span', { className: 'month-nav-label' },
+        fmtMonth(selMonth),
+        isCurrent && React.createElement('span', { className: 'month-badge', style: { marginLeft: 5 } }, 'now')
+      ),
+      React.createElement('button', { className: 'month-nav-btn', disabled: atMax, onClick: () => setSelMonth(shiftMonth(selMonth, 1)) }, '›')
+    );
   };
 
   // ── Finance: Overview ────────────────────────────────────────────────────────
@@ -379,12 +474,16 @@ function App() {
     const inc = totalIncome(), exp = totalExpenses(), net = inc - exp;
     const rate = inc > 0 ? Math.round((net / inc) * 100) : 0;
     const byCategory = {};
-    (state.expenses.entries || []).forEach(e => {
+    getMonthEntries(selMonth).forEach(e => {
       byCategory[e.category] = (byCategory[e.category] || 0) + (parseFloat(e.amount) || 0);
     });
     const topCats = Object.entries(byCategory).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    const hasData = inc > 0 || exp > 0;
     return React.createElement('div', null,
-      React.createElement('div', { className: 'metric-grid' },
+      !hasData && React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'empty' }, `No data for ${fmtMonth(selMonth)} yet`)
+      ),
+      hasData && React.createElement('div', { className: 'metric-grid' },
         [
           ["Monthly Income", fmt(inc, state.currency), false],
           ["Total Expenses", fmt(exp, state.currency), false],
@@ -416,22 +515,39 @@ function App() {
 
   // ── Finance: Income ──────────────────────────────────────────────────────────
   const FinIncome = () => {
-    const [sal, setSal] = useState(state.income.salary);
+    const monthInc = getMonthIncome(selMonth);
+    const prevInc = getMonthIncome(shiftMonth(selMonth, -1));
+    const [sal, setSal] = useState(monthInc.salary);
     const [label, setLabel] = useState('');
     const [amount, setAmount] = useState('');
+    const hasNoData = !monthInc.salary && (monthInc.other || []).length === 0;
+    const prevHasSalary = !!prevInc.salary;
+
     return React.createElement('div', { className: 'card' },
-      React.createElement('div', { className: 'card-title' }, 'Income sources'),
+      React.createElement('div', { className: 'card-title' }, `Income — ${fmtMonth(selMonth)}`),
+
+      // Carry-forward prompt when month is empty and prev month has salary
+      hasNoData && prevHasSalary && React.createElement('div', { className: 'carry-notice' },
+        React.createElement('span', { className: 'carry-notice-text' },
+          `Carry salary (${fmt(prevInc.salary, state.currency)}) from ${fmtMonth(shiftMonth(selMonth, -1))}?`
+        ),
+        React.createElement('button', { className: 'btn btn-ghost btn-sm', onClick: () => {
+          updateMonthIncome(selMonth, cur => ({ ...cur, salary: prevInc.salary }));
+          setSal(prevInc.salary);
+        } }, 'Copy')
+      ),
+
       React.createElement('div', { className: 'field' },
         React.createElement('label', null, 'Monthly Salary'),
         React.createElement('input', {
           className: 'input', type: 'number', placeholder: '0', value: sal,
           onChange: e => setSal(e.target.value),
-          onBlur: () => update(s => ({ ...s, income: { ...s.income, salary: sal } }))
+          onBlur: () => updateMonthIncome(selMonth, cur => ({ ...cur, salary: sal }))
         })
       ),
       React.createElement('div', { className: 'divider' }),
       React.createElement('div', { style: { fontSize: 12, color: 'var(--muted)', fontWeight: 600, marginBottom: 8 } }, 'Other sources'),
-      (state.income.other || []).map((o, i) =>
+      (monthInc.other || []).map((o, i) =>
         React.createElement('div', { key: i, className: 'spend-row' },
           React.createElement('div', null,
             React.createElement('div', { className: 'spend-cat' }, o.label),
@@ -439,10 +555,9 @@ function App() {
           ),
           React.createElement('div', { className: 'row', style: { gap: 8 } },
             React.createElement('span', { className: 'spend-amt' }, fmt(o.amount, state.currency)),
-            React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => {
-              const other = [...s.income.other]; other.splice(i, 1);
-              return { ...s, income: { ...s.income, other } };
-            }) }, '×')
+            React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () =>
+              updateMonthIncome(selMonth, cur => ({ ...cur, other: cur.other.filter((_, j) => j !== i) }))
+            }, '×')
           )
         )
       ),
@@ -451,7 +566,7 @@ function App() {
         React.createElement('input', { className: 'input', type: 'number', style: { flex: '1 1 80px' }, placeholder: 'Amount', value: amount, onChange: e => setAmount(e.target.value) }),
         React.createElement('button', { className: 'btn btn-primary', onClick: () => {
           if (!label || !amount) return;
-          update(s => ({ ...s, income: { ...s.income, other: [...(s.income.other || []), { label, amount }] } }));
+          updateMonthIncome(selMonth, cur => ({ ...cur, other: [...(cur.other || []), { label, amount }] }));
           setLabel(''); setAmount('');
         } }, 'Add')
       )
@@ -460,12 +575,13 @@ function App() {
 
   // ── Finance: Expenses ────────────────────────────────────────────────────────
   const FinExpenses = () => {
+    const entries = getMonthEntries(selMonth);
     const [cat, setCat] = useState(state.expenses.categories[0]);
     const [amount, setAmount] = useState('');
     const [note, setNote] = useState('');
     return React.createElement('div', null,
       React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, 'Log expense'),
+        React.createElement('div', { className: 'card-title' }, `Log expense — ${fmtMonth(selMonth)}`),
         React.createElement('div', { className: 'field' },
           React.createElement('label', null, 'Category'),
           React.createElement('select', { className: 'select', value: cat, onChange: e => setCat(e.target.value) },
@@ -478,16 +594,16 @@ function App() {
         ),
         React.createElement('button', { className: 'btn btn-primary', style: { width: '100%' }, onClick: () => {
           if (!amount) return;
-          update(s => ({ ...s, expenses: { ...s.expenses, entries: [...(s.expenses.entries || []), { category: cat, amount, note, date: todayStr() }] } }));
+          updateMonthEntries(selMonth, cur => [...cur, { category: cat, amount, note, date: todayStr() }]);
           setAmount(''); setNote('');
         } }, 'Log Expense')
       ),
       React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, `Recent entries (${(state.expenses.entries || []).length})`),
+        React.createElement('div', { className: 'card-title' }, `Entries (${entries.length})`),
         React.createElement('div', { className: 'scroll-list' },
-          (state.expenses.entries || []).length === 0
-            ? React.createElement('div', { className: 'empty' }, 'No expenses logged yet')
-            : [...(state.expenses.entries || [])].reverse().map((e, i) =>
+          entries.length === 0
+            ? React.createElement('div', { className: 'empty' }, 'No expenses logged for this month')
+            : [...entries].reverse().map((e, i) =>
               React.createElement('div', { key: i, className: 'spend-row' },
                 React.createElement('div', null,
                   React.createElement('div', { className: 'spend-cat' }, e.category),
@@ -495,11 +611,11 @@ function App() {
                 ),
                 React.createElement('div', { className: 'row', style: { gap: 8 } },
                   React.createElement('span', { className: 'spend-amt' }, fmt(e.amount, state.currency)),
-                  React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => {
-                    const entries = [...s.expenses.entries];
-                    entries.splice(s.expenses.entries.length - 1 - i, 1);
-                    return { ...s, expenses: { ...s.expenses, entries } };
-                  }) }, '×')
+                  React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () =>
+                    updateMonthEntries(selMonth, cur => {
+                      const arr = [...cur]; arr.splice(cur.length - 1 - i, 1); return arr;
+                    })
+                  }, '×')
                 )
               )
             )
@@ -764,16 +880,17 @@ function App() {
       // Finance section
       tab === 'finance' && React.createElement('div', null,
         React.createElement('div', { className: 'section-header' },
-          React.createElement('h2', { className: 'section-title' }, 'Financials')
+          React.createElement('h2', { className: 'section-title' }, 'Financials'),
+          React.createElement(MonthNav)
         ),
         React.createElement('div', { className: 'sub-tabs' },
           [['overview', 'Overview'], ['income', 'Income'], ['expenses', 'Expenses'], ['cards', 'Cards']].map(([k, l]) =>
             React.createElement('button', { key: k, className: `sub-tab${finTab === k ? ' active' : ''}`, onClick: () => setFinTab(k) }, l)
           )
         ),
-        finTab === 'overview' && React.createElement(FinOverview),
-        finTab === 'income' && React.createElement(FinIncome),
-        finTab === 'expenses' && React.createElement(FinExpenses),
+        finTab === 'overview' && React.createElement(FinOverview, { key: selMonth }),
+        finTab === 'income' && React.createElement(FinIncome, { key: selMonth }),
+        finTab === 'expenses' && React.createElement(FinExpenses, { key: selMonth }),
         finTab === 'cards' && React.createElement(FinCards)
       ),
 
