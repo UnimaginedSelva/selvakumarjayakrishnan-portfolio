@@ -1003,36 +1003,16 @@ function App() {
     const checkForUpdates = async () => {
       setUpdateStatus('checking');
       try {
-        if (!('serviceWorker' in navigator)) { window.location.reload(); return; }
-
-        // Reload as soon as the new SW takes control
-        navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
-
-        const reg = await navigator.serviceWorker.getRegistration();
-        if (!reg) { window.location.reload(); return; }
-
-        // If a new SW is already waiting, activate it immediately
-        if (reg.waiting) {
-          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-          return;
+        // Unregister old SW and clear all caches, then reload fresh from network
+        if ('serviceWorker' in navigator) {
+          const reg = await navigator.serviceWorker.getRegistration();
+          if (reg) await reg.unregister();
         }
-
-        // Watch for a new SW being found and tell it to skip waiting once installed
-        reg.addEventListener('updatefound', () => {
-          const newSW = reg.installing;
-          newSW.addEventListener('statechange', () => {
-            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
-              newSW.postMessage({ type: 'SKIP_WAITING' });
-            }
-          });
-        });
-
-        await reg.update();
-
-        // Fallback: if no new SW was found, just reload to pick up any network changes
-        setTimeout(() => window.location.reload(), 3000);
+        const cacheNames = await caches.keys();
+        await Promise.all(cacheNames.map(n => caches.delete(n)));
+        window.location.reload();
       } catch (e) {
-        setUpdateStatus('error');
+        window.location.reload();
       }
     };
 
