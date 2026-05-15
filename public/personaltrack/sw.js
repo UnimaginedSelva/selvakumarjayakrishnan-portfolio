@@ -1,4 +1,4 @@
-const CACHE_NAME = 'selvaos-v1';
+const CACHE_NAME = 'selvaos-v2';
 const ASSETS = [
   '/personaltrack/',
   '/personaltrack/index.html',
