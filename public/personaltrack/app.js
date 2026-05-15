@@ -992,6 +992,20 @@ function App() {
   // ── Finance: Customize ───────────────────────────────────────────────────────
   const FinCustomize = () => {
     const [newCat, setNewCat] = useState('');
+    const [updateStatus, setUpdateStatus] = useState('idle'); // idle | checking | done | error
+
+    const checkForUpdates = async () => {
+      setUpdateStatus('checking');
+      try {
+        if ('serviceWorker' in navigator) {
+          const reg = await navigator.serviceWorker.getRegistration();
+          if (reg) await reg.update();
+        }
+        setTimeout(() => window.location.reload(), 600);
+      } catch (e) {
+        setUpdateStatus('error');
+      }
+    };
     return React.createElement('div', null,
       React.createElement('div', { className: 'card' },
         React.createElement('div', { className: 'card-title' }, 'Currency'),
@@ -1040,6 +1054,24 @@ function App() {
             }
           }, 'Add')
         )
+      ),
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'App'),
+        React.createElement('div', { className: 'row-between', style: { marginBottom: 12 } },
+          React.createElement('div', null,
+            React.createElement('div', { style: { fontSize: 13, fontWeight: 600 } }, 'Check for updates'),
+            React.createElement('div', { style: { fontSize: 12, color: 'var(--muted)', marginTop: 2 } }, 'Fetches the latest version without losing your data')
+          )
+        ),
+        React.createElement('button', {
+          className: 'btn btn-primary',
+          style: { width: '100%' },
+          disabled: updateStatus === 'checking',
+          onClick: checkForUpdates
+        },
+          updateStatus === 'checking' ? 'Checking...' : 'Check for updates'
+        ),
+        updateStatus === 'error' && React.createElement('div', { style: { fontSize: 12, color: 'var(--danger)', marginTop: 8, textAlign: 'center' } }, 'Could not check for updates. Try again later.')
       )
     );
   };
