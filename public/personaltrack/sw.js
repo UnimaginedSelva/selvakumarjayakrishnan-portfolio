@@ -1,4 +1,4 @@
-const CACHE_NAME = 'selvaos-v4';
+const CACHE_NAME = 'selvaos-v5';
 const ASSETS = [
   '/personaltrack/',
   '/personaltrack/index.html',
@@ -29,20 +29,36 @@ self.addEventListener('message', event => {
   if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
-// Fetch — serve from cache, fall back to network
+// Fetch — network-first for app.js so updates are always picked up immediately;
+// cache-first for everything else with network fallback
 self.addEventListener('fetch', event => {
+  const url = event.request.url;
+
+  // Network-first for app.js: always try network, fall back to cache if offline
+  if (url.includes('app.js')) {
+    event.respondWith(
+      fetch(event.request).then(response => {
+        if (response.status === 200) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        }
+        return response;
+      }).catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Cache-first for everything else
   event.respondWith(
     caches.match(event.request).then(cached => {
       if (cached) return cached;
       return fetch(event.request).then(response => {
-        // Cache new successful GET requests
         if (event.request.method === 'GET' && response.status === 200) {
           const clone = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         }
         return response;
       }).catch(() => {
-        // Offline fallback for navigation
         if (event.request.mode === 'navigate') {
           return caches.match('/personaltrack/index.html');
         }
