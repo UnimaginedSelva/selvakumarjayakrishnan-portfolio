@@ -1,6 +1,6 @@
 {
-  "name": "SelvaOS — Personal Dashboard",
-  "short_name": "SelvaOS",
+  "name": "LifeArch — Personal Dashboard",
+  "short_name": "LifeArch",
   "description": "Personal financial tracking and health ritual dashboard",
   "start_url": "/personaltrack/",
   "display": "standalone",
