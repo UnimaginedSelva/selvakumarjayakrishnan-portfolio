@@ -2,7 +2,7 @@
   "name": "SelvaOS — Personal Dashboard",
   "short_name": "SelvaOS",
   "description": "Personal financial tracking and health ritual dashboard",
-  "start_url": "/personaltrack/index.html",
+  "start_url": "/personaltrack/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0f172a",
