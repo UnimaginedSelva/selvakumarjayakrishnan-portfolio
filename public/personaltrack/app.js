@@ -23,6 +23,10 @@ const DEFAULT_EVENING_RITUALS = [
   { id: "e3", label: "10 mins journaling & tomorrow's plan" },
 ];
 
+const DEFAULT_DAILY_GOALS = [
+  { id: "d1", label: "Achieved 10,000 steps today" },
+];
+
 const todayStr = () => new Date().toISOString().split("T")[0];
 const currentMonth = () => new Date().toISOString().slice(0, 7);
 
@@ -52,6 +56,7 @@ const initState = () => ({
   health: {
     morningRituals: [...DEFAULT_MORNING_RITUALS],
     eveningRituals: [...DEFAULT_EVENING_RITUALS],
+    dailyGoals: [...DEFAULT_DAILY_GOALS],
     log: {}
   }
 });
@@ -62,7 +67,15 @@ const load = () => {
     if (raw) {
       const parsed = JSON.parse(raw);
       const base = initState();
-      const merged = { ...base, ...parsed, health: { ...base.health, ...(parsed.health || {}) } };
+      const parsedHealth = parsed.health || {};
+      const merged = {
+        ...base, ...parsed,
+        health: {
+          ...base.health,
+          ...parsedHealth,
+          dailyGoals: parsedHealth.dailyGoals || [...DEFAULT_DAILY_GOALS],
+        }
+      };
 
       // Migrate income
       if (parsed.income && !parsed.income.byMonth) {
@@ -293,7 +306,7 @@ function App() {
   const update = useCallback((fn) => setState(prev => fn(prev)), []);
   const today = todayStr();
   const cm = currentMonth();
-  const todayLog = state.health.log[today] || { morning: {}, evening: {} };
+  const todayLog = state.health.log[today] || { morning: {}, evening: {}, daily: {} };
 
   // ── Data accessors ───────────────────────────────────────────────────────────
   const getMonthIncome = (month) => state.income.byMonth?.[month] || { salary: "", other: [] };
@@ -355,8 +368,10 @@ function App() {
   const ritualScore = (key) => {
     const log = state.health.log[key];
     if (!log) return null;
-    const total = state.health.morningRituals.length + state.health.eveningRituals.length;
-    const done = Object.values(log.morning || {}).filter(Boolean).length + Object.values(log.evening || {}).filter(Boolean).length;
+    const total = state.health.morningRituals.length + state.health.eveningRituals.length + state.health.dailyGoals.length;
+    const done = Object.values(log.morning || {}).filter(Boolean).length
+      + Object.values(log.evening || {}).filter(Boolean).length
+      + Object.values(log.daily || {}).filter(Boolean).length;
     return total > 0 ? Math.round((done / total) * 100) : 0;
   };
 
@@ -696,13 +711,15 @@ function App() {
   const HealthToday = () => {
     const mDone = state.health.morningRituals.filter(r => todayLog.morning[r.id]).length;
     const eDone = state.health.eveningRituals.filter(r => todayLog.evening[r.id]).length;
+    const dDone = state.health.dailyGoals.filter(r => todayLog.daily[r.id]).length;
     const mTotal = state.health.morningRituals.length;
     const eTotal = state.health.eveningRituals.length;
+    const dTotal = state.health.dailyGoals.length;
     return React.createElement('div', null,
       React.createElement('div', { className: 'metric-grid' },
-        [['Morning', mDone, mTotal, 'var(--accent)'], ['Evening', eDone, eTotal, '#8b5cf6']].map(([label, done, total, color]) =>
+        [['Morning', mDone, mTotal, 'var(--accent)'], ['Evening', eDone, eTotal, '#8b5cf6'], ['Daily Goals', dDone, dTotal, '#0891b2']].map(([label, done, total, color]) =>
           React.createElement('div', { key: label, className: 'metric' },
-            React.createElement('div', { className: 'metric-label' }, label + ' routine'),
+            React.createElement('div', { className: 'metric-label' }, label),
             React.createElement('div', { className: 'metric-value' }, `${done}/${total}`),
             React.createElement('div', { className: 'progress' },
               React.createElement('div', { className: 'progress-fill', style: { width: `${total > 0 ? Math.round((done / total) * 100) : 0}%`, background: done === total && total > 0 ? 'var(--success)' : color } })
@@ -731,6 +748,16 @@ function App() {
         state.health.eveningRituals.map(r => {
           const checked = !!todayLog.evening[r.id];
           return React.createElement('div', { key: r.id, className: `ritual-row${checked ? ' done' : ''}`, onClick: () => toggleRitual('evening', r.id) },
+            React.createElement('div', { className: `check-box${checked ? ' checked' : ''}` }, checked && React.createElement(Check)),
+            React.createElement('span', { className: `ritual-label${checked ? ' done' : ''}` }, r.label)
+          );
+        })
+      ),
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'Daily Goals'),
+        state.health.dailyGoals.map(r => {
+          const checked = !!todayLog.daily[r.id];
+          return React.createElement('div', { key: r.id, className: `ritual-row${checked ? ' done' : ''}`, onClick: () => toggleRitual('daily', r.id) },
             React.createElement('div', { className: `check-box${checked ? ' checked' : ''}` }, checked && React.createElement(Check)),
             React.createElement('span', { className: `ritual-label${checked ? ' done' : ''}` }, r.label)
           );
@@ -808,6 +835,7 @@ function App() {
   const HealthCustomize = () => {
     const [mLabel, setMLabel] = useState('');
     const [eLabel, setELabel] = useState('');
+    const [dLabel, setDLabel] = useState('');
     return React.createElement('div', null,
       React.createElement('div', { className: 'card' },
         React.createElement('div', { className: 'row-between', style: { marginBottom: '0.75rem' } },
@@ -841,6 +869,19 @@ function App() {
           React.createElement('button', { className: 'btn btn-primary', onClick: () => { if (!eLabel) return; update(s => ({ ...s, health: { ...s.health, eveningRituals: [...s.health.eveningRituals, { id: 'e' + Date.now(), label: eLabel }] } })); setELabel(''); } }, 'Add')
         )
       ),
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'Daily Goals'),
+        state.health.dailyGoals.map((r, i) =>
+          React.createElement('div', { key: r.id, className: 'spend-row' },
+            React.createElement('span', { style: { fontSize: 13 } }, r.label),
+            state.health.dailyGoals.length > 1 && React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({ ...s, health: { ...s.health, dailyGoals: s.health.dailyGoals.filter((_, j) => j !== i) } })) }, 'Remove')
+          )
+        ),
+        React.createElement('div', { className: 'row', style: { marginTop: 10 } },
+          React.createElement('input', { className: 'input', style: { flex: 1 }, placeholder: 'e.g. Drank 2L water today', value: dLabel, onChange: e => setDLabel(e.target.value) }),
+          React.createElement('button', { className: 'btn btn-primary', onClick: () => { if (!dLabel) return; update(s => ({ ...s, health: { ...s.health, dailyGoals: [...s.health.dailyGoals, { id: 'd' + Date.now(), label: dLabel }] } })); setDLabel(''); } }, 'Add')
+        )
+      )
     );
   };
 
