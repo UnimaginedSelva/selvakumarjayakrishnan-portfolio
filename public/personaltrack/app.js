@@ -991,6 +991,7 @@ function App() {
 
   // ── Finance: Customize ───────────────────────────────────────────────────────
   const FinCustomize = () => {
+    const [newCat, setNewCat] = useState('');
     return React.createElement('div', null,
       React.createElement('div', { className: 'card' },
         React.createElement('div', { className: 'card-title' }, 'Currency'),
@@ -1006,6 +1007,38 @@ function App() {
             )
           ),
           React.createElement('span', { style: { position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: 'var(--muted)', fontSize: 12 } }, '▾')
+        )
+      ),
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'Expense Categories'),
+        state.expenses.categories.map((cat, i) =>
+          React.createElement('div', { key: cat, className: 'spend-row' },
+            React.createElement('span', { style: { fontSize: 13 } }, cat),
+            state.expenses.categories.length > 1 && React.createElement('button', {
+              className: 'btn btn-danger btn-sm',
+              onClick: () => update(s => ({
+                ...s,
+                expenses: { ...s.expenses, categories: s.expenses.categories.filter((_, j) => j !== i) }
+              }))
+            }, 'Remove')
+          )
+        ),
+        React.createElement('div', { className: 'row', style: { marginTop: 10 } },
+          React.createElement('input', {
+            className: 'input', style: { flex: 1 },
+            placeholder: 'e.g. Pet Care, Subscriptions...',
+            value: newCat,
+            onChange: e => setNewCat(e.target.value)
+          }),
+          React.createElement('button', {
+            className: 'btn btn-primary',
+            onClick: () => {
+              const trimmed = newCat.trim();
+              if (!trimmed || state.expenses.categories.includes(trimmed)) return;
+              update(s => ({ ...s, expenses: { ...s.expenses, categories: [...s.expenses.categories, trimmed] } }));
+              setNewCat('');
+            }
+          }, 'Add')
         )
       )
     );
