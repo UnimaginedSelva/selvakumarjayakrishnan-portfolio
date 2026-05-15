@@ -925,7 +925,7 @@ function App() {
         state.health.dailyGoals.map((r, i) =>
           React.createElement('div', { key: r.id, className: 'spend-row' },
             React.createElement('span', { style: { fontSize: 13 } }, r.label),
-            state.health.dailyGoals.length > 1 && React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({ ...s, health: { ...s.health, dailyGoals: s.health.dailyGoals.filter((_, j) => j !== i) } })) }, 'Remove')
+            React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({ ...s, health: { ...s.health, dailyGoals: s.health.dailyGoals.filter((_, j) => j !== i) } })) }, 'Remove')
           )
         ),
         React.createElement('div', { className: 'row', style: { marginTop: 10 } },
