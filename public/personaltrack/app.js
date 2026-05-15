@@ -46,6 +46,7 @@ const fmt = (n, cur = "MYR") =>
 const initState = () => ({
   currency: "MYR",
   income: { byMonth: {} },
+  // expenses.byMonth[month][category] = { planned, actual }
   expenses: { categories: [...DEFAULT_EXPENSE_CATEGORIES], byMonth: {} },
   cards: [],
   health: {
@@ -61,48 +62,56 @@ const load = () => {
     if (raw) {
       const parsed = JSON.parse(raw);
       const base = initState();
-      const merged = {
-        ...base,
-        ...parsed,
-        health: { ...base.health, ...(parsed.health || {}) },
-      };
-      // Migrate old flat income → byMonth
+      const merged = { ...base, ...parsed, health: { ...base.health, ...(parsed.health || {}) } };
+
+      // Migrate income
       if (parsed.income && !parsed.income.byMonth) {
         const cm = currentMonth();
-        merged.income = {
-          byMonth: { [cm]: { salary: parsed.income.salary || "", other: parsed.income.other || [] } }
-        };
+        merged.income = { byMonth: { [cm]: { salary: parsed.income.salary || "", other: parsed.income.other || [] } } };
       } else {
         merged.income = { byMonth: {}, ...(parsed.income || {}) };
       }
-      // Migrate old flat expenses → byMonth
-      if (parsed.expenses && !parsed.expenses.byMonth) {
-        const cm = currentMonth();
-        merged.expenses = {
-          categories: parsed.expenses.categories || [...DEFAULT_EXPENSE_CATEGORIES],
-          byMonth: { [cm]: { entries: parsed.expenses.entries || [] } }
-        };
+
+      // Migrate expenses — old format had entries[], new format has { [category]: { planned, actual } }
+      if (parsed.expenses) {
+        const cats = parsed.expenses.categories || [...DEFAULT_EXPENSE_CATEGORIES];
+        const oldByMonth = parsed.expenses.byMonth || {};
+        const newByMonth = {};
+        Object.entries(oldByMonth).forEach(([month, monthData]) => {
+          if (monthData.entries) {
+            // Old entries format → sum per category as actual
+            const catData = {};
+            (monthData.entries || []).forEach(e => {
+              if (!catData[e.category]) catData[e.category] = { planned: '', actual: 0 };
+              catData[e.category].actual = (catData[e.category].actual || 0) + (parseFloat(e.amount) || 0);
+            });
+            // Convert actual numbers to strings
+            Object.keys(catData).forEach(k => { catData[k].actual = String(catData[k].actual || ''); });
+            newByMonth[month] = catData;
+          } else {
+            // Already new format
+            newByMonth[month] = monthData;
+          }
+        });
+        merged.expenses = { categories: cats, byMonth: newByMonth };
       } else {
-        merged.expenses = { ...base.expenses, ...(parsed.expenses || {}) };
+        merged.expenses = { ...base.expenses };
       }
-      // Migrate old cards format (limit/balance) → new format (months with planned/outstanding)
+
+      // Migrate cards
       if (Array.isArray(parsed.cards)) {
         const cm = currentMonth();
         merged.cards = parsed.cards.map((c, i) => {
-          if (c.months) return c; // already new format
+          if (c.months) return c;
           return {
             id: c.id || ('card-' + i),
             name: c.name || '',
             billingDate: c.billingDate || '',
-            months: {
-              [cm]: {
-                planned: c.limit || '',
-                outstanding: c.balance || ''
-              }
-            }
+            months: { [cm]: { planned: c.limit || '', outstanding: c.balance || '' } }
           };
         });
       }
+
       return merged;
     }
   } catch (e) {}
@@ -113,285 +122,141 @@ const load = () => {
 const css = `
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   :root {
-    --bg: #0f172a;
-    --surface: #1e293b;
-    --surface2: #263044;
-    --border: rgba(148,163,184,0.15);
-    --text: #f1f5f9;
-    --muted: #94a3b8;
-    --faint: #475569;
-    --accent: #2563eb;
-    --accent2: #3b82f6;
-    --success: #16a34a;
-    --warn: #d97706;
-    --danger: #dc2626;
-    --radius: 12px;
-    --radius-sm: 8px;
+    --bg: #0f172a; --surface: #1e293b; --surface2: #263044;
+    --border: rgba(148,163,184,0.15); --text: #f1f5f9; --muted: #94a3b8;
+    --faint: #475569; --accent: #2563eb; --accent2: #3b82f6;
+    --success: #16a34a; --warn: #d97706; --danger: #dc2626;
+    --radius: 12px; --radius-sm: 8px;
   }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.5; min-height: 100vh; overflow-x: hidden; }
   input, select, button { font-family: inherit; }
   input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
 
-  /* Header */
-  .app-header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(15,23,42,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 0 1rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
-  }
+  .app-header { position: sticky; top: 0; z-index: 50; background: rgba(15,23,42,0.95); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
   .logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
   .logo span { color: var(--accent2); }
   .logo em { font-style: normal; font-size: 11px; font-weight: 400; color: var(--faint); margin-left: 6px; }
 
-  /* Tab bar */
-  .tab-bar {
-    display: flex; background: var(--surface); border-radius: 10px; padding: 3px;
-  }
-  .tab-btn {
-    padding: 6px 18px; border-radius: 8px; border: none; cursor: pointer;
-    font-size: 13px; font-weight: 500; transition: all 0.15s;
-    background: transparent; color: var(--muted);
-  }
-  .tab-btn.active { background: var(--accent); color: #fff; }
-
-  /* Content */
   .content { max-width: 540px; margin: 0 auto; padding: 1.25rem 1rem 5rem; }
-
-  /* Section header */
-  .section-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 1rem;
-  }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
   .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
 
-  /* Month navigator */
-  .month-nav {
-    display: flex; align-items: center; gap: 6px;
-    background: var(--surface); border-radius: 20px;
-    padding: 4px 8px; border: 0.5px solid var(--border);
-  }
-  .month-nav-btn {
-    width: 24px; height: 24px; border-radius: 6px; border: none;
-    background: transparent; color: var(--muted); font-size: 16px;
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s; padding: 0; line-height: 1;
-  }
+  .month-nav { display: flex; align-items: center; gap: 6px; background: var(--surface); border-radius: 20px; padding: 4px 8px; border: 0.5px solid var(--border); }
+  .month-nav-btn { width: 24px; height: 24px; border-radius: 6px; border: none; background: transparent; color: var(--muted); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; padding: 0; }
   .month-nav-btn:hover { background: var(--surface2); color: var(--text); }
   .month-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-  .month-nav-label {
-    font-size: 12px; font-weight: 600; color: var(--text);
-    white-space: nowrap; min-width: 80px; text-align: center;
-  }
-  .month-badge {
-    font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 8px;
-    background: rgba(37,99,235,0.2); color: var(--accent2);
-  }
+  .month-nav-label { font-size: 12px; font-weight: 600; color: var(--text); white-space: nowrap; min-width: 80px; text-align: center; }
+  .month-badge { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 8px; background: rgba(37,99,235,0.2); color: var(--accent2); }
 
-  /* Sub tabs */
   .sub-tabs { display: flex; gap: 6px; margin-bottom: 1.25rem; overflow-x: auto; padding-bottom: 4px; }
   .sub-tabs::-webkit-scrollbar { display: none; }
-  .sub-tab {
-    flex-shrink: 0; padding: 6px 14px; border-radius: 20px; border: 0.5px solid var(--border);
-    background: transparent; color: var(--muted); font-size: 13px; font-weight: 500; cursor: pointer;
-    transition: all 0.15s;
-  }
+  .sub-tab { flex-shrink: 0; padding: 6px 14px; border-radius: 20px; border: 0.5px solid var(--border); background: transparent; color: var(--muted); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; }
   .sub-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  /* Cards */
-  .card {
-    background: var(--surface); border-radius: var(--radius);
-    border: 0.5px solid var(--border); padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
-  .card-title {
-    font-size: 11px; font-weight: 600; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;
-  }
+  .card { background: var(--surface); border-radius: var(--radius); border: 0.5px solid var(--border); padding: 1.25rem; margin-bottom: 1rem; }
+  .card-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
 
-  /* Metric grid */
-  .metric-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 10px; margin-bottom: 1rem;
-  }
-  .metric {
-    background: var(--surface2); border-radius: var(--radius-sm);
-    padding: 12px 14px; border: 0.5px solid var(--border);
-  }
+  .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1rem; }
+  .metric { background: var(--surface2); border-radius: var(--radius-sm); padding: 12px 14px; border: 0.5px solid var(--border); }
   .metric-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
-  .metric-value { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+  .metric-value { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+  .metric-sub { font-size: 10px; color: var(--faint); margin-top: 2px; }
 
-  /* Progress bar */
   .progress { height: 5px; border-radius: 3px; background: var(--surface2); overflow: hidden; margin-top: 8px; }
   .progress-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
 
-  /* Form elements */
   .field { margin-bottom: 12px; }
   .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
-  .input {
-    width: 100%; padding: 10px 12px; border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border); background: var(--surface2);
-    color: var(--text); font-size: 14px; outline: none;
-    transition: border-color 0.15s;
-  }
+  .input { width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14px; outline: none; transition: border-color 0.15s; }
   .input:focus { border-color: var(--accent2); }
-  .select {
-    width: 100%; padding: 10px 12px; border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border); background: var(--surface2);
-    color: var(--text); font-size: 14px; outline: none;
-    appearance: none;
-  }
+  .input-sm { padding: 7px 10px; font-size: 13px; }
+  .select { width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14px; outline: none; appearance: none; }
 
-  /* Buttons */
-  .btn {
-    padding: 9px 16px; border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border); background: transparent;
-    color: var(--text); font-size: 13px; font-weight: 500; cursor: pointer;
-    transition: all 0.15s; white-space: nowrap;
-  }
+  .btn { padding: 9px 16px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: transparent; color: var(--text); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
   .btn:active { transform: scale(0.97); }
   .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
   .btn-ghost { background: var(--surface2); border-color: var(--border); color: var(--muted); font-size: 12px; }
   .btn-danger { background: rgba(220,38,38,0.15); border-color: var(--danger); color: var(--danger); }
   .btn-sm { padding: 5px 10px; font-size: 12px; }
 
-  /* Row utility */
   .row { display: flex; align-items: center; gap: 8px; }
   .row-between { display: flex; align-items: center; justify-content: space-between; }
 
-  /* Ritual row */
-  .ritual-row {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 0; border-bottom: 0.5px solid var(--border);
-    cursor: pointer; user-select: none;
-    transition: opacity 0.2s;
-  }
-  .ritual-row:last-child { border-bottom: none; }
-  .ritual-row.done { opacity: 0.55; }
-  .check-box {
-    width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0;
-    border: 2px solid var(--faint); background: transparent;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s;
-  }
-  .check-box.checked { background: var(--accent); border-color: var(--accent); }
-  .ritual-label { font-size: 14px; }
-  .ritual-label.done { text-decoration: line-through; color: var(--faint); }
+  /* Budget row — category plan vs actual */
+  .budget-row { padding: 10px 0; border-bottom: 0.5px solid var(--border); }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-row-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .budget-cat-name { font-size: 13px; font-weight: 500; }
+  .budget-remaining { font-size: 12px; font-weight: 600; }
+  .budget-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .budget-input-label { font-size: 10px; color: var(--faint); margin-bottom: 2px; }
 
-  /* Badge */
-  .badge {
-    font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px;
-    background: rgba(37,99,235,0.2); color: var(--accent2); letter-spacing: 0.04em;
-  }
-
-  /* Spend row */
-  .spend-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 9px 0; border-bottom: 0.5px solid var(--border);
-  }
+  /* Spend row (overview breakdown) */
+  .spend-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 0.5px solid var(--border); }
   .spend-row:last-child { border-bottom: none; }
   .spend-cat { font-size: 13px; font-weight: 500; }
   .spend-meta { font-size: 11px; color: var(--faint); margin-top: 1px; }
   .spend-amt { font-size: 15px; font-weight: 700; }
 
-  /* Card widget */
-  .cc-card {
-    background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
-    border-radius: var(--radius); border: 0.5px solid rgba(37,99,235,0.3);
-    padding: 1rem; margin-bottom: 10px;
-  }
-  .cc-name { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-  .cc-stats { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  /* Credit card widget */
+  .cc-card { background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%); border-radius: var(--radius); border: 0.5px solid rgba(37,99,235,0.3); padding: 1rem; margin-bottom: 10px; }
+  .cc-name { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .cc-stats { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 8px; }
   .cc-billing { font-size: 11px; color: var(--faint); margin-top: 6px; }
 
-  /* History grid */
-  .history-grid {
-    display: grid; grid-template-columns: repeat(7, 1fr);
-    gap: 4px; margin-bottom: 1rem;
-  }
-  .history-cell {
-    aspect-ratio: 1; border-radius: 4px; cursor: pointer;
-    transition: transform 0.1s;
-  }
-  .history-cell:active { transform: scale(0.9); }
+  /* Ritual rows */
+  .ritual-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 0.5px solid var(--border); cursor: pointer; user-select: none; transition: opacity 0.2s; }
+  .ritual-row:last-child { border-bottom: none; }
+  .ritual-row.done { opacity: 0.55; }
+  .check-box { width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0; border: 2px solid var(--faint); background: transparent; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .check-box.checked { background: var(--accent); border-color: var(--accent); }
+  .ritual-label { font-size: 14px; }
+  .ritual-label.done { text-decoration: line-through; color: var(--faint); }
 
-  /* Legend */
+  .badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; background: rgba(37,99,235,0.2); color: var(--accent2); letter-spacing: 0.04em; }
+
+  /* History */
+  .history-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 1rem; }
+  .history-cell { aspect-ratio: 1; border-radius: 4px; cursor: pointer; transition: transform 0.1s; }
+  .history-cell:active { transform: scale(0.9); }
   .legend { display: flex; gap: 12px; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
   .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 
-  /* Bottom nav (mobile) */
-  .bottom-nav {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: rgba(15,23,42,0.97); backdrop-filter: blur(12px);
-    border-top: 0.5px solid var(--border);
-    display: flex; padding: 8px 0 max(8px, env(safe-area-inset-bottom));
-    z-index: 50;
-  }
-  .bottom-nav-btn {
-    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
-    padding: 4px 0; background: none; border: none; cursor: pointer;
-    font-size: 10px; font-weight: 500; color: var(--faint);
-    transition: color 0.15s;
-  }
+  .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(15,23,42,0.97); backdrop-filter: blur(12px); border-top: 0.5px solid var(--border); display: flex; padding: 8px 0 max(8px, env(safe-area-inset-bottom)); z-index: 50; }
+  .bottom-nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 0; background: none; border: none; cursor: pointer; font-size: 10px; font-weight: 500; color: var(--faint); transition: color 0.15s; }
   .bottom-nav-btn.active { color: var(--accent2); }
   .bottom-nav-btn svg { width: 22px; height: 22px; }
 
-  /* Install banner */
-  .install-banner {
-    background: rgba(37,99,235,0.12); border: 0.5px solid rgba(37,99,235,0.3);
-    border-radius: var(--radius); padding: 12px 14px;
-    margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;
-  }
+  .install-banner { background: rgba(37,99,235,0.12); border: 0.5px solid rgba(37,99,235,0.3); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
   .install-banner-text { font-size: 13px; color: var(--muted); flex: 1; line-height: 1.4; }
 
-  /* Tooltip / date label */
+  .carry-notice { display: flex; align-items: center; justify-content: space-between; background: rgba(37,99,235,0.08); border: 0.5px solid rgba(37,99,235,0.2); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 12px; }
+  .carry-notice-text { font-size: 12px; color: var(--muted); }
+
   .date-label { font-size: 12px; color: var(--muted); }
-
-  /* Empty state */
   .empty { text-align: center; padding: 2rem 0; color: var(--faint); font-size: 14px; }
-
-  /* Divider */
   .divider { height: 0.5px; background: var(--border); margin: 1rem 0; }
 
-  /* Scrollable list */
-  .scroll-list { max-height: 300px; overflow-y: auto; }
-  .scroll-list::-webkit-scrollbar { width: 3px; }
-  .scroll-list::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 2px; }
-
-  /* Carry-forward notice */
-  .carry-notice {
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(37,99,235,0.08); border: 0.5px solid rgba(37,99,235,0.2);
-    border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 12px;
-  }
-  .carry-notice-text { font-size: 12px; color: var(--muted); }
+  /* Overview summary banner */
+  .summary-banner { border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1rem; border: 0.5px solid; }
+  .summary-banner.positive { background: rgba(22,163,74,0.08); border-color: rgba(22,163,74,0.3); }
+  .summary-banner.negative { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.3); }
+  .summary-banner.neutral { background: var(--surface); border-color: var(--border); }
 
   @media (max-width: 380px) {
     .content { padding: 1rem 0.75rem 5rem; }
-    .metric-value { font-size: 17px; }
+    .metric-value { font-size: 16px; }
     .month-nav-label { min-width: 68px; font-size: 11px; }
   }
 `;
 
-// ─── Checkmark SVG ─────────────────────────────────────────────────────────────
 const Check = () => (
   React.createElement('svg', { width: 13, height: 10, viewBox: "0 0 13 10", fill: "none" },
     React.createElement('path', { d: "M1 5L5 8.5L12 1", stroke: "#fff", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" })
   )
 );
 
-// ─── Bottom Nav Icons ──────────────────────────────────────────────────────────
 const FinIcon = ({ active }) => (
   React.createElement('svg', { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: active ? 2.2 : 1.8, strokeLinecap: "round", strokeLinejoin: "round" },
     React.createElement('rect', { x: 2, y: 5, width: 20, height: 14, rx: 3 }),
@@ -426,37 +291,64 @@ function App() {
   }, []);
 
   const update = useCallback((fn) => setState(prev => fn(prev)), []);
-
   const today = todayStr();
   const cm = currentMonth();
   const todayLog = state.health.log[today] || { morning: {}, evening: {} };
 
-  // ── Month-aware data accessors ───────────────────────────────────────────────
-  const getMonthIncome = (month) =>
-    state.income.byMonth?.[month] || { salary: "", other: [] };
-  const getMonthEntries = (month) =>
-    state.expenses.byMonth?.[month]?.entries || [];
+  // ── Data accessors ───────────────────────────────────────────────────────────
+  const getMonthIncome = (month) => state.income.byMonth?.[month] || { salary: "", other: [] };
+
+  // expenses.byMonth[month] = { [category]: { planned, actual } }
+  const getMonthCats = (month) => state.expenses.byMonth?.[month] || {};
 
   const updateMonthIncome = (month, fn) => update(s => {
     const cur = s.income.byMonth?.[month] || { salary: "", other: [] };
     return { ...s, income: { ...s.income, byMonth: { ...s.income.byMonth, [month]: fn(cur) } } };
   });
-  const updateMonthEntries = (month, fn) => update(s => {
-    const cur = s.expenses.byMonth?.[month] || { entries: [] };
-    return { ...s, expenses: { ...s.expenses, byMonth: { ...s.expenses.byMonth, [month]: { ...cur, entries: fn(cur.entries) } } } };
+
+  const updateCatField = (month, cat, field, value) => update(s => {
+    const monthData = s.expenses.byMonth?.[month] || {};
+    const catData = monthData[cat] || { planned: '', actual: '' };
+    return {
+      ...s,
+      expenses: {
+        ...s.expenses,
+        byMonth: {
+          ...s.expenses.byMonth,
+          [month]: { ...monthData, [cat]: { ...catData, [field]: value } }
+        }
+      }
+    };
   });
 
+  const updateCardMonth = (cardId, field, value) => update(s => ({
+    ...s,
+    cards: s.cards.map(c => {
+      if (c.id !== cardId) return c;
+      const prev = c.months?.[selMonth] || {};
+      return { ...c, months: { ...c.months, [selMonth]: { ...prev, [field]: value } } };
+    })
+  }));
+
+  // ── Totals ───────────────────────────────────────────────────────────────────
   const totalIncome = (month) => {
     const inc = getMonthIncome(month || selMonth);
     return (parseFloat(inc.salary) || 0) + (inc.other || []).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
   };
-  const totalExpenses = (month) => {
+
+  const totalActualExpenses = (month) => {
     const m = month || selMonth;
-    const catTotal = getMonthEntries(m).reduce((a, x) => a + (parseFloat(x.amount) || 0), 0);
-    const cardTotal = (state.cards || []).reduce((a, card) => {
-      const md = card.months?.[m] || {};
-      return a + (parseFloat(md.outstanding) || 0);
-    }, 0);
+    const cats = getMonthCats(m);
+    const catTotal = Object.values(cats).reduce((a, v) => a + (parseFloat(v.actual) || 0), 0);
+    const cardTotal = (state.cards || []).reduce((a, card) => a + (parseFloat(card.months?.[m]?.outstanding) || 0), 0);
+    return catTotal + cardTotal;
+  };
+
+  const totalPlannedExpenses = (month) => {
+    const m = month || selMonth;
+    const cats = getMonthCats(m);
+    const catTotal = Object.values(cats).reduce((a, v) => a + (parseFloat(v.planned) || 0), 0);
+    const cardTotal = (state.cards || []).reduce((a, card) => a + (parseFloat(card.months?.[m]?.planned) || 0), 0);
     return catTotal + cardTotal;
   };
 
@@ -464,8 +356,7 @@ function App() {
     const log = state.health.log[key];
     if (!log) return null;
     const total = state.health.morningRituals.length + state.health.eveningRituals.length;
-    const done = Object.values(log.morning || {}).filter(Boolean).length
-      + Object.values(log.evening || {}).filter(Boolean).length;
+    const done = Object.values(log.morning || {}).filter(Boolean).length + Object.values(log.evening || {}).filter(Boolean).length;
     return total > 0 ? Math.round((done / total) * 100) : 0;
   };
 
@@ -481,14 +372,13 @@ function App() {
 
   // ── Month Navigator ──────────────────────────────────────────────────────────
   const MonthNav = () => {
-    const isCurrent = selMonth === cm;
     const maxFuture = shiftMonth(cm, 12);
     const atMax = selMonth >= maxFuture;
     return React.createElement('div', { className: 'month-nav' },
       React.createElement('button', { className: 'month-nav-btn', onClick: () => setSelMonth(shiftMonth(selMonth, -1)) }, '‹'),
       React.createElement('span', { className: 'month-nav-label' },
         fmtMonth(selMonth),
-        isCurrent && React.createElement('span', { className: 'month-badge', style: { marginLeft: 5 } }, 'now')
+        selMonth === cm && React.createElement('span', { className: 'month-badge', style: { marginLeft: 5 } }, 'now')
       ),
       React.createElement('button', { className: 'month-nav-btn', disabled: atMax, onClick: () => setSelMonth(shiftMonth(selMonth, 1)) }, '›')
     );
@@ -496,58 +386,86 @@ function App() {
 
   // ── Finance: Overview ────────────────────────────────────────────────────────
   const FinOverview = () => {
-    const inc = totalIncome(), exp = totalExpenses(), net = inc - exp;
-    const rate = inc > 0 ? Math.round((net / inc) * 100) : 0;
+    const inc = totalIncome();
+    const planned = totalPlannedExpenses();
+    const actual = totalActualExpenses();
+    const plannedSaving = inc - planned;
+    const actualSaving = inc - actual;
+    const hasIncome = inc > 0;
+    const hasAny = hasIncome || planned > 0 || actual > 0;
 
-    const byCategory = {};
-    getMonthEntries(selMonth).forEach(e => {
-      byCategory[e.category] = (byCategory[e.category] || 0) + (parseFloat(e.amount) || 0);
+    // Build breakdown rows: categories + cards, only those with data
+    const cats = getMonthCats(selMonth);
+    const breakdownRows = [];
+    state.expenses.categories.forEach(cat => {
+      const d = cats[cat];
+      if (!d || (!d.planned && !d.actual)) return;
+      breakdownRows.push({ name: cat, planned: parseFloat(d.planned) || 0, actual: parseFloat(d.actual) || 0, isCard: false });
     });
-    const catRows = Object.entries(byCategory).sort((a, b) => b[1] - a[1]);
+    (state.cards || []).forEach(card => {
+      const md = card.months?.[selMonth] || {};
+      if (!md.planned && !md.outstanding) return;
+      breakdownRows.push({ name: card.name, planned: parseFloat(md.planned) || 0, actual: parseFloat(md.outstanding) || 0, isCard: true });
+    });
 
-    const cardRows = (state.cards || [])
-      .map(card => ({ name: card.name, amt: parseFloat(card.months?.[selMonth]?.outstanding) || 0 }))
-      .filter(r => r.amt > 0);
+    if (!hasAny) return React.createElement('div', { className: 'card' },
+      React.createElement('div', { className: 'empty' }, `No data for ${fmtMonth(selMonth)} yet. Start by setting your income and planned spend.`)
+    );
 
-    const allRows = [
-      ...catRows.map(([name, amt]) => ({ name, amt, isCard: false })),
-      ...cardRows.map(r => ({ name: r.name + ' (card)', amt: r.amt, isCard: true }))
-    ].sort((a, b) => b.amt - a.amt);
-
-    const hasData = inc > 0 || exp > 0;
     return React.createElement('div', null,
-      !hasData && React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'empty' }, `No data for ${fmtMonth(selMonth)} yet`)
-      ),
-      hasData && React.createElement('div', { className: 'metric-grid' },
-        [
-          ["Monthly Income", fmt(inc, state.currency), false],
-          ["Total Expenses", fmt(exp, state.currency), false],
-          ["Net Savings", fmt(net, state.currency), net < 0],
-          ["Savings Rate", rate + "%", false],
-        ].map(([label, value, danger]) =>
-          React.createElement('div', { key: label, className: 'metric' },
-            React.createElement('div', { className: 'metric-label' }, label),
-            React.createElement('div', { className: 'metric-value', style: { color: danger ? 'var(--danger)' : 'var(--text)' } }, value)
-          )
+
+      // Top summary: income vs planned vs actual savings
+      React.createElement('div', { className: 'metric-grid' },
+        React.createElement('div', { className: 'metric' },
+          React.createElement('div', { className: 'metric-label' }, 'Monthly Income'),
+          React.createElement('div', { className: 'metric-value' }, fmt(inc, state.currency))
+        ),
+        React.createElement('div', { className: 'metric' },
+          React.createElement('div', { className: 'metric-label' }, 'Total Planned Spend'),
+          React.createElement('div', { className: 'metric-value' }, fmt(planned, state.currency))
+        ),
+        React.createElement('div', { className: 'metric' },
+          React.createElement('div', { className: 'metric-label' }, 'Planned Savings'),
+          React.createElement('div', { className: 'metric-value', style: { color: plannedSaving < 0 ? 'var(--danger)' : 'var(--success)' } },
+            fmt(plannedSaving, state.currency)
+          ),
+          React.createElement('div', { className: 'metric-sub' }, plannedSaving < 0 ? 'over budget plan' : 'target')
+        ),
+        React.createElement('div', { className: 'metric' },
+          React.createElement('div', { className: 'metric-label' }, 'Actual Savings'),
+          React.createElement('div', { className: 'metric-value', style: { color: actualSaving < 0 ? 'var(--danger)' : actual === 0 ? 'var(--faint)' : 'var(--success)' } },
+            actual === 0 ? '—' : fmt(actualSaving, state.currency)
+          ),
+          React.createElement('div', { className: 'metric-sub' }, actual === 0 ? 'no actuals yet' : actualSaving < 0 ? 'overspent' : 'so far')
         )
       ),
-      allRows.length > 0 && React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, 'Spending breakdown'),
-        allRows.map(({ name, amt, isCard }) =>
-          React.createElement('div', { key: name, style: { marginBottom: 12 } },
-            React.createElement('div', { className: 'row-between', style: { marginBottom: 4 } },
-              React.createElement('div', null,
-                React.createElement('span', { style: { fontSize: 13 } }, name),
-                isCard && React.createElement('span', { style: { fontSize: 10, marginLeft: 5, color: 'var(--accent2)' } }, '💳')
-              ),
-              React.createElement('span', { style: { fontSize: 13, fontWeight: 700 } }, fmt(amt, state.currency))
+
+      // Breakdown table
+      breakdownRows.length > 0 && React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'Plan vs Actual'),
+        // Header
+        React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr auto auto auto', gap: 8, padding: '4px 0 8px', borderBottom: '0.5px solid var(--border)', marginBottom: 4 } },
+          React.createElement('span', { style: { fontSize: 10, color: 'var(--faint)', fontWeight: 600 } }, 'CATEGORY'),
+          React.createElement('span', { style: { fontSize: 10, color: 'var(--faint)', fontWeight: 600, textAlign: 'right' } }, 'PLAN'),
+          React.createElement('span', { style: { fontSize: 10, color: 'var(--faint)', fontWeight: 600, textAlign: 'right' } }, 'ACTUAL'),
+          React.createElement('span', { style: { fontSize: 10, color: 'var(--faint)', fontWeight: 600, textAlign: 'right' } }, 'LEFT')
+        ),
+        breakdownRows.map(({ name, planned: p, actual: a, isCard }) => {
+          const left = p - a;
+          const overSpent = p > 0 && left < 0;
+          const leftColor = p === 0 ? 'var(--faint)' : overSpent ? 'var(--danger)' : 'var(--success)';
+          return React.createElement('div', { key: name, style: { display: 'grid', gridTemplateColumns: '1fr auto auto auto', gap: 8, padding: '8px 0', borderBottom: '0.5px solid var(--border)', alignItems: 'center' } },
+            React.createElement('div', null,
+              React.createElement('span', { style: { fontSize: 12, fontWeight: 500 } }, name),
+              isCard && React.createElement('span', { style: { fontSize: 10, marginLeft: 4, color: 'var(--accent2)' } }, '💳')
             ),
-            React.createElement('div', { className: 'progress' },
-              React.createElement('div', { className: 'progress-fill', style: { width: exp > 0 ? `${Math.round((amt / exp) * 100)}%` : '0%', background: isCard ? '#8b5cf6' : 'var(--accent)' } })
+            React.createElement('span', { style: { fontSize: 12, textAlign: 'right', color: 'var(--muted)' } }, p ? fmt(p, state.currency) : '—'),
+            React.createElement('span', { style: { fontSize: 12, textAlign: 'right' } }, a ? fmt(a, state.currency) : '—'),
+            React.createElement('span', { style: { fontSize: 12, fontWeight: 600, textAlign: 'right', color: leftColor } },
+              p === 0 ? '—' : overSpent ? `-${fmt(Math.abs(left), state.currency)}` : fmt(left, state.currency)
             )
-          )
-        )
+          );
+        })
       )
     );
   };
@@ -560,13 +478,11 @@ function App() {
     const [label, setLabel] = useState('');
     const [amount, setAmount] = useState('');
     const hasNoData = !monthInc.salary && (monthInc.other || []).length === 0;
-    const prevHasSalary = !!prevInc.salary;
 
     return React.createElement('div', { className: 'card' },
       React.createElement('div', { className: 'card-title' }, `Income — ${fmtMonth(selMonth)}`),
 
-      // Carry-forward prompt when month is empty and prev month has salary
-      hasNoData && prevHasSalary && React.createElement('div', { className: 'carry-notice' },
+      hasNoData && prevInc.salary && React.createElement('div', { className: 'carry-notice' },
         React.createElement('span', { className: 'carry-notice-text' },
           `Carry salary (${fmt(prevInc.salary, state.currency)}) from ${fmtMonth(shiftMonth(selMonth, -1))}?`
         ),
@@ -585,7 +501,7 @@ function App() {
         })
       ),
       React.createElement('div', { className: 'divider' }),
-      React.createElement('div', { style: { fontSize: 12, color: 'var(--muted)', fontWeight: 600, marginBottom: 8 } }, 'Other sources'),
+      React.createElement('div', { style: { fontSize: 12, color: 'var(--muted)', fontWeight: 600, marginBottom: 8 } }, 'Other income sources'),
       (monthInc.other || []).map((o, i) =>
         React.createElement('div', { key: i, className: 'spend-row' },
           React.createElement('div', null,
@@ -614,51 +530,73 @@ function App() {
 
   // ── Finance: Expenses ────────────────────────────────────────────────────────
   const FinExpenses = () => {
-    const entries = getMonthEntries(selMonth);
-    const [cat, setCat] = useState(state.expenses.categories[0]);
-    const [amount, setAmount] = useState('');
-    const [note, setNote] = useState('');
+    const cats = getMonthCats(selMonth);
+    const totalP = state.expenses.categories.reduce((a, c) => a + (parseFloat(cats[c]?.planned) || 0), 0);
+    const totalA = state.expenses.categories.reduce((a, c) => a + (parseFloat(cats[c]?.actual) || 0), 0);
+
     return React.createElement('div', null,
-      React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, `Log expense — ${fmtMonth(selMonth)}`),
-        React.createElement('div', { className: 'field' },
-          React.createElement('label', null, 'Category'),
-          React.createElement('select', { className: 'select', value: cat, onChange: e => setCat(e.target.value) },
-            state.expenses.categories.map(c => React.createElement('option', { key: c }, c))
+
+      // Month totals
+      React.createElement('div', { className: 'metric-grid' },
+        React.createElement('div', { className: 'metric' },
+          React.createElement('div', { className: 'metric-label' }, 'Total Planned'),
+          React.createElement('div', { className: 'metric-value' }, totalP ? fmt(totalP, state.currency) : '—')
+        ),
+        React.createElement('div', { className: 'metric' },
+          React.createElement('div', { className: 'metric-label' }, 'Total Actual'),
+          React.createElement('div', { className: 'metric-value', style: { color: totalA > totalP && totalP > 0 ? 'var(--danger)' : 'var(--text)' } },
+            totalA ? fmt(totalA, state.currency) : '—'
           )
-        ),
-        React.createElement('div', { className: 'row', style: { gap: 8, marginBottom: 8 } },
-          React.createElement('input', { className: 'input', type: 'number', placeholder: 'Amount', style: { flex: 1 }, value: amount, onChange: e => setAmount(e.target.value) }),
-          React.createElement('input', { className: 'input', placeholder: 'Note (optional)', style: { flex: 2 }, value: note, onChange: e => setNote(e.target.value) })
-        ),
-        React.createElement('button', { className: 'btn btn-primary', style: { width: '100%' }, onClick: () => {
-          if (!amount) return;
-          updateMonthEntries(selMonth, cur => [...cur, { category: cat, amount, note, date: todayStr() }]);
-          setAmount(''); setNote('');
-        } }, 'Log Expense')
-      ),
-      React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, `Entries (${entries.length})`),
-        React.createElement('div', { className: 'scroll-list' },
-          entries.length === 0
-            ? React.createElement('div', { className: 'empty' }, 'No expenses logged for this month')
-            : [...entries].reverse().map((e, i) =>
-              React.createElement('div', { key: i, className: 'spend-row' },
-                React.createElement('div', null,
-                  React.createElement('div', { className: 'spend-cat' }, e.category),
-                  React.createElement('div', { className: 'spend-meta' }, [e.note, e.date].filter(Boolean).join(' · '))
-                ),
-                React.createElement('div', { className: 'row', style: { gap: 8 } },
-                  React.createElement('span', { className: 'spend-amt' }, fmt(e.amount, state.currency)),
-                  React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () =>
-                    updateMonthEntries(selMonth, cur => {
-                      const arr = [...cur]; arr.splice(cur.length - 1 - i, 1); return arr;
-                    })
-                  }, '×')
-                )
-              )
-            )
         )
+      ),
+
+      // Category rows
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, `Expense categories — ${fmtMonth(selMonth)}`),
+        state.expenses.categories.map(cat => {
+          const d = cats[cat] || { planned: '', actual: '' };
+          const p = parseFloat(d.planned) || 0;
+          const a = parseFloat(d.actual) || 0;
+          const remaining = p - a;
+          const hasP = p > 0;
+          const overSpent = hasP && remaining < 0;
+          const pct = hasP ? Math.min(100, Math.round((a / p) * 100)) : 0;
+          const barColor = pct > 90 ? 'var(--danger)' : pct > 70 ? 'var(--warn)' : 'var(--accent)';
+
+          return React.createElement('div', { key: cat, className: 'budget-row' },
+            React.createElement('div', { className: 'budget-row-header' },
+              React.createElement('span', { className: 'budget-cat-name' }, cat),
+              hasP && React.createElement('span', { className: 'budget-remaining', style: { color: overSpent ? 'var(--danger)' : 'var(--success)' } },
+                overSpent
+                  ? `Over by ${fmt(Math.abs(remaining), state.currency)}`
+                  : `${fmt(remaining, state.currency)} left`
+              )
+            ),
+            React.createElement('div', { className: 'budget-inputs' },
+              React.createElement('div', null,
+                React.createElement('div', { className: 'budget-input-label' }, 'Planned'),
+                React.createElement('input', {
+                  className: 'input input-sm', type: 'number', placeholder: '0',
+                  defaultValue: d.planned,
+                  key: selMonth + cat + 'p',
+                  onBlur: e => updateCatField(selMonth, cat, 'planned', e.target.value)
+                })
+              ),
+              React.createElement('div', null,
+                React.createElement('div', { className: 'budget-input-label' }, 'Actual so far'),
+                React.createElement('input', {
+                  className: 'input input-sm', type: 'number', placeholder: '0',
+                  defaultValue: d.actual,
+                  key: selMonth + cat + 'a',
+                  onBlur: e => updateCatField(selMonth, cat, 'actual', e.target.value)
+                })
+              )
+            ),
+            hasP && React.createElement('div', { className: 'progress', style: { marginTop: 6 } },
+              React.createElement('div', { className: 'progress-fill', style: { width: pct + '%', background: barColor } })
+            )
+          );
+        })
       )
     );
   };
@@ -666,17 +604,6 @@ function App() {
   // ── Finance: Cards ───────────────────────────────────────────────────────────
   const FinCards = () => {
     const [form, setForm] = useState({ name: '', billingDate: '' });
-
-    const updateCardMonth = (cardId, field, value) => {
-      update(s => ({
-        ...s,
-        cards: s.cards.map(c => {
-          if (c.id !== cardId) return c;
-          const prev = c.months?.[selMonth] || {};
-          return { ...c, months: { ...c.months, [selMonth]: { ...prev, [field]: value } } };
-        })
-      }));
-    };
 
     const daysUntil = (day) => {
       const now = new Date();
@@ -693,8 +620,8 @@ function App() {
         const planned = parseFloat(md.planned) || 0;
         const outstanding = parseFloat(md.outstanding) || 0;
         const remaining = planned - outstanding;
+        const overBudget = planned > 0 && remaining < 0;
         const pct = planned > 0 ? Math.min(100, Math.round((outstanding / planned) * 100)) : 0;
-        const overBudget = remaining < 0;
         const barColor = pct > 90 ? 'var(--danger)' : pct > 70 ? 'var(--warn)' : 'var(--success)';
 
         return React.createElement('div', { key: card.id, className: 'cc-card' },
@@ -705,7 +632,6 @@ function App() {
             }, 'Remove')
           ),
 
-          // Plan vs Actual inputs
           React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 } },
             React.createElement('div', null,
               React.createElement('div', { style: { fontSize: 11, color: 'var(--muted)', marginBottom: 3 } }, 'Planned spend'),
@@ -727,15 +653,13 @@ function App() {
             )
           ),
 
-          // Progress bar
           planned > 0 && React.createElement('div', { className: 'progress', style: { marginBottom: 8 } },
             React.createElement('div', { className: 'progress-fill', style: { width: pct + '%', background: barColor } })
           ),
 
-          // Summary row
           React.createElement('div', { className: 'cc-stats' },
             React.createElement('span', null, `Spent: ${fmt(outstanding, state.currency)}`),
-            React.createElement('span', { style: { color: overBudget ? 'var(--danger)' : 'var(--success)', fontWeight: 600 } },
+            planned > 0 && React.createElement('span', { style: { color: overBudget ? 'var(--danger)' : 'var(--success)', fontWeight: 600 } },
               overBudget ? `Over by ${fmt(Math.abs(remaining), state.currency)}` : `${fmt(remaining, state.currency)} left`
             ),
             planned > 0 && React.createElement('span', null, `${pct}% of plan`)
@@ -776,10 +700,7 @@ function App() {
     const eTotal = state.health.eveningRituals.length;
     return React.createElement('div', null,
       React.createElement('div', { className: 'metric-grid' },
-        [
-          ['Morning', mDone, mTotal, 'var(--accent)'],
-          ['Evening', eDone, eTotal, '#8b5cf6'],
-        ].map(([label, done, total, color]) =>
+        [['Morning', mDone, mTotal, 'var(--accent)'], ['Evening', eDone, eTotal, '#8b5cf6']].map(([label, done, total, color]) =>
           React.createElement('div', { key: label, className: 'metric' },
             React.createElement('div', { className: 'metric-label' }, label + ' routine'),
             React.createElement('div', { className: 'metric-value' }, `${done}/${total}`),
@@ -831,17 +752,8 @@ function App() {
       return 'var(--danger)';
     };
     const scored = days.map(d => ({ d, pct: ritualScore(d) }));
-    const streak = (() => {
-      let s = 0;
-      for (let i = scored.length - 1; i >= 0; i--) {
-        if (scored[i].pct !== null && scored[i].pct >= 80) s++; else break;
-      }
-      return s;
-    })();
-    const avg = (() => {
-      const valid = scored.filter(x => x.pct !== null);
-      return valid.length > 0 ? Math.round(valid.reduce((a, x) => a + x.pct, 0) / valid.length) : 0;
-    })();
+    const streak = (() => { let s = 0; for (let i = scored.length - 1; i >= 0; i--) { if (scored[i].pct !== null && scored[i].pct >= 80) s++; else break; } return s; })();
+    const avg = (() => { const valid = scored.filter(x => x.pct !== null); return valid.length > 0 ? Math.round(valid.reduce((a, x) => a + x.pct, 0) / valid.length) : 0; })();
     return React.createElement('div', null,
       React.createElement('div', { className: 'metric-grid' },
         [['Current streak', streak + ' days'], ['28-day avg', avg + '%']].map(([l, v]) =>
@@ -883,18 +795,12 @@ function App() {
         state.health.morningRituals.map((r, i) =>
           React.createElement('div', { key: r.id, className: 'spend-row' },
             React.createElement('span', { style: { fontSize: 13 } }, r.label),
-            state.health.morningRituals.length > 1 && React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({
-              ...s, health: { ...s.health, morningRituals: s.health.morningRituals.filter((_, j) => j !== i) }
-            })) }, 'Remove')
+            state.health.morningRituals.length > 1 && React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({ ...s, health: { ...s.health, morningRituals: s.health.morningRituals.filter((_, j) => j !== i) } })) }, 'Remove')
           )
         ),
         React.createElement('div', { className: 'row', style: { marginTop: 10 } },
           React.createElement('input', { className: 'input', style: { flex: 1 }, placeholder: 'Add morning ritual...', value: mLabel, onChange: e => setMLabel(e.target.value) }),
-          React.createElement('button', { className: 'btn btn-primary', onClick: () => {
-            if (!mLabel) return;
-            update(s => ({ ...s, health: { ...s.health, morningRituals: [...s.health.morningRituals, { id: 'm' + Date.now(), label: mLabel }] } }));
-            setMLabel('');
-          } }, 'Add')
+          React.createElement('button', { className: 'btn btn-primary', onClick: () => { if (!mLabel) return; update(s => ({ ...s, health: { ...s.health, morningRituals: [...s.health.morningRituals, { id: 'm' + Date.now(), label: mLabel }] } })); setMLabel(''); } }, 'Add')
         )
       ),
       React.createElement('div', { className: 'card' },
@@ -905,18 +811,12 @@ function App() {
         state.health.eveningRituals.map((r, i) =>
           React.createElement('div', { key: r.id, className: 'spend-row' },
             React.createElement('span', { style: { fontSize: 13 } }, r.label),
-            state.health.eveningRituals.length > 1 && React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({
-              ...s, health: { ...s.health, eveningRituals: s.health.eveningRituals.filter((_, j) => j !== i) }
-            })) }, 'Remove')
+            state.health.eveningRituals.length > 1 && React.createElement('button', { className: 'btn btn-danger btn-sm', onClick: () => update(s => ({ ...s, health: { ...s.health, eveningRituals: s.health.eveningRituals.filter((_, j) => j !== i) } })) }, 'Remove')
           )
         ),
         React.createElement('div', { className: 'row', style: { marginTop: 10 } },
           React.createElement('input', { className: 'input', style: { flex: 1 }, placeholder: 'Add evening ritual...', value: eLabel, onChange: e => setELabel(e.target.value) }),
-          React.createElement('button', { className: 'btn btn-primary', onClick: () => {
-            if (!eLabel) return;
-            update(s => ({ ...s, health: { ...s.health, eveningRituals: [...s.health.eveningRituals, { id: 'e' + Date.now(), label: eLabel }] } }));
-            setELabel('');
-          } }, 'Add')
+          React.createElement('button', { className: 'btn btn-primary', onClick: () => { if (!eLabel) return; update(s => ({ ...s, health: { ...s.health, eveningRituals: [...s.health.eveningRituals, { id: 'e' + Date.now(), label: eLabel }] } })); setELabel(''); } }, 'Add')
         )
       ),
       React.createElement('div', { className: 'card' },
@@ -931,32 +831,21 @@ function App() {
   // ─── Render ──────────────────────────────────────────────────────────────────
   return React.createElement('div', null,
     React.createElement('style', null, css),
-
-    // Header
     React.createElement('header', { className: 'app-header' },
       React.createElement('div', { className: 'logo' },
-        React.createElement('span', null, 'Selva'),
-        'OS',
+        React.createElement('span', null, 'Selva'), 'OS',
         React.createElement('em', null, 'Personal Dashboard')
       ),
       React.createElement('div', { className: 'date-label' },
         new Date().toLocaleDateString('en-MY', { weekday: 'short', day: 'numeric', month: 'short' })
       )
     ),
-
-    // Content
     React.createElement('div', { className: 'content' },
-
-      // Install banner
       showInstall && React.createElement('div', { className: 'install-banner' },
         React.createElement('div', { className: 'install-banner-text' }, '📲 Install SelvaOS on your phone for the full app experience'),
-        React.createElement('button', { className: 'btn btn-primary btn-sm', onClick: async () => {
-          if (deferredPrompt) { deferredPrompt.prompt(); setShowInstall(false); }
-        } }, 'Install'),
+        React.createElement('button', { className: 'btn btn-primary btn-sm', onClick: async () => { if (deferredPrompt) { deferredPrompt.prompt(); setShowInstall(false); } } }, 'Install'),
         React.createElement('button', { className: 'btn btn-sm', onClick: () => setShowInstall(false) }, '×')
       ),
-
-      // Finance section
       tab === 'finance' && React.createElement('div', null,
         React.createElement('div', { className: 'section-header' },
           React.createElement('h2', { className: 'section-title' }, 'Financials'),
@@ -967,13 +856,11 @@ function App() {
             React.createElement('button', { key: k, className: `sub-tab${finTab === k ? ' active' : ''}`, onClick: () => setFinTab(k) }, l)
           )
         ),
-        finTab === 'overview' && React.createElement(FinOverview, { key: selMonth }),
-        finTab === 'income' && React.createElement(FinIncome, { key: selMonth }),
-        finTab === 'expenses' && React.createElement(FinExpenses, { key: selMonth }),
-        finTab === 'cards' && React.createElement(FinCards)
+        finTab === 'overview'  && React.createElement(FinOverview,  { key: selMonth }),
+        finTab === 'income'    && React.createElement(FinIncome,    { key: selMonth }),
+        finTab === 'expenses'  && React.createElement(FinExpenses,  { key: selMonth }),
+        finTab === 'cards'     && React.createElement(FinCards,     { key: selMonth })
       ),
-
-      // Health section
       tab === 'health' && React.createElement('div', null,
         React.createElement('div', { className: 'section-header' },
           React.createElement('h2', { className: 'section-title' }, 'Health & Rituals')
@@ -983,21 +870,16 @@ function App() {
             React.createElement('button', { key: k, className: `sub-tab${healthTab === k ? ' active' : ''}`, onClick: () => setHealthTab(k) }, l)
           )
         ),
-        healthTab === 'today' && React.createElement(HealthToday),
-        healthTab === 'history' && React.createElement(HealthHistory),
+        healthTab === 'today'     && React.createElement(HealthToday),
+        healthTab === 'history'   && React.createElement(HealthHistory),
         healthTab === 'customize' && React.createElement(HealthCustomize)
       )
     ),
-
-    // Bottom nav
     React.createElement('nav', { className: 'bottom-nav' },
-      [
-        ['finance', 'Financials', React.createElement(FinIcon, { active: tab === 'finance' })],
-        ['health', 'Health', React.createElement(HealthIcon, { active: tab === 'health' })],
-      ].map(([key, label, icon]) =>
+      [['finance', 'Financials', React.createElement(FinIcon, { active: tab === 'finance' })],
+       ['health', 'Health', React.createElement(HealthIcon, { active: tab === 'health' })]].map(([key, label, icon]) =>
         React.createElement('button', { key, className: `bottom-nav-btn${tab === key ? ' active' : ''}`, onClick: () => setTab(key) },
-          icon,
-          React.createElement('span', null, label)
+          icon, React.createElement('span', null, label)
         )
       )
     )
