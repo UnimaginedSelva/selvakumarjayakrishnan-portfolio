@@ -782,6 +782,28 @@ function App() {
     );
   };
 
+  // ── Finance: Customize ───────────────────────────────────────────────────────
+  const FinCustomize = () => {
+    return React.createElement('div', null,
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'Currency'),
+        React.createElement('div', { style: { position: 'relative' } },
+          React.createElement('select', {
+            className: 'select',
+            value: state.currency,
+            onChange: e => update(s => ({ ...s, currency: e.target.value })),
+            style: { paddingRight: 36 }
+          },
+            ['MYR', 'SGD', 'USD', 'EUR', 'INR', 'THB', 'AUD', 'GBP'].map(c =>
+              React.createElement('option', { key: c }, c)
+            )
+          ),
+          React.createElement('span', { style: { position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: 'var(--muted)', fontSize: 12 } }, '▾')
+        )
+      )
+    );
+  };
+
   // ── Health: Customize ────────────────────────────────────────────────────────
   const HealthCustomize = () => {
     const [mLabel, setMLabel] = useState('');
@@ -819,12 +841,6 @@ function App() {
           React.createElement('button', { className: 'btn btn-primary', onClick: () => { if (!eLabel) return; update(s => ({ ...s, health: { ...s.health, eveningRituals: [...s.health.eveningRituals, { id: 'e' + Date.now(), label: eLabel }] } })); setELabel(''); } }, 'Add')
         )
       ),
-      React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, 'Currency'),
-        React.createElement('select', { className: 'select', value: state.currency, onChange: e => update(s => ({ ...s, currency: e.target.value })) },
-          ['MYR', 'SGD', 'USD', 'EUR', 'INR', 'THB', 'AUD', 'GBP'].map(c => React.createElement('option', { key: c }, c))
-        )
-      )
     );
   };
 
@@ -852,14 +868,15 @@ function App() {
           React.createElement(MonthNav)
         ),
         React.createElement('div', { className: 'sub-tabs' },
-          [['overview', 'Overview'], ['income', 'Income'], ['expenses', 'Expenses'], ['cards', 'Cards']].map(([k, l]) =>
+          [['overview', 'Overview'], ['income', 'Income'], ['expenses', 'Expenses'], ['cards', 'Cards'], ['customize', 'Customize']].map(([k, l]) =>
             React.createElement('button', { key: k, className: `sub-tab${finTab === k ? ' active' : ''}`, onClick: () => setFinTab(k) }, l)
           )
         ),
         finTab === 'overview'  && React.createElement(FinOverview,  { key: selMonth }),
         finTab === 'income'    && React.createElement(FinIncome,    { key: selMonth }),
         finTab === 'expenses'  && React.createElement(FinExpenses,  { key: selMonth }),
-        finTab === 'cards'     && React.createElement(FinCards,     { key: selMonth })
+        finTab === 'cards'     && React.createElement(FinCards,     { key: selMonth }),
+        finTab === 'customize' && React.createElement(FinCustomize)
       ),
       tab === 'health' && React.createElement('div', null,
         React.createElement('div', { className: 'section-header' },
