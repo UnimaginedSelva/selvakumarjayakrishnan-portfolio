@@ -375,15 +375,17 @@ function App() {
     return total > 0 ? Math.round((done / total) * 100) : 0;
   };
 
-  const toggleRitual = (period, id) => {
+  const toggleRitualForDate = (date, period, id) => {
     update(s => {
       const log = { ...s.health.log };
-      const day = { morning: {}, evening: {}, ...(log[today] || {}) };
+      const day = { morning: {}, evening: {}, daily: {}, ...(log[date] || {}) };
       day[period] = { ...day[period], [id]: !day[period][id] };
-      log[today] = day;
+      log[date] = day;
       return { ...s, health: { ...s.health, log } };
     });
   };
+
+  const toggleRitual = (period, id) => toggleRitualForDate(today, period, id);
 
   // ── Month Navigator ──────────────────────────────────────────────────────────
   const MonthNav = () => {
@@ -768,11 +770,13 @@ function App() {
 
   // ── Health: History ──────────────────────────────────────────────────────────
   const HealthHistory = () => {
+    const [editDay, setEditDay] = useState(null);
     const days = Array.from({ length: 28 }, (_, i) => {
       const d = new Date(); d.setDate(d.getDate() - (27 - i));
       return d.toISOString().split('T')[0];
     });
-    const color = (pct) => {
+    const color = (pct, isSelected) => {
+      if (isSelected) return 'var(--accent2)';
       if (pct === null) return 'rgba(71,85,105,0.3)';
       if (pct >= 80) return 'var(--success)';
       if (pct >= 50) return 'var(--warn)';
@@ -781,6 +785,46 @@ function App() {
     const scored = days.map(d => ({ d, pct: ritualScore(d) }));
     const streak = (() => { let s = 0; for (let i = scored.length - 1; i >= 0; i--) { if (scored[i].pct !== null && scored[i].pct >= 80) s++; else break; } return s; })();
     const avg = (() => { const valid = scored.filter(x => x.pct !== null); return valid.length > 0 ? Math.round(valid.reduce((a, x) => a + x.pct, 0) / valid.length) : 0; })();
+
+    const fmtDay = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
+
+    const DayEditor = ({ date }) => {
+      const log = state.health.log[date] || { morning: {}, evening: {}, daily: {} };
+      return React.createElement('div', { className: 'card', style: { marginTop: 12, border: '0.5px solid var(--accent2)' } },
+        React.createElement('div', { className: 'row-between', style: { marginBottom: '0.75rem' } },
+          React.createElement('div', { className: 'card-title', style: { margin: 0 } }, fmtDay(date)),
+          React.createElement('button', { className: 'btn btn-sm', style: { fontSize: 16, padding: '2px 8px' }, onClick: () => setEditDay(null) }, '×')
+        ),
+        // Morning
+        React.createElement('div', { style: { fontSize: 11, fontWeight: 600, color: 'var(--muted)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.08em' } }, 'Morning · 20:20:20'),
+        state.health.morningRituals.map(r => {
+          const checked = !!(log.morning || {})[r.id];
+          return React.createElement('div', { key: r.id, className: `ritual-row${checked ? ' done' : ''}`, onClick: () => toggleRitualForDate(date, 'morning', r.id) },
+            React.createElement('div', { className: `check-box${checked ? ' checked' : ''}` }, checked && React.createElement(Check)),
+            React.createElement('span', { className: `ritual-label${checked ? ' done' : ''}` }, r.label)
+          );
+        }),
+        // Evening
+        React.createElement('div', { style: { fontSize: 11, fontWeight: 600, color: 'var(--muted)', margin: '12px 0 6px', textTransform: 'uppercase', letterSpacing: '0.08em' } }, 'Evening · 10:10:10'),
+        state.health.eveningRituals.map(r => {
+          const checked = !!(log.evening || {})[r.id];
+          return React.createElement('div', { key: r.id, className: `ritual-row${checked ? ' done' : ''}`, onClick: () => toggleRitualForDate(date, 'evening', r.id) },
+            React.createElement('div', { className: `check-box${checked ? ' checked' : ''}` }, checked && React.createElement(Check)),
+            React.createElement('span', { className: `ritual-label${checked ? ' done' : ''}` }, r.label)
+          );
+        }),
+        // Daily Goals
+        React.createElement('div', { style: { fontSize: 11, fontWeight: 600, color: 'var(--muted)', margin: '12px 0 6px', textTransform: 'uppercase', letterSpacing: '0.08em' } }, 'Daily Goals'),
+        state.health.dailyGoals.map(r => {
+          const checked = !!(log.daily || {})[r.id];
+          return React.createElement('div', { key: r.id, className: `ritual-row${checked ? ' done' : ''}`, onClick: () => toggleRitualForDate(date, 'daily', r.id) },
+            React.createElement('div', { className: `check-box${checked ? ' checked' : ''}` }, checked && React.createElement(Check)),
+            React.createElement('span', { className: `ritual-label${checked ? ' done' : ''}` }, r.label)
+          );
+        })
+      );
+    };
+
     return React.createElement('div', null,
       React.createElement('div', { className: 'metric-grid' },
         [['Current streak', streak + ' days'], ['28-day avg', avg + '%']].map(([l, v]) =>
@@ -791,10 +835,16 @@ function App() {
         )
       ),
       React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, '28-day ritual log'),
+        React.createElement('div', { className: 'card-title' }, 'Tap any day to view or edit'),
         React.createElement('div', { className: 'history-grid' },
           scored.map(({ d, pct }) =>
-            React.createElement('div', { key: d, className: 'history-cell', style: { background: color(pct) }, title: `${d}: ${pct !== null ? pct + '%' : 'no data'}` })
+            React.createElement('div', {
+              key: d,
+              className: 'history-cell',
+              style: { background: color(pct, d === editDay), outline: d === editDay ? '2px solid var(--accent2)' : 'none', outlineOffset: '1px' },
+              title: `${d}: ${pct !== null ? pct + '%' : 'no data'}`,
+              onClick: () => setEditDay(prev => prev === d ? null : d)
+            })
           )
         ),
         React.createElement('div', { className: 'legend' },
@@ -804,7 +854,8 @@ function App() {
               React.createElement('span', null, l)
             )
           )
-        )
+        ),
+        editDay && React.createElement(DayEditor, { key: editDay, date: editDay })
       )
     );
   };
