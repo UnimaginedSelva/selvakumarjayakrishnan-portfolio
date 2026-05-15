@@ -1,4 +1,4 @@
-// SelvaOS — Personal Dashboard
+// LifeArch — Personal Dashboard
 // React app compiled via browser Babel (no build step required)
 
 const { useState, useEffect, useCallback } = React;
@@ -257,6 +257,24 @@ const css = `
   .summary-banner.negative { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.3); }
   .summary-banner.neutral { background: var(--surface); border-color: var(--border); }
 
+  /* Help button */
+  .help-btn { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--faint); background: transparent; color: var(--muted); font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
+  .help-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  /* Help overlay */
+  .help-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.7); display: flex; align-items: flex-end; }
+  .help-sheet { background: var(--bg); width: 100%; max-height: 92vh; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; overflow: hidden; }
+  .help-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 0.5px solid var(--border); flex-shrink: 0; }
+  .help-title { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+  .help-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: var(--surface2); color: var(--muted); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .help-body { overflow-y: auto; padding: 1.25rem; flex: 1; }
+  .help-section { margin-bottom: 1.75rem; }
+  .help-section-title { font-size: 14px; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; padding-bottom: 6px; border-bottom: 0.5px solid var(--border); }
+  .help-item { margin-bottom: 10px; }
+  .help-item-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .help-item-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .help-tip { background: rgba(37,99,235,0.08); border: 0.5px solid rgba(37,99,235,0.25); border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
   @media (max-width: 380px) {
     .content { padding: 1rem 0.75rem 5rem; }
     .metric-value { font-size: 16px; }
@@ -284,6 +302,116 @@ const HealthIcon = ({ active }) => (
 );
 
 // ─── Main App ──────────────────────────────────────────────────────────────────
+// ─── Help Guide ──────────────────────────────────────────────────────────────
+function HelpGuide({ onClose }) {
+  const sections = [
+    {
+      title: 'Getting Started',
+      items: [
+        { label: 'What is LifeArch?', desc: 'LifeArch is your personal financial and health dashboard. Use it to plan your monthly budget, track spending, and build healthy daily habits — all in one place.' },
+        { label: 'Install on your phone', desc: 'Tap "Install" on the banner (Android) or use your browser\'s "Add to Home Screen" option (iOS Safari). LifeArch works fully offline once installed.' },
+        { label: 'Your data stays private', desc: 'All data is saved locally on your device only. Nothing is sent to any server. Clear your browser data and the data will be lost, so treat this as a personal log.' },
+      ]
+    },
+    {
+      title: 'Finance — Overview',
+      items: [
+        { label: 'Monthly summary', desc: 'The Overview tab shows your total income, planned expenses, actual expenses, and whether you are on track (positive) or over budget (negative) for the selected month.' },
+        { label: 'Planned vs Actual saving', desc: 'Planned Saving = Income − Planned Expenses. Actual Saving = Income − Actual Expenses. When actuals come in below plan, your savings go up.' },
+        { label: 'Navigating months', desc: 'Use the ← → arrows next to the month name to switch between months. Each month\'s data is stored independently so you can review any past month.' },
+      ]
+    },
+    {
+      title: 'Finance — Income',
+      items: [
+        { label: 'Salary', desc: 'Enter your primary salary for the month. This is the base figure used for all savings calculations.' },
+        { label: 'Other income', desc: 'Add any extra income (freelance, bonuses, rental, etc.) using the label and amount fields. Each entry is added separately.' },
+        { label: 'Copy from last month', desc: 'If your income is the same as last month, tap "Copy from last month" to prefill both salary and other income entries.' },
+      ]
+    },
+    {
+      title: 'Finance — Expenses',
+      items: [
+        { label: 'Plan your spending', desc: 'At the start of each month, enter your planned amount for each category (e.g., Groceries: 15,000). This is your budget target.' },
+        { label: 'Update actuals', desc: 'As you spend during the month, update the Actual field. The remaining amount (Planned − Actual) shows how much budget is left.' },
+        { label: 'Over budget warning', desc: 'If actual spending exceeds the planned amount, the remaining figure shows in red. Staying green means you are within budget.' },
+        { label: 'Add or remove categories', desc: 'Go to Finance → Customize to add your own expense categories or remove ones you don\'t use.' },
+      ]
+    },
+    {
+      title: 'Finance — Cards',
+      items: [
+        { label: 'Credit card tracking', desc: 'Add each credit card you use. Set a Planned Spend (your target for the billing cycle) and update the Outstanding amount as you spend.' },
+        { label: 'Remaining spend', desc: 'Remaining = Planned − Outstanding. This tells you how much more you can put on the card before exceeding your plan.' },
+        { label: 'Billing date', desc: 'Set the billing date so you know when your statement closes. Cards are listed with this date for quick reference.' },
+        { label: 'Cards vs Categories', desc: 'Use Cards to track credit card spending separately. Use expense categories for cash or debit spending. In a mixed approach, categories represent non-card spending only.' },
+      ]
+    },
+    {
+      title: 'Finance — Customize',
+      items: [
+        { label: 'Currency', desc: 'Change your display currency from MYR to any other currency. All amounts will display in the chosen currency.' },
+        { label: 'Expense categories', desc: 'Add new categories that fit your lifestyle. Remove any default categories you don\'t use. Changes apply across all months.' },
+      ]
+    },
+    {
+      title: 'Health — Today',
+      items: [
+        { label: 'Morning rituals', desc: 'Tap each ritual to check it off. The 20:20:20 morning routine covers movement, mindfulness, and journaling. A score shows how many you completed.' },
+        { label: 'Evening rituals', desc: 'Wind down with your evening habits. Tap to mark each one done.' },
+        { label: 'Daily goals', desc: 'Track daily targets like step count. Tap to mark achieved. You can customise the goal label and add multiple goals under Health → Customize.' },
+        { label: 'Today\'s date', desc: 'All check-ins are recorded against today\'s date automatically.' },
+      ]
+    },
+    {
+      title: 'Health — 28-Day Log',
+      items: [
+        { label: 'Visual history', desc: 'Each coloured cell represents one day. Green = all done, yellow = partial, grey = nothing recorded.' },
+        { label: 'Edit a past day', desc: 'Tap any cell to open that day\'s editor. You can check or uncheck any ritual or goal for that day — useful if you forgot to log on the day itself.' },
+        { label: 'Score', desc: 'The percentage shows how many rituals/goals you completed across all 28 days, giving you a habit consistency score.' },
+      ]
+    },
+    {
+      title: 'Health — Customize',
+      items: [
+        { label: 'Morning & Evening rituals', desc: 'Add your own ritual items or remove existing ones. You must keep at least one in each section.' },
+        { label: 'Daily goals', desc: 'Add goals like "Drank 2 litres of water" or "Read 20 pages". Remove any goal you no longer track. Goals can be fully cleared.' },
+      ]
+    },
+    {
+      title: 'Tips',
+      items: [
+        { label: 'Plan on the 25th', desc: 'Set next month\'s income and planned expenses 5–7 days before the month starts so you begin day 1 with a clear budget.' },
+        { label: 'Update actuals weekly', desc: 'A quick 5-minute weekly check-in to update actual spending keeps your Overview accurate.' },
+        { label: 'Use carry-forward', desc: 'LifeArch copies last month\'s plan forward automatically so you don\'t start from scratch each month.' },
+      ]
+    },
+  ];
+
+  return React.createElement('div', { className: 'help-overlay', onClick: e => { if (e.target.className === 'help-overlay') onClose(); } },
+    React.createElement('div', { className: 'help-sheet' },
+      React.createElement('div', { className: 'help-header' },
+        React.createElement('div', { className: 'help-title' }, 'LifeArch — User Guide'),
+        React.createElement('button', { className: 'help-close', onClick: onClose }, '×')
+      ),
+      React.createElement('div', { className: 'help-body' },
+        sections.map(sec =>
+          React.createElement('div', { key: sec.title, className: 'help-section' },
+            React.createElement('div', { className: 'help-section-title' }, sec.title),
+            sec.items.map(item =>
+              React.createElement('div', { key: item.label, className: 'help-item' },
+                React.createElement('div', { className: 'help-item-label' }, item.label),
+                React.createElement('div', { className: 'help-item-desc' }, item.desc)
+              )
+            )
+          )
+        ),
+        React.createElement('div', { className: 'help-tip' }, 'LifeArch is designed to help you plan before the month, not just track after. Set your plan early, update actuals regularly, and let the numbers guide your decisions.')
+      )
+    )
+  );
+}
+
 function App() {
   const [state, setState] = useState(load);
   const [tab, setTab] = useState("finance");
@@ -291,6 +419,7 @@ function App() {
   const [healthTab, setHealthTab] = useState("today");
   const [showInstall, setShowInstall] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showHelp, setShowHelp] = useState(false);
   const [selMonth, setSelMonth] = useState(currentMonth);
 
   useEffect(() => {
@@ -941,16 +1070,20 @@ function App() {
     React.createElement('style', null, css),
     React.createElement('header', { className: 'app-header' },
       React.createElement('div', { className: 'logo' },
-        React.createElement('span', null, 'Selva'), 'OS',
+        React.createElement('span', null, 'Life'), 'Arch',
         React.createElement('em', null, 'Personal Dashboard')
       ),
-      React.createElement('div', { className: 'date-label' },
-        new Date().toLocaleDateString('en-MY', { weekday: 'short', day: 'numeric', month: 'short' })
+      React.createElement('div', { className: 'row', style: { gap: 10 } },
+        React.createElement('div', { className: 'date-label' },
+          new Date().toLocaleDateString('en-MY', { weekday: 'short', day: 'numeric', month: 'short' })
+        ),
+        React.createElement('button', { className: 'help-btn', onClick: () => setShowHelp(true), title: 'Help & Guide' }, '?')
       )
     ),
+    showHelp && React.createElement(HelpGuide, { onClose: () => setShowHelp(false) }),
     React.createElement('div', { className: 'content' },
       showInstall && React.createElement('div', { className: 'install-banner' },
-        React.createElement('div', { className: 'install-banner-text' }, '📲 Install SelvaOS on your phone for the full app experience'),
+        React.createElement('div', { className: 'install-banner-text' }, '📲 Install LifeArch on your phone for the full app experience'),
         React.createElement('button', { className: 'btn btn-primary btn-sm', onClick: async () => { if (deferredPrompt) { deferredPrompt.prompt(); setShowInstall(false); } } }, 'Install'),
         React.createElement('button', { className: 'btn btn-sm', onClick: () => setShowInstall(false) }, '×')
       ),
