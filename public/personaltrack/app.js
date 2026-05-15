@@ -352,6 +352,7 @@ function HelpGuide({ onClose }) {
       items: [
         { label: 'Currency', desc: 'Change your display currency from MYR to any other currency. All amounts will display in the chosen currency.' },
         { label: 'Expense categories', desc: 'Add new categories that fit your lifestyle. Remove any default categories you don\'t use. Changes apply across all months.' },
+        { label: 'Backup & Restore', desc: 'Tap "Export Backup" to download all your data as a JSON file to your device. Tap "Import Backup" to restore from a previously exported file — you will be asked to confirm before any data is overwritten. The last backup date is shown so you always know how recent your backup is.' },
         { label: 'Check for updates', desc: 'Tap "Check for updates" at the bottom of the Customize tab to get the latest version of LifeArch instantly — no settings, no data loss. Your budget and health data is always preserved.' },
       ]
     },
@@ -990,10 +991,14 @@ function App() {
     );
   };
 
+  const BACKUP_KEY = 'lifearch_last_backup';
+
   // ── Finance: Customize ───────────────────────────────────────────────────────
   const FinCustomize = () => {
     const [newCat, setNewCat] = useState('');
-    const [updateStatus, setUpdateStatus] = useState('idle'); // idle | checking | done | error
+    const [updateStatus, setUpdateStatus] = useState('idle');
+    const [lastBackup, setLastBackup] = useState(() => localStorage.getItem(BACKUP_KEY) || null);
+    const [importMsg, setImportMsg] = useState('');
 
     const checkForUpdates = async () => {
       setUpdateStatus('checking');
@@ -1006,6 +1011,44 @@ function App() {
       } catch (e) {
         setUpdateStatus('error');
       }
+    };
+
+    const exportBackup = () => {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const exportedAt = new Date().toISOString();
+      const payload = JSON.stringify({ version: 1, exportedAt, data: raw ? JSON.parse(raw) : {} }, null, 2);
+      const blob = new Blob([payload], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `lifearch-backup-${exportedAt.slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      const ts = exportedAt;
+      localStorage.setItem(BACKUP_KEY, ts);
+      setLastBackup(ts);
+    };
+
+    const importBackup = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const parsed = JSON.parse(ev.target.result);
+          if (!parsed.data || typeof parsed.data !== 'object') {
+            setImportMsg('Invalid backup file.');
+            return;
+          }
+          if (!window.confirm('This will replace all current data with the backup. Continue?')) return;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed.data));
+          window.location.reload();
+        } catch {
+          setImportMsg('Could not read the file. Make sure it is a valid LifeArch backup.');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
     };
     return React.createElement('div', null,
       React.createElement('div', { className: 'card' },
@@ -1055,6 +1098,25 @@ function App() {
             }
           }, 'Add')
         )
+      ),
+      React.createElement('div', { className: 'card' },
+        React.createElement('div', { className: 'card-title' }, 'Backup & Restore'),
+        React.createElement('div', { style: { fontSize: 12, color: 'var(--muted)', marginBottom: 12 } },
+          lastBackup
+            ? 'Last backup: ' + new Date(lastBackup).toLocaleDateString('en-MY', { day: 'numeric', month: 'long', year: 'numeric' })
+            : 'No backup taken yet'
+        ),
+        React.createElement('div', { className: 'row', style: { gap: 8, marginBottom: importMsg ? 8 : 0 } },
+          React.createElement('button', {
+            className: 'btn btn-primary', style: { flex: 1 },
+            onClick: exportBackup
+          }, 'Export Backup'),
+          React.createElement('label', { className: 'btn', style: { flex: 1, textAlign: 'center', cursor: 'pointer', border: '0.5px solid var(--border)', background: 'var(--surface2)', color: 'var(--muted)' } },
+            'Import Backup',
+            React.createElement('input', { type: 'file', accept: '.json', style: { display: 'none' }, onChange: importBackup })
+          )
+        ),
+        importMsg && React.createElement('div', { style: { fontSize: 12, color: 'var(--danger)', marginTop: 4 } }, importMsg)
       ),
       React.createElement('div', { className: 'card' },
         React.createElement('div', { className: 'card-title' }, 'App'),
