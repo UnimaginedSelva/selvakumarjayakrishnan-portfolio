@@ -1,4 +1,4 @@
-const CACHE_NAME = 'selvaos-v3';
+const CACHE_NAME = 'selvaos-v4';
 const ASSETS = [
   '/personaltrack/',
   '/personaltrack/index.html',
@@ -22,6 +22,11 @@ self.addEventListener('activate', event => {
     )
   );
   self.clients.claim();
+});
+
+// Skip waiting when told to by the client
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 // Fetch — serve from cache, fall back to network
