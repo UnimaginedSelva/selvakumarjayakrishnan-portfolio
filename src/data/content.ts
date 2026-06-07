@@ -48,7 +48,7 @@ export const experience = [
     duration: '4 yrs 6 mos',
     award: 'Game Changer Award x2',
     highlights: [
-      'Led enterprise-scale digital and AI transformation programs impacting ~12,000 users, delivering 25–35% efficiency improvements and $6M+ in annual business value across EMEA, APAC, and the Americas.',
+      'Led enterprise-scale digital and AI transformation programs impacting ~12,000 users across multiple partner sites and Dell sites — delivering 25–35% efficiency improvements and $6M+ in annual business value across EMEA, APAC, and the Americas.',
       'Operationalized AI-Validated Work Order transformation within Salesforce CRM — generating ~$1M in annual productivity gains through automation and fraud prevention.',
       'Improved backlog parts SLA from 20% to 7% through real-time visibility and self-service enablement — delivering ~$5M in annual logistics cost savings.',
       'Established transformation governance frameworks, increasing platform adoption rates by ~25% and building executive-level accountability for value realization.',
