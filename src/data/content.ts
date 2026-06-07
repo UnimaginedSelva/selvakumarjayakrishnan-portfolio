@@ -7,7 +7,7 @@ export const hero = {
     { value: '19', label: 'Years Experience' },
     { value: '$6M+', label: 'Annual Business Value' },
     { value: '12K+', label: 'Users at Scale' },
-    { value: 'Multi-Site', label: 'Partner & Dell Sites' },
+    { value: 'Multiple', label: 'Partner & Dell Sites' },
   ],
   email: 'selvakumar.jayakrishnan@hotmail.com',
   linkedin: 'https://www.linkedin.com/in/passionateselva',
