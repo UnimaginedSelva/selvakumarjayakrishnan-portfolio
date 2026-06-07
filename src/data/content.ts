@@ -7,7 +7,7 @@ export const hero = {
     { value: '19', label: 'Years Experience' },
     { value: '$6M+', label: 'Annual Business Value' },
     { value: '12K+', label: 'Users at Scale' },
-    { value: '36', label: 'Global Partner Sites' },
+    { value: 'Multi-Site', label: 'Partner & Dell Sites' },
   ],
   email: 'selvakumar.jayakrishnan@hotmail.com',
   linkedin: 'https://www.linkedin.com/in/passionateselva',
@@ -65,7 +65,7 @@ export const experience = [
     duration: '3 yrs 11 mos',
     award: 'Game Changer Award',
     highlights: [
-      'Managed transformation programs across 36 global partner sites impacting ~7,000 users across 9 partner organizations.',
+      'Managed transformation programs across multiple partner sites and Dell sites impacting ~7,000 users.',
       'Led migration of ~7,000 users from Citrix XenApp to VMware Horizon — cut ticket volumes by 50% and delivered ~$300K in annual cost savings.',
       'Delivered global Work-From-Home enablement for ~6,000 users during COVID-19 in 72 hours — sustaining ~80% service levels and avoiding ~$1.5M in operational costs.',
       'Led RSA SecurID MFA cybersecurity rollout across 29 partner sites impacting ~6,000 users — full compliance with zero critical disruptions.',
