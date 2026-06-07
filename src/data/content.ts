@@ -53,7 +53,7 @@ export const experience = [
       'Improved backlog parts SLA from 20% to 7% through real-time visibility and self-service enablement — delivering ~$5M in annual logistics cost savings.',
       'Established transformation governance frameworks, increasing platform adoption rates by ~25% and building executive-level accountability for value realization.',
       'Reduced system-related issues by 30%, improving user productivity and minimizing downtime across global support teams.',
-      'Led VMware Horizon Version 8 upgrade for ~12,000 users — achieved 30% reduction in single-user Horizon vApps issues in the 6 months post-upgrade vs. prior period.',
+      'Led VMware Horizon Version 8 upgrade for ~7,000 users — achieved 30% reduction in single-user Horizon vApps issues in the 6 months post-upgrade vs. prior period.',
     ],
   },
   {
