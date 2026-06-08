@@ -185,12 +185,10 @@ export const skills = {
   awards: [
     { name: 'Game Changer Award', org: 'Dell Technologies · Apr 2025' },
     { name: 'Game Changer Award', org: 'Dell Technologies · Sep 2019' },
-    { name: 'Silver Award', org: 'Dell Technologies · Aug 2016' },
+    { name: 'Silver Award x3', org: 'Dell Technologies · Aug 2016 · Aug 2015 · Jul 2013' },
     { name: 'Gold Award', org: 'Dell Technologies · Jan 2016' },
-    { name: 'Silver Award', org: 'Dell Technologies · Aug 2015' },
     { name: 'FY15 Services ACE Champion', org: 'Dell Technologies · Jul 2014' },
     { name: 'Tell Dell Rock Star x2', org: 'Dell Technologies · 2013 · 2014' },
-    { name: 'Silver Award', org: 'Dell Technologies · Jul 2013' },
     { name: 'Topper of the Batch with 75.75%', org: 'Birla College · Jun 2006' },
     { name: 'Topper of the Batch with 78%', org: 'YCMOU – Kalyan Batch · Dec 2005' },
   ],
