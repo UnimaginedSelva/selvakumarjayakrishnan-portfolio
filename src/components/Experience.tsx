@@ -39,12 +39,12 @@ export default function Experience() {
                     <div className="flex flex-col items-start md:items-end gap-1 shrink-0">
                       <span className="text-slate-400 text-sm">{item.period}</span>
                       <span className="text-slate-600 text-xs">{item.duration}</span>
-                      {item.award && (
-                        <span className="flex items-center gap-1 text-xs bg-gold-500/10 text-gold-400 border border-gold-500/20 px-2 py-0.5 rounded-full">
+                      {item.award && item.award.split('|').map(a => a.trim()).filter(Boolean).map(a => (
+                        <span key={a} className="flex items-center gap-1 text-xs bg-gold-500/10 text-gold-400 border border-gold-500/20 px-2 py-0.5 rounded-full">
                           <Award size={10} />
-                          {item.award}
+                          {a}
                         </span>
-                      )}
+                      ))}
                     </div>
                   </div>
 

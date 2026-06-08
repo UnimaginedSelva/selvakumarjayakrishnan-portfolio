@@ -93,7 +93,7 @@ export const experience = [
     period: 'Apr 2011 – Jul 2014',
     location: 'Chennai, India',
     duration: '3 yrs 4 mos',
-    award: 'Tell Dell Rock Star x2',
+    award: 'Tell Dell Rock Star x2 | Silver Award',
     highlights: [
       'Led operational onboarding of 10 projects across 6 practices generating $2.1M in revenue.',
       'Managed 49 FTEs directly for 3 years and additional 66 FTEs indirectly for 1.5 years.',
@@ -185,7 +185,7 @@ export const skills = {
   awards: [
     { name: 'Game Changer Award', org: 'Dell Technologies · Apr 2025' },
     { name: 'Game Changer Award', org: 'Dell Technologies · Sep 2019' },
-    { name: 'Silver Award x3', org: 'Dell Technologies · Aug 2016 · Aug 2015 · Jul 2013' },
+    { name: 'Silver Award x2', org: 'Dell Technologies · Aug 2016 · Aug 2015' },
     { name: 'Gold Award', org: 'Dell Technologies · Jan 2016' },
     { name: 'FY15 Services ACE Champion', org: 'Dell Technologies · Jul 2014' },
     { name: 'Tell Dell Rock Star x2', org: 'Dell Technologies · 2013 · 2014' },
