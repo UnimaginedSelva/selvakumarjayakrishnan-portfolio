@@ -30,12 +30,8 @@ export const about = {
     'Adoption & Value Realization',
     'Global Program Delivery',
     'Transition Leadership',
-    'Partner Ecosystem Enablement',
-    'UAT & Release Management',
-    'Responsible AI Governance',
     'Process Improvement / Six Sigma',
-    'Change Impact Assessment',
-    'Training & Communication Planning',
+    'Responsible AI Governance',
   ],
 }
 
