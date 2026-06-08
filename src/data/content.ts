@@ -183,8 +183,7 @@ export const skills = {
     },
   ],
   awards: [
-    { name: 'Game Changer Award', org: 'Dell Technologies · Apr 2025' },
-    { name: 'Game Changer Award', org: 'Dell Technologies · Sep 2019' },
+    { name: 'Game Changer Award x2', org: 'Dell Technologies · Apr 2025 · Sep 2019' },
     { name: 'Silver Award x3', org: 'Dell Technologies · Aug 2016 · Aug 2015 · Jul 2013' },
     { name: 'Gold Award', org: 'Dell Technologies · Jan 2016' },
     { name: 'FY15 Services ACE Champion', org: 'Dell Technologies · Jul 2014' },
