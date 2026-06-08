@@ -13,6 +13,7 @@ export default function About() {
           <div className="space-y-5">
             <p className="text-slate-300 leading-relaxed text-base">{about.summary}</p>
             <p className="text-slate-300 leading-relaxed text-base">{about.summary2}</p>
+            <p className="text-slate-300 leading-relaxed text-base">{about.summary3}</p>
 
             <div className="pt-4 grid grid-cols-2 gap-4">
               {[
