@@ -18,7 +18,7 @@ export const hero = {
 
 export const about = {
   summary: `I lead enterprise-scale business transformation programs — including Digital and AI Transformation — that deliver measurable, lasting outcomes. $6M+ in annual business value, 25–35% efficiency improvements, and adoption at scale across 12,000 users globally.`,
-  summary2: `Author of 4 published original practitioner frameworks — with 4 more publishing by end of June 2026 — covering Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. All grounded in 19 years of enterprise delivery evidence.`,
+  summary2Domains: `covering Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. All grounded in 19 years of enterprise delivery evidence.`,
   summary3: `Exploring Senior Manager and Director-level roles in Change Management, Digital Transformation, and AI Operationalization. Immediate joiner. Open to KL, Bangkok, Bengaluru, Pune, and Europe.`,
   focusAreas: [
     'Transformation Governance',

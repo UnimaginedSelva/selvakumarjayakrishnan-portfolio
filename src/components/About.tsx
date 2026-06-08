@@ -1,4 +1,7 @@
-import { about } from '../data/content'
+import { about, frameworks } from '../data/content'
+
+const publishedCount = frameworks.filter(f => f.published.startsWith('Published')).length
+const remainingCount = frameworks.filter(f => f.published.startsWith('Publishing')).length
 
 export default function About() {
   return (
@@ -12,7 +15,11 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-5">
             <p className="text-slate-300 leading-relaxed text-base">{about.summary}</p>
-            <p className="text-slate-300 leading-relaxed text-base">{about.summary2}</p>
+            <p className="text-slate-300 leading-relaxed text-base">
+              Author of {publishedCount} published original practitioner frameworks
+              {remainingCount > 0 && ` — with ${remainingCount} more publishing by end of June 2026 —`}
+              {' '}{about.summary2Domains}
+            </p>
             <p className="text-slate-300 leading-relaxed text-base">{about.summary3}</p>
 
             <div className="pt-4 grid grid-cols-2 gap-4">
