@@ -232,8 +232,8 @@ export const frameworks = [
     stages: '6-Stage Playbook',
     description: 'For ASEAN Digital Transformation',
     detail: 'A regionally-grounded framework for digital transformation across ASEAN\'s ten diverse nations. Built on the principle that effective transformation cannot be copy-pasted — it must be contextualised.',
-    published: 'Publishing on LinkedIn · 9 Jun 2026',
-    url: '#',
+    published: 'Published on LinkedIn · Jun 2026',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7469946394066370562/',
     color: 'gold',
   },
   {
