@@ -13,9 +13,9 @@ interface Props {
 const DIMENSIONS = ['Awareness', 'Desire', 'Knowledge', 'Ability', 'Reinforcement'];
 const KEYS: (keyof AdkarScores)[] = ['awareness', 'desire', 'knowledge', 'ability', 'reinforcement'];
 
-const CX = 160;
-const CY = 155;
-const MAX_R = 100;
+const CX = 175;
+const CY = 160;
+const MAX_R = 95;
 const LEVELS = 5;
 
 function toPoint(angle: number, r: number): [number, number] {
@@ -49,7 +49,7 @@ export default function AdkarRadar({ scores }: Props) {
   const scoreColor = (s: number) => s >= 4 ? '#d4af37' : s === 3 ? '#60a5fa' : '#f87171';
 
   return (
-    <svg viewBox="0 0 320 310" className="w-full max-w-sm mx-auto">
+    <svg viewBox="0 0 360 330" className="w-full max-w-sm mx-auto">
       {/* Grid lines (spokes) */}
       {angles.map((angle, i) => {
         const [x, y] = toPoint(angle, MAX_R);
