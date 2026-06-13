@@ -145,7 +145,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     const data = await response.json() as { content: { text: string }[] };
-    const text = data.content[0].text.trim();
+    let text = data.content[0].text.trim();
+
+    // Strip markdown code fences if Claude wrapped the JSON
+    text = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+
     const result = JSON.parse(text);
 
     return new Response(JSON.stringify(result), {
