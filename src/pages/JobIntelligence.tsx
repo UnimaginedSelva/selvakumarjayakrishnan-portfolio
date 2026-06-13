@@ -100,9 +100,17 @@ export default function JobIntelligence() {
 
   const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
+  function looksLikeUrl(text: string) {
+    return /^https?:\/\//i.test(text.trim());
+  }
+
   async function runIntel() {
     if (jd.trim().length < 30) {
       setError('Please paste the full job description.');
+      return;
+    }
+    if (looksLikeUrl(companyContext)) {
+      setError('Company Context needs actual text, not a URL. Open the page, select all text, and paste it here.');
       return;
     }
     setError('');
