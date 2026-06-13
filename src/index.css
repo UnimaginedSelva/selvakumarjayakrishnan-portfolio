@@ -48,15 +48,52 @@ body {
 }
 
 @media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
   body {
     background-color: #ffffff !important;
     color: #0f172a !important;
+    font-size: 11pt !important;
   }
+
   .no-print { display: none !important; }
+
   .card {
     background-color: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
     break-inside: avoid;
+    margin-bottom: 12pt !important;
   }
-  .print-page-break { page-break-before: always; }
+
+  /* Force all text colours to readable dark tones */
+  .text-slate-100, .text-slate-200, .text-slate-300 { color: #0f172a !important; }
+  .text-slate-400, .text-slate-500, .text-slate-600 { color: #475569 !important; }
+  .text-gold-400, .text-gold-500 { color: #b45309 !important; }
+  .text-red-400 { color: #b91c1c !important; }
+  .text-blue-400 { color: #1d4ed8 !important; }
+
+  /* Card backgrounds */
+  .bg-slate-800, .bg-slate-900 { background-color: #f8fafc !important; }
+  .bg-gold-500\/5 { background-color: #fffbeb !important; }
+
+  /* Borders */
+  .border-slate-700, .border-slate-600 { border-color: #cbd5e1 !important; }
+  .border-gold-500\/20, .border-gold-500\/40 { border-color: #d97706 !important; }
+
+  /* Badges */
+  .bg-red-500\/10 { background-color: #fee2e2 !important; }
+  .bg-amber-500\/10 { background-color: #fef3c7 !important; }
+  .bg-blue-500\/10 { background-color: #dbeafe !important; }
+  .bg-purple-500\/10 { background-color: #ede9fe !important; }
+  .bg-slate-700 { background-color: #f1f5f9 !important; }
+
+  /* Radar SVG — keep colours */
+  svg text { fill: #0f172a !important; }
+
+  /* Priority actions box */
+  .bg-gold-500\/5 { background-color: #fffbeb !important; border-color: #d97706 !important; }
+
+  /* Page setup */
+  @page { margin: 15mm; size: A4; }
 }

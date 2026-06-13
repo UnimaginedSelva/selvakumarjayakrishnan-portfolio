@@ -13,10 +13,11 @@ interface Props {
 const DIMENSIONS = ['Awareness', 'Desire', 'Knowledge', 'Ability', 'Reinforcement'];
 const KEYS: (keyof AdkarScores)[] = ['awareness', 'desire', 'knowledge', 'ability', 'reinforcement'];
 
-const CX = 175;
-const CY = 160;
-const MAX_R = 95;
+const CX = 210;
+const CY = 165;
+const MAX_R = 100;
 const LEVELS = 5;
+const LABEL_R = MAX_R + 28;
 
 function toPoint(angle: number, r: number): [number, number] {
   const rad = (angle - 90) * (Math.PI / 180);
@@ -30,108 +31,69 @@ function getAngles(n: number): number[] {
 export default function AdkarRadar({ scores }: Props) {
   const angles = getAngles(5);
 
-  // Grid pentagon points for each level
   const gridLevels = Array.from({ length: LEVELS }, (_, i) => {
     const r = (MAX_R / LEVELS) * (i + 1);
     return angles.map(a => toPoint(a, r)).map(([x, y]) => `${x},${y}`).join(' ');
   });
 
-  // Score polygon
   const scorePoints = KEYS.map((k, i) => {
-    const r = (scores[k] / 5) * MAX_R;
+    const r = Math.max((scores[k] / 5) * MAX_R, 4);
     return toPoint(angles[i], r);
   });
   const scorePolygon = scorePoints.map(([x, y]) => `${x},${y}`).join(' ');
 
-  // Label positions (slightly outside max radius)
-  const labelPositions = angles.map(a => toPoint(a, MAX_R + 26));
+  const labelPositions = angles.map(a => toPoint(a, LABEL_R));
 
   const scoreColor = (s: number) => s >= 4 ? '#d4af37' : s === 3 ? '#60a5fa' : '#f87171';
 
   return (
-    <svg viewBox="0 0 360 330" className="w-full max-w-sm mx-auto">
-      {/* Grid lines (spokes) */}
+    <svg viewBox="0 0 420 340" className="w-full max-w-sm mx-auto">
+      {/* Grid spokes */}
       {angles.map((angle, i) => {
         const [x, y] = toPoint(angle, MAX_R);
-        return (
-          <line
-            key={i}
-            x1={CX} y1={CY}
-            x2={x} y2={y}
-            stroke="#334155"
-            strokeWidth="1"
-          />
-        );
+        return <line key={i} x1={CX} y1={CY} x2={x} y2={y} stroke="#334155" strokeWidth="1" />;
       })}
 
       {/* Grid pentagons */}
       {gridLevels.map((pts, i) => (
-        <polygon
-          key={i}
-          points={pts}
-          fill="none"
-          stroke="#334155"
-          strokeWidth={i === LEVELS - 1 ? 1.5 : 1}
-        />
+        <polygon key={i} points={pts} fill="none" stroke="#334155" strokeWidth={i === LEVELS - 1 ? 1.5 : 1} />
       ))}
 
-      {/* Score level labels (1–5) on the first spoke */}
+      {/* Level numbers on top spoke */}
       {Array.from({ length: LEVELS }, (_, i) => {
         const r = (MAX_R / LEVELS) * (i + 1);
         const [x, y] = toPoint(0, r);
-        return (
-          <text
-            key={i}
-            x={x + 5}
-            y={y + 4}
-            fontSize="9"
-            fill="#64748b"
-          >
-            {i + 1}
-          </text>
-        );
+        return <text key={i} x={x + 5} y={y + 4} fontSize="9" fill="#64748b">{i + 1}</text>;
       })}
 
-      {/* Score polygon fill */}
-      <polygon
-        points={scorePolygon}
-        fill="#d4af37"
-        fillOpacity="0.15"
-        stroke="#d4af37"
-        strokeWidth="2"
-      />
+      {/* Score polygon */}
+      <polygon points={scorePolygon} fill="#d4af37" fillOpacity="0.15" stroke="#d4af37" strokeWidth="2" />
 
       {/* Score dots */}
       {scorePoints.map(([x, y], i) => (
-        <circle
-          key={i}
-          cx={x} cy={y}
-          r="5"
-          fill={scoreColor(scores[KEYS[i]])}
-          stroke="#0f172a"
-          strokeWidth="2"
-        />
+        <circle key={i} cx={x} cy={y} r="5" fill={scoreColor(scores[KEYS[i]])} stroke="#0f172a" strokeWidth="2" />
       ))}
 
-      {/* Dimension labels */}
+      {/* Dimension labels — split "Reinforcement" to two lines */}
       {labelPositions.map(([x, y], i) => {
         const anchor = x < CX - 5 ? 'end' : x > CX + 5 ? 'start' : 'middle';
+        const label = DIMENSIONS[i];
+        const words = label.split(' ');
         return (
-          <text
-            key={i}
-            x={x}
-            y={y + 4}
-            textAnchor={anchor}
-            fontSize="11"
-            fontWeight="600"
-            fill="#cbd5e1"
-          >
-            {DIMENSIONS[i]}
+          <text key={i} x={x} textAnchor={anchor} fontSize="11" fontWeight="600" fill="#cbd5e1">
+            {words.length === 1 ? (
+              <tspan x={x} y={y + 4}>{label}</tspan>
+            ) : (
+              <>
+                <tspan x={x} y={y - 3}>{words[0]}</tspan>
+                <tspan x={x} dy="14">{words[1]}</tspan>
+              </>
+            )}
           </text>
         );
       })}
 
-      {/* Score values next to dots */}
+      {/* Score values */}
       {scorePoints.map(([x, y], i) => (
         <text
           key={i}

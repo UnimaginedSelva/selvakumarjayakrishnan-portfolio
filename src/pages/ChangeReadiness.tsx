@@ -255,7 +255,12 @@ export default function ChangeReadiness() {
             {/* Download bar */}
             <div className="no-print flex justify-end">
               <button
-                onClick={() => window.print()}
+                onClick={() => {
+                  const prev = document.title;
+                  document.title = `Change_Readiness_Assessment_${new Date().toISOString().slice(0,10)}`;
+                  window.print();
+                  document.title = prev;
+                }}
                 className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-gold-400 px-4 py-2 rounded-lg text-sm transition-colors"
               >
                 <Download size={14} />
