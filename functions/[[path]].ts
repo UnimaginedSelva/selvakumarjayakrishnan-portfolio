@@ -1,17 +1,15 @@
 export const onRequest: PagesFunction = async (context) => {
-  const url = new URL(context.request.url);
-  const { pathname } = url;
+  // Try to serve the real asset (JS, CSS, images, fonts, etc.)
+  const assetResponse = await context.env.ASSETS.fetch(context.request);
 
-  // Pass through API routes, static assets, and files with extensions
-  if (
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/assets/') ||
-    pathname.match(/\.\w+$/)
-  ) {
-    return context.next();
+  // If the asset exists, return it directly
+  if (assetResponse.status !== 404) {
+    return assetResponse;
   }
 
-  // For all navigation routes (no extension), serve index.html
-  const indexUrl = new URL('/index.html', url.origin);
-  return context.env.ASSETS.fetch(indexUrl.toString());
+  // Asset not found — this is a client-side route (e.g. /change-readiness)
+  // Serve index.html so React Router can handle it
+  const url = new URL(context.request.url);
+  const indexRequest = new Request(new URL('/index.html', url.origin).toString());
+  return context.env.ASSETS.fetch(indexRequest);
 };
