@@ -8,6 +8,7 @@ import Frameworks from './components/Frameworks'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ChangeReadiness from './pages/ChangeReadiness'
+import JobIntelligence from './pages/JobIntelligence'
 
 function Portfolio() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Portfolio />} />
       <Route path="/change-readiness" element={<ChangeReadiness />} />
+      <Route path="/job-intelligence" element={<JobIntelligence />} />
     </Routes>
   )
 }
