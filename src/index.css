@@ -46,3 +46,17 @@ body {
 .gold-badge {
   @apply inline-block bg-gold-500/10 text-gold-400 text-sm px-3 py-1 rounded-full border border-gold-500/30;
 }
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .no-print { display: none !important; }
+  .card {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    break-inside: avoid;
+  }
+  .print-page-break { page-break-before: always; }
+}

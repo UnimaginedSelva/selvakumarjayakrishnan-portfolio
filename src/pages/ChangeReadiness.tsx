@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Loader2, CheckCircle2, AlertTriangle, ChevronRight } from 'lucide-react'
+import { ArrowLeft, Loader2, CheckCircle2, AlertTriangle, ChevronRight, Download } from 'lucide-react'
 import AdkarRadar from '../components/AdkarRadar'
 
 interface AdkarDimension {
@@ -158,7 +158,7 @@ export default function ChangeReadiness() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100">
       {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
+      <div className="no-print border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
           <Link to="/" className="text-slate-400 hover:text-gold-400 transition-colors flex items-center gap-1 text-sm">
             <ArrowLeft size={15} />
@@ -252,6 +252,16 @@ export default function ChangeReadiness() {
         {/* Results */}
         {result && (
           <div className="space-y-6 animate-fade-in">
+            {/* Download bar */}
+            <div className="no-print flex justify-end">
+              <button
+                onClick={() => window.print()}
+                className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-gold-400 px-4 py-2 rounded-lg text-sm transition-colors"
+              >
+                <Download size={14} />
+                Download PDF
+              </button>
+            </div>
             {/* Summary bar */}
             <div className="card flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="flex-1">
@@ -381,7 +391,7 @@ export default function ChangeReadiness() {
             </div>
 
             {/* Run another */}
-            <div className="text-center pt-2">
+            <div className="no-print text-center pt-2">
               <button
                 onClick={() => { setResult(null); setBrief(''); }}
                 className="text-sm text-slate-500 hover:text-gold-400 transition-colors"
