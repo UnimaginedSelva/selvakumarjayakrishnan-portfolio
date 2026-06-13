@@ -1,12 +1,17 @@
 export const onRequest: PagesFunction = async (context) => {
   const url = new URL(context.request.url);
+  const { pathname } = url;
 
-  // Let /api/* routes fall through to their specific functions
-  if (url.pathname.startsWith('/api/')) {
+  // Pass through API routes, static assets, and files with extensions
+  if (
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/assets/') ||
+    pathname.match(/\.\w+$/)
+  ) {
     return context.next();
   }
 
-  // For all other routes, serve index.html (SPA fallback)
+  // For all navigation routes (no extension), serve index.html
   const indexUrl = new URL('/index.html', url.origin);
   return context.env.ASSETS.fetch(indexUrl.toString());
 };
