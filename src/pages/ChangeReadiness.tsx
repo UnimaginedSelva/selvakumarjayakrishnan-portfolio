@@ -123,26 +123,34 @@ export default function ChangeReadiness() {
       setCurrentStep(STEPS.length - 1);
     };
 
-    const [data] = await Promise.all([
-      fetch('/api/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ brief }),
-      }).then(r => r.json()),
-      animateSteps(),
-    ]);
+    try {
+      const [data] = await Promise.all([
+        fetch('/api/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ brief }),
+        }).then(async r => {
+          const text = await r.text();
+          try { return JSON.parse(text); } catch { return { error: `Unexpected response: ${text.slice(0, 120)}` }; }
+        }),
+        animateSteps(),
+      ]);
 
-    await sleep(400);
-    setCompletedSteps(prev => [...prev, STEPS.length - 1]);
-    await sleep(300);
+      await sleep(400);
+      setCompletedSteps(prev => [...prev, STEPS.length - 1]);
+      await sleep(300);
 
-    if (data.error) {
-      setError(data.error);
-    } else {
-      setResult(data as AssessmentResult);
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setResult(data as AssessmentResult);
+      }
+    } catch (err) {
+      setError(`Assessment failed: ${err instanceof Error ? err.message : 'Unknown error'}. Please try again.`);
+    } finally {
+      setCurrentStep(-1);
+      setLoading(false);
     }
-    setCurrentStep(-1);
-    setLoading(false);
   }
 
   return (
