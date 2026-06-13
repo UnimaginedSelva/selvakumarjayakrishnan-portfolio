@@ -257,7 +257,8 @@ export default function ChangeReadiness() {
               <button
                 onClick={() => {
                   const prev = document.title;
-                  document.title = `Change_Readiness_Assessment_${new Date().toISOString().slice(0,10)}`;
+                  const _nd = new Date(); const _ds = `${_nd.getFullYear()}-${String(_nd.getMonth()+1).padStart(2,'0')}-${String(_nd.getDate()).padStart(2,'0')}`;
+                  document.title = `Change_Readiness_Assessment_${_ds}`;
                   window.print();
                   document.title = prev;
                 }}

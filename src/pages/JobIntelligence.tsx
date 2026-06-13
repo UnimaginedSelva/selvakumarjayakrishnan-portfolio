@@ -268,7 +268,8 @@ export default function JobIntelligence() {
               <button
                 onClick={() => {
                   const prev = document.title;
-                  document.title = `Interview_Brief_${result.roleSnapshot.company.replace(/\s+/g, '_')}_${new Date().toISOString().slice(0, 10)}`;
+                  const _nd = new Date(); const _ds = `${_nd.getFullYear()}-${String(_nd.getMonth()+1).padStart(2,'0')}-${String(_nd.getDate()).padStart(2,'0')}`;
+                  document.title = `Interview_Brief_${result.roleSnapshot.company.replace(/\s+/g, '_')}_${_ds}`;
                   window.print();
                   document.title = prev;
                 }}
