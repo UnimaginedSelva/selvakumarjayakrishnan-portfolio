@@ -1,15 +1,25 @@
 export const onRequest: PagesFunction = async (context) => {
-  // Try to serve the real asset (JS, CSS, images, fonts, etc.)
+  const url = new URL(context.request.url);
+
+  // Try to serve the real asset first
   const assetResponse = await context.env.ASSETS.fetch(context.request);
 
-  // If the asset exists, return it directly
+  // If found, return it
   if (assetResponse.status !== 404) {
     return assetResponse;
   }
 
-  // Asset not found — this is a client-side route (e.g. /change-readiness)
-  // Serve index.html so React Router can handle it
-  const url = new URL(context.request.url);
-  const indexRequest = new Request(new URL('/index.html', url.origin).toString());
-  return context.env.ASSETS.fetch(indexRequest);
+  // Not a real file — serve the root (index.html) so React Router handles the path
+  const rootRequest = new Request(new URL('/', url.origin).toString(), {
+    headers: context.request.headers,
+  });
+  const rootResponse = await context.env.ASSETS.fetch(rootRequest);
+
+  // Return the HTML body but keep the original URL (don't follow redirects)
+  return new Response(rootResponse.body, {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/html;charset=UTF-8',
+    },
+  });
 };
