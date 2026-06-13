@@ -142,6 +142,8 @@ export default function ChangeReadiness() {
 
       if (data.error) {
         setError(data.error);
+      } else if (!data.adkar || !data.risks || !data.frameworkRecommendations) {
+        setError(`Incomplete response from Claude. Raw: ${JSON.stringify(data).slice(0, 200)}`);
       } else {
         setResult(data as AssessmentResult);
       }
