@@ -49,7 +49,9 @@ Return ONLY valid JSON. No markdown, no explanation, no code blocks.
     "seniorityFit": "Strong" | "Moderate" | "Stretch",
     "locationFit": "Strong" | "Moderate" | "Note",
     "locationNote": "One line on location fit vs Selva's targets",
-    "fitSummary": "2-3 sentence overall fit assessment"
+    "fitSummary": "2-3 sentence overall fit assessment",
+    "verdict": "Apply" | "Apply with Caution" | "Skip",
+    "verdictReason": "One sentence explaining the verdict — what clinches it or rules it out"
   },
   "fitAssessment": [
     {

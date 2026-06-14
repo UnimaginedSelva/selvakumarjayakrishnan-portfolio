@@ -10,6 +10,8 @@ interface RoleSnapshot {
   locationFit: string;
   locationNote: string;
   fitSummary: string;
+  verdict: string;
+  verdictReason: string;
 }
 
 interface FitItem {
@@ -282,6 +284,29 @@ export default function JobIntelligence() {
             {/* Role Snapshot */}
             <div className="card">
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Role Snapshot</p>
+              {/* Verdict Banner */}
+              {result.roleSnapshot.verdict && (() => {
+                const v = result.roleSnapshot.verdict;
+                const isApply = v === 'Apply';
+                const isCaution = v === 'Apply with Caution';
+                const bannerClass = isApply
+                  ? 'bg-emerald-900/40 border border-emerald-500/40 text-emerald-300'
+                  : isCaution
+                  ? 'bg-amber-900/40 border border-amber-500/40 text-amber-300'
+                  : 'bg-red-900/40 border border-red-500/40 text-red-300';
+                const icon = isApply ? '✓' : isCaution ? '⚠' : '✕';
+                return (
+                  <div className={`flex items-start gap-3 rounded-lg px-4 py-3 mb-4 ${bannerClass}`}>
+                    <span className="text-lg font-bold leading-none mt-0.5">{icon}</span>
+                    <div>
+                      <p className="font-semibold text-sm">{v}</p>
+                      {result.roleSnapshot.verdictReason && (
+                        <p className="text-xs opacity-80 mt-0.5">{result.roleSnapshot.verdictReason}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
               <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                 <div className="flex-1">
                   <h2 className="text-xl font-bold text-slate-100 mb-1">{result.roleSnapshot.title}</h2>
