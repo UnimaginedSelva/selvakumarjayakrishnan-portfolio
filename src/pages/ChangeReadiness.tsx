@@ -259,8 +259,8 @@ export default function ChangeReadiness() {
                   const prev = document.title;
                   const _nd = new Date(); const _ds = `${_nd.getFullYear()}-${String(_nd.getMonth()+1).padStart(2,'0')}-${String(_nd.getDate()).padStart(2,'0')}`;
                   document.title = `Change_Readiness_Assessment_${_ds}`;
+                  window.addEventListener('afterprint', () => { document.title = prev; }, { once: true });
                   window.print();
-                  document.title = prev;
                 }}
                 className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-gold-400 px-4 py-2 rounded-lg text-sm transition-colors"
               >
