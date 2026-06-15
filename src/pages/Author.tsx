@@ -163,10 +163,13 @@ export default function Author() {
           />
           <div className="space-y-4 text-slate-300 text-base leading-relaxed">
             <p>
-              <strong className="text-slate-100">Selva JN</strong> is an enterprise transformation leader and debut novelist based in Bengaluru, India. By profession, he architects large-scale digital and AI transformation programs. By passion, he builds worlds in space.
+              <strong className="text-slate-100">Selva JN</strong> is an author of science fiction and mystery, drawn to stories set at the intersection of human nature and the future.
             </p>
             <p>
-              <em>Murders on Mars Express</em> is his first novel — a locked-room mystery set aboard humanity's most advanced deep-space cruiser. The Quinn universe continues.
+              His debut novel, <em>Murders on Mars Express</em>, is set in 2100 aboard a sealed interplanetary transit system, where a detective named Quinn investigates a string of deaths that nobody else believes are connected. Quinn has no jurisdiction, no authority, and no reason to care — except that he has spent a lifetime reading the gap between what people perform and what they actually feel.
+            </p>
+            <p>
+              Selva lives in India and is currently building the Quinn universe across multiple novels.
             </p>
             <div className="flex gap-4 pt-2">
               <a
