@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ChangeReadiness from './pages/ChangeReadiness'
 import JobIntelligence from './pages/JobIntelligence'
+import Author from './pages/Author'
 
 function Portfolio() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
       <Route path="/" element={<Portfolio />} />
       <Route path="/change-readiness" element={<ChangeReadiness />} />
       <Route path="/job-intelligence" element={<JobIntelligence />} />
+      <Route path="/author" element={<Author />} />
     </Routes>
   )
 }
