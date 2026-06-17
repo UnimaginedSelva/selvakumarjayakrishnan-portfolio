@@ -136,13 +136,13 @@ export default function Author() {
         <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">About the Book</p>
         <div className="max-w-3xl space-y-4 text-slate-300 text-base leading-relaxed">
           <p>
-            The Mars Express is humanity's most advanced luxury cruiser — a sealed vessel traveling the sixty-day route between Earth and Mars. When passengers begin dying in locked cabins with no evidence of intrusion, Detective Quinn must find the killer before the ship docks.
+            The year is 2100. Interplanetary travel is routine — the Mars Express Corporation moves thousands of passengers between worlds on sealed, self-contained vessels. When passengers begin dying across multiple voyages, each death ruled natural causes, nobody is looking for a pattern.
           </p>
           <p>
-            But on a sealed ship hurtling through deep space, everyone is a suspect. And the killer has already made one thing clear — not everyone boards the Mars Express expecting to arrive.
+            Nobody except Quinn. He has no badge. No jurisdiction. What he has is eleven years of reading financial records that don't tell the truth — and a list of ten names that changes everything.
           </p>
           <p>
-            A locked-room mystery set against the cold silence of space. <em>Murders on Mars Express</em> is a debut novel that fuses classic mystery mechanics with the isolation and paranoia of science fiction.
+            A locked-room mystery at interplanetary scale. <em>Murders on Mars Express</em> fuses classic mystery mechanics with the isolation and paranoia of science fiction.
           </p>
         </div>
       </section>
