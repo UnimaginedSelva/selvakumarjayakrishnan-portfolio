@@ -1,9 +1,49 @@
-import { Linkedin } from 'lucide-react'
+import { Linkedin, BookOpen, MessageSquare } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Footer() {
+  const navigate = useNavigate()
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 py-8 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="bg-slate-950 border-t border-slate-800 pt-10 pb-8 px-6">
+      <div className="max-w-6xl mx-auto">
+
+        {/* Coming Soon cards */}
+        <div className="grid sm:grid-cols-2 gap-4 mb-10">
+          <div
+            onClick={() => navigate('/blog')}
+            className="group cursor-pointer border border-dashed border-slate-700 hover:border-gold-500/40 rounded-xl p-5 flex items-start gap-4 transition-all"
+          >
+            <div className="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center shrink-0 group-hover:bg-gold-500/20 transition-colors">
+              <BookOpen size={16} className="text-gold-400" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-slate-100 font-semibold text-sm">Thought Leadership Blog</span>
+                <span className="text-xs font-medium text-gold-400 bg-gold-500/10 border border-gold-500/20 px-2 py-0.5 rounded-full">Coming Soon</span>
+              </div>
+              <p className="text-slate-500 text-xs leading-relaxed">Real-world application of 7 practitioner frameworks — published monthly from 30 June 2026.</p>
+            </div>
+          </div>
+
+          <div
+            onClick={() => navigate('/journey')}
+            className="group cursor-pointer border border-dashed border-slate-700 hover:border-gold-500/40 rounded-xl p-5 flex items-start gap-4 transition-all"
+          >
+            <div className="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center shrink-0 group-hover:bg-gold-500/20 transition-colors">
+              <MessageSquare size={16} className="text-gold-400" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-slate-100 font-semibold text-sm">The Journey — Q&A</span>
+                <span className="text-xs font-medium text-gold-400 bg-gold-500/10 border border-gold-500/20 px-2 py-0.5 rounded-full">Coming Soon</span>
+              </div>
+              <p className="text-slate-500 text-xs leading-relaxed">Real scenarios. Honest answers. The road to becoming one of the best AI Consultants by 2030.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center font-bold text-slate-900 text-xs">
             SJ
@@ -24,6 +64,7 @@ export default function Footer() {
           <Linkedin size={16} />
           LinkedIn
         </a>
+        </div>
       </div>
     </footer>
   )

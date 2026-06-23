@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import ChangeReadiness from './pages/ChangeReadiness'
 import JobIntelligence from './pages/JobIntelligence'
 import Author from './pages/Author'
+import Blog from './pages/Blog'
+import Journey from './pages/Journey'
 
 function Portfolio() {
   return (
@@ -33,6 +35,8 @@ export default function App() {
       <Route path="/change-readiness" element={<ChangeReadiness />} />
       <Route path="/job-intelligence" element={<JobIntelligence />} />
       <Route path="/author" element={<Author />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/journey" element={<Journey />} />
     </Routes>
   )
 }
