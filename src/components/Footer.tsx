@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
 
         <p className="text-slate-600 text-xs text-center">
-          TRANSFORM Framework™ · OPERATE Framework™ · © {new Date().getFullYear()} Selvakumar Jayakrishnan
+          TRANSFORM™ · OPERATE™ · ASCEND™ · EMBED™ · BRIDGE™ · FORGED™ · TRUST™ · © {new Date().getFullYear()} Selvakumar Jayakrishnan
         </p>
 
         <a
