@@ -2,12 +2,16 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Frameworks', href: '#frameworks' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', id: 'about' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Frameworks', id: 'frameworks' },
+  { label: 'Contact', id: 'contact' },
 ]
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -31,16 +35,16 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           {links.map(l => (
-            <a key={l.label} href={l.href} className="text-slate-400 hover:text-gold-400 transition-colors text-sm font-medium">
+            <button key={l.label} onClick={() => scrollTo(l.id)} className="text-slate-400 hover:text-gold-400 transition-colors text-sm font-medium">
               {l.label}
-            </a>
+            </button>
           ))}
-          <a
-            href="#contact"
+          <button
+            onClick={() => scrollTo('contact')}
             className="bg-gold-500 hover:bg-gold-400 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
           >
             Hire Me
-          </a>
+          </button>
         </div>
 
         <button className="md:hidden text-slate-400 hover:text-slate-100" onClick={() => setMenuOpen(!menuOpen)}>
@@ -51,13 +55,13 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-slate-900 border-t border-slate-800 px-6 py-4 flex flex-col gap-4">
           {links.map(l => (
-            <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)} className="text-slate-300 hover:text-gold-400 transition-colors text-sm font-medium">
+            <button key={l.label} onClick={() => { scrollTo(l.id); setMenuOpen(false) }} className="text-slate-300 hover:text-gold-400 transition-colors text-sm font-medium text-left">
               {l.label}
-            </a>
+            </button>
           ))}
-          <a href="#contact" onClick={() => setMenuOpen(false)} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
+          <button onClick={() => { scrollTo('contact'); setMenuOpen(false) }} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
             Hire Me
-          </a>
+          </button>
         </div>
       )}
     </nav>
