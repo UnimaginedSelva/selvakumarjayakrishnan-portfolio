@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import HireMeModal from './HireMeModal'
 
 const links = [
   { label: 'About', id: 'about' },
@@ -16,6 +17,7 @@ function scrollTo(id: string) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [hireMeOpen, setHireMeOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -39,18 +41,20 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <a
-            href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion&body=Hi%20Selva%2C"
+          <button
+            onClick={() => setHireMeOpen(true)}
             className="bg-gold-500 hover:bg-gold-400 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
           >
             Hire Me
-          </a>
+          </button>
         </div>
 
         <button className="md:hidden text-slate-400 hover:text-slate-100" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
+
+      {hireMeOpen && <HireMeModal onClose={() => setHireMeOpen(false)} />}
 
       {menuOpen && (
         <div className="md:hidden bg-slate-900 border-t border-slate-800 px-6 py-4 flex flex-col gap-4">
@@ -59,9 +63,9 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <a href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion&body=Hi%20Selva%2C" onClick={() => setMenuOpen(false)} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
+          <button onClick={() => { setMenuOpen(false); setHireMeOpen(true) }} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
             Hire Me
-          </a>
+          </button>
         </div>
       )}
     </nav>
