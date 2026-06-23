@@ -86,7 +86,7 @@ export default function HireMeModal({ onClose }: Props) {
                 type="text"
                 value={company}
                 onChange={e => setCompany(e.target.value)}
-                placeholder="e.g. Roche Diagnostics"
+                placeholder="e.g. Anthropic"
                 className="w-full bg-slate-800 border border-slate-700 text-slate-100 text-sm rounded-lg px-3 py-2.5 placeholder-slate-600 focus:outline-none focus:border-gold-500 transition-colors"
               />
             </div>
