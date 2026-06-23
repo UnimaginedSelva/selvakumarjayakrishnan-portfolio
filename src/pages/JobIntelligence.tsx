@@ -269,11 +269,22 @@ export default function JobIntelligence() {
               </button>
               <button
                 onClick={() => {
-                  const prev = document.title;
+                  const prevTitle = document.title;
+                  const prevTP = expandedTP;
+                  const prevFA = expandedFA;
                   const _nd = new Date(); const _ds = `${_nd.getFullYear()}-${String(_nd.getMonth()+1).padStart(2,'0')}-${String(_nd.getDate()).padStart(2,'0')}`;
                   document.title = `Interview_Brief_${result.roleSnapshot.company.replace(/\s+/g, '_')}_${_ds}`;
-                  window.addEventListener('afterprint', () => { document.title = prev; }, { once: true });
-                  window.print();
+                  // Expand all accordions so every section appears in the PDF
+                  setExpandedTP(-1);
+                  setExpandedFA(-1);
+                  setTimeout(() => {
+                    window.print();
+                    window.addEventListener('afterprint', () => {
+                      document.title = prevTitle;
+                      setExpandedTP(prevTP);
+                      setExpandedFA(prevFA);
+                    }, { once: true });
+                  }, 80);
                 }}
                 className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-gold-400 px-4 py-2 rounded-lg text-sm transition-colors"
               >
@@ -359,7 +370,7 @@ export default function JobIntelligence() {
                       </div>
                       <ChevronRight size={14} className={`text-slate-500 transition-transform ${expandedTP === i ? 'rotate-90' : ''}`} />
                     </button>
-                    {expandedTP === i && (
+                    {(expandedTP === -1 || expandedTP === i) && (
                       <div className="px-4 pb-4 space-y-3 border-t border-slate-700/50 pt-4">
                         {[
                           { label: 'S — Situation', text: tp.situation },
@@ -397,7 +408,7 @@ export default function JobIntelligence() {
                       <span className="text-sm font-semibold text-slate-200">{fa.jdRequirement}</span>
                       <ChevronRight size={14} className={`text-slate-500 shrink-0 transition-transform ${expandedFA === i ? 'rotate-90' : ''}`} />
                     </button>
-                    {expandedFA === i && (
+                    {(expandedFA === -1 || expandedFA === i) && (
                       <div className="px-4 pb-4 space-y-3 border-t border-slate-700/50 pt-4">
                         {[
                           { label: 'STAR Hook (Dell)', color: 'text-gold-500/70', text: fa.starHook },
