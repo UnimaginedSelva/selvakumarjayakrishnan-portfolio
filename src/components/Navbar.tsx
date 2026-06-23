@@ -39,12 +39,12 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <button
-            onClick={() => scrollTo('contact')}
+          <a
+            href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion"
             className="bg-gold-500 hover:bg-gold-400 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
           >
             Hire Me
-          </button>
+          </a>
         </div>
 
         <button className="md:hidden text-slate-400 hover:text-slate-100" onClick={() => setMenuOpen(!menuOpen)}>
@@ -59,9 +59,9 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <button onClick={() => { scrollTo('contact'); setMenuOpen(false) }} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
+          <a href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion" onClick={() => setMenuOpen(false)} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
             Hire Me
-          </button>
+          </a>
         </div>
       )}
     </nav>
