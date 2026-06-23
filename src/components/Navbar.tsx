@@ -40,7 +40,7 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion"
+            href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion&body=Hi%20Selva%2C"
             className="bg-gold-500 hover:bg-gold-400 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
           >
             Hire Me
@@ -59,7 +59,7 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <a href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion" onClick={() => setMenuOpen(false)} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
+          <a href="mailto:selvakumar.jayakrishnan@hotmail.com?subject=Senior%20Change%20%26%20Transformation%20Leader%20%E2%80%94%20Opportunity%20Discussion&body=Hi%20Selva%2C" onClick={() => setMenuOpen(false)} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
             Hire Me
           </a>
         </div>
