@@ -37,7 +37,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
             <p className="text-slate-300 leading-relaxed">
-              If your organization is driving enterprise-scale digital or AI transformation, I would be glad to connect. I bring 19 years of proven delivery, two published practitioner frameworks, and an immediate joiner status.
+              If your organization is driving enterprise-scale digital or AI transformation, I would be glad to connect. I bring 19 years of enterprise experience, including 11 years of core Change Management practice, 7 published practitioner frameworks, and an immediate joiner status.
             </p>
             <div className="flex items-center gap-2 text-slate-500 text-sm">
               <MapPin size={14} className="text-gold-400" />
