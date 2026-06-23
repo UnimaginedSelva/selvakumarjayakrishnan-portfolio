@@ -253,8 +253,8 @@ export const frameworks = [
     stages: '5-Stage Playbook',
     description: 'For FSI Digital Adoption',
     detail: 'A financial services-specific framework for digital adoption where trust is not a feature — it is the architecture. Addresses the unique compliance, risk, and customer confidence dimensions of FSI transformation.',
-    published: 'Publishing on LinkedIn · 23 Jun 2026',
-    url: '#',
+    published: 'Published on LinkedIn · 23 Jun 2026',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7475019807097245697/',
     color: 'gold',
   },
   {
