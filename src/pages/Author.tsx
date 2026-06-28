@@ -87,7 +87,7 @@ export default function Author() {
               </p>
 
               <p className="text-slate-300 text-base lg:text-lg leading-relaxed max-w-xl mb-2 italic">
-                "A detective named Quinn. A sealed ship. Sixty days. And a killer who has already decided who comes home."
+                "Quinn. A sealed ship. Sixty days. And a killer who has already decided who comes home."
               </p>
 
               <p className="text-slate-600 text-sm mb-8">by Selva JN</p>
@@ -139,7 +139,7 @@ export default function Author() {
             The year is 2100. Interplanetary travel is routine — the Mars Express Corporation moves thousands of passengers between worlds on sealed, self-contained vessels. When passengers begin dying across multiple voyages, each death ruled natural causes, nobody is looking for a pattern.
           </p>
           <p>
-            Nobody except Quinn. He has no badge. No jurisdiction. What he has is eleven years of reading financial records that don't tell the truth — and a list of ten names that changes everything.
+            Nobody except Quinn. He has no badge. No jurisdiction. What he has is eleven years of reading financial records that don't tell the truth — and a list of fifteen names — some of the world's most consequential reformers, and others who should not be there at all.
           </p>
           <p>
             A locked-room mystery at interplanetary scale. <em>Murders on Mars Express</em> fuses classic mystery mechanics with the isolation and paranoia of science fiction.
