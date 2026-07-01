@@ -248,6 +248,8 @@ Same technology. Completely different architecture around it.
 
 The AI didn't get smarter in between. The organization stopped installing it and started onboarding it.
 
+![Stop Installing AI. Start Onboarding It: the performance gap between the software paradigm (5% productivity gain) and the teammate paradigm (30% productivity gain)](/P17_Image.jpg)
+
 ## Stage 2: Ecosystem Co-Creation — Give It a Seat at the Table
 
 The second piece of genuine collaboration is this: real collaborators help define the boundaries of the collaboration itself. They're not handed a rigid spec by a disconnected team and told to comply.

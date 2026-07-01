@@ -21,7 +21,7 @@ const POSTS: Record<string, PostMeta> = {
     title: 'Stop Installing AI. Start Onboarding It.',
     description:
       "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead.",
-    image: '/hero-bg.jpg',
+    image: '/P17_Image.jpg',
   },
 };
 
