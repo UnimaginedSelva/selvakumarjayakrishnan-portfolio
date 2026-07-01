@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     framework: 'OPERATE™ + TRUST™',
     frameworkTag: 'OPERATE™ + TRUST™',
     series: 'Real-World Application of the 7 Frameworks',
-    date: '2026-06-24',
+    date: '2026-06-30',
     readTime: '9 min',
     summary: "One OTA cut support costs 40-60% with autonomous AI agents. Fewer than 1 in 10 travelers trust AI to book on their behalf. The gap between the two is a change architecture problem, not a technology one.",
     content: `In 2026, a leading global OTA runs AI agents that autonomously handle tens of thousands of complex customer interactions daily, verifying front desk hours, confirming changes directly against a hotel's live PMS, and dispatching confirmations, without a human in the loop.
