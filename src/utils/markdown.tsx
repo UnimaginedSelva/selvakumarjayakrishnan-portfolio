@@ -1,11 +1,16 @@
 import type { ReactNode } from 'react'
-import { frameworks } from '../data/content'
+
+const PLAYBOOK_PDFS: Record<string, string> = {
+  'TRANSFORM™': 'https://drive.google.com/file/d/1pdYt-XQDsp-rDTiyyQhx3Hn7ptU3EM0H/view?usp=sharing',
+  'OPERATE™': 'https://drive.google.com/file/d/1rwh90EfNPQVbOVHws2xw6SAi1H5_OGD6/view?usp=sharing',
+  'TRUST™': 'https://drive.google.com/file/d/1dxfkQcHU61GnZaO5AEyyseijK0kXx5Ga/view?usp=sharing',
+}
 
 function resolveBracketLink(label: string): { href: string; external: boolean } | null {
   if (label === 'Framework Library') return { href: '#/?scroll=frameworks', external: false }
 
-  const match = frameworks.find(fw => label.includes(fw.name.replace(' Framework™', '™')))
-  if (match) return { href: match.url, external: true }
+  const match = Object.keys(PLAYBOOK_PDFS).find(name => label.includes(name))
+  if (match) return { href: PLAYBOOK_PDFS[match], external: true }
 
   return null
 }
@@ -21,9 +26,9 @@ function parseInline(text: string, keyPrefix: string): ReactNode[] {
     if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index))
 
     if (match[1] !== undefined) {
-      nodes.push(<strong key={`${keyPrefix}-b-${i}`} className="text-stone-900 font-semibold">{match[1]}</strong>)
+      nodes.push(<strong key={`${keyPrefix}-b-${i}`} className="text-stone-900 font-semibold">{parseInline(match[1], `${keyPrefix}-b-${i}`)}</strong>)
     } else if (match[2] !== undefined) {
-      nodes.push(<em key={`${keyPrefix}-i-${i}`}>{match[2]}</em>)
+      nodes.push(<em key={`${keyPrefix}-i-${i}`}>{parseInline(match[2], `${keyPrefix}-i-${i}`)}</em>)
     } else if (match[3] !== undefined) {
       const label = match[3]
       const link = resolveBracketLink(label)
