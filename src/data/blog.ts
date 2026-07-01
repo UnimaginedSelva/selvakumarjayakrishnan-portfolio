@@ -94,7 +94,7 @@ Get the boundary right, and the AI can genuinely operate on the loop. Get it wro
 **AI makes decisions. Humans own outcomes.**
 
 *This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [OPERATE™ Framework Playbook] and [TRUST™ Framework Playbook].*`,
-    linkedInUrl: '',
+    linkedInUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7477556522126835712/',
     tags: ['Real-World Application', 'OPERATE™', 'TRUST™', 'Travel Tech', 'AI Governance'],
   },
   {
@@ -179,7 +179,7 @@ ADKAR diagnoses the individual gap accurately. TRANSFORM™ builds the boundarie
 **The technology changes. The human loop never does.**
 
 *This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [TRANSFORM™ Framework Playbook].*`,
-    linkedInUrl: '',
+    linkedInUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7477602065922326528/',
     tags: ['Real-World Application', 'TRANSFORM™', 'Healthcare', 'MedTech', 'ADKAR'],
   },
   {
