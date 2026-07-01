@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useSearchParams } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -14,6 +15,16 @@ import Blog from './pages/Blog'
 import Journey from './pages/Journey'
 
 function Portfolio() {
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const scrollTarget = searchParams.get('scroll')
+    if (scrollTarget) {
+      const el = document.getElementById(scrollTarget)
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100)
+    }
+  }, [searchParams])
+
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100">
       <Navbar />
@@ -36,6 +47,7 @@ export default function App() {
       <Route path="/job-intelligence" element={<JobIntelligence />} />
       <Route path="/author" element={<Author />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<Blog />} />
       <Route path="/journey" element={<Journey />} />
     </Routes>
   )

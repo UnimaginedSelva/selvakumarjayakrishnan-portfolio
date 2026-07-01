@@ -1,9 +1,12 @@
 export interface BlogPost {
   id: string
   title: string
+  subtitle: string
   framework: string
   frameworkTag: string
+  series: string
   date: string
+  readTime: string
   summary: string
   content: string
   linkedInUrl: string
@@ -11,17 +14,278 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
-  // Nova publishes entries here. Paste LinkedIn post content into `content`.
-  // Example entry (remove when first real post is added):
-  // {
-  //   id: 'transform-real-world-01',
-  //   title: 'How TRANSFORM™ Solved a $5M AI Deployment Stall',
-  //   framework: 'TRANSFORM™',
-  //   frameworkTag: 'Digital & AI Transformation',
-  //   date: '2026-07-07',
-  //   summary: 'A real-world application of the TRANSFORM™ framework...',
-  //   content: `Full article content here...`,
-  //   linkedInUrl: 'https://www.linkedin.com/feed/update/...',
-  //   tags: ['AI Transformation', 'Change Management', 'TRANSFORM™'],
-  // },
+  {
+    id: 'ai-trust-gap-travel-tech',
+    title: "The AI Trust Gap: Why Travel Tech's Transformation Isn't a Technology Problem",
+    subtitle: "One OTA cut support costs 40-60% with autonomous AI agents. Fewer than 1 in 10 travelers trust AI to book on their behalf. The gap between the two is a change architecture problem, not a technology one.",
+    framework: 'OPERATE™ + TRUST™',
+    frameworkTag: 'OPERATE™ + TRUST™',
+    series: 'Real-World Application of the 7 Frameworks',
+    date: '2026-06-24',
+    readTime: '9 min',
+    summary: "One OTA cut support costs 40-60% with autonomous AI agents. Fewer than 1 in 10 travelers trust AI to book on their behalf. The gap between the two is a change architecture problem, not a technology one.",
+    content: `In 2026, a leading global OTA runs AI agents that autonomously handle tens of thousands of complex customer interactions daily, verifying front desk hours, confirming changes directly against a hotel's live PMS, and dispatching confirmations, without a human in the loop.
+
+The result: a 40% to 60% reduction in support costs for automated tiers, and a 73% increase in partner satisfaction during early trials.
+
+And yet, by most measures, fewer than 1 in 10 travelers say they'd trust an AI platform to complete a booking entirely on their own, with a majority explicitly stating they would not trust an AI assistant to buy or book on their behalf.
+
+The technology works. The trust doesn't exist yet. That gap is not a technology challenge. It's a change architecture problem, and it shows up on both sides of the transaction: the traveler-facing side, and the far less visible, federated supplier network underneath it.
+
+## The Industry Is Shifting from Human-in-the-Loop to Human-on-the-Loop
+
+The legacy approach to AI integration is Human-in-the-Loop, or HITL: the AI drafts a response or action, a human reviews and approves it, then it executes. In an agentic era, that model becomes the bottleneck. It negates the entire speed and scale advantage of the technology, and it produces prompt fatigue, humans manually approving the same category of routine action a thousand times a day.
+
+The shift underway is toward Human-on-the-Loop, or HOTL: the AI operates autonomously within explicit, programmatic guardrails, and humans move from clicking "approve" on every action to strategic oversight of exceptions.
+
+This isn't a governance downgrade. Done properly, it's the opposite. It requires:
+
+- **Algorithmic Guardrails** — hard-coded authority thresholds. An AI agent might be authorized to autonomously execute refunds or reallocate a marketing budget up to a defined daily limit, with anything above that threshold escalating automatically.
+- **Decision Summaries** — before executing a bounded action, the system surfaces a clear summary of its logic chain, so the shift from approval to oversight doesn't also mean a loss of auditability.
+- **Post-Action Review** — the human role moves from reviewing 1,000 routine tickets to a focused review of the small number of anomalous decisions the system itself flagged as uncertain.
+
+This is exactly what OPERATE™'s **Responsible AI Governance** stage is built to formalize: not blanket restriction, and not blanket autonomy, but explicit, tiered decision rights that scale with risk.
+
+## The Demand-Side Trust Problem: Building the Flywheel
+
+Trust in autonomous travel booking isn't declared into existence. It's built, one bounded, verifiable success at a time, a pattern researchers call the **Trust Flywheel**.
+
+Consider corporate travel management. An AI agent reads an employee's calendar, cross-references company travel policy, checks for scheduling conflicts, and proactively books compliant flights and accommodations. Initially, compliance managers scrutinize every selection heavily. But as the system consistently returns optimal, policy-compliant options, human oversight naturally decreases, not because trust was mandated, but because it was earned through observed, repeated evidence.
+
+This compounds: employees stop searching for off-channel alternatives, compliance improves organically, and the organization gains the psychological safety to expand the system's autonomous scope further. That's OPERATE™'s **Trust Engineering** stage in action, evidence over declaration.
+
+The internal workforce shift required to sustain this is significant too. Rather than eliminating human roles, leading organizations are upskilling policy-enforcement staff into "AI Auditors," professionals who oversee logic chains, data provenance, and the ethical boundaries of the models rather than manually cross-referencing every routine decision. Where this has been implemented well, it's shown to increase time spent on high-value work by 65% and lift employee satisfaction by 49%, a workforce redesign, not a workforce reduction.
+
+## The Supply-Side Trust Problem: A Federated Network You Cannot Mandate
+
+The traveler-facing trust gap is only half the story. Underneath it sits a structurally harder problem: getting an entire federated network of independent suppliers, hotels, airlines, regional operators, to become machine-readable at all.
+
+The numbers here are stark. 63.4% of independent hotel bookings now flow through OTAs, not because OTAs are better, but because roughly 38% of independent hotel deployments still run on-premises, legacy Property Management Systems that simply cannot be parsed by an AI agent. Independent operators lose the equivalent of one to two full workdays a week just reconciling data across disconnected systems.
+
+Resistance here isn't ignorance of the technology. It's a rational, protective response to two real fears:
+
+- **"Second OTA" paranoia** — after two decades of watching OTAs extract commission and control the guest relationship, independent operators reasonably fear that handing structured data to an AI platform just trains the next intermediary that will eventually own their direct bookings too
+- **The capture problem** — for a 30-room property, the operational knowledge an AI needs often exists only in the general manager's head or a physical logbook, not because the owner resists AI, but because there's nothing structured yet to feed it
+
+A central technology platform has zero authoritative mandate over these independent nodes. It cannot simply decree adoption. This is precisely the terrain OPERATE™'s **Ecosystem Co-Creation** stage and TRUST™'s **Terrain & Compliance Architecture** stage are designed to map before any technology gets pushed downstream, understanding the regulatory, commercial, and psychological terrain of the network, not just its technical readiness.
+
+The evidence-based fix combines two forms of power deliberately, never coercive mandate alone: **Legitimate Power**, the platform contractually and transparently protecting a supplier's first-party data, directly defusing the Second OTA fear, paired with **Expert Power**, providing integration support and market insight the independent supplier could never build alone. Field evidence from federated change programs, including transformation initiatives spanning 36 partner sites across 9 distinct organizations in EMEA and APAC, confirms this pairing sustains long-term collaboration in a way coercive pressure alone never does.
+
+## Proof It Works: Small Deployment, Real Numbers
+
+A hotel group called Regiohotel deployed a voice-based AI agent through a hospitality PMS's MCP server to handle incoming reception calls, autonomously checking live rates and managing reservations in real time. Within three months, that single agent was handling 30% of the group's phone-based business.
+
+That's not a pilot. That's an onboarded collaborator earning expanded scope through demonstrated, evidenced performance, exactly the Trust Flywheel in action, at the property level.
+
+## Why TRUST™ Applies Here, Beyond Financial Services
+
+TRUST™ was built as a 5-stage playbook for FSI digital adoption, but its foundational principle transfers directly: **in any high-stakes environment, trust is not a feature bolted on top. It is a structural principle.**
+
+**Terrain & Compliance Architecture** maps the regulatory and legacy-system reality before any rollout begins, in travel, that means understanding EDIFACT-bound Passenger Service Systems and fragmented NDC implementations the same way TRUST™ maps COBOL-dependent banking cores. **Scale with Trust** insists on earning adoption before automating decisions, the same shadow-mode, evidence-first sequencing that built the Trust Flywheel above.
+
+## The Governance Boundary
+
+OPERATE™ governs the human-AI boundary. TRUST™ governs what has to be true structurally beneath that boundary before it can hold any weight at all.
+
+On the demand side, that boundary is the shift from approving every action to overseeing exceptions. On the supply side, it's replacing mandate with earned, mutual commercial alignment across a network no single organization controls.
+
+Get the boundary right, and the AI can genuinely operate on the loop. Get it wrong, and no amount of technical capability closes the trust gap.
+
+**AI makes decisions. Humans own outcomes.**
+
+*This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [OPERATE™ Framework Playbook] and [TRUST™ Framework Playbook].*`,
+    linkedInUrl: '',
+    tags: ['Real-World Application', 'OPERATE™', 'TRUST™', 'Travel Tech', 'AI Governance'],
+  },
+  {
+    id: 'healthcare-gcs-adkar-transform',
+    title: 'The 40-Field Screen: Why Healthcare Change Management Can\'t Just Bolt AI On',
+    subtitle: "A Clinical Application Specialist juggles diagnostic physics, a panicked technician, and a CAPA trigger in the same call. ADKAR diagnoses the gap. TRANSFORM™ builds the boundary that keeps it from forming.",
+    framework: 'TRANSFORM™',
+    frameworkTag: 'TRANSFORM™',
+    series: 'Real-World Application of the 7 Frameworks',
+    date: '2026-06-30',
+    readTime: '8 min',
+    summary: "A Clinical Application Specialist juggles diagnostic physics, a panicked technician, and a CAPA trigger in the same call. ADKAR diagnoses the gap. TRANSFORM™ builds the boundary that keeps it from forming.",
+    content: `A centralized Global Customer Support hub goes live. New CRM. New workflows. The go-live happens on schedule, on budget, with executive sponsorship intact.
+
+Six months later, agents are bypassing mandatory fields, writing generic case notes, and quietly reverting to spreadsheets and email chains to get through the day.
+
+The program team calls it an adoption problem.
+
+It's a design problem. And in MedTech, Diagnostics, and Pharmaceutical customer support, the difference between those two diagnoses can be measured in regulatory fines, delayed diagnoses, and, in the worst cases, patient harm.
+
+## What's Actually Happening on the Contact Center Floor
+
+Picture a Tier-2 Clinical Application Specialist, often a registered nurse, pharmacist, or trained field service engineer, picking up an escalation on a malfunctioning clinical analyzer.
+
+In the space of one call, they have to:
+
+- Hold the diagnostic physics of the equipment in their head well enough to guide a panicked lab technician through a fix
+- Screen the interaction against a regulatory triage checklist: does this meet the definition of a complaint under 21 CFR 820.198? Did it cause or contribute to an adverse event? Could it trigger a CAPA under 820.100?
+- Navigate a CRM interface with roughly 20 mandatory fields, designed for generic IT service management, not medical device quality management
+- Do all of this while a laboratory's cardiac troponin or procalcitonin testing capability sits offline, with every minute of delay carrying real clinical consequence
+
+That's not a job. That's a human brain running three specialized roles simultaneously, with zero room for the concurrent technical, emotional, and administrative load to overflow.
+
+When cognitive load exceeds capacity, people don't become careless. They default to whatever they can actually sustain. They bypass fields. They write vague notes. They stop flagging the AI's prompts. Not out of negligence, out of biology.
+
+## Why ADKAR Alone Doesn't Solve This
+
+ADKAR would correctly diagnose this as a Knowledge or Ability gap. That diagnosis isn't wrong. It's just incomplete.
+
+ADKAR tells you *whether a person is ready to change*. It doesn't tell you *whether the conditions you've designed make that readiness sustainable*. In a role where the regulatory stakes are this high and the cognitive floor is this crowded, individual readiness alone can't compensate for a system that was never architected for the humans operating it.
+
+This is where TRANSFORM™, a 9-stage practitioner playbook, functions as a supplementary execution layer for how ADKAR gets applied at enterprise scale. ADKAR isolates the individual adoption barrier. TRANSFORM builds the organizational scaffolding that determines whether that barrier ever forms in the first place.
+
+**ADKAR asks: is this person ready to change? TRANSFORM asks: have we designed conditions where change is actually possible?**
+
+## Three Stages That Matter Most in Healthcare GCS
+
+### Terrain Assessment: Map the Cognitive Load Before You Choose the Technology
+
+Most healthcare GCS transformations start with a platform decision, a new CRM, a new eQMS module, and treat organizational readiness as a rollout afterthought. Terrain Assessment reverses that order: rigorous change impact analysis and stakeholder mapping happen *before* tool selection.
+
+In this context, that means mapping the actual cognitive terrain a Clinical Application Specialist operates in before choosing an interface. The research is unambiguous on what happens when this step is skipped: FDA 483 observations and warning letters consistently cite failures at exactly this intersection, agents closing service tickets without evaluating them as potential complaints, replacing hardware without investigating root cause, because the system architecture never accounted for the concurrent regulatory and clinical burden they were carrying.
+
+The deeper failure often isn't the CRM itself. It's the platform strategy underneath it. Enterprise IT frequently mandates a single, unified "Single-Org" architecture across every regional hub to simplify administration and standardize reporting. But when a Warsaw-based EMEA hub runs on the same instance as a North American one, GDPR data residency requirements force heavy field-level encryption, which breaks native search. Agents can no longer look up a patient by partial phone number. First Call Resolution degrades. The system built to unify data instead fragments the user experience, precisely because the terrain, regional regulatory reality, was never assessed before the architecture was locked in.
+
+### Adoption Design: Build Around the Constraint, Not Around the Ideal Workflow
+
+Adoption Design uses the ADKAR lens to build role-specific enablement, but the "role" here isn't generic. It's a Clinical Application Specialist juggling regulatory triage and diagnostic troubleshooting in real time, under pharmacovigilance rules where the clock starts the moment a potential adverse event is mentioned, however casually, in an otherwise routine call.
+
+That "Day Zero" compliance clock is unforgiving: serious, unexpected adverse reactions often require internal routing to the safety database within 24 hours and external reporting to regulators within 15 calendar days. If an AI triage system reads an email containing adverse-event language on a Friday night and doesn't route it until Monday morning, the compliance clock has already been violated, regardless of how sophisticated the model was.
+
+Adoption Design built for this reality means enablement tracks that are scenario-based and regulation-anchored from day one, not generic CRM training followed by a compliance addendum. It means designing the interface so that AE and CAPA screening happens as a natural extension of the troubleshooting conversation, not as a bolted-on 20-field form that inflates Average Handle Time and gets abandoned under pressure.
+
+### Outcomes Governance: Human Validation Stays the Circuit Breaker
+
+As predictive maintenance and NLP-driven triage get layered into GCS operations, Outcomes Governance is what prevents automation from quietly overriding clinical judgment. AI can flag a potential adverse event, extract entities from an unstructured patient narrative, or predict equipment failure before it happens. What it cannot do safely, without extensive validation few organizations have completed, is make the final call on whether something constitutes a reportable event.
+
+The research is direct about why this matters: gaining regulatory acceptance for AI-assisted case processing requires proving the AI doesn't distort clinical narratives or miss subtle safety signals. Over-flagging creates administrative backlog. Under-flagging breaches Day Zero. Outcomes Governance keeps a human as the accountable checkpoint, connecting every automated flag back to a real outcome, tracked, reviewed, and owned, rather than letting the system's confidence substitute for a clinician's judgment.
+
+## What Happens When This Isn't Designed For
+
+The cost of skipping this isn't abstract. Unplanned equipment downtime in clinical and manufacturing settings runs $125,000 to $260,000 per hour. A delayed troponin result correlates directly with delayed diagnosis of a heart attack. A delayed procalcitonin result delays recognition of severe bacterial sepsis. These aren't service-level metrics. They're clinical outcomes.
+
+There's also a slower, quieter cost: attrition of tribal knowledge. Tenured Clinical Application Specialists, the ones with years on a single program, can spot a subtle pharmacovigilance signal buried in a rambling patient narrative that a newly hired agent relying on a scripted checklist will miss entirely. When change fatigue drives these specialists out, replacements need months to rebuild both the clinical fluency and the platform familiarity, and service quality degrades in exactly the window where compliance risk is highest.
+
+## The Reframe
+
+Healthcare GCS transformations don't fail because of the technology. They fail because of what we do to the people building it, asking them to absorb regulatory complexity, clinical judgment, and a new interface simultaneously, with no architecture designed to hold that load.
+
+ADKAR diagnoses the individual gap accurately. TRANSFORM™ builds the boundaries that determine whether that gap ever has to open in the first place.
+
+**The technology changes. The human loop never does.**
+
+*This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [TRANSFORM™ Framework Playbook].*`,
+    linkedInUrl: '',
+    tags: ['Real-World Application', 'TRANSFORM™', 'Healthcare', 'MedTech', 'ADKAR'],
+  },
+  {
+    id: 'stop-installing-ai-start-onboarding',
+    title: 'Stop Installing AI. Start Onboarding It.',
+    subtitle: "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead",
+    framework: 'OPERATE™',
+    frameworkTag: 'OPERATE™',
+    series: 'Real-World Application of the 7 Frameworks',
+    date: '2026-07-07',
+    readTime: '7 min',
+    summary: "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead",
+    content: `87% of digital knowledge workers now use AI at work. They report it saves them 11 hours a week.
+
+Only 13% of organizations say that time has translated into real business performance.
+
+That gap has a name now. A 2026 study surveying 6,000 digital knowledge workers across the US, UK, and Australia identified it as **"botsitting"**: the unpaid, unbudgeted, unrecognized labor of feeding AI the context it's missing, checking its output, debugging its mistakes, and cleaning up after it. On average, workers are spending 6.4 hours a week doing it, almost a full working day, every week, just keeping the tool usable.
+
+Left unaddressed, botsitting curdles into something worse: **"botshitting"**, the act of shipping AI-generated output that hasn't been verified, isn't fully understood, and couldn't be defended if someone asked. 69% of enterprise users admit they've done it.
+
+Most organizations read this as a governance failure and respond with tighter controls, more approval gates, stricter usage policies. That response treats the symptom. It doesn't touch the cause.
+
+## The Real Problem: Misclassification, Not Oversight
+
+Botsitting isn't evidence that AI needs more supervision. It's evidence that AI was never actually brought into the organization in the first place.
+
+We are still deploying AI the way we deploy software: installed, configured, left running, queried when needed. A search engine retrieves. It doesn't need context rebuilt every time you use it, because it isn't expected to hold context, remember your team's priorities, or understand what "the Q3 numbers" means in your specific organization this week versus last.
+
+A genuine collaborator does need that context. So does a new hire, until they've actually been onboarded.
+
+**Software is installed. Teammates are onboarded.**
+
+That distinction is the core of what OPERATE™, a 7-stage practitioner framework for AI operationalization, exists to address. Two stages in particular speak directly to why botsitting keeps happening, and what closes the gap.
+
+## Stage 1: Adoption Architecture — Onboard It Like You'd Onboard a Person
+
+When a new employee joins a team, they get a role title, a defined scope of responsibility, a manager, a set of collaborators, and time to absorb the organization's context before they're trusted with ambiguous work. Nobody hands a new hire a laptop on day one and expects flawless judgment on a high-stakes decision by lunchtime.
+
+Most AI deployments skip every part of that process. There's no defined persona. No documented scope of what the system owns versus what a human owns. No clarity on who it reports to, or who it hands work back to when it's uncertain.
+
+Without that structure, every single interaction starts from zero. The human ends up rebuilding context the system should already have. That's botsitting in one sentence: **an organization paying, in human hours, for the onboarding it never did.**
+
+### What formal AI onboarding actually looks like
+
+Treating an AI deployment like a hire means drafting the same documentation you'd draft for a new employee:
+
+- **Role Title and Purpose** — a specific functional title and a single core objective, to prevent scope creep. Not "the AI system." Something like "Marketing Content Analyst Agent," with one clearly defined job.
+- **Key Responsibilities** — explicit boundaries on what the system executes, e.g. preliminary research, first-pass synthesis, flagging anomalies, not final judgment calls.
+- **Primary Human Collaborators** — naming exactly who the system interacts with, reports to, and supplies data to, formalizing its position in the actual working structure rather than leaving it as an ambient tool anyone might query.
+
+### The case that proves it: a European telecom's 5% vs. 30%
+
+One European telecommunications provider deployed an AI system into its customer service operation with none of this. No structural changes to existing roles. No redesigned workflows. The system was simply layered on top of how things already worked.
+
+The result: a 5% productivity increase. Marginal. Barely worth the deployment cost.
+
+Leadership recognized the failure wasn't technical, it was architectural. They halted the rollout and started over, this time treating it as organizational redesign rather than software installation. They committed 90% of the entire rollout budget to redesigning the human-AI interaction itself: mapping new integrated workflows, defining explicit trust thresholds, codifying exactly when a human must intervene, and training the human side of the partnership on how to actually work with the system.
+
+Same technology. Completely different architecture around it.
+
+**Result: a 30% productivity increase.**
+
+The AI didn't get smarter in between. The organization stopped installing it and started onboarding it.
+
+## Stage 2: Ecosystem Co-Creation — Give It a Seat at the Table
+
+The second piece of genuine collaboration is this: real collaborators help define the boundaries of the collaboration itself. They're not handed a rigid spec by a disconnected team and told to comply.
+
+Google DeepMind's **Co-Scientist** system is one of the clearest examples of this principle in action. It wasn't deployed as a passive research database to be queried for facts. It was architected as a coalition of specialized agents assigned specific, adversarial roles, deliberately designed to simulate rigorous human scientific debate rather than simply generate answers.
+
+Here's how it works:
+
+- A **generation agent** proposes novel hypotheses
+- A **reflection agent** is explicitly assigned the role of devil's advocate, ruthlessly scrutinizing every hypothesis for correctness, novelty, and logical fallacies against existing literature and structured databases
+- A **ranking agent** runs an idea tournament, using pairwise comparisons and simulated debate, scored via Elo ratings, to surface the most promising paths
+
+In practical application, this adversarial, multi-agent structure allowed Co-Scientist to identify overlooked drug-repurposing candidates for liver fibrosis that successfully blocked 91% of a scarring-linked response in laboratory tests.
+
+Notice what's actually happening here: DeepMind didn't ask "what can this model answer?" They asked "what role does this system need to play, and what boundaries does that role require?" The system was given an actual seat at the table, a defined adversarial function, not unlimited scope and not zero scope. A specific, bounded job that stress-tests ideas before they ever reach a human scientist.
+
+That's the difference between a query engine and a collaborator. A query engine answers what you ask. A collaborator has a defined role you can push back against, argue with, and rely on precisely because its boundaries are known.
+
+## Stage 3: Trust Engineering — Earned, Not Declared
+
+Even with a defined role, collaboration stalls if the human side doesn't know when to rely on the system and when to override it. This is a different problem from governance or accountability, it's about **calibrated trust**: an accurate, evidence-based understanding of what the system is actually good at, built through observed performance rather than blind faith or blanket suspicion.
+
+Two examples make this concrete.
+
+**DBS Bank** implemented what they call the PURE principles, Purposeful, Unsurprising, Respectful, Explainable, to govern their internal iGrow platform, which makes recommendations about employee learning and career mobility. Every recommendation the system makes is explainable in plain terms. That legibility is what allowed the bank to accelerate everyday decision-making without sacrificing human oversight or employee trust in the system.
+
+**Customer.io** built trust into their internal "Air Traffic Control" agent through radical transparency of sourcing. The system surfaces documentation and routes requests using a custom retrieval pipeline, and crucially, every single answer it generates links directly back to its verified source material. Employees can instantly check the system's logic. Trust builds organically, through daily verification, not through a policy memo telling people to trust it.
+
+Neither of these examples is about restricting the system's authority. They're about making its reasoning visible enough that humans can calibrate their trust accurately, deferring when the evidence supports it, overriding when it doesn't.
+
+## The Pattern Across All Three
+
+Adoption Architecture, Ecosystem Co-Creation, and Trust Engineering aren't three separate fixes. They're three facets of the same underlying shift: treating AI as an entity that gets onboarded, assigned a role, and trusted through evidence, rather than a tool that gets installed and queried.
+
+Botsitting isn't a sign that your AI needs tighter controls. It's a sign that nobody defined its role, gave it a seat at the table, or built the evidence base for anyone to trust it properly. The labor humans are quietly absorbing is the onboarding process the organization skipped.
+
+The technology in the failed telecom deployment and the successful one was identical. The only thing that changed was whether the organization treated it as software or as a teammate.
+
+**AI makes decisions. Humans own outcomes.**
+
+*This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [OPERATE™ Framework Playbook].*`,
+    linkedInUrl: '',
+    tags: ['Real-World Application', 'OPERATE™', 'AI Governance', 'Multi-Agent Systems'],
+  },
 ]

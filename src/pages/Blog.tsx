@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { ArrowLeft, ExternalLink, Calendar, Tag } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { ArrowLeft, ExternalLink, Calendar, Clock, Tag } from 'lucide-react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { blogPosts, type BlogPost } from '../data/blog'
+import { renderMarkdown } from '../utils/markdown'
 
 function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
   return (
@@ -14,6 +14,7 @@ function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
           {post.frameworkTag}
         </span>
       </div>
+      <p className="text-slate-600 text-[11px] uppercase tracking-wider mb-1.5">{post.series}</p>
       <h3 className="text-slate-100 font-semibold text-lg leading-snug group-hover:text-gold-400 transition-colors mb-2">
         {post.title}
       </h3>
@@ -23,8 +24,11 @@ function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
           <Calendar size={11} />
           {new Date(post.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
         </span>
-        <span className="flex items-center gap-1 text-gold-500/60 group-hover:text-gold-400 transition-colors">
-          Read article →
+        <span className="flex items-center gap-3">
+          <span className="flex items-center gap-1"><Clock size={11} />{post.readTime}</span>
+          <span className="flex items-center gap-1 text-gold-500/60 group-hover:text-gold-400 transition-colors">
+            Read article →
+          </span>
         </span>
       </div>
     </div>
@@ -40,7 +44,8 @@ function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
       >
         <ArrowLeft size={14} /> Back to Blog
       </button>
-      <div className="flex items-center gap-2 mb-4">
+      <p className="text-gold-500/70 text-xs uppercase tracking-widest mb-3">{post.series}</p>
+      <div className="flex items-center gap-2 mb-4 flex-wrap">
         <span className="text-xs font-semibold text-gold-400 bg-gold-500/10 border border-gold-500/20 px-2.5 py-1 rounded-full">
           {post.frameworkTag}
         </span>
@@ -48,12 +53,17 @@ function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
           <Calendar size={11} />
           {new Date(post.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
         </span>
+        <span className="text-slate-600 text-xs flex items-center gap-1">
+          <Clock size={11} />
+          {post.readTime}
+        </span>
       </div>
-      <h1 className="text-3xl font-bold text-slate-100 leading-tight mb-8">{post.title}</h1>
-      <div className="prose prose-invert prose-gold max-w-none text-slate-300 leading-relaxed whitespace-pre-wrap text-base">
-        {post.content}
+      <h1 className="text-3xl font-bold text-slate-100 leading-tight mb-3">{post.title}</h1>
+      <p className="text-slate-400 text-base leading-relaxed mb-10">{post.subtitle}</p>
+      <div className="prose prose-invert prose-gold max-w-none text-slate-300 text-base">
+        {renderMarkdown(post.content)}
       </div>
-      <div className="mt-10 pt-8 border-t border-slate-800 flex items-center justify-between">
+      <div className="mt-10 pt-8 border-t border-slate-800 flex items-center justify-between flex-wrap gap-4">
         <div className="flex flex-wrap gap-2">
           {post.tags.map(tag => (
             <span key={tag} className="flex items-center gap-1 text-xs text-slate-500 bg-slate-800 px-2.5 py-1 rounded-full">
@@ -78,7 +88,12 @@ function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
 
 export default function Blog() {
   const navigate = useNavigate()
-  const [selected, setSelected] = useState<BlogPost | null>(null)
+  const { slug } = useParams()
+  const selected = slug ? blogPosts.find(p => p.id === slug) ?? null : null
+  const now = new Date()
+  const visiblePosts = [...blogPosts]
+    .filter(p => new Date(p.date) <= now)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100">
@@ -97,7 +112,7 @@ export default function Blog() {
 
       <div className="pt-20">
         {selected ? (
-          <PostDetail post={selected} onBack={() => setSelected(null)} />
+          <PostDetail post={selected} onBack={() => navigate('/blog')} />
         ) : (
           <div className="max-w-6xl mx-auto px-6 py-16">
             <div className="mb-12">
@@ -108,20 +123,20 @@ export default function Blog() {
               </p>
             </div>
 
-            {blogPosts.length === 0 ? (
+            {visiblePosts.length === 0 ? (
               <div className="text-center py-24 border border-dashed border-slate-800 rounded-2xl">
                 <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center mx-auto mb-4">
                   <Tag size={22} className="text-gold-400" />
                 </div>
-                <h3 className="text-slate-300 font-semibold text-lg mb-2">First article drops 30 June 2026</h3>
+                <h3 className="text-slate-300 font-semibold text-lg mb-2">New articles coming soon</h3>
                 <p className="text-slate-600 text-sm max-w-sm mx-auto">
-                  Real-world framework applications published monthly — starting with the P15 Travel Tech series.
+                  Real-world framework applications, published as each case study is ready.
                 </p>
               </div>
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {blogPosts.map(post => (
-                  <PostCard key={post.id} post={post} onClick={() => setSelected(post)} />
+                {visiblePosts.map(post => (
+                  <PostCard key={post.id} post={post} onClick={() => navigate(`/blog/${post.id}`)} />
                 ))}
               </div>
             )}
