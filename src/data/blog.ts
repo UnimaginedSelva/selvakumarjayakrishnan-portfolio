@@ -196,11 +196,11 @@ ADKAR diagnoses the individual gap accurately. TRANSFORM™ builds the boundarie
     date: '2026-07-07',
     readTime: '7 min',
     summary: "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead",
-    content: `87% of digital knowledge workers now use AI at work. They report it saves them 11 hours a week.
+    content: `A 2026 study surveying 6,000 digital knowledge workers across the US, UK, and Australia identified something millions of them already feel: **"botsitting"**, the unpaid, unbudgeted, unrecognized labor of feeding AI the context it's missing, checking its output, debugging its mistakes, and cleaning up after it. On average, workers spend 6.4 hours a week doing it, almost a full working day, every week, just keeping the tool usable.
 
-Only 13% of organizations say that time has translated into real business performance.
+87% of digital knowledge workers report using AI at work, and they say it saves them 11 hours a week. That figure is real, but it's self-reported and task-level, how fast one job felt. It doesn't count botsitting, because that labor happens off to the side, unlogged, invisible to whoever's measuring "time saved."
 
-That gap has a name now. A 2026 study surveying 6,000 digital knowledge workers across the US, UK, and Australia identified it as **"botsitting"**: the unpaid, unbudgeted, unrecognized labor of feeding AI the context it's missing, checking its output, debugging its mistakes, and cleaning up after it. On average, workers are spending 6.4 hours a week doing it, almost a full working day, every week, just keeping the tool usable.
+That's why only 13% of organizations say any of this moved the needle on real business performance. Hidden labor plus unverified output doesn't show up as a productivity number. It shows up as rework, errors, and decisions made on shaky ground, costs that land on someone else, later.
 
 Left unaddressed, botsitting curdles into something worse: **"botshitting"**, the act of shipping AI-generated output that hasn't been verified, isn't fully understood, and couldn't be defended if someone asked. 69% of enterprise users admit they've done it.
 
