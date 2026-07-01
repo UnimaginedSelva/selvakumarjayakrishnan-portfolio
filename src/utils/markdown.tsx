@@ -21,7 +21,7 @@ function parseInline(text: string, keyPrefix: string): ReactNode[] {
     if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index))
 
     if (match[1] !== undefined) {
-      nodes.push(<strong key={`${keyPrefix}-b-${i}`} className="text-slate-100 font-semibold">{match[1]}</strong>)
+      nodes.push(<strong key={`${keyPrefix}-b-${i}`} className="text-stone-900 font-semibold">{match[1]}</strong>)
     } else if (match[2] !== undefined) {
       nodes.push(<em key={`${keyPrefix}-i-${i}`}>{match[2]}</em>)
     } else if (match[3] !== undefined) {
@@ -34,7 +34,7 @@ function parseInline(text: string, keyPrefix: string): ReactNode[] {
             href={link.href}
             target={link.external ? '_blank' : undefined}
             rel={link.external ? 'noopener noreferrer' : undefined}
-            className="text-gold-400 hover:text-gold-300 underline underline-offset-2"
+            className="text-amber-700 hover:text-amber-800 underline underline-offset-2"
           >
             {label}
           </a>
@@ -61,7 +61,7 @@ export function renderMarkdown(content: string): ReactNode {
     if (paragraphBuffer.length) {
       const text = paragraphBuffer.join(' ').trim()
       if (text) {
-        blocks.push(<p key={`p-${key}`} className="mb-5 leading-relaxed">{parseInline(text, `p-${key}`)}</p>)
+        blocks.push(<p key={`p-${key}`} className="mb-6 leading-loose">{parseInline(text, `p-${key}`)}</p>)
         key++
       }
       paragraphBuffer = []
@@ -71,9 +71,9 @@ export function renderMarkdown(content: string): ReactNode {
   const flushList = () => {
     if (listBuffer.length) {
       blocks.push(
-        <ul key={`ul-${key}`} className="mb-5 pl-5 space-y-2 list-disc marker:text-gold-500">
+        <ul key={`ul-${key}`} className="mb-6 pl-5 space-y-2.5 list-disc marker:text-amber-600">
           {listBuffer.map((item, idx) => (
-            <li key={`li-${key}-${idx}`}>{parseInline(item, `li-${key}-${idx}`)}</li>
+            <li key={`li-${key}-${idx}`} className="leading-relaxed">{parseInline(item, `li-${key}-${idx}`)}</li>
           ))}
         </ul>
       )
@@ -81,6 +81,8 @@ export function renderMarkdown(content: string): ReactNode {
       listBuffer = []
     }
   }
+
+  const imageRegex = /^!\[([^\]]*)\]\(([^)]+)\)$/
 
   for (const rawLine of lines) {
     const line = rawLine.trim()
@@ -90,15 +92,36 @@ export function renderMarkdown(content: string): ReactNode {
       flushList()
       continue
     }
+
+    const imgMatch = line.match(imageRegex)
+    if (imgMatch) {
+      flushParagraph()
+      flushList()
+      const [, alt, src] = imgMatch
+      blocks.push(
+        <figure key={`img-${key}`} className="my-8 -mx-2 sm:mx-0">
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className="w-full rounded-xl border border-stone-300 shadow-md shadow-stone-400/20"
+          />
+          {alt && <figcaption className="text-center text-stone-500 text-sm mt-2.5 italic">{alt}</figcaption>}
+        </figure>
+      )
+      key++
+      continue
+    }
+
     if (line.startsWith('### ')) {
       flushParagraph()
       flushList()
-      blocks.push(<h3 key={`h3-${key}`} className="text-lg font-semibold text-slate-100 mt-8 mb-3">{parseInline(line.slice(4), `h3-${key}`)}</h3>)
+      blocks.push(<h3 key={`h3-${key}`} className="text-xl font-semibold text-stone-900 mt-9 mb-3.5">{parseInline(line.slice(4), `h3-${key}`)}</h3>)
       key++
     } else if (line.startsWith('## ')) {
       flushParagraph()
       flushList()
-      blocks.push(<h2 key={`h2-${key}`} className="text-xl font-bold text-gold-400 mt-10 mb-4">{parseInline(line.slice(3), `h2-${key}`)}</h2>)
+      blocks.push(<h2 key={`h2-${key}`} className="text-2xl font-bold text-amber-800 mt-11 mb-4.5">{parseInline(line.slice(3), `h2-${key}`)}</h2>)
       key++
     } else if (line.startsWith('# ')) {
       continue

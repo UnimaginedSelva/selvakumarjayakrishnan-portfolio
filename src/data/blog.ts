@@ -32,6 +32,8 @@ And yet, by most measures, fewer than 1 in 10 travelers say they'd trust an AI p
 
 The technology works. The trust doesn't exist yet. That gap is not a technology challenge. It's a change architecture problem, and it shows up on both sides of the transaction: the traveler-facing side, and the far less visible, federated supplier network underneath it.
 
+![The AI Trust Gap: how the OPERATE™ and TRUST™ frameworks bridge the divide between AI efficiency and traveler trust](/P15_Image.jpg)
+
 ## The Industry Is Shifting from Human-in-the-Loop to Human-on-the-Loop
 
 The legacy approach to AI integration is Human-in-the-Loop, or HITL: the AI drafts a response or action, a human reviews and approves it, then it executes. In an agentic era, that model becomes the bottleneck. It negates the entire speed and scale advantage of the technology, and it produces prompt fatigue, humans manually approving the same category of routine action a thousand times a day.
@@ -125,6 +127,8 @@ In the space of one call, they have to:
 - Screen the interaction against a regulatory triage checklist: does this meet the definition of a complaint under 21 CFR 820.198? Did it cause or contribute to an adverse event? Could it trigger a CAPA under 820.100?
 - Navigate a CRM interface with roughly 20 mandatory fields, designed for generic IT service management, not medical device quality management
 - Do all of this while a laboratory's cardiac troponin or procalcitonin testing capability sits offline, with every minute of delay carrying real clinical consequence
+
+![One agent, one call: four jobs running simultaneously in one human brain — technical troubleshooting, regulatory compliance, MDR screening, and patient safety risk](/P16_Image.jpg)
 
 That's not a job. That's a human brain running three specialized roles simultaneously, with zero room for the concurrent technical, emotional, and administrative load to overflow.
 
