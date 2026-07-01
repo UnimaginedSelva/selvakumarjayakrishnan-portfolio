@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-slate-100 font-semibold text-sm">Thought Leadership Blog</span>
               </div>
-              <p className="text-slate-500 text-xs leading-relaxed">Real-world application of 7 practitioner frameworks — published monthly from 30 June 2026.</p>
+              <p className="text-slate-500 text-xs leading-relaxed">Real-world application of 7 practitioner frameworks — published from 30 June 2026.</p>
             </div>
           </div>
 
