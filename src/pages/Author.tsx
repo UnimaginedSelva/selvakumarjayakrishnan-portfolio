@@ -159,7 +159,7 @@ export default function Author() {
           <img
             src="/author-photo.jpg"
             alt="Selva JN"
-            className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover object-top ring-2 ring-slate-700 shrink-0"
+            className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover object-center ring-2 ring-slate-700 shrink-0"
           />
           <div className="space-y-4 text-slate-300 text-base leading-relaxed">
             <p>
