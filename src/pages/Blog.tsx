@@ -2,6 +2,7 @@ import { ArrowLeft, ExternalLink, Calendar, Clock, Tag, Download } from 'lucide-
 import { useNavigate, useParams } from 'react-router-dom'
 import { blogPosts, type BlogPost } from '../data/blog'
 import { renderMarkdown } from '../utils/markdown'
+import Carousel from '../components/Carousel'
 
 function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
   return (
@@ -60,7 +61,10 @@ function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
       </div>
       <h1 className="font-reading text-stone-900 text-4xl font-bold leading-tight mb-4">{post.title}</h1>
       <p className="font-reading text-stone-600 text-xl leading-relaxed mb-8 italic">{post.subtitle}</p>
-      {post.carouselUrl && (
+      {post.carouselSlides && post.carouselPdfUrl && (
+        <Carousel slides={post.carouselSlides} downloadUrl={post.carouselPdfUrl} alt={post.title} />
+      )}
+      {!post.carouselSlides && post.carouselUrl && (
         <a
           href={post.carouselUrl}
           target="_blank"

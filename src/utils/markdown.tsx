@@ -4,6 +4,7 @@ const PLAYBOOK_PDFS: Record<string, string> = {
   'TRANSFORM™': 'https://drive.google.com/file/d/1pdYt-XQDsp-rDTiyyQhx3Hn7ptU3EM0H/view?usp=sharing',
   'OPERATE™': 'https://drive.google.com/file/d/1rwh90EfNPQVbOVHws2xw6SAi1H5_OGD6/view?usp=sharing',
   'TRUST™': 'https://drive.google.com/file/d/1dxfkQcHU61GnZaO5AEyyseijK0kXx5Ga/view?usp=sharing',
+  'ASCEND™': 'https://drive.google.com/file/d/15YSnoX9jUqrSCgQitT00o9hm0PUTHTx3/view?usp=sharing',
 }
 
 function resolveBracketLink(label: string): { href: string; external: boolean } | null {
