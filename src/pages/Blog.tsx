@@ -1,4 +1,4 @@
-import { ArrowLeft, ExternalLink, Calendar, Clock, Tag } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Calendar, Clock, Tag, Download } from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { blogPosts, type BlogPost } from '../data/blog'
 import { renderMarkdown } from '../utils/markdown'
@@ -59,7 +59,23 @@ function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
         </span>
       </div>
       <h1 className="font-reading text-stone-900 text-4xl font-bold leading-tight mb-4">{post.title}</h1>
-      <p className="font-reading text-stone-600 text-xl leading-relaxed mb-12 italic">{post.subtitle}</p>
+      <p className="font-reading text-stone-600 text-xl leading-relaxed mb-8 italic">{post.subtitle}</p>
+      {post.carouselUrl && (
+        <a
+          href={post.carouselUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 bg-amber-50 border border-amber-200 hover:border-amber-300 rounded-xl px-5 py-4 mb-10 transition-colors group"
+        >
+          <div className="w-9 h-9 rounded-lg bg-amber-100 border border-amber-200 flex items-center justify-center shrink-0">
+            <Download size={16} className="text-amber-700" />
+          </div>
+          <div>
+            <p className="text-stone-900 font-semibold text-sm">Download this as a swipeable carousel</p>
+            <p className="text-stone-500 text-xs">Bonus content — a visual companion to this article, not a duplicate</p>
+          </div>
+        </a>
+      )}
       <div className="font-reading text-stone-800 text-lg">
         {renderMarkdown(post.content)}
       </div>
