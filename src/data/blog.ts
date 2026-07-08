@@ -186,7 +186,7 @@ ADKAR diagnoses the individual gap accurately. TRANSFORM™ builds the boundarie
 *This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [TRANSFORM™ Framework Playbook].*`,
     linkedInUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7477602065922326528/',
     tags: ['Real-World Application', 'TRANSFORM™', 'Healthcare', 'MedTech', 'ADKAR'],
-    carouselUrl: 'https://drive.google.com/uc?export=download&id=11Iv1ZAe3bRGlNKRnhhdH0Zx2Z4inz-UB',
+    carouselUrl: 'https://drive.google.com/file/d/11Iv1ZAe3bRGlNKRnhhdH0Zx2Z4inz-UB/view?usp=sharing',
   },
   {
     id: 'stop-installing-ai-start-onboarding',
@@ -295,6 +295,6 @@ The technology in the failed telecom deployment and the successful one was ident
 *This is part of an ongoing series applying practitioner change management frameworks to real-world technology problems. Read more in the [Framework Library] or explore the full [OPERATE™ Framework Playbook].*`,
     linkedInUrl: '',
     tags: ['Real-World Application', 'OPERATE™', 'AI Governance', 'Multi-Agent Systems'],
-    carouselUrl: 'https://drive.google.com/uc?export=download&id=17L93HzEAJnHlX9Hwmm1wnZe_rNyxuhbw',
+    carouselUrl: 'https://drive.google.com/file/d/17L93HzEAJnHlX9Hwmm1wnZe_rNyxuhbw/view?usp=sharing',
   },
 ]
