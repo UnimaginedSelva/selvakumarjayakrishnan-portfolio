@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "selvakumarjayakrishnan-portfolio",
+  "compatibility_date": "2026-07-09",
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [
+    {
+      "binding": "COMMENTS_DB",
+      "database_name": "portfolio-comments",
+      "database_id": "453c612c-554e-4a37-bcc6-79c1519ec964",
+      "preview_database_id": "COMMENTS_DB"
+    }
+  ]
+}

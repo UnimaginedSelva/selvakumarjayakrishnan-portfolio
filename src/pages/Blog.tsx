@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { blogPosts, type BlogPost } from '../data/blog'
 import { renderMarkdown } from '../utils/markdown'
 import Carousel from '../components/Carousel'
+import Comments from '../components/Comments'
 
 function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
   return (
@@ -102,6 +103,7 @@ function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
           </a>
         )}
       </div>
+      <Comments postId={post.id} />
     </div>
   )
 }
