@@ -1,4 +1,4 @@
-import { Linkedin, BookOpen, MessageSquare } from 'lucide-react'
+import { Linkedin, BookOpen, MessageSquare, Library } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 export default function Footer() {
@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
 
         {/* Coming Soon cards */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-10">
+        <div className="grid sm:grid-cols-3 gap-4 mb-10">
           <div
             onClick={() => navigate('/blog')}
             className="group cursor-pointer border border-dashed border-slate-700 hover:border-gold-500/40 rounded-xl p-5 flex items-start gap-4 transition-all"
@@ -37,6 +37,21 @@ export default function Footer() {
                 <span className="text-xs font-medium text-gold-400 bg-gold-500/10 border border-gold-500/20 px-2 py-0.5 rounded-full">Coming Soon</span>
               </div>
               <p className="text-slate-500 text-xs leading-relaxed">Real scenarios. Honest answers. The road to becoming one of the best AI Consultants by 2030.</p>
+            </div>
+          </div>
+
+          <div
+            onClick={() => navigate('/library')}
+            className="group cursor-pointer border border-dashed border-slate-700 hover:border-gold-500/40 rounded-xl p-5 flex items-start gap-4 transition-all"
+          >
+            <div className="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center shrink-0 group-hover:bg-gold-500/20 transition-colors">
+              <Library size={16} className="text-gold-400" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-slate-100 font-semibold text-sm">Reading Library</span>
+              </div>
+              <p className="text-slate-500 text-xs leading-relaxed">Self-help classics, distilled chapter by chapter — the core idea and one thing to do.</p>
             </div>
           </div>
         </div>

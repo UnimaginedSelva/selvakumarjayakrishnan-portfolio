@@ -13,6 +13,7 @@ import JobIntelligence from './pages/JobIntelligence'
 import Author from './pages/Author'
 import Blog from './pages/Blog'
 import Journey from './pages/Journey'
+import Library from './pages/Library'
 
 function Portfolio() {
   const [searchParams] = useSearchParams()
@@ -49,6 +50,9 @@ export default function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<Blog />} />
       <Route path="/journey" element={<Journey />} />
+      <Route path="/library" element={<Library />} />
+      <Route path="/library/:bookId" element={<Library />} />
+      <Route path="/library/:bookId/:chapterNumber" element={<Library />} />
     </Routes>
   )
 }
