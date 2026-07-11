@@ -14,7 +14,6 @@ import Author from './pages/Author'
 import Blog from './pages/Blog'
 import Journey from './pages/Journey'
 import Library from './pages/Library'
-import PrivateReader from './pages/PrivateReader'
 
 function Portfolio() {
   const [searchParams] = useSearchParams()
@@ -54,7 +53,6 @@ export default function App() {
       <Route path="/library" element={<Library />} />
       <Route path="/library/:bookId" element={<Library />} />
       <Route path="/library/:bookId/:chapterNumber" element={<Library />} />
-      <Route path="/private-reading/german-for-dummies" element={<PrivateReader />} />
     </Routes>
   )
 }
