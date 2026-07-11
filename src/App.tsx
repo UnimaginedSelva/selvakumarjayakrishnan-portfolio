@@ -14,6 +14,7 @@ import Author from './pages/Author'
 import Blog from './pages/Blog'
 import Journey from './pages/Journey'
 import Library from './pages/Library'
+import GermanGame from './pages/GermanGame'
 
 function Portfolio() {
   const [searchParams] = useSearchParams()
@@ -53,6 +54,7 @@ export default function App() {
       <Route path="/library" element={<Library />} />
       <Route path="/library/:bookId" element={<Library />} />
       <Route path="/library/:bookId/:chapterNumber" element={<Library />} />
+      <Route path="/german-game" element={<GermanGame />} />
     </Routes>
   )
 }
