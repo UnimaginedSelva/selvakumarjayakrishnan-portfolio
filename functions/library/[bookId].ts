@@ -29,6 +29,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "10 sections distilled to their core concept and a reflective prompt — the standard entry point into Jung's analytical psychology, condensed without losing the theory.",
   },
+  'the-power-of-awareness': {
+    title: 'The Power of Awareness',
+    author: 'Neville Goddard',
+    description:
+      "27 chapters distilled to their core teaching and practice — the classic New Thought technique of assuming the feeling of the wish fulfilled, condensed without losing the method.",
+  },
 };
 
 function escapeHtml(s: string): string {
