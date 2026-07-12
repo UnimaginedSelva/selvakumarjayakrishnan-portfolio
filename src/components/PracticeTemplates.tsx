@@ -7,23 +7,46 @@ function slugify(title: string) {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 
-function buildFileContent(template: PracticeTemplate, values: Record<string, string>) {
-  const lines = [template.title, `Source: ${template.sourceLabel}`, `Date: ${new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}`, '']
-  for (const field of template.fields) {
-    lines.push(field.label.toUpperCase())
-    lines.push(values[field.key]?.trim() || '(not filled in)')
-    lines.push('')
-  }
-  return lines.join('\n')
-}
+async function downloadTemplate(template: PracticeTemplate, values: Record<string, string>) {
+  const ExcelJS = (await import('exceljs')).default
+  const workbook = new ExcelJS.Workbook()
+  const sheet = workbook.addWorksheet(template.title.slice(0, 31))
 
-function downloadTemplate(template: PracticeTemplate, values: Record<string, string>) {
-  const content = buildFileContent(template, values)
-  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
+  sheet.mergeCells('A1:B1')
+  sheet.getCell('A1').value = template.title
+  sheet.getCell('A1').font = { bold: true, size: 14 }
+
+  sheet.mergeCells('A2:B2')
+  sheet.getCell('A2').value = `Source: ${template.sourceLabel}`
+  sheet.getCell('A2').font = { italic: true, color: { argb: 'FF78716C' } }
+
+  sheet.mergeCells('A3:B3')
+  sheet.getCell('A3').value = `Date: ${new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}`
+  sheet.getCell('A3').font = { italic: true, color: { argb: 'FF78716C' } }
+
+  const headerRow = sheet.getRow(5)
+  headerRow.values = ['Field', 'Your Response']
+  headerRow.font = { bold: true, color: { argb: 'FFFFFFFF' } }
+  headerRow.eachCell(cell => {
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFB45309' } }
+  })
+
+  template.fields.forEach((field, i) => {
+    const row = sheet.getRow(6 + i)
+    row.values = [field.label, values[field.key]?.trim() || '']
+    row.alignment = { wrapText: true, vertical: 'top' }
+    row.height = Math.max(24, Math.ceil((values[field.key]?.length ?? 0) / 60) * 16)
+  })
+
+  sheet.getColumn(1).width = 42
+  sheet.getColumn(2).width = 70
+
+  const buffer = await workbook.xlsx.writeBuffer()
+  const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `${slugify(template.title)}-${new Date().toISOString().slice(0, 10)}.txt`
+  a.download = `${slugify(template.title)}-${new Date().toISOString().slice(0, 10)}.xlsx`
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
@@ -35,12 +58,18 @@ function TemplateCard({ templateId }: { templateId: string }) {
   const template = templates.find(t => t.id === templateId)!
   const [expanded, setExpanded] = useState(false)
   const [draft, setDraft] = useState<Record<string, string>>({})
+  const [isGenerating, setIsGenerating] = useState(false)
 
   const hasContent = template.fields.some(f => draft[f.key]?.trim())
 
-  function handleDownload() {
-    if (!hasContent) return
-    downloadTemplate(template, draft)
+  async function handleDownload() {
+    if (!hasContent || isGenerating) return
+    setIsGenerating(true)
+    try {
+      await downloadTemplate(template, draft)
+    } finally {
+      setIsGenerating(false)
+    }
   }
 
   return (
@@ -91,10 +120,10 @@ function TemplateCard({ templateId }: { templateId: string }) {
           </div>
           <button
             onClick={handleDownload}
-            disabled={!hasContent}
+            disabled={!hasContent || isGenerating}
             className="flex items-center gap-2 bg-amber-700 hover:bg-amber-800 disabled:bg-stone-300 disabled:cursor-not-allowed text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors font-sans"
           >
-            <Download size={14} /> Download Filled Template
+            <Download size={14} /> {isGenerating ? 'Preparing…' : 'Download as Excel'}
           </button>
         </div>
       )}
@@ -109,7 +138,7 @@ export default function PracticeTemplates() {
         <h2 className="font-reading text-stone-900 font-bold text-2xl">Practice Templates</h2>
       </div>
       <p className="text-stone-500 text-sm mb-6 max-w-2xl">
-        Recurring techniques from across the library, turned into fillable templates. Fill one in and download it — nothing is stored on the site.
+        Recurring techniques from across the library, turned into fillable templates. Fill one in and download it as an Excel file — nothing is stored on the site.
       </p>
       <div className="grid md:grid-cols-2 gap-4">
         {templates.map(t => (
