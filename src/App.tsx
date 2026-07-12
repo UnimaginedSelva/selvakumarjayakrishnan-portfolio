@@ -52,6 +52,7 @@ export default function App() {
       <Route path="/blog/:slug" element={<Blog />} />
       <Route path="/journey" element={<Journey />} />
       <Route path="/library" element={<Library />} />
+      <Route path="/library/path/:pathwayId" element={<Library />} />
       <Route path="/library/:bookId" element={<Library />} />
       <Route path="/library/:bookId/:chapterNumber" element={<Library />} />
       <Route path="/german-game" element={<GermanGame />} />

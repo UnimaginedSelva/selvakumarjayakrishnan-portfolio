@@ -1,27 +1,9 @@
 import { useEffect, useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Compass, CheckCircle2 } from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { books, getBook, type Book, type BookChapter } from '../data/books'
-
-function progressKey(bookId: string) {
-  return `library-progress-${bookId}`
-}
-
-function getReadChapters(bookId: string): number[] {
-  try {
-    const raw = localStorage.getItem(progressKey(bookId))
-    return raw ? JSON.parse(raw) : []
-  } catch {
-    return []
-  }
-}
-
-function markChapterRead(bookId: string, chapterNumber: number) {
-  const current = getReadChapters(bookId)
-  if (!current.includes(chapterNumber)) {
-    localStorage.setItem(progressKey(bookId), JSON.stringify([...current, chapterNumber]))
-  }
-}
+import { pathways, getPathway, type Pathway } from '../data/pathways'
+import { getReadChapters, markChapterRead } from '../utils/libraryProgress'
 
 function LibraryHeader({ inBook }: { inBook: boolean }) {
   const navigate = useNavigate()
@@ -66,6 +48,137 @@ function BookCard({ book, onClick }: { book: Book; onClick: () => void }) {
         <span className="flex items-center gap-1 text-xs text-amber-700/70 group-hover:text-amber-800 transition-colors">
           {book.chapters.length} chapters, distilled <ArrowRight size={11} />
         </span>
+      </div>
+    </div>
+  )
+}
+
+function pathwayProgress(pathway: Pathway): { readCount: number; totalCount: number; pct: number } {
+  let readCount = 0
+  let totalCount = 0
+  for (const bookId of pathway.bookIds) {
+    const book = getBook(bookId)
+    if (!book) continue
+    totalCount += book.chapters.length
+    readCount += getReadChapters(bookId).length
+  }
+  const pct = totalCount === 0 ? 0 : Math.round((readCount / totalCount) * 100)
+  return { readCount, totalCount, pct }
+}
+
+function PathwaySidebar({ onSelect }: { onSelect: (pathwayId: string) => void }) {
+  return (
+    <div className="lg:sticky lg:top-24">
+      <div className="flex items-center gap-2 mb-4">
+        <Compass size={16} className="text-amber-700" />
+        <h2 className="font-reading text-stone-900 font-bold text-lg">Recommended Pathways</h2>
+      </div>
+      <p className="text-stone-500 text-sm mb-6 leading-relaxed">
+        Looking for something specific? These are curated reading orders across the library, each tracked as its own journey.
+      </p>
+      <div className="flex flex-col gap-4">
+        {pathways.map(pathway => {
+          const { readCount, totalCount, pct } = pathwayProgress(pathway)
+          return (
+            <button
+              key={pathway.id}
+              onClick={() => onSelect(pathway.id)}
+              className="text-left bg-white border border-stone-200 hover:border-amber-300 rounded-xl p-5 transition-all shadow-sm hover:shadow-md group"
+            >
+              <h3 className="font-reading text-stone-900 font-semibold text-base mb-1.5 group-hover:text-amber-800 transition-colors">
+                {pathway.title}
+              </h3>
+              <p className="text-stone-500 text-xs leading-relaxed mb-3">{pathway.description}</p>
+              <div className="flex items-center gap-2 mb-1.5">
+                <div className="flex-1 h-1.5 rounded-full bg-stone-200 overflow-hidden">
+                  <div className="h-full bg-amber-600 rounded-full transition-all" style={{ width: `${pct}%` }} />
+                </div>
+                <span className="text-stone-400 text-[11px] font-sans tabular-nums shrink-0">{pct}%</span>
+              </div>
+              <p className="text-stone-400 text-[11px] font-sans">
+                {pathway.bookIds.length} book{pathway.bookIds.length > 1 ? 's' : ''} &middot; {readCount} of {totalCount} chapters
+              </p>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function PathwayJourney({ pathway, onOpenBook, onBack }: { pathway: Pathway; onOpenBook: (bookId: string, chapterNumber: number) => void; onBack: () => void }) {
+  const entries = pathway.bookIds
+    .map(bookId => getBook(bookId))
+    .filter((b): b is Book => !!b)
+    .map(book => {
+      const read = getReadChapters(book.id)
+      const isComplete = read.length === book.chapters.length
+      const nextChapter = book.chapters.find(c => !read.includes(c.number)) ?? book.chapters[0]
+      return { book, readCount: read.length, isComplete, nextChapter }
+    })
+
+  const totalChapters = entries.reduce((sum, e) => sum + e.book.chapters.length, 0)
+  const totalRead = entries.reduce((sum, e) => sum + e.readCount, 0)
+  const pct = totalChapters === 0 ? 0 : Math.round((totalRead / totalChapters) * 100)
+
+  const nextEntry = entries.find(e => !e.isComplete)
+  const journeyComplete = !nextEntry
+
+  return (
+    <div className="max-w-2xl mx-auto px-6 py-16">
+      <button onClick={onBack} className="flex items-center gap-2 text-stone-500 hover:text-amber-800 transition-colors text-sm mb-8">
+        <ArrowLeft size={14} /> Reading Library
+      </button>
+
+      <p className="text-amber-700/80 text-xs uppercase tracking-widest mb-3 font-sans">Reading Pathway</p>
+      <h1 className="font-reading text-stone-900 text-3xl font-bold leading-tight mb-2">{pathway.title}</h1>
+      <p className="text-stone-500 text-base mb-6 max-w-xl">{pathway.description}</p>
+
+      <div className="flex items-center gap-3 mb-8">
+        <div className="flex-1 h-2 rounded-full bg-stone-200 overflow-hidden">
+          <div className="h-full bg-amber-600 rounded-full transition-all" style={{ width: `${pct}%` }} />
+        </div>
+        <span className="text-stone-500 text-sm font-sans tabular-nums shrink-0">{totalRead} of {totalChapters} chapters</span>
+      </div>
+
+      {journeyComplete ? (
+        <div className="mb-10 bg-amber-50 border border-amber-200 rounded-xl p-5 flex items-center gap-3">
+          <CheckCircle2 size={20} className="text-amber-700 shrink-0" />
+          <p className="text-stone-800 text-sm font-sans">You've completed every book in this pathway.</p>
+        </div>
+      ) : (
+        <button
+          onClick={() => nextEntry && onOpenBook(nextEntry.book.id, nextEntry.nextChapter.number)}
+          className="bg-amber-700 hover:bg-amber-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors mb-10"
+        >
+          {totalRead === 0 ? 'Start This Pathway' : 'Continue This Pathway'} &rarr;
+        </button>
+      )}
+
+      <div>
+        <p className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2 font-sans">Books in This Pathway</p>
+        <div>
+          {entries.map((entry, i) => (
+            <button
+              key={entry.book.id}
+              onClick={() => onOpenBook(entry.book.id, entry.nextChapter.number)}
+              className="w-full flex items-center gap-4 py-4 border-b border-stone-200 last:border-0 text-left group"
+            >
+              <span className="text-sm font-sans w-6 shrink-0 text-stone-400">{String(i + 1).padStart(2, '0')}</span>
+              <div className="flex-1 min-w-0">
+                <span className={`block font-reading text-[15px] group-hover:text-amber-800 transition-colors ${entry.isComplete ? 'text-stone-500' : 'text-stone-900'}`}>
+                  {entry.book.title}
+                </span>
+                <span className="text-stone-400 text-xs font-sans">{entry.readCount} of {entry.book.chapters.length} chapters read</span>
+              </div>
+              {entry.isComplete ? (
+                <CheckCircle2 size={18} className="text-amber-700 shrink-0" />
+              ) : (
+                <span className="w-3.5 h-3.5 rounded-full border border-stone-300 shrink-0" />
+              )}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -246,14 +359,17 @@ function ChapterReader({
 
 export default function Library() {
   const navigate = useNavigate()
-  const { bookId, chapterNumber } = useParams()
+  const { bookId, chapterNumber, pathwayId } = useParams()
 
   const book = bookId ? getBook(bookId) : undefined
   const chapter = book && chapterNumber ? book.chapters.find(c => c.number === Number(chapterNumber)) : undefined
+  const pathway = pathwayId ? getPathway(pathwayId) : undefined
+
+  const inBook = !!book || !!pathway
 
   return (
     <div className="min-h-screen bg-[#faf6ec]">
-      <LibraryHeader inBook={!!book} />
+      <LibraryHeader inBook={inBook} />
       <div className="pt-20">
         {book && chapter ? (
           <ChapterReader
@@ -264,6 +380,12 @@ export default function Library() {
           />
         ) : book ? (
           <BookLanding book={book} onOpenChapter={n => navigate(`/library/${book.id}/${n}`)} />
+        ) : pathway ? (
+          <PathwayJourney
+            pathway={pathway}
+            onOpenBook={(bId, cNum) => navigate(`/library/${bId}/${cNum}`)}
+            onBack={() => navigate('/library')}
+          />
         ) : (
           <div className="max-w-6xl mx-auto px-6 py-16">
             <div className="mb-12">
@@ -281,10 +403,13 @@ export default function Library() {
                 <h3 className="text-stone-700 font-semibold text-lg mb-2">First book coming soon</h3>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 gap-6">
-                {books.map(b => (
-                  <BookCard key={b.id} book={b} onClick={() => navigate(`/library/${b.id}`)} />
-                ))}
+              <div className="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {books.map(b => (
+                    <BookCard key={b.id} book={b} onClick={() => navigate(`/library/${b.id}`)} />
+                  ))}
+                </div>
+                <PathwaySidebar onSelect={id => navigate(`/library/path/${id}`)} />
               </div>
             )}
           </div>
