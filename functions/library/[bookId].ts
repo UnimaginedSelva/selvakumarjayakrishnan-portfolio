@@ -17,6 +17,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "19 sections distilled to their core idea and one thing to do — quantum physics, neuroscience, and a full four-week guided meditation program, condensed without losing the actual practice.",
   },
+  'becoming-supernatural': {
+    title: 'Becoming Supernatural',
+    author: 'Dr. Joe Dispenza',
+    description:
+      "16 sections distilled to their core idea and one thing to do — the pineal gland, heart coherence, and several named meditation practices, condensed without losing the actual practice scripts.",
+  },
 };
 
 function escapeHtml(s: string): string {
