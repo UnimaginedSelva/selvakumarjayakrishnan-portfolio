@@ -1,11 +1,33 @@
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, Trash2, FileText } from 'lucide-react'
+import { ChevronDown, ChevronUp, FileText, Download } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { templates } from '../data/templates'
-import { getTemplateEntries, saveTemplateEntry, deleteTemplateEntry, type TemplateEntry } from '../utils/templateEntries'
+import { templates, type PracticeTemplate } from '../data/templates'
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })
+function slugify(title: string) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
+function buildFileContent(template: PracticeTemplate, values: Record<string, string>) {
+  const lines = [template.title, `Source: ${template.sourceLabel}`, `Date: ${new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}`, '']
+  for (const field of template.fields) {
+    lines.push(field.label.toUpperCase())
+    lines.push(values[field.key]?.trim() || '(not filled in)')
+    lines.push('')
+  }
+  return lines.join('\n')
+}
+
+function downloadTemplate(template: PracticeTemplate, values: Record<string, string>) {
+  const content = buildFileContent(template, values)
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `${slugify(template.title)}-${new Date().toISOString().slice(0, 10)}.txt`
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
 }
 
 function TemplateCard({ templateId }: { templateId: string }) {
@@ -13,19 +35,12 @@ function TemplateCard({ templateId }: { templateId: string }) {
   const template = templates.find(t => t.id === templateId)!
   const [expanded, setExpanded] = useState(false)
   const [draft, setDraft] = useState<Record<string, string>>({})
-  const [entries, setEntries] = useState<TemplateEntry[]>(() => getTemplateEntries(templateId))
 
-  function handleSave() {
-    const hasContent = template.fields.some(f => draft[f.key]?.trim())
+  const hasContent = template.fields.some(f => draft[f.key]?.trim())
+
+  function handleDownload() {
     if (!hasContent) return
-    saveTemplateEntry(templateId, draft)
-    setEntries(getTemplateEntries(templateId))
-    setDraft({})
-  }
-
-  function handleDelete(entryId: string) {
-    deleteTemplateEntry(templateId, entryId)
-    setEntries(getTemplateEntries(templateId))
+    downloadTemplate(template, draft)
   }
 
   return (
@@ -41,11 +56,6 @@ function TemplateCard({ templateId }: { templateId: string }) {
           <div className="flex items-center gap-2 mb-1">
             <FileText size={14} className="text-amber-700 shrink-0" />
             <h3 className="font-reading text-stone-900 font-semibold text-base">{template.title}</h3>
-            {entries.length > 0 && (
-              <span className="text-[11px] text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full font-sans shrink-0">
-                {entries.length} saved
-              </span>
-            )}
           </div>
           <p className="text-stone-500 text-sm leading-relaxed mb-1">{template.description}</p>
           <button
@@ -80,39 +90,12 @@ function TemplateCard({ templateId }: { templateId: string }) {
             ))}
           </div>
           <button
-            onClick={handleSave}
-            className="bg-amber-700 hover:bg-amber-800 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors font-sans"
+            onClick={handleDownload}
+            disabled={!hasContent}
+            className="flex items-center gap-2 bg-amber-700 hover:bg-amber-800 disabled:bg-stone-300 disabled:cursor-not-allowed text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors font-sans"
           >
-            Save Entry
+            <Download size={14} /> Download Filled Template
           </button>
-
-          {entries.length > 0 && (
-            <div className="mt-6 pt-5 border-t border-stone-100">
-              <p className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-3 font-sans">Saved Entries</p>
-              <div className="flex flex-col gap-3">
-                {entries.map(entry => (
-                  <div key={entry.id} className="bg-stone-50 border border-stone-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-stone-400 text-xs font-sans">{formatDate(entry.savedAt)}</span>
-                      <button onClick={() => handleDelete(entry.id)} className="text-stone-300 hover:text-rose-600 transition-colors">
-                        <Trash2 size={14} />
-                      </button>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      {template.fields.map(field =>
-                        entry.values[field.key] ? (
-                          <div key={field.key}>
-                            <p className="text-stone-400 text-[11px] font-sans uppercase tracking-wide">{field.label}</p>
-                            <p className="text-stone-800 text-sm font-sans whitespace-pre-wrap">{entry.values[field.key]}</p>
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       )}
     </div>
@@ -126,7 +109,7 @@ export default function PracticeTemplates() {
         <h2 className="font-reading text-stone-900 font-bold text-2xl">Practice Templates</h2>
       </div>
       <p className="text-stone-500 text-sm mb-6 max-w-2xl">
-        Recurring techniques from across the library, turned into fillable templates. Entries are saved in your browser.
+        Recurring techniques from across the library, turned into fillable templates. Fill one in and download it — nothing is stored on the site.
       </p>
       <div className="grid md:grid-cols-2 gap-4">
         {templates.map(t => (
