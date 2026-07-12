@@ -11,6 +11,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "16 chapters distilled to their core idea and one thing to actually go do — the substance of the self-help classic that inspired modern self-image psychology, without the density of the original.",
   },
+  'breaking-the-habit-of-being-you': {
+    title: 'Breaking the Habit of Being Yourself',
+    author: 'Dr. Joe Dispenza',
+    description:
+      "19 sections distilled to their core idea and one thing to do — quantum physics, neuroscience, and a full four-week guided meditation program, condensed without losing the actual practice.",
+  },
 };
 
 function escapeHtml(s: string): string {
