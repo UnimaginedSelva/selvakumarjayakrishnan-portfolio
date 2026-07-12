@@ -41,6 +41,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "4 chapters distilled to their core teaching and practice — Neville's shortest, most concentrated statement of the law of assumption, condensed without losing the method.",
   },
+  'the-law-and-the-promise': {
+    title: 'The Law and the Promise',
+    author: 'Neville Goddard',
+    description:
+      "15 chapters distilled to their specific teaching and practice — real accounts illustrating revision, dwelling in the end, and sustained moods, condensed without losing the range of techniques.",
+  },
 };
 
 function escapeHtml(s: string): string {
