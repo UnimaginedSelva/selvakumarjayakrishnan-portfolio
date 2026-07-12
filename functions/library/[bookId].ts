@@ -23,6 +23,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "16 sections distilled to their core idea and one thing to do — the pineal gland, heart coherence, and several named meditation practices, condensed without losing the actual practice scripts.",
   },
+  'jungs-map-of-the-soul': {
+    title: "Jung's Map of the Soul: An Introduction",
+    author: 'Murray Stein',
+    description:
+      "10 sections distilled to their core concept and a reflective prompt — the standard entry point into Jung's analytical psychology, condensed without losing the theory.",
+  },
 };
 
 function escapeHtml(s: string): string {

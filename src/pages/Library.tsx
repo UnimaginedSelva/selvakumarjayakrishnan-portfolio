@@ -23,7 +23,7 @@ function markChapterRead(bookId: string, chapterNumber: number) {
   }
 }
 
-function LibraryHeader() {
+function LibraryHeader({ inBook }: { inBook: boolean }) {
   const navigate = useNavigate()
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
@@ -32,9 +32,15 @@ function LibraryHeader() {
           <div className="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center font-bold text-slate-900 text-xs">SJ</div>
           <span className="text-slate-300 text-sm font-medium hidden sm:block">Selvakumar Jayakrishnan</span>
         </button>
-        <button onClick={() => navigate('/')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
-          <ArrowLeft size={14} /> Back to Portfolio
-        </button>
+        {inBook ? (
+          <button onClick={() => navigate('/library')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
+            <ArrowLeft size={14} /> Back to Library
+          </button>
+        ) : (
+          <button onClick={() => navigate('/')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
+            <ArrowLeft size={14} /> Back to Portfolio
+          </button>
+        )}
       </div>
     </div>
   )
@@ -247,7 +253,7 @@ export default function Library() {
 
   return (
     <div className="min-h-screen bg-[#faf6ec]">
-      <LibraryHeader />
+      <LibraryHeader inBook={!!book} />
       <div className="pt-20">
         {book && chapter ? (
           <ChapterReader
