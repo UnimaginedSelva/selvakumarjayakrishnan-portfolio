@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { books, getBook, type Book, type BookChapter } from '../data/books'
 import { pathways, getPathway, type Pathway } from '../data/pathways'
 import { getReadChapters, markChapterRead } from '../utils/libraryProgress'
+import PracticeTemplates from '../components/PracticeTemplates'
 
 function LibraryHeader({ inBook }: { inBook: boolean }) {
   const navigate = useNavigate()
@@ -412,6 +413,7 @@ export default function Library() {
                 <PathwaySidebar onSelect={id => navigate(`/library/path/${id}`)} />
               </div>
             )}
+            {books.length > 0 && <PracticeTemplates />}
           </div>
         )}
       </div>
