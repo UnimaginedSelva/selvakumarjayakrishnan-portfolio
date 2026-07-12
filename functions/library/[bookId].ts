@@ -35,6 +35,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "27 chapters distilled to their core teaching and practice — the classic New Thought technique of assuming the feeling of the wish fulfilled, condensed without losing the method.",
   },
+  'feeling-is-the-secret': {
+    title: 'Feeling Is the Secret',
+    author: 'Neville Goddard',
+    description:
+      "4 chapters distilled to their core teaching and practice — Neville's shortest, most concentrated statement of the law of assumption, condensed without losing the method.",
+  },
 };
 
 function escapeHtml(s: string): string {

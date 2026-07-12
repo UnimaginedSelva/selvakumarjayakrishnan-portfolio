@@ -743,6 +743,46 @@ export const books: Book[] = [
     }
   ]
 }
+,
+  {
+  "id": "feeling-is-the-secret",
+  "title": "Feeling Is the Secret",
+  "author": "Neville Goddard",
+  "category": "New Thought & Manifestation",
+  "originalYear": 1944,
+  "editionYear": 1944,
+  "whyDistilled": "Neville's shortest and most concentrated book — just four chapters distilling his entire method down to a single claim: your subconscious faithfully builds your world to match whatever you feel, not what you think or wish. Each chapter here is kept as brief as the original, covering the theory (Chapter 1) and its two practical doorways, sleep and prayer (Chapters 2-3), before the book's short closing statement (Chapter 4).",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Chapter 1: Law and Its Operation",
+      "summary": "Neville lays out the mechanics behind everything the rest of the book will apply: consciousness is the one cause and substance of reality, but functions through two parts — the conscious mind (which generates ideas) and the subconscious (which receives and gives form to them, faithfully and without judgment). The subconscious doesn't evaluate whether a feeling is true, helpful, or accurate; it simply accepts whatever is felt as fact and sets about building the outer world to match it. This makes feeling, not thought alone, the actual mechanism of creation — an idea only takes effect once it's felt, and between two competing feelings, the stronger one wins (feeling \"I am healthy\" overrides \"I will be healthy,\" since the second quietly confesses you aren't yet). Dwelling on obstacles, failure, or fear therefore isn't neutral — it's actively instructing the subconscious to produce more of the same, since it can't tell the difference between a feeling about what you want and a feeling about what you fear.\n\nThe practical conclusion follows directly: nothing in your life is caused by chance, luck, or outside circumstance — your world is the outpicturing of whatever you've felt to be true, whether you intended it or not. The fix is to assume the feeling of already possessing what you want, concerned only with the end itself, not the means by which it could happen — since worrying over \"how\" just impresses the subconscious with the feeling of difficulty instead. Neville closes by naming sleep and prayer as the two most reliable doorways into the subconscious, since both quiet the analytical conscious mind enough for an assumed feeling to be impressed without interference — a thread the book's next two chapters build on directly.",
+      "keyIdea": "Your subconscious doesn't judge or filter what you feel — it simply builds your world to match it, which means the real skill isn't positive thinking, it's controlling which feeling you allow to dominate.",
+      "actionStep": "Pick one desire you're currently holding as a future hope (\"I will be...\", \"I'll eventually have...\"). Practice shifting the language and the feeling to present tense (\"I am...\", \"I have...\") for a few minutes today, noticing that the \"I am\" version feels sturdier and more settled than the \"I will be\" version — that difference in felt conviction is the thing Neville says actually does the work."
+    },
+    {
+      "number": 2,
+      "title": "Chapter 2: Sleep",
+      "summary": "Neville names sleep the natural, nightly doorway into the subconscious, since falling asleep is the moment the analytical conscious mind lets go and the subconscious takes sole possession. Whatever state of feeling you carry into that threshold — satisfaction or disappointment, success or failure — becomes the seed the subconscious works with overnight, and it faithfully outpictures that exact feeling into the next day's circumstances. This makes the ritual of falling asleep the real leverage point of the whole practice: lying still, feeling as though the wish is already fulfilled, and drifting off inside that feeling rather than inside the leftover reactions of the day.\n\nHe's blunt about what this means for free will: once asleep, there's no more choosing, and the day that follows simply plays out what last night's assumed state already determined. Your only real freedom, then, is upstream — in choosing what you feel as you drop off — since the day's events are effects, not causes. Never go to sleep dissatisfied or replaying a failure, he warns, since the subconscious doesn't distinguish a fair complaint from a self-fulfilling instruction; it simply reproduces whatever feeling you hand it last.",
+      "keyIdea": "The state you fall asleep in is the seed for tomorrow — so the real practice isn't managing your day, it's controlling the one feeling you carry across the threshold into sleep each night.",
+      "actionStep": "Tonight, lie flat on your back and, instead of replaying the day's events, deliberately call up the specific feeling of already having what you want — the relief, the satisfaction, the settled certainty. Hold that feeling, not a picture, as the very last thing in your mind as you drift into sleep."
+    },
+    {
+      "number": 3,
+      "title": "Chapter 3: Prayer",
+      "summary": "Neville treats prayer as functionally identical to sleep — another entrance into the subconscious, reached the same way: by relaxing the senses and the analytical mind until you're receptive from within. His central claim is that prayer isn't really about what you ask for, but about how convincingly you can feel it already answered; the one condition for an answered prayer is believing, in the moment of praying, that you already have what you're asking for. Trying hard or straining against what your senses currently report is counterproductive — effort itself confirms the absence you're trying to overcome, since a dominant contrary feeling always wins out over a forced one.\n\nHe gives a specific method for reaching the right state: relax completely, as though drifting toward sleep, feeling drowsy and heavy until you reach a passive, half-awake reverie where you're technically conscious but no longer inclined to move. From that passive state, don't picture how the wish might be achieved — simply feel it as an accomplished fact, the way you'd recall a memory rather than imagine a hope. Once that end is genuinely accepted as already true, Neville says a natural indifference to how it will happen sets in, since accepting the end automatically sets the means in motion.",
+      "keyIdea": "Prayer isn't asking and hoping — it's deliberately relaxing into a passive, sleep-like state and feeling your wish as an already-accomplished fact, since forcing or straining only reinforces the very absence you're trying to overcome.",
+      "actionStep": "Sit or lie comfortably, close your eyes, and let yourself feel sleepy and heavy until your body loses its urge to move. From that relaxed state, don't picture how your wish would come about — just feel, as vividly as a memory, that it's already true. Rest in that feeling for a few minutes without effort."
+    },
+    {
+      "number": 4,
+      "title": "Chapter 4: Spirit – Feeling",
+      "summary": "In this short closing chapter, Neville restates the book's entire method in its most compressed form: get into the spirit of the state you want by assuming the feeling that would already be yours if you possessed it, and the effort to \"make it happen\" dissolves, because inside that feeling it already has happened. He equates faith directly with feeling — you don't attract what you want, you attract and express what you actually feel yourself to be — and pushes this to its most provocative conclusion: rather than merely believing in a higher power's example, believe yourself to already be the version of yourself capable of that same power, since it's entirely natural to act like whoever you genuinely believe yourself to be.\n\nThe chapter, and the book, close on that single instruction repeated one final time: live in the feeling of already being the person you want to become, and let that lived feeling — not effort, not evidence, not argument — be the whole of the practice.",
+      "keyIdea": "You don't need more effort or more proof — you need to genuinely feel, right now, like the person who already has what you want, because that felt identity is the entire mechanism the rest of the book describes.",
+      "actionStep": "Pick the single identity or achievement you most want to embody. For a few minutes today, drop any thought of how to get there and simply feel — in posture, breath, and inner tone — exactly as that version of you would already feel, with no other goal than sustaining that feeling for as long as you can."
+    }
+  ]
+}
 ]
 
 export function getBook(bookId: string): Book | undefined {
