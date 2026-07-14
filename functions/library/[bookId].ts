@@ -47,6 +47,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "15 chapters distilled to their specific teaching and practice — real accounts illustrating revision, dwelling in the end, and sustained moods, condensed without losing the range of techniques.",
   },
+  'power-of-now': {
+    title: 'The Power of Now',
+    author: 'Eckhart Tolle',
+    description:
+      "10 chapters distilled to their core teaching and one concrete practice — watching the thinker, feeling the inner body, surrender — condensed without the book's dense, repetitive dialogue format.",
+  },
 };
 
 function escapeHtml(s: string): string {
