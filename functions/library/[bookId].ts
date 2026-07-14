@@ -83,6 +83,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "16 chapters distilled to their core teaching and one real practice — thought as the root cause, forgiveness, applying the method to relationships, work, and the body — condensed without losing the book's foundational New Thought voice.",
   },
+  'a-new-earth': {
+    title: 'A New Earth',
+    author: 'Eckhart Tolle',
+    description:
+      "10 chapters distilled to their core teaching and one real practice — the ego, the pain-body, inner space, and awakened doing — condensed from the book's dense, comparative-religion-heavy prose into direct, usable technique.",
+  },
 };
 
 function escapeHtml(s: string): string {
