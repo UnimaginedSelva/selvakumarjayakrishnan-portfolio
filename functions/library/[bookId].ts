@@ -95,6 +95,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "19 chapters distilled to their core teaching and one real practice — the inner voice, releasing old pain, taking down inner walls, and unconditional openness — condensed into a clear, step-by-step journey.",
   },
+  'mind-magic': {
+    title: 'Mind Magic',
+    author: 'Dr. James R. Doty',
+    description:
+      "9 chapters distilled to their core teaching and one real practice — a neuroscience-grounded six-step manifestation method built from brain networks, the nervous system, and neuroplasticity rather than mysticism.",
+  },
 };
 
 function escapeHtml(s: string): string {
