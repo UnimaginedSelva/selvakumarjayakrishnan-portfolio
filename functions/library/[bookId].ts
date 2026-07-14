@@ -53,6 +53,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "10 chapters distilled to their core teaching and one concrete practice — watching the thinker, feeling the inner body, surrender — condensed without the book's dense, repetitive dialogue format.",
   },
+  'think-and-grow-rich': {
+    title: 'Think and Grow Rich!',
+    author: 'Napoleon Hill',
+    description:
+      "14 chapters distilled to their core method and one real practice — the six-step desire method, autosuggestion, the master mind group, and the fear-pattern diagnostic — condensed without the period-piece prose.",
+  },
 };
 
 function escapeHtml(s: string): string {
