@@ -65,6 +65,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "7 chapters distilled to their core teaching and one concrete practice — impeccable word, not taking things personally, not assuming, always doing your best — condensed without losing the book's direct, plain voice.",
   },
+  'the-mountain-is-you': {
+    title: 'The Mountain Is You',
+    author: 'Brianna Wiest',
+    description:
+      "7 chapters distilled to their core teaching and one real practice — self-sabotage as coping mechanism, triggers, emotional intelligence, releasing the past — condensed without losing the book's direct, urgent voice.",
+  },
 };
 
 function escapeHtml(s: string): string {
