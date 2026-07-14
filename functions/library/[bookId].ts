@@ -59,6 +59,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "14 chapters distilled to their core method and one real practice — the six-step desire method, autosuggestion, the master mind group, and the fear-pattern diagnostic — condensed without the period-piece prose.",
   },
+  'the-four-agreements': {
+    title: 'The Four Agreements',
+    author: 'Don Miguel Ruiz',
+    description:
+      "7 chapters distilled to their core teaching and one concrete practice — impeccable word, not taking things personally, not assuming, always doing your best — condensed without losing the book's direct, plain voice.",
+  },
 };
 
 function escapeHtml(s: string): string {
