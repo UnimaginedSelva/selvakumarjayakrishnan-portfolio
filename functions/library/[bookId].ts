@@ -77,6 +77,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "8 chapters distilled to their core teaching and one real practice — the Upper Limit Problem, the Zone of Genius, and applying the framework to time and relationships — condensed without losing the book's practical voice.",
   },
+  'you-can-heal-your-life': {
+    title: 'You Can Heal Your Life',
+    author: 'Louise Hay',
+    description:
+      "16 chapters distilled to their core teaching and one real practice — thought as the root cause, forgiveness, applying the method to relationships, work, and the body — condensed without losing the book's foundational New Thought voice.",
+  },
 };
 
 function escapeHtml(s: string): string {
