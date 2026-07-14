@@ -71,6 +71,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "7 chapters distilled to their core teaching and one real practice — self-sabotage as coping mechanism, triggers, emotional intelligence, releasing the past — condensed without losing the book's direct, urgent voice.",
   },
+  'the-big-leap': {
+    title: 'The Big Leap',
+    author: 'Gay Hendricks',
+    description:
+      "8 chapters distilled to their core teaching and one real practice — the Upper Limit Problem, the Zone of Genius, and applying the framework to time and relationships — condensed without losing the book's practical voice.",
+  },
 };
 
 function escapeHtml(s: string): string {
