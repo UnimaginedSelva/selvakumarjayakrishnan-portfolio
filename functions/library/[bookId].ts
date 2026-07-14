@@ -89,6 +89,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "10 chapters distilled to their core teaching and one real practice — the ego, the pain-body, inner space, and awakened doing — condensed from the book's dense, comparative-religion-heavy prose into direct, usable technique.",
   },
+  'the-untethered-soul': {
+    title: 'The Untethered Soul',
+    author: 'Michael A. Singer',
+    description:
+      "19 chapters distilled to their core teaching and one real practice — the inner voice, releasing old pain, taking down inner walls, and unconditional openness — condensed into a clear, step-by-step journey.",
+  },
 };
 
 function escapeHtml(s: string): string {
