@@ -101,6 +101,36 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "9 chapters distilled to their core teaching and one real practice — a neuroscience-grounded six-step manifestation method built from brain networks, the nervous system, and neuroplasticity rather than mysticism.",
   },
+  'the-science-of-getting-rich': {
+    title: 'The Science of Getting Rich',
+    author: 'Wallace D. Wattles',
+    description:
+      "17 chapters distilled to their core teaching and one real practice — the 1910 public-domain classic that shaped Napoleon Hill and the New Thought writers, condensed into wealth-building as an exact, learnable method.",
+  },
+  'the-psychology-of-money': {
+    title: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    description:
+      "22 chapters distilled to their core story and one real practice — money as a behavioral problem, not a math problem, condensed from Housel's short, story-driven format into one clear lesson per chapter.",
+  },
+  'a-happy-pocket-full-of-money': {
+    title: 'A Happy Pocket Full of Money',
+    author: 'David Cameron Gikandi',
+    description:
+      "22 chapters distilled to their core teaching and one real practice — money reframed as the shadow of an inner wealth consciousness, condensed from dense, quantum-physics-flavored New Thought prose into direct, usable technique.",
+  },
+  'secrets-of-the-millionaire-mind': {
+    title: 'Secrets of the Millionaire Mind',
+    author: 'T. Harv Eker',
+    description:
+      "18 chapters distilled to their core rich-vs-poor mindset contrast and one real practice — the book's own prescribed Millionaire Mind Actions, condensed from a punchy, seminar-style bestseller into direct, usable technique.",
+  },
+  'the-21-success-secrets-of-self-made-millionaires': {
+    title: 'The 21 Success Secrets of Self-Made Millionaires',
+    author: 'Brian Tracy',
+    description:
+      "23 chapters distilled to their core habit and one real practice — the book's own Action Exercises, condensed from short, plain-spoken chapters into a compact set of learnable wealth-building behaviors.",
+  },
 };
 
 function escapeHtml(s: string): string {
