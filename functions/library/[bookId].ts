@@ -131,6 +131,12 @@ const BOOKS: Record<string, BookMeta> = {
     description:
       "23 chapters distilled to their core habit and one real practice — the book's own Action Exercises, condensed from short, plain-spoken chapters into a compact set of learnable wealth-building behaviors.",
   },
+  'the-richest-man-in-babylon': {
+    title: 'The Richest Man in Babylon',
+    author: 'George S. Clason',
+    description:
+      "10 chapters distilled to their core principle and one real practice — the 1926 classic that teaches wealth-building through ancient Babylonian parable rather than direct instruction.",
+  },
 };
 
 function escapeHtml(s: string): string {
