@@ -42,6 +42,20 @@ export const pathways: Pathway[] = [
     bookIds: ['think-and-grow-rich', 'the-big-leap'],
   },
   {
+    id: 'building-wealth',
+    title: 'Building Wealth',
+    description:
+      "Old to new, spiritual to practical. Clason's 1926 parables are the gentlest entry point; Wattles' 1910 classic and Gikandi's quantum-flavored take build the metaphysical case for wealth; Eker's money blueprint and Tracy's habits convert mindset into daily practice; Housel's modern behavioral finance grounds the whole arc in how money actually works today.",
+    bookIds: [
+      'the-richest-man-in-babylon',
+      'the-science-of-getting-rich',
+      'a-happy-pocket-full-of-money',
+      'secrets-of-the-millionaire-mind',
+      'the-21-success-secrets-of-self-made-millionaires',
+      'the-psychology-of-money',
+    ],
+  },
+  {
     id: 'body-breath-meditation',
     title: 'Body, Breath & Meditation',
     description:
@@ -59,7 +73,7 @@ export const pathways: Pathway[] = [
     id: 'the-complete-journey',
     title: 'The Complete Journey',
     description:
-      'All sixteen books in one recommended order: psychology and theory first, then the manifestation arc simple-to-advanced, then presence and ego, then breaking self-sabotage patterns, then success, then the body-based meditation arc grounded-to-mystical.',
+      'All twenty-two books in one recommended order: psychology and theory first, then the manifestation arc simple-to-advanced, then presence and ego, then breaking self-sabotage patterns, then success, then the full wealth-building arc old-to-new, then the body-based meditation arc grounded-to-mystical.',
     bookIds: [
       'new-psycho-cybernetics',
       'jungs-map-of-the-soul',
@@ -75,6 +89,12 @@ export const pathways: Pathway[] = [
       'the-mountain-is-you',
       'think-and-grow-rich',
       'the-big-leap',
+      'the-richest-man-in-babylon',
+      'the-science-of-getting-rich',
+      'a-happy-pocket-full-of-money',
+      'secrets-of-the-millionaire-mind',
+      'the-21-success-secrets-of-self-made-millionaires',
+      'the-psychology-of-money',
       'breaking-the-habit-of-being-you',
       'becoming-supernatural',
     ],
