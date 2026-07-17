@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, HelpCircle } from 'lucide-react'
 import HireMeModal from './HireMeModal'
 
 const links = [
@@ -41,6 +41,16 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
+          <a
+            href="/Selvakumar_Jayakrishnan_Visitor_Handbook.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visitor Handbook — a quick guide to this site"
+            aria-label="Open Visitor Handbook"
+            className="text-slate-400 hover:text-gold-400 transition-colors"
+          >
+            <HelpCircle size={19} />
+          </a>
           <button
             onClick={() => setHireMeOpen(true)}
             className="bg-gold-500 hover:bg-gold-400 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
@@ -63,6 +73,14 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
+          <a
+            href="/Selvakumar_Jayakrishnan_Visitor_Handbook.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-slate-300 hover:text-gold-400 transition-colors text-sm font-medium"
+          >
+            <HelpCircle size={16} /> Visitor Handbook
+          </a>
           <button onClick={() => { setMenuOpen(false); setHireMeOpen(true) }} className="bg-gold-500 text-slate-900 text-sm font-semibold px-4 py-2 rounded-lg text-center">
             Hire Me
           </button>
