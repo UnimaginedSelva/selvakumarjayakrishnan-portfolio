@@ -34,7 +34,6 @@ export default function Footer() {
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-slate-100 font-semibold text-sm">The Journey — Q&A</span>
-                <span className="text-xs font-medium text-gold-400 bg-gold-500/10 border border-gold-500/20 px-2 py-0.5 rounded-full">Coming Soon</span>
               </div>
               <p className="text-slate-500 text-xs leading-relaxed">Real scenarios. Honest answers. The road to becoming one of the best AI Consultants by 2030.</p>
             </div>
