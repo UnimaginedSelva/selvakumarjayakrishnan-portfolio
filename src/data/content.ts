@@ -13,13 +13,13 @@ export const hero = {
   linkedin: 'https://www.linkedin.com/in/passionateselva',
   phone: '+91 9036000220',
   location: 'Bengaluru, India',
-  resumeFile: '/Selvakumar_Jayakrishnan_Resume_Detailed_June2026.pdf',
+  resumeFile: '/Selvakumar_Jayakrishnan_Resume_Detailed_July2026.pdf',
 }
 
 export const about = {
   summary: `I lead enterprise-scale business transformation programs — including Digital and AI Transformation — that deliver measurable, lasting outcomes. $6M+ in annual business value, 25–35% efficiency improvements, and adoption at scale across 12,000 users globally.`,
   summary2Domains: `covering Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. All grounded in 19 years of enterprise delivery evidence.`,
-  frameworksParagraph: `Author of 7 published practitioner frameworks — TRANSFORM™, OPERATE™, ASCEND™, EMBED™, BRIDGE™, FORGED™, and TRUST™ — spanning Digital & AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, and FSI Digital Adoption. Co-author of the forthcoming STEWARD Framework™ with Cybersecurity expert Ashish Sharma (BISO, CISSP, CCSP), covering Cybersecurity Workforce Transformation — scheduled Q3 2026. These original frameworks are supplementary playbooks designed to improve and enhance the effectiveness of current industry standards, not replace them.`,
+  frameworksParagraph: `Author of 8 published practitioner frameworks — TRANSFORM™, OPERATE™, ASCEND™, EMBED™, BRIDGE™, FORGED™, TRUST™, and STEWARD™ — spanning Digital & AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. STEWARD™ is co-authored with cybersecurity expert Ashish Sharma (BISO, CISSP, CCSP). These original frameworks are supplementary playbooks designed to improve and enhance the effectiveness of current industry standards, not replace them.`,
   summary3: `Exploring Senior Manager and Director-level roles in Change Management, Digital Transformation, and AI Operationalization. Immediate joiner. Open to KL, Bangkok, Bengaluru, Pune, and Europe.`,
   focusAreas: [
     'Transformation Governance',
@@ -262,8 +262,8 @@ export const frameworks = [
     stages: '7-Stage Playbook',
     description: 'For Cybersecurity Workforce Transformation',
     detail: 'A co-authored framework for building cybersecurity-ready workforces in the age of AI. Co-created with Ashish Sharma (BISO, Dell Technologies · CISSP · CCSP · AI Governance). The machine hunts the threat. The human stewards the outcome.',
-    published: 'Co-authored with Ashish Sharma · Scheduled Q3 2026',
-    url: '#',
+    published: 'Co-authored with Ashish Sharma · Published on LinkedIn · 16 Jul 2026',
+    url: 'https://www.linkedin.com/feed/update/urn:li:activity:7483185687329144833/',
     color: 'teal',
   },
 ]

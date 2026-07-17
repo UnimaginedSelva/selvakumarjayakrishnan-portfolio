@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-slate-100 font-semibold text-sm">Thought Leadership Blog</span>
               </div>
-              <p className="text-slate-500 text-xs leading-relaxed">Real-world application of 7 practitioner frameworks — published from 30 June 2026.</p>
+              <p className="text-slate-500 text-xs leading-relaxed">Real-world application of 8 practitioner frameworks — published from 30 June 2026.</p>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
 
         <p className="text-slate-600 text-xs text-center">
-          TRANSFORM™ · OPERATE™ · ASCEND™ · EMBED™ · BRIDGE™ · FORGED™ · TRUST™ · © {new Date().getFullYear()} Selvakumar Jayakrishnan
+          TRANSFORM™ · OPERATE™ · ASCEND™ · EMBED™ · BRIDGE™ · FORGED™ · TRUST™ · STEWARD™ · © {new Date().getFullYear()} Selvakumar Jayakrishnan
         </p>
 
         <a
