@@ -526,7 +526,7 @@ What is not delayed is Article 50, the transparency requirement. Starting August
 
 I do not know whether the AI boom keeps compounding for another three years or corrects hard sometime next year. Nobody genuinely knows that, no matter how confident the argument sounds on your feed this week.
 
-What I do know, from the data and from twenty years of watching organizations try to absorb change, is that the organizations who define success up front, fix their data, name an owner, build for flexibility, and govern in real time are going to be fine either way. Not because they predicted the market correctly, but because they built something that did not depend on the prediction being right.
+What I do know, from the data and from nineteen years of watching organizations try to absorb change, is that the organizations who define success up front, fix their data, name an owner, build for flexibility, and govern in real time are going to be fine either way. Not because they predicted the market correctly, but because they built something that did not depend on the prediction being right.
 
 That is a much more liberating place to stand than trying to guess which way this goes.
 
