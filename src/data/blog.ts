@@ -444,4 +444,96 @@ If your organization has already moved toward multi-model orchestration, or is a
     carouselSlides: Array.from({ length: 10 }, (_, i) => `/carousels/orchestration-isnt-new/slide-${i + 1}.png`),
     carouselPdfUrl: '/carousels/orchestration-isnt-new/P19_Orchestration_Carousel.pdf',
   },
+  {
+    id: 'ai-boom-bubble-playbook',
+    title: "You Don't Need to Win the AI Boom or Bubble Argument. You Need to Be Ready for Either One.",
+    subtitle: "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
+    framework: 'Real-World Application',
+    frameworkTag: 'Real-World Application',
+    series: 'Real-World Application of the 7 Frameworks',
+    date: '2026-07-28',
+    readTime: '8 min',
+    summary: "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
+    content: `![Two Scenarios. One Playbook: the five all-weather practices that hold up whether the AI boom keeps compounding or the bubble bursts — define success, fix the data foundation, name an accountable owner, build for orchestration, govern in real time](/P20_Image.png)
+
+Everyone has an opinion right now. Some say the AI boom has years left to run. Others say the bubble is about to burst, and the correction will be brutal. Both camps show up with charts, and both camps sound certain.
+
+Here is what I think is the more useful question. What if the outcome does not actually change what you should be doing right now, inside your own organization?
+
+I spent the last few weeks going deep into the 2025 and 2026 data on enterprise AI, not the speculation, the actual documented research from S&P Global, MIT, RAND, Gartner, and Deloitte. What I found was not a boom story or a bubble story. It was a readiness story. And readiness is something you can build, starting today, regardless of which way the market goes.
+
+## What the Data Actually Shows
+
+Start with the crash side, because it is real and it is well documented.
+
+S&P Global Market Intelligence surveyed over 1,000 enterprises across North America and Europe in 2025 and found that 42 percent of companies abandoned most of their AI initiatives that year, up from just 17 percent in 2024. The average organization scrapped 46 percent of its AI proofs of concept before they ever reached production.
+
+MIT's Project NANDA went deeper into the financial reality. Their July 2025 report, based on over 300 deployments, 150 interviews, and a survey of 350 employees, found that 95 percent of generative AI pilots showed no measurable impact on profit and loss. Not low impact. No measurable impact at all.
+
+RAND Corporation's research, built on interviews with 65 experienced AI practitioners, put the overall AI project failure rate above 80 percent, roughly twice the failure rate of comparable non-AI technology projects. Their conclusion is worth sitting with. The primary causes were not algorithmic. Teams misunderstood what the AI was actually meant to decide, organizations lacked AI-ready data, and initiatives launched without an agreed definition of what success would even look like.
+
+That is the crash. Now look at the boom running in parallel.
+
+Gartner projects that 40 percent of enterprise applications will feature task-specific AI agents by the end of 2026, up from under 5 percent in 2025. That is one of the fastest technology adoption curves ever measured, faster than cloud computing, faster than mobile. Deloitte's 2026 State of AI in the Enterprise report found that close to three quarters of organizations plan to deploy agentic AI within two years.
+
+So both things are true at once. Enterprises are abandoning AI projects at record rates, and enterprises are racing to adopt increasingly autonomous AI systems, at the same time, inside the same market, often inside the same company.
+
+## The Real Story Is the Gap in the Middle
+
+Here is where it gets interesting. Deloitte's research identifies something they call the AI Preparedness Gap. A striking 42 percent of companies believe their overarching strategy is highly prepared for AI. But when you ask the same companies about the operational pillars underneath that strategy, infrastructure, data management, risk controls, talent, confidence collapses. Only a minority rate themselves as genuinely ready on any of those dimensions.
+
+This is not a story about whether the technology works. It clearly does. This is a story about the distance between strategic ambition and operational readiness, and that distance is where both the crash and the boom become dangerous. If the bubble bursts, unprepared organizations lose the budget and credibility to try again. If the boom continues, unprepared organizations deploy increasingly autonomous systems on top of governance built for a much simpler era, and the mistakes get bigger, faster, harder to reverse.
+
+Either way, the gap is the problem. Not the market.
+
+## What Actually Works, Regardless of the Outcome
+
+Some organizational practices only make sense if the boom keeps compounding. Aggressively decentralizing tool adoption to every business unit, chasing the newest model release, betting the roadmap on capabilities that do not exist yet, all of that is a bet on continued acceleration. If the market corrects, those bets get expensive fast.
+
+But a smaller set of practices holds up no matter what happens next. I think of these as all-weather moves, and they map directly onto the root causes the research keeps surfacing.
+
+**Define success before you start, not after.** The organizations still standing did not skip this step. A pilot without a quantified business baseline and a target outcome is not a pilot, it is an open-ended expense. Give every initiative a fixed window to prove impact, and hold to it.
+
+**Fix the data foundation before layering intelligence on top of it.** RAND's research is direct about this. A capable model dropped into fragmented, siloed, ungoverned data does not become more capable. It becomes a more articulate failure. This is unglamorous work, and it is the work that actually determines whether anything else succeeds.
+
+**Name an accountable owner for every initiative, separate from the technical lead.** So much of what gets called AI failure is actually accountability failure. When no one specific owns the business outcome, no one is positioned to defend the project when it gets hard, or to kill it cleanly when it should be killed.
+
+**Build for orchestration, not dependency on a single model.** The market is already moving this direction on its own. Relying on one vendor, one model, one architecture, is a fragile bet in a market changing this quickly. Systems that can route work to the right tool, and adapt as better tools appear, are the ones built to last through whichever version of the future arrives.
+
+**Treat governance as infrastructure, not paperwork.** The gap between organizations with a governance policy and organizations with governance that actually functions in real time is enormous right now. A policy document does not catch a drifting model or an agent taking an action nobody authorized. Runtime governance does.
+
+None of these five practices require you to guess correctly about the boom or the bubble. They require discipline that pays off either way.
+
+## What This Means If You Lead Change
+
+If you sit in a Change and Transformation role, this moment is genuinely yours to own, and I say that as someone who has spent a career in this exact seat.
+
+The technology leaders in your organization are focused on integration, infrastructure, and model selection. The finance leaders are focused on cost and return. Neither of those seats is naturally positioned to own the actual point of failure that keeps showing up across every piece of research I read: the space between what the AI can technically do and what the humans around it are actually prepared to do with it.
+
+That space is workflow. It is role redesign. It is whether people trust the system enough to use it, and whether they have been given the judgment and training to know when not to.
+
+Deloitte's data makes the scale of this gap concrete. A large majority of organizations expect significant automation within three years, yet an even larger majority have not redesigned a single job or workflow around it. That disconnect does not resolve itself. Someone has to own closing it, deliberately, and that someone is rarely the CIO or the CFO. It is the person in the room who understands both the operational reality and the human one.
+
+If that is you, here is where your effort belongs right now, independent of which market scenario plays out. Map where your organization's workflows assume AI autonomy and where they still genuinely need a human in the loop, and be honest about the difference. Protect the training and process budget, not just the technology budget, because the research is consistent that people and process, not the algorithm, decide whether anything sticks. And build the fluency of your workforce deliberately, role by role, rather than assuming access to a tool equals readiness to use it well.
+
+## One More Thing Worth Knowing
+
+If your organization operates in or serves the EU, there has been real confusion about regulatory timing this year, and it is worth getting right. In May 2026, the EU agreed to defer the compliance deadline for high-risk AI system obligations, things like employment screening, credit scoring, and biometric categorization, from August 2026 to December 2027. That part is genuinely delayed.
+
+What is not delayed is Article 50, the transparency requirement. Starting August 2, 2026, any AI system interacting with EU residents must disclose that it is a machine, and AI-generated content must be labeled. Organizations that assumed the whole Act moved are walking into a deadline they did not know was still standing.
+
+## Where This Leaves You
+
+I do not know whether the AI boom keeps compounding for another three years or corrects hard sometime next year. Nobody genuinely knows that, no matter how confident the argument sounds on your feed this week.
+
+What I do know, from the data and from twenty years of watching organizations try to absorb change, is that the organizations who define success up front, fix their data, name an owner, build for flexibility, and govern in real time are going to be fine either way. Not because they predicted the market correctly, but because they built something that did not depend on the prediction being right.
+
+That is a much more liberating place to stand than trying to guess which way this goes.
+
+So here is the question I would actually ask you to sit with. If the AI market corrected hard tomorrow, would your organization's AI initiatives survive the scrutiny that would follow? And if the boom just kept accelerating instead, would your organization actually be ready to govern what it just built?
+
+*Sources: S&P Global Market Intelligence, "Voice of the Enterprise: AI & Machine Learning" (2025); MIT Project NANDA, "The GenAI Divide: State of AI in Business 2025" (July 2025); RAND Corporation, "The Root Causes of Failure for AI Projects" (RRA2680-1, 2024); Gartner, "40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026" (August 2025); Deloitte, "The State of AI in the Enterprise" (2026); European Commission, Digital Omnibus on AI (May 2026 political agreement, formally adopted June 2026).*`,
+    linkedInUrl: '',
+    tags: ['Real-World Application', 'AI Governance', 'Enterprise AI', 'Digital Transformation'],
+  },
 ]
