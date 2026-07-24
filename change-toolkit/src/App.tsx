@@ -233,8 +233,13 @@ function ResultStep({
 }) {
   const idx = framework.stages.findIndex(s => !checked.has(s.letter))
   const complete = idx === -1
-  const current = complete ? framework.stages[framework.stages.length - 1] : framework.stages[idx]
-  const next = !complete ? framework.stages[idx + 1] : null
+  const currentIdx = complete ? framework.stages.length - 1 : idx
+
+  const [viewIndex, setViewIndex] = useState(currentIdx)
+  const view = framework.stages[viewIndex]
+  const isCurrent = !complete && viewIndex === idx
+  const isDone = complete || viewIndex < idx
+  const status = isCurrent ? 'Where You Are' : isDone ? 'Completed' : 'Upcoming'
 
   return (
     <div>
@@ -246,70 +251,96 @@ function ResultStep({
         <p className="text-slate-500 text-sm italic">"{framework.tagline}"</p>
       </div>
 
-      {/* Stage progress bar */}
-      <div className="flex gap-1 mb-10 max-w-2xl mx-auto">
+      {/* Stage progress bar — click any stage to view its detail */}
+      <div className="flex gap-1 mb-2 max-w-2xl mx-auto">
         {framework.stages.map((s, i) => (
-          <div
+          <button
             key={s.letter}
             title={s.name}
-            className={`flex-1 h-1.5 rounded-full ${
-              i < idx || complete ? 'bg-gold-500' : i === idx ? 'bg-gold-300' : 'bg-slate-700'
-            }`}
+            onClick={() => setViewIndex(i)}
+            className={`flex-1 h-2.5 rounded-full transition-opacity hover:opacity-80 ${
+              i === viewIndex
+                ? 'ring-2 ring-offset-2 ring-offset-slate-900 ring-gold-300'
+                : ''
+            } ${i < idx || complete ? 'bg-gold-500' : i === idx ? 'bg-gold-300' : 'bg-slate-700'}`}
           />
         ))}
       </div>
+      <p className="text-center text-slate-600 text-xs mb-10">Click any stage above to jump to it</p>
 
-      {complete ? (
-        <div className="max-w-2xl mx-auto bg-gold-500/10 border border-gold-500/30 rounded-xl p-6 text-center mb-10">
+      {complete && viewIndex === framework.stages.length - 1 && (
+        <div className="max-w-2xl mx-auto bg-gold-500/10 border border-gold-500/30 rounded-xl p-6 text-center mb-8">
           <p className="text-slate-100 font-semibold mb-1">You've completed every stage in {framework.id}&trade;.</p>
           <p className="text-slate-400 text-sm">Time to reassess against a fresh initiative, or double check nothing regressed.</p>
         </div>
-      ) : (
-        <div className="max-w-2xl mx-auto mb-10">
-          <p className="text-slate-500 text-xs uppercase tracking-widest font-semibold mb-2">
-            Stage {current.letter} &middot; Where You Are
-          </p>
-          <h2 className="text-xl font-bold text-slate-100 mb-2">{current.name}</h2>
-          <p className="text-slate-300 text-base italic mb-6">"{current.principle}"</p>
+      )}
 
-          <div className="bg-red-500/5 border border-red-500/20 rounded-lg p-4 mb-6">
-            <p className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-1">Watch For</p>
-            <p className="text-slate-300 text-sm">{current.failureMode}</p>
-          </div>
+      <div className="max-w-2xl mx-auto mb-6">
+        <p
+          className={`text-xs uppercase tracking-widest font-semibold mb-2 ${
+            isCurrent ? 'text-gold-400' : isDone ? 'text-slate-500' : 'text-slate-600'
+          }`}
+        >
+          Stage {view.letter} &middot; {status}
+        </p>
+        <h2 className="text-xl font-bold text-slate-100 mb-2">{view.name}</h2>
+        <p className="text-slate-300 text-base italic mb-6">"{view.principle}"</p>
 
-          <div className="mb-6">
-            <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">Do This Now</p>
-            <ul className="flex flex-col gap-2">
-              {current.howToApply.map((a, i) => (
-                <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
-                  <span className="text-gold-500 mt-0.5">&bull;</span>
-                  {a}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="bg-red-500/5 border border-red-500/20 rounded-lg p-4 mb-6">
+          <p className="text-red-400 text-xs font-semibold uppercase tracking-wide mb-1">Watch For</p>
+          <p className="text-slate-300 text-sm">{view.failureMode}</p>
+        </div>
 
-          <div className="mb-6">
-            <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">You'll Know It's Working When</p>
-            <ul className="flex flex-col gap-2">
-              {current.successIndicators.map((a, i) => (
-                <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
-                  <span className="text-gold-500 mt-0.5">&#10003;</span>
-                  {a}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mb-6">
+          <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">Do This Now</p>
+          <ul className="flex flex-col gap-2">
+            {view.howToApply.map((a, i) => (
+              <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                <span className="text-gold-500 mt-0.5">&bull;</span>
+                {a}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          {next && (
-            <div className="border-t border-slate-800 pt-4">
-              <p className="text-slate-600 text-xs uppercase tracking-wide">
-                Next Stage: <span className="text-slate-500">{next.name}</span>
-              </p>
-            </div>
+        <div className="mb-8">
+          <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">You'll Know It's Working When</p>
+          <ul className="flex flex-col gap-2">
+            {view.successIndicators.map((a, i) => (
+              <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
+                <span className="text-gold-500 mt-0.5">&#10003;</span>
+                {a}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Prev / Next stage navigation */}
+        <div className="flex items-center justify-between gap-4 border-t border-slate-800 pt-5">
+          {viewIndex > 0 ? (
+            <button
+              onClick={() => setViewIndex(viewIndex - 1)}
+              className="flex-1 text-left border border-slate-700 hover:border-gold-500/50 rounded-lg px-4 py-3 transition-colors"
+            >
+              <span className="block text-[11px] uppercase tracking-wide text-slate-600 mb-0.5">&larr; Previous</span>
+              <span className="text-sm font-semibold text-slate-300">{framework.stages[viewIndex - 1].name}</span>
+            </button>
+          ) : (
+            <div className="flex-1" />
+          )}
+          {viewIndex < framework.stages.length - 1 ? (
+            <button
+              onClick={() => setViewIndex(viewIndex + 1)}
+              className="flex-1 text-right border border-slate-700 hover:border-gold-500/50 rounded-lg px-4 py-3 transition-colors"
+            >
+              <span className="block text-[11px] uppercase tracking-wide text-slate-600 mb-0.5">Next &rarr;</span>
+              <span className="text-sm font-semibold text-slate-300">{framework.stages[viewIndex + 1].name}</span>
+            </button>
+          ) : (
+            <div className="flex-1" />
           )}
         </div>
-      )}
+      </div>
 
       <div className="text-center">
         <button onClick={onRestart} className="text-slate-500 hover:text-gold-400 text-sm underline transition-colors">
