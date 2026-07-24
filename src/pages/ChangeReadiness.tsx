@@ -410,6 +410,11 @@ export default function ChangeReadiness() {
 
         {/* Attribution */}
         <div className="text-center mt-16 pt-8 border-t border-slate-800">
+          <p className="text-slate-500 text-xs mb-3">
+            Prefer something that runs entirely offline, no AI calls, installable as its own app? Try the{' '}
+            <a href="/toolkit/" className="text-gold-400 hover:text-gold-300 transition-colors">Change Framework Navigator</a>{' '}
+            — covers all 8 frameworks against your own maturity checklist.
+          </p>
           <p className="text-slate-600 text-xs">
             ADKAR® is a registered trademark of Prosci Inc. TRANSFORM™ and OPERATE™ are proprietary frameworks by{' '}
             <a href="/" className="text-slate-500 hover:text-gold-400 transition-colors">Selvakumar Jayakrishnan</a>.
