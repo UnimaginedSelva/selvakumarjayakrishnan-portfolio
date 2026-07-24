@@ -41,6 +41,12 @@ const POSTS: Record<string, PostMeta> = {
       "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
     image: '/P20_Image.png',
   },
+  'one-spine-eight-frameworks': {
+    title: 'One Spine, Eight Frameworks: Mapping ADKAR to Enterprise Transformation',
+    description:
+      "Why Desire and Reinforcement are a loop, not two separate boxes, and what that means when you're running the program for real.",
+    image: '/P21_Image.jpg',
+  },
 };
 
 function escapeHtml(s: string): string {
