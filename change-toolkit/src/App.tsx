@@ -84,9 +84,12 @@ export default function App() {
     <div className="min-h-screen bg-slate-900 text-slate-100">
       <div className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-4">
-          <a href="/" className="text-slate-400 hover:text-gold-400 transition-colors flex items-center gap-1 text-sm">
-            &larr; Back to Portfolio
-          </a>
+          <button
+            onClick={startOver}
+            className="text-slate-400 hover:text-gold-400 transition-colors flex items-center gap-1 text-sm"
+          >
+            &larr; Back to Start
+          </button>
           <span className="text-slate-700">|</span>
           <span className="text-slate-300 font-medium text-sm">Change Framework Navigator</span>
         </div>
