@@ -10,6 +10,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ChangeReadiness from './pages/ChangeReadiness'
 import JobIntelligence from './pages/JobIntelligence'
+import ChangeReadinessGemini from './pages/ChangeReadinessGemini'
+import JobIntelligenceGemini from './pages/JobIntelligenceGemini'
 import Author from './pages/Author'
 import Blog from './pages/Blog'
 import Journey from './pages/Journey'
@@ -47,6 +49,8 @@ export default function App() {
       <Route path="/" element={<Portfolio />} />
       <Route path="/change-readiness" element={<ChangeReadiness />} />
       <Route path="/job-intelligence" element={<JobIntelligence />} />
+      <Route path="/change-readiness-gemini" element={<ChangeReadinessGemini />} />
+      <Route path="/job-intelligence-gemini" element={<JobIntelligenceGemini />} />
       <Route path="/author" element={<Author />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<Blog />} />
