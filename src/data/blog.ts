@@ -3,6 +3,12 @@ export interface BlogPost {
   title: string
   subtitle: string
   framework: string
+  /** Amber pill shown on the card and post detail. For a Framework-lane post, use the
+   *  specific framework name (e.g. 'OPERATE™', 'OPERATE™ + TRUST™', 'All 8 Frameworks').
+   *  For a Trend-lane post, use 'Industry Trends'. For a future Bite-lane post, use
+   *  'Quick Take'. This is the site's 3-lane category signal — keep it out of sync with
+   *  the actual post type and the card silently mislabels itself (caught 28 Jul 2026 on
+   *  the AI Boom/Bubble post, which had been left as 'Real-World Application'). */
   frameworkTag: string
   series: string
   date: string
@@ -448,8 +454,8 @@ If your organization has already moved toward multi-model orchestration, or is a
     id: 'ai-boom-bubble-playbook',
     title: "You Don't Need to Win the AI Boom or Bubble Argument. You Need to Be Ready for Either One.",
     subtitle: "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
-    framework: 'Real-World Application',
-    frameworkTag: 'Real-World Application',
+    framework: 'Industry Trends',
+    frameworkTag: 'Industry Trends',
     series: 'Real-World Application of the 8 Frameworks',
     date: '2026-07-28',
     readTime: '8 min',
@@ -534,7 +540,7 @@ So here is the question I would actually ask you to sit with. If the AI market c
 
 *Sources: S&P Global Market Intelligence, "Voice of the Enterprise: AI & Machine Learning" (2025); MIT Project NANDA, "The GenAI Divide: State of AI in Business 2025" (July 2025); RAND Corporation, "The Root Causes of Failure for AI Projects" (RRA2680-1, 2024); Gartner, "40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026" (August 2025); Deloitte, "The State of AI in the Enterprise" (2026); European Commission, Digital Omnibus on AI (May 2026 political agreement, formally adopted June 2026).*`,
     linkedInUrl: '',
-    tags: ['Real-World Application', 'AI Governance', 'Enterprise AI', 'Digital Transformation'],
+    tags: ['Industry Trends', 'AI Governance', 'Enterprise AI', 'Digital Transformation'],
   },
   {
     id: 'one-spine-eight-frameworks',
