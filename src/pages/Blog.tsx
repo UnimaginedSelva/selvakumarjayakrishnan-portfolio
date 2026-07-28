@@ -37,15 +37,9 @@ function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
   )
 }
 
-function PostDetail({ post, onBack }: { post: BlogPost; onBack: () => void }) {
+function PostDetail({ post }: { post: BlogPost }) {
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-2 text-stone-500 hover:text-amber-800 transition-colors text-sm mb-10"
-      >
-        <ArrowLeft size={14} /> Back to Blog
-      </button>
       <p className="text-amber-700/80 text-xs uppercase tracking-widest mb-3 font-sans">{post.series}</p>
       <div className="flex items-center gap-2 mb-5 flex-wrap">
         <span className="text-xs font-semibold text-amber-800 bg-amber-100 border border-amber-200 px-2.5 py-1 rounded-full">
@@ -126,15 +120,21 @@ export default function Blog() {
             <div className="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center font-bold text-slate-900 text-xs">SJ</div>
             <span className="text-slate-300 text-sm font-medium hidden sm:block">Selvakumar Jayakrishnan</span>
           </button>
-          <button onClick={() => navigate('/')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
-            <ArrowLeft size={14} /> Back to Portfolio
-          </button>
+          {selected ? (
+            <button onClick={() => navigate('/blog')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
+              <ArrowLeft size={14} /> Back to Blog
+            </button>
+          ) : (
+            <button onClick={() => navigate('/')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
+              <ArrowLeft size={14} /> Back to Portfolio
+            </button>
+          )}
         </div>
       </div>
 
       <div className="pt-20">
         {selected ? (
-          <PostDetail post={selected} onBack={() => navigate('/blog')} />
+          <PostDetail post={selected} />
         ) : (
           <div className="max-w-6xl mx-auto px-6 py-16">
             <div className="mb-12">
