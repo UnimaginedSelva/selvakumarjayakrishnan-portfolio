@@ -552,13 +552,13 @@ So here is the question I would actually ask you to sit with. If the AI market c
     date: '2026-08-04',
     readTime: '8 min',
     summary: "Why Desire and Reinforcement are a loop, not two separate boxes, and what that means when you're running the program for real.",
-    content: `![One Spine, Eight Frameworks: mapping ADKAR to enterprise transformation across TRANSFORM, OPERATE, ASCEND, EMBED, BRIDGE, FORGED, TRUST, and STEWARD](/P21_Image.jpg)
-
-Picture a global enterprise mid-way through an AI-enabled ERP modernization. The technology is being delivered through a Global Capability Center model, with a phased rollout across regions, each with its own regulatory posture, its own culture, its own tolerance for change. No single framework built for one geography or one system covers this. That is the exact shape of program most enterprise transformation leaders are actually running in 2026, and it is the composite scenario this walkthrough is built around. No real client, no real employer, just the pattern that shows up again and again in enterprise transformation work.
+    content: `Picture a global enterprise mid-way through an AI-enabled ERP modernization. The technology is being delivered through a Global Capability Center model, with a phased rollout across regions, each with its own regulatory posture, its own culture, its own tolerance for change. No single framework built for one geography or one system covers this. That is the exact shape of program most enterprise transformation leaders are actually running in 2026, and it is the composite scenario this walkthrough is built around. No real client, no real employer, just the pattern that shows up again and again in enterprise transformation work.
 
 The question this scenario raises isn't which framework to use. It's how eight of them, built for different layers and different geographies, actually work together across a single change curve.
 
 ## One Spine, Eight Frameworks
+
+![One Spine, Eight Frameworks: mapping ADKAR to enterprise transformation across TRANSFORM, OPERATE, ASCEND, EMBED, BRIDGE, FORGED, TRUST, and STEWARD](/P21_Image.jpg)
 
 Prosci's ADKAR model remains the right diagnostic lens for individual change: Awareness, Desire, Knowledge, Ability, Reinforcement. It tells you where a person is in their own change journey. What it doesn't tell you is how to engineer an entire enterprise program, across GCC strategy, AI operationalization, ERP delivery, and regional governance, to actually move people through that curve at scale.
 
@@ -623,7 +623,6 @@ If you're running a transformation program right now and Reinforcement feels har
 *Explore the individual frameworks referenced in this walkthrough, TRANSFORM™, OPERATE™, ASCEND™, EMBED™, BRIDGE™, FORGED™, TRUST™, and STEWARD™, at selvakumarjayakrishnan.com.*`,
     linkedInUrl: '',
     tags: ['Real-World Application', 'ADKAR', 'Enterprise Transformation', 'Change Management'],
-    carouselSlides: Array.from({ length: 10 }, (_, i) => `/carousels/one-spine-eight-frameworks/slide-${i + 1}.png`),
-    carouselPdfUrl: '/carousels/one-spine-eight-frameworks/P21_Carousel_OneSpineEightFrameworks.pdf',
+    carouselUrl: '/carousels/one-spine-eight-frameworks/P21_Carousel_OneSpineEightFrameworks.pdf',
   },
 ]
