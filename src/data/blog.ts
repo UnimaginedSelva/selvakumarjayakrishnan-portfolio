@@ -456,7 +456,7 @@ If your organization has already moved toward multi-model orchestration, or is a
     subtitle: "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
-    series: 'Industry & Technology Trends',
+    series: 'My Take on Industry & Technology Trends',
     date: '2026-07-28',
     readTime: '8 min',
     summary: "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
