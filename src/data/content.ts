@@ -17,23 +17,26 @@ export const hero = {
 }
 
 export const about = {
-  summary: `I lead enterprise-scale business transformation programs — including Digital and AI Transformation — that deliver measurable, lasting outcomes. $6M+ in annual business value, 25–35% efficiency improvements, and adoption at scale across 12,000 users globally.`,
-  summary2Domains: `covering Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. All grounded in 19 years of enterprise delivery evidence.`,
-  frameworksParagraph: `Author of 8 published practitioner frameworks — TRANSFORM™, OPERATE™, ASCEND™, EMBED™, BRIDGE™, FORGED™, TRUST™, and STEWARD™ — spanning Digital & AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. STEWARD™ is co-authored with cybersecurity expert Ashish Sharma (BISO, CISSP, CCSP). These original frameworks are supplementary playbooks designed to improve and enhance the effectiveness of current industry standards, not replace them.`,
-  summary3: `Exploring Senior Manager and Director-level roles in Change Management, Digital Transformation, and AI Operationalization. Immediate joiner. Open to KL, Bangkok, Bengaluru, Pune, and Europe.`,
+  subtitle: `19 years of enterprise transformation across EMEA, APAC & Americas`,
+  intro: `Every leader I talk to is drowning in the same problem right now: AI, orchestration, governance, adoption, the concepts are moving faster than most organizations can translate them into decisions. I spend my time closing that gap, taking complex, fast-moving change and making it clear enough for a CHRO, a CTO, or a generalist exec to act on immediately.`,
+  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned how to move large organizations through disruption long before AI was the disruption in question. Two of those years were spent on the AI Enablement front line itself, doing the foundational work of figuring out what AI adoption actually looks like inside a real enterprise. And I used my career break deliberately, prioritizing my health since September 2025, then investing that time in becoming AI-fluent on purpose, so that foundation is now a capability, not a footnote.`,
+  keyOutcomes: [
+    '$6M+ in annual business value, comprising ~$5M in logistics cost savings and ~$1M in AI-driven productivity gains',
+    '25–35% operational efficiency improvements across global customer support ecosystems',
+    '30% reduction in system issues at scale',
+    'Transformation programs impacting ~12,000 users across multiple partner and Dell sites',
+  ],
+  frameworksParagraph: `The result of that deliberate upskilling: 8 published practitioner frameworks, including one co-authored with Ashish Sharma, covering Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, ASEAN and European Digital Transformation, FSI Digital Adoption, and Cybersecurity Workforce Transformation. All grounded in 19 years of enterprise experience and 11 years of Change Management practice. These frameworks are supplementary playbooks, designed to improve and enhance the effectiveness of current industry standards, not replace them.`,
   focusAreas: [
     'Transformation Governance',
-    'Change Management (ADKAR)',
-    'Change Strategy & Execution',
-    'Digital & AI Transformation',
+    'Change Strategy and Execution (ADKAR)',
+    'Digital and AI Transformation',
     'AI Operationalization',
-    'Stakeholder Alignment',
-    'Adoption & Value Realization',
     'Global Program Delivery',
     'Transition Leadership',
-    'Process Improvement / Six Sigma',
-    'Responsible AI Governance',
   ],
+  readiness: `I'm ready to partner with organizations navigating this, as an employee or as a consultant. I'm an immediate joiner, no notice period, and available now.`,
+  closingCta: `If you are building or scaling a transformation practice, or if your organization needs a senior practitioner who brings both delivery credentials and published IP to the table, I would love to connect. The frameworks are there to explore, and so am I.`,
 }
 
 export const experience = [

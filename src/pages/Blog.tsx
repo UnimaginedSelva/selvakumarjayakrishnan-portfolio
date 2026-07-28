@@ -141,7 +141,7 @@ export default function Blog() {
               <h1 className="font-reading text-4xl font-bold text-stone-900 mb-3">Thought Leadership</h1>
               <div className="w-12 h-0.5 bg-amber-600 mb-5" />
               <p className="text-stone-500 text-lg max-w-2xl">
-                Real-world application of the 8 practitioner frameworks, plus my take on the latest industry and technology trends — how enterprise transformation actually works in practice.
+                Making sense of AI and enterprise transformation before the rest of the market catches up. Real-world application of 8 practitioner frameworks, connecting complex trends to the business decisions leaders are facing right now.
               </p>
             </div>
 
