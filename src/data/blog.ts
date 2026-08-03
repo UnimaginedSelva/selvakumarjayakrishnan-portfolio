@@ -549,7 +549,7 @@ So here is the question I would actually ask you to sit with. If the AI market c
     framework: 'All 8 Frameworks',
     frameworkTag: 'All 8 Frameworks',
     series: 'Real-World Application of the 8 Frameworks',
-    date: '2026-08-04',
+    date: '2026-08-03',
     readTime: '8 min',
     summary: "Why Desire and Reinforcement are a loop, not two separate boxes, and what that means when you're running the program for real.",
     content: `Picture a global enterprise mid-way through an AI-enabled ERP modernization. The technology is being delivered through a Global Capability Center model, with a phased rollout across regions, each with its own regulatory posture, its own culture, its own tolerance for change. No single framework built for one geography or one system covers this. That is the exact shape of program most enterprise transformation leaders are actually running in 2026, and it is the composite scenario this walkthrough is built around. No real client, no real employer, just the pattern that shows up again and again in enterprise transformation work.
