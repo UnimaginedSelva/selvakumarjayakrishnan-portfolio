@@ -6,7 +6,7 @@ export const hero = {
   stats: [
     { value: '19', label: 'Years Experience' },
     { value: '$6M+', label: 'Annual Business Value' },
-    { value: 'Up to 12K', label: 'Users at Scale' },
+    { value: '≤12K', label: 'Users at Scale' },
     { value: 'Multiple', label: 'Partner & Dell Sites' },
   ],
   email: 'selvakumar.jayakrishnan@hotmail.com',
