@@ -635,7 +635,7 @@ If you're running a transformation program right now and Reinforcement feels har
     date: '2026-08-11',
     readTime: '8 min',
     summary: "As enterprise AI adoption accelerates, Industry 5.0 shifts the objective from pure automation to human augmentation, and the T-shaped professional gets a quiet upgrade nobody named until now.",
-    content: `![The Evolution of Human Expertise: Industry 5.0 to X-Shaped — five industrial eras, one pattern of what moves to the human side of the ledger](/P22_Image.png)
+    content: `![The Evolution of Human Expertise: Industry 5.0 to X-Shaped — five industrial eras, one pattern of what moves to the human side of the ledger](/P22_Image.jpg)
 
 Everyone's still building T-shaped teams.
 
