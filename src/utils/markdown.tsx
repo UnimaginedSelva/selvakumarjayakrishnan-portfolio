@@ -1,5 +1,34 @@
 import type { ReactNode } from 'react'
 
+/** Small navy/gold line-art icons for scanning-aid use inside list items.
+ *  Referenced from markdown via a `{icon:key}` prefix on a `- ` list line. */
+const LIST_ICONS: Record<string, ReactNode> = {
+  judgment: (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v18M9 21h6M5 7h14M5 7l-3 6a3 3 0 006 0l-3-6zM19 7l-3 6a3 3 0 006 0l-3-6z" />
+    </svg>
+  ),
+  trust: (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="8" cy="12" r="5" />
+      <circle cx="16" cy="12" r="5" />
+    </svg>
+  ),
+  adaptivity: (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 6h6c5 0 5 6 0 6H9c-5 0-5 6 0 6h7" />
+      <path d="M13 15l3 3-3 3" />
+    </svg>
+  ),
+  synthesis: (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="9" cy="8" r="5" />
+      <circle cx="15" cy="8" r="5" />
+      <circle cx="12" cy="15" r="5" />
+    </svg>
+  ),
+}
+
 const PLAYBOOK_PDFS: Record<string, string> = {
   'TRANSFORM™': 'https://drive.google.com/file/d/1pdYt-XQDsp-rDTiyyQhx3Hn7ptU3EM0H/view?usp=sharing',
   'OPERATE™': 'https://drive.google.com/file/d/1rwh90EfNPQVbOVHws2xw6SAi1H5_OGD6/view?usp=sharing',
@@ -78,9 +107,20 @@ export function renderMarkdown(content: string): ReactNode {
     if (listBuffer.length) {
       blocks.push(
         <ul key={`ul-${key}`} className="mb-6 pl-5 space-y-2.5 list-disc marker:text-amber-600">
-          {listBuffer.map((item, idx) => (
-            <li key={`li-${key}-${idx}`} className="leading-relaxed">{parseInline(item, `li-${key}-${idx}`)}</li>
-          ))}
+          {listBuffer.map((item, idx) => {
+            const iconMatch = item.match(/^\{icon:(\w+)\}\s*/)
+            const icon = iconMatch ? LIST_ICONS[iconMatch[1]] : undefined
+            if (icon) {
+              const text = item.slice(iconMatch![0].length)
+              return (
+                <li key={`li-${key}-${idx}`} className="leading-relaxed list-none -ml-5 flex items-start gap-2.5">
+                  <span className="mt-0.5 shrink-0 text-amber-600">{icon}</span>
+                  <span>{parseInline(text, `li-${key}-${idx}`)}</span>
+                </li>
+              )
+            }
+            return <li key={`li-${key}-${idx}`} className="leading-relaxed">{parseInline(item, `li-${key}-${idx}`)}</li>
+          })}
         </ul>
       )
       key++
