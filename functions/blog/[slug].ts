@@ -47,6 +47,12 @@ const POSTS: Record<string, PostMeta> = {
       "Why Desire and Reinforcement are a loop, not two separate boxes, and what that means when you're running the program for real.",
     image: '/P21_Image.jpg',
   },
+  'industry-5-0-x-shaped-professional': {
+    title: "Everyone Draws the Skill Curve Wrong. It's Not I, Not T, It's X.",
+    description:
+      "As enterprise AI adoption accelerates, Industry 5.0 shifts the objective from pure automation to human augmentation, and the T-shaped professional gets a quiet upgrade nobody named until now.",
+    image: '/P22_Image.jpg',
+  },
 };
 
 function escapeHtml(s: string): string {
