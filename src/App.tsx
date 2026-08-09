@@ -12,11 +12,8 @@ import ChangeReadiness from './pages/ChangeReadiness'
 import JobIntelligence from './pages/JobIntelligence'
 import ChangeReadinessGemini from './pages/ChangeReadinessGemini'
 import JobIntelligenceGemini from './pages/JobIntelligenceGemini'
-import Author from './pages/Author'
 import Blog from './pages/Blog'
 import Journey from './pages/Journey'
-import Library from './pages/Library'
-import GermanGame from './pages/GermanGame'
 
 function Portfolio() {
   const [searchParams] = useSearchParams()
@@ -51,15 +48,9 @@ export default function App() {
       <Route path="/job-intelligence" element={<JobIntelligence />} />
       <Route path="/change-readiness-gemini" element={<ChangeReadinessGemini />} />
       <Route path="/job-intelligence-gemini" element={<JobIntelligenceGemini />} />
-      <Route path="/author" element={<Author />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<Blog />} />
       <Route path="/journey" element={<Journey />} />
-      <Route path="/library" element={<Library />} />
-      <Route path="/library/path/:pathwayId" element={<Library />} />
-      <Route path="/library/:bookId" element={<Library />} />
-      <Route path="/library/:bookId/:chapterNumber" element={<Library />} />
-      <Route path="/german-game" element={<GermanGame />} />
     </Routes>
   )
 }
