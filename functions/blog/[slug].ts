@@ -53,6 +53,12 @@ const POSTS: Record<string, PostMeta> = {
       "As enterprise AI adoption accelerates, Industry 5.0 shifts the objective from pure automation to human augmentation, and the T-shaped professional gets a quiet upgrade nobody named until now.",
     image: '/P22_Image.jpg',
   },
+  'gcc-transition-playbook-receiving-end': {
+    title: 'The GCC Transition Playbook Nobody Writes: Lessons From the Receiving End',
+    description:
+      "Twice, a decade apart, I inherited a GCC transition I didn't design — and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
+    image: '/carousels/gcc-transition-playbook-receiving-end/slide-1.png',
+  },
 };
 
 function escapeHtml(s: string): string {
