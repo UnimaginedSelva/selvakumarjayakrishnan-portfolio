@@ -792,6 +792,7 @@ Most of what gets published about GCC transitions is written by people who leave
 If you are earlier in that same preparation, or if you have lived through a receiving-end handover yourself and noticed the same gap in the available guidance, I would like to hear what you would add. This is a learner's playbook, and it gets better with more people who have actually stood where I've stood.`,
     linkedInUrl: '',
     tags: ['Industry Trends', 'GCC', 'Global Capability Centers', 'Transition Management'],
-    carouselUrl: '/carousels/gcc-transition-playbook-receiving-end/GCC_Transition_Playbook_Carousel.pdf',
+    carouselSlides: Array.from({ length: 10 }, (_, i) => `/carousels/gcc-transition-playbook-receiving-end/slide-${i + 1}.png`),
+    carouselPdfUrl: '/carousels/gcc-transition-playbook-receiving-end/GCC_Transition_Playbook_Carousel.pdf',
   },
 ]
