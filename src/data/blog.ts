@@ -802,7 +802,7 @@ If you are earlier in that same preparation, or if you have lived through a rece
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
-    date: '2026-08-13',
+    date: '2026-08-18',
     readTime: '6 min',
     summary: "Twice in two weeks I caught AI-generated research asserting false claims with total confidence — including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
     content: `![5 Steps to Validate AI-Generated Data — before you publish it, a practitioner's checklist for research integrity](/P23_Image.jpg)

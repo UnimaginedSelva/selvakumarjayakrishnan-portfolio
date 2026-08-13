@@ -105,8 +105,12 @@ function PostDetail({ post }: { post: BlogPost }) {
 export default function Blog() {
   const navigate = useNavigate()
   const { slug } = useParams()
-  const selected = slug ? blogPosts.find(p => p.id === slug) ?? null : null
   const now = new Date()
+  // Gate direct-link access the same way the listing is gated below -- a
+  // future-dated post's id still exists in blogPosts, so without this check
+  // /blog/:slug would render the full article even while it's meant to be
+  // hidden pending its publish date.
+  const selected = slug ? blogPosts.find(p => p.id === slug && new Date(p.date) <= now) ?? null : null
   const visiblePosts = [...blogPosts]
     .filter(p => new Date(p.date) <= now)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
