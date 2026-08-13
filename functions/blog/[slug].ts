@@ -59,6 +59,12 @@ const POSTS: Record<string, PostMeta> = {
       "Twice, a decade apart, I inherited a GCC transition I didn't design — and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
     image: '/carousels/gcc-transition-playbook-receiving-end/slide-1.png',
   },
+  'ai-validation-five-steps': {
+    title: 'The Illusion of Confidence: How to Validate AI-Generated Research Before You Publish It',
+    description:
+      "Twice in two weeks I caught AI-generated research asserting false claims with total confidence — including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
+    image: '/P23_Image.jpg',
+  },
 };
 
 function escapeHtml(s: string): string {

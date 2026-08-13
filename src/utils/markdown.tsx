@@ -47,7 +47,7 @@ function resolveBracketLink(label: string): { href: string; external: boolean } 
 
 function parseInline(text: string, keyPrefix: string): ReactNode[] {
   const nodes: ReactNode[] = []
-  const regex = /\*\*(.+?)\*\*|\*(.+?)\*|\[([^\]]+)\]/g
+  const regex = /\*\*(.+?)\*\*|\*(.+?)\*|\[([^\]]+)\]\(([^)]+)\)|\[([^\]]+)\]/g
   let lastIndex = 0
   let match: RegExpExecArray | null
   let i = 0
@@ -60,7 +60,25 @@ function parseInline(text: string, keyPrefix: string): ReactNode[] {
     } else if (match[2] !== undefined) {
       nodes.push(<em key={`${keyPrefix}-i-${i}`}>{parseInline(match[2], `${keyPrefix}-i-${i}`)}</em>)
     } else if (match[3] !== undefined) {
+      // Real inline markdown link: [label](url) -- always external, since every
+      // use of this form so far is a citation/source link, not an internal route.
       const label = match[3]
+      const href = match[4]
+      nodes.push(
+        <a
+          key={`${keyPrefix}-l-${i}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-amber-700 hover:text-amber-800 underline underline-offset-2"
+        >
+          {label}
+        </a>
+      )
+    } else if (match[5] !== undefined) {
+      // Bare [label] with no following (url) -- resolved against the curated
+      // framework-playbook/library shortcuts below, or printed literally.
+      const label = match[5]
       const link = resolveBracketLink(label)
       if (link) {
         nodes.push(
