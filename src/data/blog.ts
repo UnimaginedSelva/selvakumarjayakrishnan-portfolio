@@ -894,7 +894,7 @@ Give the same AI tool to two different people, with the same prompt, and you'll 
 
 It shows up in small ways constantly. Ask two well-configured AI personalities to review the same draft, and one built around blunt operational feedback will tell you the middle section drags. One built around a more encouraging, coaching voice will phrase the same observation as a question: "what if the middle section moved faster?" Same underlying model. Same input. Different personality, different lens, both useful, neither more "correct" than the other. That's not noise or inconsistency. That's identity actually doing something.
 
-Only a handful of top AI change makers are talking about that second layer. Everyone's talking about what AI can *do*. Very few are talking about who it *is* to you, and why that changes everything downstream of it.
+From what I've seen, only a handful of top AI change makers are talking about that second layer. Everyone's talking about what AI can *do*. Very few are talking about who it *is* to you, and why that changes everything downstream of it.
 
 ## A team, not a tool
 
@@ -948,7 +948,7 @@ Here's the shape of it, at a level anyone can start applying this week:
 
 The organizations and individuals who get real, compounding value out of AI over the next few years won't be the ones with access to the most capable models. Everyone will have access to roughly the same models eventually. They'll be the ones who took the time to build real working relationships with them, defined scope, real guardrails, and continuity that lets the relationship get better instead of resetting every time.
 
-That's not a technical advantage. It's a design choice. And right now, only the top AI change makers are making it deliberately.`,
+That's not a technical advantage. It's a design choice. And from what I've seen, only the top AI change makers are making it deliberately.`,
     linkedInUrl: '',
     tags: ['Industry Trends', 'AI Governance', 'Human-AI Collaboration', 'AI Operating Models'],
   },
