@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink, Calendar, Clock, Tag, Download } from 'lucide-react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { blogPosts, type BlogPost } from '../data/blog'
 import { renderMarkdown } from '../utils/markdown'
 import Carousel from '../components/Carousel'
@@ -105,12 +105,17 @@ function PostDetail({ post }: { post: BlogPost }) {
 export default function Blog() {
   const navigate = useNavigate()
   const { slug } = useParams()
+  const [searchParams] = useSearchParams()
+  const previewMode = searchParams.get('preview') === 'true'
   const now = new Date()
   // Gate direct-link access the same way the listing is gated below -- a
   // future-dated post's id still exists in blogPosts, so without this check
   // /blog/:slug would render the full article even while it's meant to be
-  // hidden pending its publish date.
-  const selected = slug ? blogPosts.find(p => p.id === slug && new Date(p.date) <= now) ?? null : null
+  // hidden pending its publish date. ?preview=true bypasses the date gate
+  // for a single direct link (e.g. https://.../blog/some-slug?preview=true)
+  // so Selva can proofread a scheduled post before it's publicly visible --
+  // it never affects the listing grid, which stays date-gated regardless.
+  const selected = slug ? blogPosts.find(p => p.id === slug && (previewMode || new Date(p.date) <= now)) ?? null : null
   const visiblePosts = [...blogPosts]
     .filter(p => new Date(p.date) <= now)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
