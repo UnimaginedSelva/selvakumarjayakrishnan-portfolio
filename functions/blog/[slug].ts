@@ -92,7 +92,12 @@ export const onRequestGet: PagesFunction = async ({ params, request }) => {
 
   const canonicalUrl = `${origin}/blog/${slug}`;
   const imageUrl = `${origin}${post.image}`;
-  const redirectTarget = `/#/blog/${slug}`;
+  // Forward query params (e.g. ?preview=true for a scheduled/hidden post)
+  // through to the hash-routed SPA -- dropping them here silently defeats
+  // any query-param-driven behavior in Blog.tsx, since the redirect target
+  // is what the browser actually lands on.
+  const search = new URL(request.url).search;
+  const redirectTarget = `/#/blog/${slug}${search}`;
 
   const html = `<!doctype html>
 <html lang="en">
