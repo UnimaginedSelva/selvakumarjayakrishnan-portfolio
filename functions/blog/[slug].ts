@@ -65,6 +65,12 @@ const POSTS: Record<string, PostMeta> = {
       "Twice in two weeks I caught AI-generated research asserting false claims with total confidence — including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
     image: '/P23_Image.jpg',
   },
+  'ai-team-personalities': {
+    title: '"Everyone\'s Building AI Agents." I Built an AI Team With Personalities.',
+    description:
+      "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
+    image: '/P24_Image.jpg',
+  },
 };
 
 function escapeHtml(s: string): string {
