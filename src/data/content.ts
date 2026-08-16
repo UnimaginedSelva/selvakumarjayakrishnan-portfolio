@@ -18,7 +18,7 @@ export const hero = {
 
 export const about = {
   subtitle: `19 years of enterprise transformation across EMEA, APAC & Americas`,
-  intro: `Every leader I talk to is drowning in the same problem: AI, orchestration, governance, adoption, moving faster than most organizations can translate into decisions. I close that gap, taking complex, fast-moving change and making it clear enough for a CHRO, a CTO, or a generalist exec to act on immediately.`,
+  intro: `What I am seeing is that every leader today is drowning in the same problem: AI, orchestration, governance, adoption, moving faster than most organizations can translate into decisions. I close that gap, taking complex, fast-moving change and making it clear enough for a CHRO, a CTO, or a generalist exec to act on immediately.`,
   background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
   keyOutcomes: [
     'Delivered more than $6M in annual business value, including approximately $5M in logistics cost savings and $1M in AI-driven productivity gains (2023–2025).',
