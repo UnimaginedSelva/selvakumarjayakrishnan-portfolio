@@ -882,7 +882,7 @@ As AI tools get faster and more fluent, the instinct to trust that fluency will 
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
     date: '2026-08-18T03:00:00Z',
-    readTime: '7 min',
+    readTime: '8 min',
     summary: "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
     content: `![Everyone's Building AI Agents. I Built an AI Team With Personalities — a practitioner's guide to relational AI operating models](/P24_Image.jpg)
 
@@ -905,6 +905,20 @@ Each one has a name, a defined scope, a personality, and a role I don't let it w
 That's a genuinely different relationship than "I opened a chat window and asked a question." It's closer to how you'd actually build a small team of humans: hire for a specific role, give them real scope, trust them within it, and hold them accountable when they get it wrong.
 
 And they do get it wrong, which is the part of this that actually matters.
+
+## Why not just let them run autonomously?
+
+Fair question, and one this piece owes you a direct answer to, since everything here is framed against the build-an-agent-and-let-it-run approach dominating the conversation right now.
+
+I could build this to run autonomously. The personalities, the guardrails, the handoffs, all of it could operate with me out of most decisions. That's a real future step, and one I'll take when the work calls for it.
+
+I haven't, deliberately, for now. Not because autonomous orchestration is out of reach, but because staying inside the loop is where the actual value is happening for me right now, in two ways.
+
+The first is oversight. When I'm the one reviewing what each AI personality hands back and deciding what gets escalated, I'm doing both jobs at once, human in the loop and human on the loop, catching a fabricated statistic before it goes anywhere, deciding when one specialist's answer needs a second opinion from another. Pull me out of that loop too early, and you pull out the check that makes any of this trustworthy in the first place.
+
+The second is less obvious, and probably matters more. I'm learning inside this system, not just directing it. Every correction I make, every pattern I notice across weeks of working with the same personalities, teaches me something about thinking alongside AI that I wouldn't learn if I built it once and walked away. The AI team is getting better. So am I. That compounding only happens because I'm still in the room.
+
+This isn't a permanent stance against agentic AI. It's a different tool for a different stage of maturity, mine and the system's both. When the relationship, the guardrails, and the trust are proven enough that stepping back adds more value than staying close, I'll build that version. Right now, this integrated role is where I'm choosing to be, not because I have to, but because it's where I'm actually growing alongside the team I built.
 
 ## The pushback is the point
 
