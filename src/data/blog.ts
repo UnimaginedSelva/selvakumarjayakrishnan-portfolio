@@ -881,7 +881,7 @@ As AI tools get faster and more fluent, the instinct to trust that fluency will 
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
-    date: '2026-08-18T03:00:00Z',
+    date: '2026-08-18T02:02:00Z',
     readTime: '8 min',
     summary: "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
     content: `![Everyone's Building AI Agents. I Built an AI Team With Personalities — a practitioner's guide to relational AI operating models](/P24_Image.jpg)
