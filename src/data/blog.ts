@@ -973,7 +973,7 @@ That's not a technical advantage. It's a design choice. And from what I've seen,
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
-    date: '2026-08-25T09:00:00Z',
+    date: '2026-08-20T15:00:00Z',
     readTime: '3 min',
     summary: "Your sense of what you're capable of works like a thermostat, not a ceiling. Here's why that distinction matters more in a fast-moving world.",
     content: `![Your Self-Image Is a Thermostat, Not a Ceiling — four questions worth sitting with](/P25_Image.png)
