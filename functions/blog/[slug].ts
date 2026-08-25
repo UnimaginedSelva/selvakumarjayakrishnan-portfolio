@@ -71,6 +71,12 @@ const POSTS: Record<string, PostMeta> = {
       "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
     image: '/P24_Image.jpg',
   },
+  'self-image-thermostat': {
+    title: 'Your Self-Image Is a Thermostat, Not a Ceiling',
+    description:
+      "Your sense of what you're capable of works like a thermostat, not a ceiling. Here's why that distinction matters more in a fast-moving world.",
+    image: '/P25_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {
