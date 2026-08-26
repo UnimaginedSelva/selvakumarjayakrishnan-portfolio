@@ -77,6 +77,12 @@ const POSTS: Record<string, PostMeta> = {
       "Your sense of what you're capable of works like a thermostat, not a ceiling. Here's why that distinction matters more in a fast-moving world.",
     image: '/P25_Image.png',
   },
+  'practical-path-to-ai-fluency': {
+    title: 'The Practical Path to AI Fluency: Foundation to Expert, Tool Agnostic',
+    description:
+      "Everyone says \"get good at AI.\" Almost nobody says what that actually looks like, step by step, without pledging loyalty to one tool on day one. An 8-stage, tool-agnostic path from foundation to building agentic workflows.",
+    image: '/P26_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {

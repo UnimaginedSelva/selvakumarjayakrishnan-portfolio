@@ -996,4 +996,105 @@ If you're navigating a fast-moving pivot right now, in your career or in the org
     linkedInUrl: '',
     tags: ['Industry Trends', 'Self-Image', 'Behavioral Psychology', 'Change Leadership'],
   },
+  {
+    id: 'practical-path-to-ai-fluency',
+    title: 'The Practical Path to AI Fluency: Foundation to Expert, Tool Agnostic',
+    subtitle: "Everyone says \"get good at AI.\" Almost nobody says what that actually looks like, step by step, without pledging loyalty to one tool on day one. An 8-stage, tool-agnostic path from foundation to building agentic workflows.",
+    framework: 'Industry Trends',
+    frameworkTag: 'Industry Trends',
+    series: 'Industry & Technology Trends',
+    date: '2026-08-26T08:00:00Z',
+    readTime: '6 min',
+    summary: "Everyone says \"get good at AI.\" Almost nobody says what that actually looks like, step by step, without pledging loyalty to one tool on day one. An 8-stage, tool-agnostic path from foundation to building agentic workflows.",
+    content: `![The Practical Path to AI Fluency: Foundation to Expert, Tool Agnostic](/P26_Image.png)
+
+Everyone is telling you to "get good at AI." Very few are telling you what that actually looks like, step by step, without pledging loyalty to one tool on day one.
+
+Here is a path I would give anyone starting today, whether they have never opened an AI tool or have been poking at ChatGPT for a year without a real system. It is not tied to Claude, Gemini, ChatGPT, or any single provider. Fluency is a stack you build, not a subscription you pick.
+
+## 1. Foundation
+
+Start with structured basics, not scattered YouTube shorts. Anthropic, OpenAI, Google, Microsoft, and IBM all offer free foundation courses, and they are worth taking seriously. Anthropic Academy alone launched in March 2026 with sixteen free, self-paced courses covering everyday use through agent engineering, all with completion certificates, no paid subscription required. Google, OpenAI, and Microsoft run equivalent programs.
+
+These companies have every incentive to teach you to use their tools well. A few hours here saves weeks of confused trial and error later.
+
+## 2. Explore
+
+Do not marry the first AI tool you try. Spend real time across Claude, Gemini, ChatGPT, and Kimi on their free tiers. Each has a different personality, different strengths, and a different way of handling ambiguity. You will not know which one fits your thinking style until you have felt the difference yourself, not read about it in a comparison article.
+
+## 3. Live With It
+
+Fluency does not arrive in a weekend. Use your shortlisted tools for a few weeks inside your actual work, not inside test prompts. The tool that earns a permanent place in your routine reveals itself through friction, the small moments where it saves you time or gets in your way, not through a first impression.
+
+## 4. Diagnose
+
+This is where most people skip straight to advanced tricks. Stop and ask what you actually need AI for. A writer's stack looks nothing like a data analyst's stack, and neither looks like a project manager's. Map your real needs before you map your tools.
+
+This is also the exact thinking behind how I built my own AI working setup, a small team of AI instances, each doing one job well instead of one tool trying to do everything. If you want to see what that looks like in practice, [I wrote about it here](https://selvakumarjayakrishnan.com/blog/ai-team-personalities).
+
+## 5. Experiment
+
+The best operating model for your stack is not documented anywhere. You find it through hands on trial and error, testing different workflows, prompt structures, and handoff patterns between tools until something clicks and starts saving you real time.
+
+## 6. Adjust
+
+Your needs will change, and so should your stack. Do not treat your first setup as final. Revisit it every few months as your work evolves and as the tools themselves improve, because they are improving fast.
+
+## 7. Deepen
+
+Once your stack and operating model are stable, go deeper. Learn the tool's advanced features, its limits, and its blind spots. Shallow fluency plateaus quickly. Deep fluency compounds.
+
+## 8. Build
+
+This is the payoff. With a finalized stack and operating model, you are ready to move from using AI tools to building agentic AI and autonomous workflows, systems that act, not just respond.
+
+Worth knowing before you get here: McKinsey's 2025 State of AI survey found that 88 percent of organizations now use AI in at least one business function, but only 7 percent have fully scaled it. Most people and most companies never get past Stage 3 or 4. If you make it to Stage 8 with a real, working operating model behind you, you are already ahead of the curve, not behind it.
+
+This is exactly the territory my OPERATE™ framework was built for, taking AI from scattered use to a governed, scaled operating model. If that is where you are headed next, it is worth a look.
+
+---
+
+*Not tied to one AI tool. Fluency is a stack you build, not a subscription you pick.*
+
+## Resources to Actually Do This
+
+**Stage 1, Foundation courses:**
+- [Claude Academy](https://academy.claude.com) (Anthropic), free, no paid plan required for most courses
+- [OpenAI Academy](https://academy.openai.com), free, sign in with a ChatGPT account
+- [Google AI Skills / Grow with Google](https://ai.google/learn-ai-skills/), including the free AI Essentials course
+- [Microsoft AI Skills Navigator](https://aiskillsnavigator.microsoft.com), free, role-based learning paths
+- [IBM SkillsBuild, AI courses](https://skillsbuild.org/adult-learners/explore-learning/artificial-intelligence), free with digital credentials
+- [Elements of AI](https://www.elementsofai.com/) (University of Helsinki and MinnaLearn), free, no coding or math required, over a million learners in 170 countries
+
+**Stage 2, Explore the tools themselves:**
+- [Claude](https://claude.ai)
+- [Gemini](https://gemini.google.com)
+- [ChatGPT](https://chatgpt.com)
+- [Kimi](https://kimi.com)
+- [Arena](https://arena.ai) (formerly LMArena), free, no signup, lets you compare models head-to-head in blind tests before you commit to one
+
+**Stage 3, Live With It:**
+- Ethan Mollick, [An opinionated guide to which AI to use to do stuff](https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22), a free, regularly updated practitioner guide on how people are actually using AI day to day
+
+**Stage 4, Diagnose:**
+- [Everyone's Building AI Agents. I Built an AI Team With Personalities.](https://selvakumarjayakrishnan.com/blog/ai-team-personalities), my own worked example of diagnosing needs before building a stack
+- McKinsey, [The Economic Potential of Generative AI](https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier), free report mapping where AI actually delivers value across business functions
+
+**Stage 5, Experiment:**
+- [Prompt Engineering Guide](https://www.promptingguide.ai/) (DAIR.AI), free, open-source, model-agnostic reference on structuring prompts and finding your own workflow patterns
+
+**Stage 6, Adjust:**
+- [The Quarterly AI Tool Stack Review: A Simple Playbook](https://intentionallifestudio.com/blogs/field-notes/quarterly-ai-tool-stack-review-playbook), free, a practical four-pass system for reviewing what you actually use, what overlaps, and what to add or cut each quarter
+- [The AI Stack Audit Guide](https://kingy.ai/news/ai-stack-audit-guide/), free, a more comprehensive framework covering tool categories, model selection, hidden usage limits, and a full keep/cancel/downgrade/replace/upgrade checklist
+
+**Stage 7, Deepen:**
+- Marc Boudria, [Beginner's Guide: 15 Simple Ways to Use AI in Your Everyday Work (No Coding)](https://blog.betterengineer.com/resource-center/beginners-guide-15-simple-ways-to-use-ai-in-your-everyday-work-no-coding), free, practical use cases across Excel, documentation, presentations, and operations for going beyond basic prompting
+
+**Stage 8, Build:**
+- [McKinsey, The State of AI in 2025: Agents, Innovation, and Transformation](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), source for the 88 percent / 7 percent adoption-versus-scaling figures cited above
+- [Agentic AI with Andrew Ng](https://www.deeplearning.ai/courses/agentic-ai) (DeepLearning.AI), free to audit, the standard starting point once you are ready to get hands-on with code (expects working knowledge of Python)
+- OPERATE™ framework, my 7-stage practitioner framework for AI operationalization ([see it here](https://selvakumarjayakrishnan.com/))`,
+    linkedInUrl: '',
+    tags: ['Industry Trends', 'AI Governance', 'AI Fluency', 'Professional Development'],
+  },
 ]
