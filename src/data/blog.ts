@@ -1093,7 +1093,7 @@ This is exactly the territory my OPERATE™ framework was built for, taking AI f
 **Stage 8, Build:**
 - [McKinsey, The State of AI in 2025: Agents, Innovation, and Transformation](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), source for the 88 percent / 7 percent adoption-versus-scaling figures cited above
 - [Agentic AI with Andrew Ng](https://www.deeplearning.ai/courses/agentic-ai) (DeepLearning.AI), free to audit, the standard starting point once you are ready to get hands-on with code (expects working knowledge of Python)
-- OPERATE™ framework, my 7-stage practitioner framework for AI operationalization ([see it here](https://selvakumarjayakrishnan.com/))`,
+- OPERATE™ framework, my 7-stage practitioner framework for AI operationalization ([read the full playbook](https://drive.google.com/file/d/1rwh90EfNPQVbOVHws2xw6SAi1H5_OGD6/view))`,
     linkedInUrl: '',
     tags: ['Industry Trends', 'AI Governance', 'AI Fluency', 'Professional Development'],
   },
