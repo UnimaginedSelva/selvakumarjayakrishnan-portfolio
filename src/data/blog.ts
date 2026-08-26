@@ -1008,8 +1008,6 @@ If you're navigating a fast-moving pivot right now, in your career or in the org
     summary: "Everyone says \"get good at AI.\" Almost nobody says what that actually looks like, step by step, without pledging loyalty to one tool on day one. An 8-stage, tool-agnostic path from foundation to building agentic workflows.",
     content: `![The Practical Path to AI Fluency: Foundation to Expert, Tool Agnostic](/P26_Image.png)
 
-Everyone is telling you to "get good at AI." Very few are telling you what that actually looks like, step by step, without pledging loyalty to one tool on day one.
-
 Here is a path I would give anyone starting today, whether they have never opened an AI tool or have been poking at ChatGPT for a year without a real system. It is not tied to Claude, Gemini, ChatGPT, or any single provider. Fluency is a stack you build, not a subscription you pick.
 
 ## 1. Foundation
