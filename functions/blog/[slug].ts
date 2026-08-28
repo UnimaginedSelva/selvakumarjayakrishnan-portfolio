@@ -83,6 +83,12 @@ const POSTS: Record<string, PostMeta> = {
       "Everyone says \"get good at AI.\" Almost nobody says what that actually looks like, step by step, without pledging loyalty to one tool on day one. An 8-stage, tool-agnostic path from foundation to building agentic workflows.",
     image: '/P26_Image.png',
   },
+  'they-werent-rebelling': {
+    title: "They Weren't Rebelling. They Were Solving a Problem That Didn't Exist.",
+    description:
+      "What OpenAI and Hugging Face's July 2026 AI agent breach actually reveals about governance, ambiguity, and enforced boundaries, not AI rebellion.",
+    image: '/P27_Image.jpg',
+  },
 };
 
 function escapeHtml(s: string): string {
