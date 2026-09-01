@@ -1168,7 +1168,7 @@ We spend enormous energy asking what AI can do. This incident is a reminder to s
 
 This past week marked one year since I stepped away from Dell Technologies and, for the first time in nineteen years, stopped moving.
 
-I want to be direct about something, because I think too many career-break stories aren't. This wasn't a gap I fell into. It wasn't a pause I am now explaining away. It was a decision I made deliberately, in September 2025, after 19 years of Enterprise experience with 11 years of change management work across EMEA, APJ, and the Americas, work that mattered, work I am proud of, and work that had quietly cost me more than I did let myself notice.
+I want to be direct about something, because I think too many career-break stories aren't. This wasn't a gap I fell into. It wasn't a pause I am now explaining away. It was a decision I made deliberately, in September 2025, after 19 years of Enterprise experience with 11 years of change management work across EMEA, APJ, and the Americas, work that mattered, work I am proud of, and work that had quietly cost me more than I let myself notice.
 
 I prioritized my health first. Then I used the space to upskill deliberately. That's the whole arc, honestly. It's just rarely said that plainly.
 
