@@ -1154,4 +1154,62 @@ We spend enormous energy asking what AI can do. This incident is a reminder to s
     linkedInUrl: '',
     tags: ['Industry Trends', 'AI Governance', 'Agentic AI', 'Change Leadership'],
   },
+  {
+    id: 'one-year-pause',
+    title: "One Year Ago, I Chose to Pause. Here's What That Bought Me.",
+    subtitle: "A story of personal transformation at the intersection of health and wellbeing, and upskilling. Now stronger than ever, progressing into the second half of my career.",
+    framework: 'Personal Journey',
+    frameworkTag: 'Personal Journey',
+    series: 'Personal Journey',
+    date: '2026-09-08T03:00:00Z',
+    readTime: '5 min',
+    summary: "A story of personal transformation at the intersection of health and wellbeing, and upskilling. Now stronger than ever, progressing into the second half of my career.",
+    content: `![A year of reflection, after a deliberate pause. A story of personal transformation at the intersection of health and wellbeing, and upskilling.](/P28_Image.png)
+
+This past week marked one year since I stepped away from Dell Technologies and, for the first time in nineteen years, stopped moving.
+
+I want to be direct about something, because I think too many career-break stories aren't. This wasn't a gap I fell into. It wasn't a pause I am now explaining away. It was a decision I made deliberately, in September 2025, after 19 years of Enterprise experience with 11 years of change management work across EMEA, APJ, and the Americas, work that mattered, work I am proud of, and work that had quietly cost me more than I did let myself notice.
+
+I prioritized my health first. Then I used the space to upskill deliberately. That's the whole arc, honestly. It's just rarely said that plainly.
+
+## The first seven months weren't about a comeback
+
+From September 2025 through March 2026, I did something that felt almost unfamiliar after two decades of enterprise pace: I stopped optimizing. I let my health and wellbeing come first, with no roadmap, no LinkedIn post queued up about it, no productivity angle attached. If you have spent your career being the person who holds the plan for everyone else's transformation, you will understand how strange it is to finally build nothing for a while.
+
+I don't think that phase needs to be justified or dressed up. It needed to happen, so it happened. I will say this much: I came out the other side of it steadier than I have been in years, and that steadiness is the actual foundation everything since has been built on.
+
+## Then, deliberately, I turned back toward building
+
+In April 2026, something shifted. Not because a clock ran out, but because I was ready. I didn't go looking for a job that month. I went looking for a discipline.
+
+I'd spent eleven years as an ADKAR Practitioner, watching organizations wrestle with change that had nothing to do with algorithms. But the world I was about to re-enter was going to be shaped by AI in ways my last role never had to fully reckon with, an eight-month AI operationalization program near the end of my time at Dell felt like a trailer for what was coming, not the full picture. So instead of updating a resume, I started there.
+
+Since April, here's what that deliberate stretch has actually produced:
+
+- Completed the Google AI Professional Certificate, a seven-course program, and turned the coursework into more than twenty applied artifacts rather than letting it sit as a line item.
+- Researched, built, and published seven original practitioner frameworks, extending nineteen years of enterprise transformation experience into structured, applied methodology, including two built specifically for AI transformation and AI operationalization.
+- Co-authored an eighth framework, STEWARD™, with a Dell Technologies BISO, extending that same methodology into cybersecurity workforce transformation, a domain I didn't own alone, built through direct partnership with someone who did.
+- Built and now operate a working multi-agent AI ecosystem with personalities, not as a thought experiment, but as the actual infrastructure running my career search, my content, and my research. If you want to understand agentic AI, I'd argue there's no substitute for making it responsible for something real.
+- Started working through agentic AI curriculum, including modules on agent workflows, orchestration, and human-in-the-loop governance, treating it as a study roadmap rather than a credential to collect.
+
+None of this was about staying busy. It was about making sure that when I walked back into a room, I wasn't just the person with nineteen years of enterprise experience behind him. I was someone who had spent a year proving, to myself first, that I could sit at the intersection of human transformation and AI, not just talk about it.
+
+## What the break actually was
+
+I have come to think career breaks get discussed all wrong. They get treated as something to minimize, explain, or rush past. Mine wasn't a gap in my story. It was the chapter where I decided what the rest of the story would be about.
+
+Eleven years of ADKAR practice taught me something that applies to people as much as it applies to organizations: you cannot force Desire, and you cannot skip straight to Reinforcement. You have to actually go through the middle of it, Understanding, Knowledge, and yes, the not always comfortable work of Ability. I gave myself the same respect I'd have insisted any organization give its people going through real change. I didn't rush my own transformation just because I was the one running it. I used the time to build toward something specific: the capability to lead Change, Transformation, and Transition programs at a level I hadn't yet earned before this year.
+
+## Where the second half starts
+
+I am an immediate joiner now, no notice period, and I am looking for Consultant, Senior Manager, and Director level roles in AI Operationalization, Digital Transformation, and Change Leadership, across Southeast Asia, India, and beyond.
+
+But more than any specific role, what I am carrying into this next half is a conviction I didn't have a year ago: that the leaders who matter most over the next decade won't be the ones who know the most about AI, or the ones who resist it hardest. They'll be the ones who know how to bring people through change they didn't ask for, applied now to change that happens to be powered by AI instead of ERP migrations or M&A integrations.
+
+That's the work I spent nineteen years learning to do. The last year was about making sure I could still do it, on purpose, at full strength, for whatever comes next.
+
+If you're sitting inside your own version of this decision right now, whether it's a break you're taking, one you're considering, or one you took and haven't quite made peace with yet, I'd genuinely like to hear where you are in it.`,
+    linkedInUrl: '',
+    tags: ['Personal Journey', 'Career Break', 'AI Upskilling', 'Change Leadership'],
+  },
 ]

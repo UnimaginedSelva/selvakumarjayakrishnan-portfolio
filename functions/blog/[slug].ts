@@ -89,6 +89,12 @@ const POSTS: Record<string, PostMeta> = {
       "What OpenAI and Hugging Face's July 2026 AI agent breach actually reveals about governance, ambiguity, and enforced boundaries, not AI rebellion.",
     image: '/P27_Image.jpg',
   },
+  'one-year-pause': {
+    title: "One Year Ago, I Chose to Pause. Here's What That Bought Me.",
+    description:
+      "A story of personal transformation at the intersection of health and wellbeing, and upskilling. Now stronger than ever, progressing into the second half of my career.",
+    image: '/P28_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {
