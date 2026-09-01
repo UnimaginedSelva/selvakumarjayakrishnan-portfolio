@@ -55,7 +55,9 @@ function PostDetail({ post }: { post: BlogPost }) {
         </span>
       </div>
       <h1 className="font-reading text-stone-900 text-4xl font-bold leading-tight mb-4">{post.title}</h1>
-      <p className="font-reading text-stone-600 text-xl leading-relaxed mb-8 italic">{post.subtitle}</p>
+      {post.subtitle && (
+        <p className="font-reading text-stone-600 text-xl leading-relaxed mb-8 italic">{post.subtitle}</p>
+      )}
       {post.carouselSlides && post.carouselPdfUrl && (
         <Carousel slides={post.carouselSlides} downloadUrl={post.carouselPdfUrl} alt={post.title} />
       )}

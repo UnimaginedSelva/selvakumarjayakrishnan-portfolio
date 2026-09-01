@@ -1157,7 +1157,7 @@ We spend enormous energy asking what AI can do. This incident is a reminder to s
   {
     id: 'one-year-pause',
     title: "One Year Ago, I Chose to Pause. Here's What That Bought Me.",
-    subtitle: "A story of personal transformation at the intersection of health and wellbeing, and upskilling. Now stronger than ever, progressing into the second half of my career.",
+    subtitle: '',
     framework: 'Personal Journey',
     frameworkTag: 'Personal Journey',
     series: 'Personal Journey',
