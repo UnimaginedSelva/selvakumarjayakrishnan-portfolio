@@ -11,7 +11,7 @@ export default function Frameworks() {
         </div>
 
         {/* Framework Cards — one uniform treatment, no per-card color branching */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8">
           {frameworks.map(fw => (
             <div
               key={fw.name}
@@ -40,36 +40,6 @@ export default function Frameworks() {
               </a>
             </div>
           ))}
-        </div>
-
-        {/* Featured LinkedIn Posts */}
-        <div>
-          <h3 className="text-stone-500 uppercase text-xs tracking-widest mb-6 font-medium flex items-center gap-2">
-            <span className="w-8 h-px bg-stone-300" />
-            Featured Thought Leadership
-            <span className="w-8 h-px bg-stone-300" />
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {frameworks.map(fw => (
-              <a
-                key={fw.name}
-                href={fw.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card group hover:shadow-md transition-shadow flex items-center gap-5"
-              >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-terracotta-light">
-                  <Layers size={22} className="text-terracotta" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-stone-800 font-semibold text-sm group-hover:text-terracotta transition-colors">{fw.name}</div>
-                  <div className="text-stone-500 text-xs mt-0.5 truncate">{fw.stages} · {fw.description}</div>
-                  <div className="text-stone-400 text-xs mt-1">{fw.published}</div>
-                </div>
-                <ExternalLink size={14} className="text-stone-400 group-hover:text-terracotta transition-colors shrink-0" />
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>

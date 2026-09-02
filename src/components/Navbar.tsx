@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, HelpCircle } from 'lucide-react'
 import HireMeModal from './HireMeModal'
+import { scrollToSection } from '../utils/scroll'
 
 const links = [
   { label: 'About', id: 'about' },
@@ -9,10 +10,6 @@ const links = [
   { label: 'Frameworks', id: 'frameworks' },
   { label: 'Contact', id: 'contact' },
 ]
-
-function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -37,7 +34,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           {links.map(l => (
-            <button key={l.label} onClick={() => scrollTo(l.id)} className="text-stone-500 hover:text-terracotta transition-colors text-sm font-medium">
+            <button key={l.label} onClick={() => scrollToSection(l.id)} className="text-stone-500 hover:text-terracotta transition-colors text-sm font-medium">
               {l.label}
             </button>
           ))}
@@ -69,7 +66,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-[#faf6ec] border-t border-stone-200 px-6 py-4 flex flex-col gap-4">
           {links.map(l => (
-            <button key={l.label} onClick={() => { scrollTo(l.id); setMenuOpen(false) }} className="text-stone-700 hover:text-terracotta transition-colors text-sm font-medium text-left">
+            <button key={l.label} onClick={() => { scrollToSection(l.id); setMenuOpen(false) }} className="text-stone-700 hover:text-terracotta transition-colors text-sm font-medium text-left">
               {l.label}
             </button>
           ))}

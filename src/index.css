@@ -47,7 +47,7 @@ body {
 /* One accent, everywhere -- badge/gold-badge collapse to the same
    terracotta-tinted pill, no more gray-pill vs gold-pill split. */
 .badge, .gold-badge {
-  @apply inline-block bg-terracotta-light text-terracotta-dark text-sm px-3 py-1 rounded-full;
+  @apply inline-block bg-terracotta-light text-terracotta-dark text-sm px-3 py-1 rounded-full whitespace-nowrap w-fit;
 }
 
 @media print {

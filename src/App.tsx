@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useSearchParams } from 'react-router-dom'
+import { scrollToSection } from './utils/scroll'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -22,8 +23,7 @@ function Portfolio() {
   useEffect(() => {
     const scrollTarget = searchParams.get('scroll')
     if (scrollTarget) {
-      const el = document.getElementById(scrollTarget)
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100)
+      setTimeout(() => scrollToSection(scrollTarget), 100)
     }
   }, [searchParams])
 

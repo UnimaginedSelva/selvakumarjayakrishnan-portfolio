@@ -1,5 +1,6 @@
 import { Download, Linkedin, MapPin, ArrowDown } from 'lucide-react'
 import { hero } from '../data/content'
+import { scrollToSection } from '../utils/scroll'
 
 export default function Hero() {
   return (
@@ -78,9 +79,13 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <a href="#about" className="absolute bottom-8 text-stone-400 hover:text-terracotta transition-colors animate-bounce">
+      <button
+        onClick={() => scrollToSection('about')}
+        aria-label="Scroll to About section"
+        className="absolute bottom-8 text-stone-400 hover:text-terracotta transition-colors animate-bounce"
+      >
         <ArrowDown size={22} />
-      </a>
+      </button>
     </section>
   )
 }
