@@ -52,7 +52,7 @@ export default function Experience() {
                   <ul className="space-y-2">
                     {item.highlights.map((h, j) => (
                       <li key={j} className="flex gap-3 text-stone-600 text-sm leading-relaxed">
-                        <span className="text-terracotta mt-1.5 shrink-0">›</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-terracotta shrink-0 mt-2" />
                         <span>{h}</span>
                       </li>
                     ))}

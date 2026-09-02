@@ -152,6 +152,7 @@ export const skills = {
     { lang: 'Tamil', level: 'Native' },
     { lang: 'Hindi', level: 'Full Professional' },
     { lang: 'Marathi', level: 'Limited Working' },
+    { lang: 'Kannada', level: 'Limited Working' },
     { lang: 'German', level: 'Learning (A1)' },
   ],
   certifications: [

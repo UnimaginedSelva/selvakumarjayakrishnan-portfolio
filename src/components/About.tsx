@@ -18,8 +18,8 @@ export default function About() {
               <p className="text-stone-700 font-medium text-sm mb-2">Key outcomes delivered at Dell Technologies:</p>
               <ul className="space-y-1.5">
                 {about.keyOutcomes.map(item => (
-                  <li key={item} className="text-stone-600 text-sm leading-relaxed flex gap-2">
-                    <span className="text-terracotta shrink-0">•</span>
+                  <li key={item} className="text-stone-600 text-sm leading-relaxed flex gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta shrink-0 mt-2" />
                     <span>{item}</span>
                   </li>
                 ))}
