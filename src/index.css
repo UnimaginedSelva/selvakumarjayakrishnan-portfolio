@@ -24,30 +24,39 @@ body {
   border-radius: 3px;
 }
 
-.section-heading {
-  @apply text-3xl font-bold text-stone-900 mb-2;
-}
-.section-subheading {
-  @apply text-stone-500 mb-12 text-lg;
-}
-.gold-underline {
-  @apply relative inline-block;
-}
-.gold-underline::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-12 h-0.5 bg-terracotta;
-}
-/* Card surface (2 Sep 2026, refined per Selva's direct reference): a soft
-   off-white surface with a visible thin terracotta-toned border, not a
-   stark hard-edged white box, and not a border-less blend into the page
-   either -- the card needs to read clearly as a card. */
-.card {
-  @apply bg-surface border border-terracotta-light shadow-sm shadow-stone-900/5 rounded-xl p-6;
-}
-/* One accent, everywhere -- badge/gold-badge collapse to the same
-   terracotta-tinted pill, no more gray-pill vs gold-pill split. */
-.badge, .gold-badge {
-  @apply inline-block bg-terracotta-light text-terracotta-dark text-sm px-3 py-1 rounded-full whitespace-nowrap w-fit;
+/* Wrapped in @layer components so these sit BEFORE the utilities layer in
+   the compiled stylesheet -- without this, a plain-CSS rule written after
+   `@tailwind utilities` wins the cascade over utility classes applied
+   alongside it in JSX (e.g. `badge inline-flex` would silently keep
+   .badge's own `inline-block`), which is exactly what broke icon+text
+   badges: no flex → `gap` did nothing → Tailwind's own SVG `display:
+   block` reset forced the icon onto its own line above the text. */
+@layer components {
+  .section-heading {
+    @apply text-3xl font-bold text-stone-900 mb-2;
+  }
+  .section-subheading {
+    @apply text-stone-500 mb-12 text-lg;
+  }
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-12 h-0.5 bg-terracotta;
+  }
+  /* Card surface (2 Sep 2026, refined per Selva's direct reference): a soft
+     off-white surface with a visible thin terracotta-toned border, not a
+     stark hard-edged white box, and not a border-less blend into the page
+     either -- the card needs to read clearly as a card. */
+  .card {
+    @apply bg-surface border border-terracotta-light shadow-sm shadow-stone-900/5 rounded-xl p-6;
+  }
+  /* One accent, everywhere -- badge/gold-badge collapse to the same
+     terracotta-tinted pill, no more gray-pill vs gold-pill split. */
+  .badge, .gold-badge {
+    @apply inline-block bg-terracotta-light text-terracotta-dark text-sm px-3 py-1 rounded-full whitespace-nowrap w-fit;
+  }
 }
 
 @media print {
