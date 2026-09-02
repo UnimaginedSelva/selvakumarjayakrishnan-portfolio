@@ -3,9 +3,9 @@ import { frameworks } from '../data/content'
 
 export default function Frameworks() {
   return (
-    <section id="frameworks" className="py-24 px-6 bg-[#faf6ec]">
+    <section id="frameworks" className="py-16 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+        <div className="mb-10">
           <h2 className="section-heading gold-underline pb-2">Original Frameworks™</h2>
           <p className="section-subheading mt-4">Practitioner playbooks published from 19 years of enterprise delivery</p>
         </div>

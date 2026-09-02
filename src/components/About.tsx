@@ -2,9 +2,9 @@ import { about } from '../data/content'
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 bg-[#faf6ec]">
+    <section id="about" className="py-16 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+        <div className="mb-10">
           <h2 className="section-heading gold-underline pb-2">About Me</h2>
           <p className="section-subheading mt-4">{about.subtitle}</p>
         </div>

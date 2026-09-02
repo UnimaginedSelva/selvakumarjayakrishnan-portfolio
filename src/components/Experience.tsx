@@ -3,9 +3,9 @@ import { experience } from '../data/content'
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 bg-[#faf6ec]">
+    <section id="experience" className="py-16 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
+        <div className="mb-10">
           <h2 className="section-heading gold-underline pb-2">Professional Journey</h2>
           <p className="section-subheading mt-4">19 years across Dell Technologies & eClerx</p>
         </div>
