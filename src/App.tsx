@@ -14,6 +14,7 @@ import ChangeReadinessGemini from './pages/ChangeReadinessGemini'
 import JobIntelligenceGemini from './pages/JobIntelligenceGemini'
 import Blog from './pages/Blog'
 import Journey from './pages/Journey'
+import TrendBulletin from './pages/TrendBulletin'
 
 function Portfolio() {
   const [searchParams] = useSearchParams()
@@ -51,6 +52,7 @@ export default function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<Blog />} />
       <Route path="/journey" element={<Journey />} />
+      <Route path="/trend-bulletin" element={<TrendBulletin />} />
     </Routes>
   )
 }

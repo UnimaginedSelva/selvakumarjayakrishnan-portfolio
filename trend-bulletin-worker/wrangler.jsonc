@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "trend-bulletin-refresher",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-09",
+  "triggers": {
+    // 02:30 UTC = 08:00 IST daily — "this morning's bulletin" reference point
+    "crons": ["30 2 * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "BULLETIN_DB",
+      "database_name": "portfolio-comments",
+      "database_id": "453c612c-554e-4a37-bcc6-79c1519ec964"
+    }
+  ]
+}
