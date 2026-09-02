@@ -18,7 +18,7 @@ export default function Experience() {
             {experience.map((item, i) => (
               <div key={i} className="relative pl-12 md:pl-20">
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-4 top-1 w-8 h-8 bg-white shadow-sm shadow-stone-900/5 border-2 border-terracotta rounded-full flex items-center justify-center">
+                <div className="absolute left-0 md:left-4 top-1 w-8 h-8 bg-surface shadow-sm shadow-stone-900/5 border-2 border-terracotta rounded-full flex items-center justify-center">
                   <Briefcase size={14} className="text-terracotta" />
                 </div>
 

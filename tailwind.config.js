@@ -18,6 +18,10 @@ export default {
           DEFAULT: '#B45309',
           dark: '#7A3B07',
         },
+        // Card/surface tone -- a hair lighter than the page cream (#FAF6EC),
+        // not stark white. Matches the LifeArch card reference: the shadow
+        // does the separation, not a hard jump to white.
+        surface: '#FFFCF5',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

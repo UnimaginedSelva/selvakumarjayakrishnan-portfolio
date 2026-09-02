@@ -46,7 +46,7 @@ export default function About() {
                 { label: 'Target Roles', value: 'Senior Manager / Director' },
                 { label: 'Open To', value: 'India & Overseas' },
               ].map(item => (
-                <div key={item.label} className="bg-white shadow-sm shadow-stone-900/5 rounded-lg p-4">
+                <div key={item.label} className="bg-surface border border-terracotta-light shadow-sm shadow-stone-900/5 rounded-lg p-4">
                   <div className="text-xs text-stone-500 uppercase tracking-wider mb-1">{item.label}</div>
                   <div className="text-stone-800 font-medium text-sm">{item.value}</div>
                 </div>
