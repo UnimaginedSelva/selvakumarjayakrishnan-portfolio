@@ -18,7 +18,11 @@ function escapeHtml(s: string): string {
 export const onRequestGet: PagesFunction = async ({ request }) => {
   const origin = new URL(request.url).origin;
   const canonicalUrl = `${origin}/trend-bulletin`;
-  const imageUrl = `${origin}/trend-bulletin-og.png`;
+  // LinkedIn (and other scrapers) cache the image itself by its exact URL,
+  // separate from the page's own scrape -- a version query string forces a
+  // fresh image fetch whenever the graphic changes. Bump this on any future
+  // redesign, not just a URL/route change.
+  const imageUrl = `${origin}/trend-bulletin-og.png?v=2`;
   const redirectTarget = '/#/trend-bulletin';
 
   const html = `<!doctype html>
