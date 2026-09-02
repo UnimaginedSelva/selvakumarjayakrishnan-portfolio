@@ -70,14 +70,14 @@ export default function HireMeModal({ onClose }: Props) {
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2 sm:col-span-1">
               <label className="block text-xs font-medium text-stone-500 mb-1.5">
-                Role / Position <span className="text-amber-700">*</span>
+                Role / Position <span className="text-terracotta">*</span>
               </label>
               <input
                 type="text"
                 value={role}
                 onChange={e => setRole(e.target.value)}
                 placeholder="e.g. Senior Change Manager"
-                className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-amber-600 transition-colors"
+                className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-terracotta transition-colors"
               />
             </div>
             <div className="col-span-2 sm:col-span-1">
@@ -87,7 +87,7 @@ export default function HireMeModal({ onClose }: Props) {
                 value={company}
                 onChange={e => setCompany(e.target.value)}
                 placeholder="e.g. Anthropic"
-                className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-amber-600 transition-colors"
+                className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-terracotta transition-colors"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function HireMeModal({ onClose }: Props) {
               onChange={e => setJd(e.target.value)}
               placeholder="Paste the job description or key requirements here..."
               rows={5}
-              className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-amber-600 transition-colors resize-none"
+              className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-terracotta transition-colors resize-none"
             />
           </div>
 
@@ -113,7 +113,7 @@ export default function HireMeModal({ onClose }: Props) {
               value={url}
               onChange={e => setUrl(e.target.value)}
               placeholder="https://careers.company.com/role/..."
-              className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-amber-600 transition-colors"
+              className="w-full bg-white border border-stone-300 text-stone-900 text-sm rounded-lg px-3 py-2.5 placeholder-stone-400 focus:outline-none focus:border-terracotta transition-colors"
             />
           </div>
 
@@ -124,7 +124,7 @@ export default function HireMeModal({ onClose }: Props) {
             </label>
             <div
               onClick={() => fileRef.current?.click()}
-              className="w-full bg-stone-50 border border-dashed border-stone-300 hover:border-amber-500/60 text-sm rounded-lg px-3 py-3 cursor-pointer transition-colors flex items-center gap-2"
+              className="w-full bg-stone-50 border border-dashed border-stone-300 hover:border-terracotta/60 text-sm rounded-lg px-3 py-3 cursor-pointer transition-colors flex items-center gap-2"
             >
               <Paperclip size={14} className="text-stone-400 shrink-0" />
               <span className={fileName ? 'text-stone-800' : 'text-stone-400'}>
@@ -136,7 +136,7 @@ export default function HireMeModal({ onClose }: Props) {
 
           {/* Reminder after draft */}
           {drafted && fileName && (
-            <div className="bg-amber-100 border border-amber-200 rounded-lg px-4 py-3 text-sm text-amber-800">
+            <div className="bg-terracotta-light rounded-lg px-4 py-3 text-sm text-terracotta-dark">
               Reminder: Please attach <strong>{fileName}</strong> to your email before sending.
             </div>
           )}
@@ -148,7 +148,7 @@ export default function HireMeModal({ onClose }: Props) {
           <button
             onClick={handleDraft}
             disabled={!canDraft}
-            className="flex items-center gap-2 bg-amber-700 hover:bg-amber-800 disabled:bg-stone-200 disabled:text-stone-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+            className="flex items-center gap-2 bg-terracotta hover:bg-terracotta-dark disabled:bg-stone-200 disabled:text-stone-400 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
           >
             <Send size={14} />
             Draft My Email

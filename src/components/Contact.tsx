@@ -40,13 +40,13 @@ export default function Contact() {
               If your organization is driving enterprise-scale digital or AI transformation, I would be glad to connect. I bring 19 years of enterprise experience, including 11 years of core Change Management practice, 8 published practitioner frameworks, and an immediate joiner status.
             </p>
             <div className="flex items-center gap-2 text-stone-500 text-sm">
-              <MapPin size={14} className="text-amber-700" />
+              <MapPin size={14} className="text-terracotta" />
               {contact.location} · {contact.availability}
             </div>
             <a
               href={hero.resumeFile}
               download
-              className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors mt-4"
+              className="inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-dark text-white font-semibold px-6 py-3 rounded-lg transition-colors mt-4"
             >
               Download Resume
             </a>
@@ -59,14 +59,14 @@ export default function Contact() {
                 href={m.href}
                 target={m.label === 'LinkedIn' ? '_blank' : undefined}
                 rel={m.label === 'LinkedIn' ? 'noopener noreferrer' : undefined}
-                className="card group flex items-center gap-5 hover:border-amber-300 transition-all"
+                className="card group flex items-center gap-5 hover:shadow-md transition-shadow"
               >
-                <div className="w-11 h-11 bg-amber-100 border border-amber-200 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-amber-200 transition-colors">
-                  <m.icon size={18} className="text-amber-700" />
+                <div className="w-11 h-11 bg-terracotta-light rounded-xl flex items-center justify-center shrink-0">
+                  <m.icon size={18} className="text-terracotta" />
                 </div>
                 <div>
                   <div className="text-stone-500 text-xs uppercase tracking-wider">{m.label}</div>
-                  <div className="text-stone-800 font-medium text-sm mt-0.5 group-hover:text-amber-700 transition-colors">{m.display}</div>
+                  <div className="text-stone-800 font-medium text-sm mt-0.5 group-hover:text-terracotta transition-colors">{m.display}</div>
                 </div>
               </a>
             ))}

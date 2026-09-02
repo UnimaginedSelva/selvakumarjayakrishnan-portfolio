@@ -14,7 +14,7 @@ export default function Skills() {
           {/* Tools */}
           <div>
             <div className="flex items-center gap-2 mb-5">
-              <Wrench size={16} className="text-amber-700" />
+              <Wrench size={16} className="text-terracotta" />
               <h3 className="text-stone-600 font-semibold text-sm uppercase tracking-widest">Technology & Tools</h3>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -29,14 +29,14 @@ export default function Skills() {
           {/* Certifications */}
           <div>
             <div className="flex items-center gap-2 mb-5">
-              <GraduationCap size={16} className="text-amber-700" />
+              <GraduationCap size={16} className="text-terracotta" />
               <h3 className="text-stone-600 font-semibold text-sm uppercase tracking-widest">Certifications & Professional Development</h3>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {skills.certifications.map(cert => (
-                <div key={cert.name} className="card hover:border-stone-300 transition-colors">
+                <div key={cert.name} className="card hover:shadow-md transition-shadow">
                   <div className="text-stone-900 font-semibold text-sm mb-1">{cert.name}</div>
-                  {cert.issuer && <div className="text-amber-700 text-xs mb-1">{cert.issuer}</div>}
+                  {cert.issuer && <div className="text-terracotta text-xs mb-1">{cert.issuer}</div>}
                   {cert.date && <div className="text-stone-500 text-xs mb-2">{cert.date}</div>}
                   <div className="text-stone-500 text-xs leading-relaxed">{cert.detail}</div>
                 </div>
@@ -49,13 +49,13 @@ export default function Skills() {
             {/* Awards */}
             <div>
               <div className="flex items-center gap-2 mb-5">
-                <Award size={16} className="text-amber-700" />
+                <Award size={16} className="text-terracotta" />
                 <h3 className="text-stone-600 font-semibold text-sm uppercase tracking-widest">Awards & Recognition</h3>
               </div>
               <div className="space-y-3">
                 {skills.awards.map(a => (
-                  <div key={a.name} className="flex items-center gap-3 bg-white border border-stone-200 rounded-lg px-4 py-3">
-                    <span className="text-amber-700 text-lg">★</span>
+                  <div key={a.name} className="flex items-center gap-3 bg-white shadow-sm shadow-stone-900/5 rounded-lg px-4 py-3">
+                    <span className="text-terracotta text-lg">★</span>
                     <div>
                       <div className="text-stone-800 font-medium text-sm">{a.name}</div>
                       <div className="text-stone-500 text-xs">{a.org}</div>
@@ -69,12 +69,12 @@ export default function Skills() {
             <div className="space-y-8">
               <div>
                 <div className="flex items-center gap-2 mb-5">
-                  <Globe size={16} className="text-amber-700" />
+                  <Globe size={16} className="text-terracotta" />
                   <h3 className="text-stone-600 font-semibold text-sm uppercase tracking-widest">Languages</h3>
                 </div>
                 <div className="space-y-2">
                   {skills.languages.map(l => (
-                    <div key={l.lang} className="flex items-center justify-between bg-white border border-stone-200 rounded-lg px-4 py-2.5">
+                    <div key={l.lang} className="flex items-center justify-between bg-white shadow-sm shadow-stone-900/5 rounded-lg px-4 py-2.5">
                       <span className="text-stone-800 text-sm font-medium">{l.lang}</span>
                       <span className="text-stone-500 text-xs">{l.level}</span>
                     </div>
@@ -84,14 +84,14 @@ export default function Skills() {
 
               <div>
                 <div className="flex items-center gap-2 mb-5">
-                  <GraduationCap size={16} className="text-amber-700" />
+                  <GraduationCap size={16} className="text-terracotta" />
                   <h3 className="text-stone-600 font-semibold text-sm uppercase tracking-widest">Education</h3>
                 </div>
                 <div className="space-y-3">
                   {education.map(e => (
-                    <div key={e.degree} className="bg-white border border-stone-200 rounded-lg px-4 py-3">
+                    <div key={e.degree} className="bg-white shadow-sm shadow-stone-900/5 rounded-lg px-4 py-3">
                       <div className="text-stone-800 font-medium text-sm">{e.degree}</div>
-                      <div className="text-amber-700 text-xs mt-0.5">{e.institution} · {e.period}</div>
+                      <div className="text-terracotta text-xs mt-0.5">{e.institution} · {e.period}</div>
                       {e.note && <div className="text-stone-500 text-xs mt-1">{e.note}</div>}
                     </div>
                   ))}

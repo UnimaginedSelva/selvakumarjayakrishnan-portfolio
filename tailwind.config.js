@@ -10,6 +10,14 @@ export default {
           500: '#d4af37',
           600: '#b8960c',
         },
+        // The single accent for the cream design system -- sampled directly
+        // from the shipped LinkedIn banner (#B45309), not approximated.
+        // One hue, everywhere -- no second accent (gold/teal/green/gray).
+        terracotta: {
+          light: '#F5E6D3',
+          DEFAULT: '#B45309',
+          dark: '#7A3B07',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

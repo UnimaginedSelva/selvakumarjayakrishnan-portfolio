@@ -19,7 +19,7 @@ export default function About() {
               <ul className="space-y-1.5">
                 {about.keyOutcomes.map(item => (
                   <li key={item} className="text-stone-600 text-sm leading-relaxed flex gap-2">
-                    <span className="text-amber-700 shrink-0">•</span>
+                    <span className="text-terracotta shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -33,7 +33,7 @@ export default function About() {
             <h3 className="text-stone-500 uppercase text-xs tracking-widest mb-5 font-medium">My Core Focus Areas</h3>
             <div className="flex flex-wrap gap-2 mb-8">
               {about.focusAreas.map(area => (
-                <span key={area} className="badge hover:bg-stone-200 transition-colors cursor-default">
+                <span key={area} className="badge transition-colors cursor-default">
                   {area}
                 </span>
               ))}
@@ -46,7 +46,7 @@ export default function About() {
                 { label: 'Target Roles', value: 'Senior Manager / Director' },
                 { label: 'Open To', value: 'India & Overseas' },
               ].map(item => (
-                <div key={item.label} className="bg-white border border-stone-200 rounded-lg p-4">
+                <div key={item.label} className="bg-white shadow-sm shadow-stone-900/5 rounded-lg p-4">
                   <div className="text-xs text-stone-500 uppercase tracking-wider mb-1">{item.label}</div>
                   <div className="text-stone-800 font-medium text-sm">{item.value}</div>
                 </div>

@@ -35,16 +35,18 @@ body {
 }
 .gold-underline::after {
   content: '';
-  @apply absolute bottom-0 left-0 w-12 h-0.5 bg-amber-700;
+  @apply absolute bottom-0 left-0 w-12 h-0.5 bg-terracotta;
 }
+/* Design-system correction (2 Sep 2026): a soft off-white surface with a
+   shadow, not a stark white box with a hard border -- the "floating card"
+   look was the single biggest complaint on the first cream preview. */
 .card {
-  @apply bg-white border border-stone-200 rounded-xl p-6;
+  @apply bg-white shadow-sm shadow-stone-900/5 rounded-xl p-6;
 }
-.badge {
-  @apply inline-block bg-stone-100 text-stone-700 text-sm px-3 py-1 rounded-full;
-}
-.gold-badge {
-  @apply inline-block bg-amber-100 text-amber-800 text-sm px-3 py-1 rounded-full border border-amber-200;
+/* One accent, everywhere -- badge/gold-badge collapse to the same
+   terracotta-tinted pill, no more gray-pill vs gold-pill split. */
+.badge, .gold-badge {
+  @apply inline-block bg-terracotta-light text-terracotta-dark text-sm px-3 py-1 rounded-full;
 }
 
 @media print {

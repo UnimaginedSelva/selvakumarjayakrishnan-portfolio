@@ -21,8 +21,8 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Availability badge */}
-        <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 text-sm px-4 py-1.5 rounded-full mb-8 mt-16">
-          <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse" />
+        <div className="gold-badge inline-flex items-center gap-2 mb-8 mt-16">
+          <span className="w-2 h-2 bg-terracotta rounded-full animate-pulse" />
           Open to Opportunities · India &amp; Overseas
         </div>
 
@@ -32,7 +32,7 @@ export default function Hero() {
         </h1>
 
         {/* Title */}
-        <p className="text-xl md:text-2xl font-semibold text-amber-700 mb-3">
+        <p className="text-xl md:text-2xl font-semibold text-terracotta mb-3">
           {hero.title}
         </p>
         <p className="font-reading italic text-base md:text-lg text-stone-500 mb-10">
@@ -42,19 +42,19 @@ export default function Hero() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-2xl mx-auto">
           {hero.stats.map(s => (
-            <div key={s.label} className="bg-white border border-stone-200 rounded-xl py-4 px-3">
-              <div className="text-2xl md:text-3xl font-extrabold text-amber-700">{s.value}</div>
+            <div key={s.label} className="bg-white shadow-sm shadow-stone-900/5 rounded-xl py-4 px-3">
+              <div className="text-2xl md:text-3xl font-extrabold text-terracotta">{s.value}</div>
               <div className="text-xs text-stone-500 mt-1">{s.label}</div>
             </div>
           ))}
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        {/* CTA Buttons — one solid primary, one plain text link (no competing outline) */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center mb-10">
           <a
             href={hero.resumeFile}
             download
-            className="flex items-center justify-center gap-2 bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+            className="flex items-center justify-center gap-2 bg-terracotta hover:bg-terracotta-dark text-white font-semibold px-6 py-3 rounded-lg transition-colors"
           >
             <Download size={18} />
             Download Resume
@@ -63,7 +63,7 @@ export default function Hero() {
             href={hero.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 border border-amber-700/50 hover:border-amber-700 text-amber-700 hover:text-amber-800 font-semibold px-6 py-3 rounded-lg transition-colors"
+            className="flex items-center justify-center gap-2 text-terracotta hover:text-terracotta-dark font-semibold px-2 py-3 transition-colors underline-offset-4 hover:underline"
           >
             <Linkedin size={18} />
             View LinkedIn
@@ -78,7 +78,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <a href="#about" className="absolute bottom-8 text-stone-400 hover:text-amber-700 transition-colors animate-bounce">
+      <a href="#about" className="absolute bottom-8 text-stone-400 hover:text-terracotta transition-colors animate-bounce">
         <ArrowDown size={22} />
       </a>
     </section>
