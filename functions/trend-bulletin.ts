@@ -18,9 +18,7 @@ function escapeHtml(s: string): string {
 export const onRequestGet: PagesFunction = async ({ request }) => {
   const origin = new URL(request.url).origin;
   const canonicalUrl = `${origin}/trend-bulletin`;
-  // Placeholder image — swap for a purpose-built navy/gold bulletin graphic
-  // once one exists; hero-bg.jpg is a reasonable stand-in for now.
-  const imageUrl = `${origin}/hero-bg.jpg`;
+  const imageUrl = `${origin}/trend-bulletin-og.png`;
   const redirectTarget = '/#/trend-bulletin';
 
   const html = `<!doctype html>
