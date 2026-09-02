@@ -44,34 +44,34 @@ export default function AdkarRadar({ scores }: Props) {
 
   const labelPositions = angles.map(a => toPoint(a, LABEL_R));
 
-  const scoreColor = (s: number) => s >= 4 ? '#d4af37' : s === 3 ? '#60a5fa' : '#f87171';
+  const scoreColor = (s: number) => s >= 4 ? '#b45309' : s === 3 ? '#1d4ed8' : '#b91c1c';
 
   return (
     <svg viewBox="0 0 420 340" className="w-full max-w-sm mx-auto">
       {/* Grid spokes */}
       {angles.map((angle, i) => {
         const [x, y] = toPoint(angle, MAX_R);
-        return <line key={i} x1={CX} y1={CY} x2={x} y2={y} stroke="#334155" strokeWidth="1" />;
+        return <line key={i} x1={CX} y1={CY} x2={x} y2={y} stroke="#d6d3d1" strokeWidth="1" />;
       })}
 
       {/* Grid pentagons */}
       {gridLevels.map((pts, i) => (
-        <polygon key={i} points={pts} fill="none" stroke="#334155" strokeWidth={i === LEVELS - 1 ? 1.5 : 1} />
+        <polygon key={i} points={pts} fill="none" stroke="#d6d3d1" strokeWidth={i === LEVELS - 1 ? 1.5 : 1} />
       ))}
 
       {/* Level numbers on top spoke */}
       {Array.from({ length: LEVELS }, (_, i) => {
         const r = (MAX_R / LEVELS) * (i + 1);
         const [x, y] = toPoint(0, r);
-        return <text key={i} x={x + 5} y={y + 4} fontSize="9" fill="#64748b">{i + 1}</text>;
+        return <text key={i} x={x + 5} y={y + 4} fontSize="9" fill="#78716c">{i + 1}</text>;
       })}
 
       {/* Score polygon */}
-      <polygon points={scorePolygon} fill="#d4af37" fillOpacity="0.15" stroke="#d4af37" strokeWidth="2" />
+      <polygon points={scorePolygon} fill="#b45309" fillOpacity="0.12" stroke="#b45309" strokeWidth="2" />
 
       {/* Score dots */}
       {scorePoints.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="5" fill={scoreColor(scores[KEYS[i]])} stroke="#0f172a" strokeWidth="2" />
+        <circle key={i} cx={x} cy={y} r="5" fill={scoreColor(scores[KEYS[i]])} stroke="#faf6ec" strokeWidth="2" />
       ))}
 
       {/* Dimension labels — split "Reinforcement" to two lines */}
@@ -80,7 +80,7 @@ export default function AdkarRadar({ scores }: Props) {
         const label = DIMENSIONS[i];
         const words = label.split(' ');
         return (
-          <text key={i} x={x} textAnchor={anchor} fontSize="11" fontWeight="600" fill="#cbd5e1">
+          <text key={i} x={x} textAnchor={anchor} fontSize="11" fontWeight="600" fill="#44403c">
             {words.length === 1 ? (
               <tspan x={x} y={y + 4}>{label}</tspan>
             ) : (

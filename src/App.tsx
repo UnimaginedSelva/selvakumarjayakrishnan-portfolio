@@ -28,7 +28,7 @@ function Portfolio() {
   }, [searchParams])
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100">
+    <div className="min-h-screen bg-[#faf6ec] text-stone-900">
       <Navbar />
       <Hero />
       <About />

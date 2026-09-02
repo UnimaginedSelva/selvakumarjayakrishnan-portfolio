@@ -63,33 +63,33 @@ const ADKAR_LABELS: Record<string, string> = {
 };
 
 function scoreColor(score: number): string {
-  if (score >= 4) return 'text-gold-400';
-  if (score === 3) return 'text-blue-400';
-  return 'text-red-400';
+  if (score >= 4) return 'text-amber-700';
+  if (score === 3) return 'text-blue-700';
+  return 'text-red-700';
 }
 
 function scoreBg(score: number): string {
-  if (score >= 4) return 'border-gold-500/40 bg-gold-500/5';
-  if (score === 3) return 'border-blue-500/40 bg-blue-500/5';
-  return 'border-red-500/40 bg-red-500/5';
+  if (score >= 4) return 'border-amber-300 bg-amber-50';
+  if (score === 3) return 'border-blue-300 bg-blue-50';
+  return 'border-red-300 bg-red-50';
 }
 
 function severityBadge(severity: string): string {
-  if (severity === 'High') return 'bg-red-500/10 text-red-400 border border-red-500/30';
-  if (severity === 'Medium') return 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
-  return 'bg-blue-500/10 text-blue-400 border border-blue-500/30';
+  if (severity === 'High') return 'bg-red-100 text-red-700 border border-red-200';
+  if (severity === 'Medium') return 'bg-amber-100 text-amber-800 border border-amber-200';
+  return 'bg-blue-100 text-blue-700 border border-blue-200';
 }
 
 function readinessBadge(r: string): string {
-  if (r === 'High') return 'bg-gold-500/10 text-gold-400 border border-gold-500/30';
-  if (r === 'Medium') return 'bg-blue-500/10 text-blue-400 border border-blue-500/30';
-  return 'bg-red-500/10 text-red-400 border border-red-500/30';
+  if (r === 'High') return 'bg-amber-100 text-amber-800 border border-amber-200';
+  if (r === 'Medium') return 'bg-blue-100 text-blue-700 border border-blue-200';
+  return 'bg-red-100 text-red-700 border border-red-200';
 }
 
 function frameworkBadge(f: string): string {
-  if (f === 'OPERATE™') return 'bg-purple-500/10 text-purple-300 border border-purple-500/30';
-  if (f === 'Both') return 'bg-gold-500/10 text-gold-400 border border-gold-500/30';
-  return 'bg-slate-700 text-slate-300 border border-slate-600';
+  if (f === 'OPERATE™') return 'bg-purple-100 text-purple-700 border border-purple-200';
+  if (f === 'Both') return 'bg-amber-100 text-amber-800 border border-amber-200';
+  return 'bg-stone-100 text-stone-700 border border-stone-300';
 }
 
 export default function ChangeReadiness() {
@@ -156,32 +156,32 @@ export default function ChangeReadiness() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100">
+    <div className="min-h-screen bg-[#faf6ec] text-stone-900">
       {/* Header */}
-      <div className="no-print border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
+      <div className="no-print border-b border-stone-200 bg-[#faf6ec]/80 backdrop-blur sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
-          <Link to="/" className="text-slate-400 hover:text-gold-400 transition-colors flex items-center gap-1 text-sm">
+          <Link to="/" className="text-stone-500 hover:text-amber-700 transition-colors flex items-center gap-1 text-sm">
             <ArrowLeft size={15} />
             Back to Portfolio
           </Link>
-          <span className="text-slate-700">|</span>
-          <span className="text-slate-300 font-medium text-sm">Change Readiness Agent</span>
+          <span className="text-stone-300">|</span>
+          <span className="text-stone-700 font-medium text-sm">Change Readiness Agent</span>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs px-4 py-1.5 rounded-full mb-6 font-medium tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 text-xs px-4 py-1.5 rounded-full mb-6 font-medium tracking-wide">
             AI AGENT · CHANGE MANAGEMENT
           </div>
-          <h1 className="text-4xl font-bold text-slate-100 mb-3">
+          <h1 className="text-4xl font-bold text-stone-900 mb-3">
             Change Readiness Agent
           </h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto mb-2">
+          <p className="text-stone-500 text-lg max-w-xl mx-auto mb-2">
             Powered by ADKAR · TRANSFORM™ · OPERATE™
           </p>
-          <p className="text-slate-500 text-sm max-w-lg mx-auto">
+          <p className="text-stone-500 text-sm max-w-lg mx-auto">
             Paste your change project brief. The agent assesses your readiness across all ADKAR dimensions and maps gaps to targeted framework interventions.
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function ChangeReadiness() {
         {/* Input */}
         {!result && (
           <div className="card mb-6">
-            <label className="block text-sm font-medium text-slate-300 mb-3">
+            <label className="block text-sm font-medium text-stone-700 mb-3">
               Project Brief
             </label>
             <textarea
@@ -198,22 +198,22 @@ export default function ChangeReadiness() {
               placeholder="Describe your change initiative — the type of change, scope, affected stakeholders, timeline, what's been done so far, and any known challenges or resistance..."
               rows={7}
               disabled={loading}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg p-4 text-slate-100 placeholder-slate-600 text-sm resize-none focus:outline-none focus:border-gold-500/60 transition-colors disabled:opacity-50"
+              className="w-full bg-white border border-stone-300 rounded-lg p-4 text-stone-900 placeholder-stone-400 text-sm resize-none focus:outline-none focus:border-amber-600/70 transition-colors disabled:opacity-50"
             />
             {error && (
-              <p className="mt-2 text-sm text-red-400 flex items-center gap-1.5">
+              <p className="mt-2 text-sm text-red-600 flex items-center gap-1.5">
                 <AlertTriangle size={14} />
                 {error}
               </p>
             )}
             <div className="mt-4 flex items-center justify-between">
-              <p className="text-slate-600 text-xs">
+              <p className="text-stone-400 text-xs">
                 The more context you provide, the sharper the assessment.
               </p>
               <button
                 onClick={runAssessment}
                 disabled={loading || brief.trim().length < 20}
-                className="flex items-center gap-2 bg-gold-500 hover:bg-gold-400 disabled:opacity-40 disabled:cursor-not-allowed text-slate-900 font-semibold px-6 py-2.5 rounded-lg text-sm transition-colors"
+                className="flex items-center gap-2 bg-amber-700 hover:bg-amber-800 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold px-6 py-2.5 rounded-lg text-sm transition-colors"
               >
                 {loading ? <Loader2 size={15} className="animate-spin" /> : <ChevronRight size={15} />}
                 {loading ? 'Assessing...' : 'Run Assessment'}
@@ -225,7 +225,7 @@ export default function ChangeReadiness() {
         {/* Processing steps */}
         {loading && (
           <div className="card mb-6">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Agent Processing</p>
+            <p className="text-xs font-semibold text-stone-500 uppercase tracking-widest mb-4">Agent Processing</p>
             <div className="space-y-3">
               {STEPS.map((step, i) => {
                 const done = completedSteps.includes(i);
@@ -233,13 +233,13 @@ export default function ChangeReadiness() {
                 return (
                   <div key={i} className={`flex items-center gap-3 transition-opacity ${i > currentStep && !done ? 'opacity-30' : 'opacity-100'}`}>
                     {done ? (
-                      <CheckCircle2 size={16} className="text-gold-400 shrink-0" />
+                      <CheckCircle2 size={16} className="text-amber-700 shrink-0" />
                     ) : active ? (
-                      <Loader2 size={16} className="animate-spin text-blue-400 shrink-0" />
+                      <Loader2 size={16} className="animate-spin text-blue-700 shrink-0" />
                     ) : (
-                      <div className="w-4 h-4 rounded-full border border-slate-700 shrink-0" />
+                      <div className="w-4 h-4 rounded-full border border-stone-300 shrink-0" />
                     )}
-                    <span className={`text-sm ${done ? 'text-slate-300' : active ? 'text-slate-100' : 'text-slate-600'}`}>
+                    <span className={`text-sm ${done ? 'text-stone-600' : active ? 'text-stone-900' : 'text-stone-400'}`}>
                       {step}
                     </span>
                   </div>
@@ -262,7 +262,7 @@ export default function ChangeReadiness() {
                   window.addEventListener('afterprint', () => { document.title = prev; }, { once: true });
                   window.print();
                 }}
-                className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-gold-400 px-4 py-2 rounded-lg text-sm transition-colors"
+                className="flex items-center gap-2 bg-white hover:bg-stone-50 border border-stone-300 text-stone-600 hover:text-amber-700 px-4 py-2 rounded-lg text-sm transition-colors"
               >
                 <Download size={14} />
                 Download PDF
@@ -271,11 +271,11 @@ export default function ChangeReadiness() {
             {/* Summary bar */}
             <div className="card flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="flex-1">
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">Project</p>
-                <p className="text-slate-200 font-medium">{result.projectSummary}</p>
+                <p className="text-xs text-stone-500 uppercase tracking-widest mb-1">Project</p>
+                <p className="text-stone-800 font-medium">{result.projectSummary}</p>
               </div>
               <div className="flex items-center gap-3 shrink-0">
-                <span className={`text-xs px-3 py-1 rounded-full font-medium ${result.changeType === 'AI/Digital Transformation' ? 'bg-purple-500/10 text-purple-300 border border-purple-500/30' : result.changeType === 'Both' ? 'bg-gold-500/10 text-gold-400 border border-gold-500/30' : 'bg-slate-700 text-slate-300 border border-slate-600'}`}>
+                <span className={`text-xs px-3 py-1 rounded-full font-medium ${result.changeType === 'AI/Digital Transformation' ? 'bg-purple-100 text-purple-700 border border-purple-200' : result.changeType === 'Both' ? 'bg-amber-100 text-amber-800 border border-amber-200' : 'bg-stone-100 text-stone-700 border border-stone-300'}`}>
                   {result.changeType}
                 </span>
                 <span className={`text-xs px-3 py-1 rounded-full font-semibold ${readinessBadge(result.overallReadiness)}`}>
@@ -288,7 +288,7 @@ export default function ChangeReadiness() {
             <div className="grid md:grid-cols-2 gap-6">
               {/* Radar */}
               <div className="card flex flex-col items-center">
-                <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4 self-start">Readiness Profile</p>
+                <p className="text-xs font-semibold text-stone-500 uppercase tracking-widest mb-4 self-start">Readiness Profile</p>
                 <AdkarRadar scores={{
                   awareness: result.adkar.awareness.score,
                   desire: result.adkar.desire.score,
@@ -296,28 +296,28 @@ export default function ChangeReadiness() {
                   ability: result.adkar.ability.score,
                   reinforcement: result.adkar.reinforcement.score,
                 }} />
-                <div className="flex items-center gap-4 mt-2 text-xs text-slate-500">
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-gold-400 inline-block" /> Strong (4–5)</span>
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-400 inline-block" /> Moderate (3)</span>
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400 inline-block" /> Weak (1–2)</span>
+                <div className="flex items-center gap-4 mt-2 text-xs text-stone-500">
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-600 inline-block" /> Strong (4–5)</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-600 inline-block" /> Moderate (3)</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-600 inline-block" /> Weak (1–2)</span>
                 </div>
               </div>
 
               {/* ADKAR scores */}
               <div className="space-y-3">
-                <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">ADKAR Scores</p>
+                <p className="text-xs font-semibold text-stone-500 uppercase tracking-widest">ADKAR Scores</p>
                 {ADKAR_KEYS.map(key => {
                   const dim = result.adkar[key];
                   return (
                     <div key={key} className={`rounded-xl border p-4 ${scoreBg(dim.score)}`}>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-semibold text-slate-200">{ADKAR_LABELS[key]}</span>
+                        <span className="text-sm font-semibold text-stone-800">{ADKAR_LABELS[key]}</span>
                         <span className={`text-lg font-bold ${scoreColor(dim.score)}`}>{dim.score}/5</span>
                       </div>
-                      <p className="text-xs text-slate-400 mb-2">{dim.rationale}</p>
+                      <p className="text-xs text-stone-500 mb-2">{dim.rationale}</p>
                       {dim.keyGap && (
-                        <p className="text-xs text-slate-500">
-                          <span className="text-slate-600 font-medium">Gap: </span>{dim.keyGap}
+                        <p className="text-xs text-stone-500">
+                          <span className="text-stone-600 font-medium">Gap: </span>{dim.keyGap}
                         </p>
                       )}
                     </div>
@@ -328,15 +328,15 @@ export default function ChangeReadiness() {
 
             {/* Risks */}
             <div className="card">
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Top Readiness Risks</p>
+              <p className="text-xs font-semibold text-stone-500 uppercase tracking-widest mb-4">Top Readiness Risks</p>
               <div className="grid sm:grid-cols-3 gap-4">
                 {result.risks.map((risk, i) => (
-                  <div key={i} className="bg-slate-900 border border-slate-700/50 rounded-xl p-4">
+                  <div key={i} className="bg-stone-50 border border-stone-200 rounded-xl p-4">
                     <div className="flex items-start justify-between gap-2 mb-2">
-                      <span className="text-sm font-semibold text-slate-200">{risk.title}</span>
+                      <span className="text-sm font-semibold text-stone-800">{risk.title}</span>
                       <span className={`text-xs px-2 py-0.5 rounded-full shrink-0 ${severityBadge(risk.severity)}`}>{risk.severity}</span>
                     </div>
-                    <p className="text-xs text-slate-400">{risk.description}</p>
+                    <p className="text-xs text-stone-500">{risk.description}</p>
                   </div>
                 ))}
               </div>
@@ -344,16 +344,16 @@ export default function ChangeReadiness() {
 
             {/* Framework Recommendations */}
             <div className="card">
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Framework Interventions by ADKAR Dimension</p>
+              <p className="text-xs font-semibold text-stone-500 uppercase tracking-widest mb-4">Framework Interventions by ADKAR Dimension</p>
               <div className="space-y-4">
                 {ADKAR_KEYS.map(key => {
                   const rec = result.frameworkRecommendations[key];
                   const dim = result.adkar[key];
                   return (
-                    <div key={key} className="border border-slate-700 rounded-xl p-4">
+                    <div key={key} className="border border-stone-200 rounded-xl p-4">
                       <div className="flex items-center gap-3 mb-3">
                         <span className={`text-sm font-bold ${scoreColor(dim.score)}`}>{ADKAR_LABELS[key]}</span>
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${scoreColor(dim.score)} border ${dim.score >= 4 ? 'border-gold-500/30' : dim.score === 3 ? 'border-blue-500/30' : 'border-red-500/30'} bg-transparent`}>
+                        <span className={`text-xs px-2 py-0.5 rounded-full ${scoreColor(dim.score)} border ${dim.score >= 4 ? 'border-amber-300' : dim.score === 3 ? 'border-blue-300' : 'border-red-300'} bg-transparent`}>
                           {dim.score}/5
                         </span>
                         <span className={`text-xs px-2 py-0.5 rounded-full ${frameworkBadge(rec.framework)}`}>
@@ -362,15 +362,15 @@ export default function ChangeReadiness() {
                       </div>
                       <div className="flex flex-wrap gap-2 mb-3">
                         {rec.stages.map((stage, i) => (
-                          <span key={i} className="text-xs bg-slate-900 border border-slate-700 text-slate-300 px-3 py-1 rounded-full">
+                          <span key={i} className="text-xs bg-stone-50 border border-stone-200 text-stone-600 px-3 py-1 rounded-full">
                             {stage}
                           </span>
                         ))}
                       </div>
                       <ul className="space-y-1">
                         {rec.actions.map((action, i) => (
-                          <li key={i} className="flex items-start gap-2 text-xs text-slate-400">
-                            <ChevronRight size={12} className="text-gold-500 mt-0.5 shrink-0" />
+                          <li key={i} className="flex items-start gap-2 text-xs text-stone-500">
+                            <ChevronRight size={12} className="text-amber-700 mt-0.5 shrink-0" />
                             {action}
                           </li>
                         ))}
@@ -382,15 +382,15 @@ export default function ChangeReadiness() {
             </div>
 
             {/* Priority Actions */}
-            <div className="card bg-gold-500/5 border-gold-500/20">
-              <p className="text-xs font-semibold text-gold-500/70 uppercase tracking-widest mb-4">Immediate Priority Actions</p>
+            <div className="card bg-amber-50 border-amber-200">
+              <p className="text-xs font-semibold text-amber-800/80 uppercase tracking-widest mb-4">Immediate Priority Actions</p>
               <div className="space-y-3">
                 {result.priorityActions.map((action, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-amber-100 border border-amber-300 text-amber-800 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {i + 1}
                     </span>
-                    <p className="text-sm text-slate-200">{action}</p>
+                    <p className="text-sm text-stone-800">{action}</p>
                   </div>
                 ))}
               </div>
@@ -400,7 +400,7 @@ export default function ChangeReadiness() {
             <div className="no-print text-center pt-2">
               <button
                 onClick={() => { setResult(null); setBrief(''); }}
-                className="text-sm text-slate-500 hover:text-gold-400 transition-colors"
+                className="text-sm text-stone-500 hover:text-amber-700 transition-colors"
               >
                 ← Run another assessment
               </button>
@@ -409,15 +409,15 @@ export default function ChangeReadiness() {
         )}
 
         {/* Attribution */}
-        <div className="text-center mt-16 pt-8 border-t border-slate-800">
-          <p className="text-slate-500 text-xs mb-3">
+        <div className="text-center mt-16 pt-8 border-t border-stone-200">
+          <p className="text-stone-500 text-xs mb-3">
             Prefer something that runs entirely offline, no AI calls, installable as its own app? Try the{' '}
-            <a href="/toolkit/" className="text-gold-400 hover:text-gold-300 transition-colors">Change Framework Navigator</a>{' '}
+            <a href="/toolkit/" className="text-amber-700 hover:text-amber-800 transition-colors">Change Framework Navigator</a>{' '}
             — covers all 8 frameworks against your own maturity checklist.
           </p>
-          <p className="text-slate-600 text-xs">
+          <p className="text-stone-400 text-xs">
             ADKAR® is a registered trademark of Prosci Inc. TRANSFORM™ and OPERATE™ are proprietary frameworks by{' '}
-            <a href="/" className="text-slate-500 hover:text-gold-400 transition-colors">Selvakumar Jayakrishnan</a>.
+            <a href="/" className="text-stone-500 hover:text-amber-700 transition-colors">Selvakumar Jayakrishnan</a>.
           </p>
         </div>
       </div>

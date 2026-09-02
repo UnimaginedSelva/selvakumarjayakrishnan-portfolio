@@ -45,13 +45,13 @@ export default function TrendBulletin() {
   return (
     <div className="min-h-screen bg-[#faf6ec]">
       {/* Navbar-like header, matching the Blog page pattern */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-[#faf6ec]/95 backdrop-blur-sm border-b border-stone-200">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <button onClick={() => navigate('/')} className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center font-bold text-slate-900 text-xs">SJ</div>
-            <span className="text-slate-300 text-sm font-medium hidden sm:block">Selvakumar Jayakrishnan</span>
+            <div className="w-8 h-8 rounded-lg bg-amber-700 flex items-center justify-center font-bold text-white text-xs">SJ</div>
+            <span className="text-stone-700 text-sm font-medium hidden sm:block">Selvakumar Jayakrishnan</span>
           </button>
-          <button onClick={() => navigate('/')} className="flex items-center gap-1.5 text-slate-400 hover:text-gold-400 transition-colors text-sm">
+          <button onClick={() => navigate('/')} className="flex items-center gap-1.5 text-stone-500 hover:text-amber-700 transition-colors text-sm">
             <ArrowLeft size={14} /> Back to Portfolio
           </button>
         </div>
