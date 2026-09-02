@@ -90,9 +90,11 @@ export default function Skills() {
                 <div className="space-y-3">
                   {education.map(e => (
                     <div key={e.degree} className="bg-surface border border-terracotta-light shadow-sm shadow-stone-900/5 rounded-lg px-4 py-3">
-                      <div className="text-stone-800 font-medium text-sm">{e.degree}</div>
+                      <div className="text-stone-800 font-medium text-sm">
+                        {e.degree}
+                        {e.note && <span className="text-stone-500 font-normal"> ({e.note})</span>}
+                      </div>
                       <div className="text-terracotta text-xs mt-0.5">{e.institution} · {e.period}</div>
-                      {e.note && <div className="text-stone-500 text-xs mt-1">{e.note}</div>}
                     </div>
                   ))}
                 </div>
