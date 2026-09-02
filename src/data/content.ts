@@ -51,8 +51,8 @@ export const experience = [
     highlights: [
       'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas — impacting up to 12,000 users across multiple partner and Dell sites, delivering $6M+ in annual business value.',
       'Change Management Approach: ADKAR-based change architecture across all programs, Agile delivery integration from 2020 onwards (waterfall to monthly to 2-week sprints by 2023), executive Facts-and-Alternatives frameworks for leadership decisions, and pilot-led resistance resolution using measurable evidence before full deployment.',
-      '🏆 Real-Time Service Parts ETA (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
-      '🏆 AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via shadow-mode pilot across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for millions of customers globally.',
+      'Real-Time Service Parts ETA (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
+      'AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via shadow-mode pilot across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for millions of customers globally.',
       'Citrix to VMware Horizon Migration (Apr 2021 – Apr 2023): Change management across 36 partner sites, 7,000 users. 50% ticket reduction, ~$300K annual savings, 30% reduction in vApps issues.',
       'Reduced system issues by 30% through structured UAT governance across Agile sprint cycles.',
     ],
@@ -66,7 +66,7 @@ export const experience = [
     duration: '3 yrs 11 mos',
     award: 'Game Changer Award',
     highlights: [
-      '🏆 Game Changer Award: Managed transformation programs across multiple global partner sites impacting ~7,000 users across multiple partner organizations, enhancing operational performance, delivery consistency, and user experience.',
+      'Game Changer Award: Managed transformation programs across multiple global partner sites impacting ~7,000 users across multiple partner organizations, enhancing operational performance, delivery consistency, and user experience.',
       'Delivered global Work-From-Home enablement for ~6,000 users during COVID-19 in 72 hours, sustaining ~80% service levels and avoiding ~$1.5M in additional operational costs.',
       'Led RSA SecurID MFA cybersecurity rollout across 29 partner sites impacting ~6,000 users, achieving full compliance with zero critical disruptions through site-specific change sequencing and local champion model.',
       'Established structured governance and engagement models across partner ecosystems, improving delivery consistency and reducing escalations.',
@@ -84,8 +84,8 @@ export const experience = [
     highlights: [
       'Led change delivery for enterprise tools impacting ~10,000 users, enhancing adoption rates and ensuring operational stability.',
       'Facilitated and led UAT for tool patches and releases, acting as liaison between IT and Business teams across enhancement cycles.',
-      '🥈 Silver Award: Reduced outsourced support costs by ~30%, cutting LATAM SPAM email contribution from 36% to 1% while boosting service efficiency.',
-      '🥇 Gold Award: Resolved 3 critical tool deployment challenges preventing major business disruptions across global support teams across EMEA, APJ, and the Americas.',
+      'Silver Award: Reduced outsourced support costs by ~30%, cutting LATAM SPAM email contribution from 36% to 1% while boosting service efficiency.',
+      'Gold Award: Resolved 3 critical tool deployment challenges preventing major business disruptions across global support teams across EMEA, APJ, and the Americas.',
     ],
   },
   {
@@ -98,9 +98,9 @@ export const experience = [
     award: 'Silver Award | Tell Dell Rock Star x2',
     highlights: [
       'Led the receiving-end onboarding of a major Dell Chennai transition program, scaling the regional organization from 0 to 115 FTEs in 14 months and establishing a high-performing unit generating $2.1M in revenue value.',
-      '🥈 Silver Award — Transition & Onboarding: Partnered with a Transition Manager to hire, train, and launch 10 core operational processes across 6 practices, curated from roughly 20 internal pitches.',
+      'Silver Award — Transition & Onboarding: Partnered with a Transition Manager to hire, train, and launch 10 core operational processes across 6 practices, curated from roughly 20 internal pitches.',
       'Operational Scale: Governed the newly established organization for an additional 18 months, directly managing 49 personnel and overseeing 66 indirect reports via peer-managed supervisors.',
-      '🌟 Tell Dell Rock Star x2: Consistently recognized for high-performance team building and strict adherence to Dell\'s People Strategy (2012, 2013).',
+      'Tell Dell Rock Star x2: Consistently recognized for high-performance team building and strict adherence to Dell\'s People Strategy (2012, 2013).',
       'This role marks the conclusion of 8 years in Business Operations before transitioning to core Change Management practice from August 2014.',
     ],
   },
