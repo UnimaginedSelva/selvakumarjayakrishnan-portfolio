@@ -95,6 +95,12 @@ const POSTS: Record<string, PostMeta> = {
       "A story of personal transformation at the intersection of health and wellbeing, and upskilling. Now stronger than ever, progressing into the second half of my career.",
     image: '/P28_Image.png',
   },
+  'twenty-six-countries': {
+    title: 'Twenty-Six Countries, One Question I Kept Asking Myself',
+    description:
+      "Twenty-six countries, twelve for business and fourteen for wanderlust, taught me the same lesson about change management, applied to myself first: presence has to be earned, not assumed.",
+    image: '/P29_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {

@@ -1212,4 +1212,62 @@ If you're sitting inside your own version of this decision right now, whether it
     linkedInUrl: '',
     tags: ['Personal Journey', 'Career Break', 'AI Upskilling', 'Change Leadership'],
   },
+  {
+    id: 'twenty-six-countries',
+    title: 'Twenty-Six Countries, One Question I Kept Asking Myself',
+    subtitle: '',
+    framework: 'Personal Journey',
+    frameworkTag: 'Personal Journey',
+    series: 'Personal Journey',
+    date: '2026-09-15T03:00:00Z',
+    readTime: '5 min',
+    summary: 'Twenty-six countries, twelve for business and fourteen for wanderlust, taught me the same lesson about change management, applied to myself first: presence has to be earned, not assumed.',
+    content: `![Presence has to be earned, not assumed. Whether showing up at a partner site because the work genuinely needs you, or showing up in someone else's country and taking the time to actually meet them.](/P29_Image.png)
+
+I have traveled to twenty-six countries. Twelve of those trips were for business, spread across the last ten years of my career. The other trips were personal travel, chosen for no reason except that I wanted to go, pure wanderlust, nothing more strategic than that. For a long time, I thought of these as two separate parts of my life: work travel and personal travel, filed under different headings, valued for different reasons.
+
+Looking back now, during this deliberate pause, I do not think that separation was ever as clean as I made it out to be. The same instinct ran through both halves. I just did not have the language for it at the time.
+
+## The Business Half
+
+Every business trip started with a question I asked myself before I asked anyone else: is my being there actually going to change the outcome? Not "is it expected of me." Not "will it look good." Just, plainly, does the work get better because I am physically in the room.
+
+More than once, the honest answer was no. I declined those trips. It was not always a comfortable thing to do, saying no to travel that was technically approved and technically available to me. But I had watched enough programs spend money on presence that did not translate into progress, and I did not want to be another line item in that pattern.
+
+When I did travel, I treated the budget the way I treat my own money. Not because anyone was checking closely, but because I could not shake the feeling that it was not really the company's money in any meaningful sense, it was value that had been entrusted to me, and I was the one deciding whether it turned into something worth the cost. I kept myself to seventy, eighty percent of whatever was allocated, most trips. Not as a rule handed down from above. As a rule I gave myself. What that discipline bought me was not just cost savings, though there was that too. It bought me credibility on spend.
+
+When I sat down with an onsite team, I was not someone who had flown in to observe and fly out again. I was someone who had made a deliberate case for being there, who treated their time and their budget with the same care I would want shown to my own. That changes a conversation. People work differently with someone who has clearly decided they are worth the trip, rather than someone going through the motions of a travel policy.
+
+I did not fully understand it then, but every one of those decisions, going or not going, spending carefully or not, was change management. Just applied to myself first, before I ever applied it to anyone else.
+
+What I built on those trips was never just a delivered outcome. It was an unbroken thread of trust, program teams knowing I would be available at every step of a major deployment or transition, not just for the parts that were easy to schedule. That trust is what turned people from participants in a change into advocates for it.
+
+Looking back, those onsite trips did more to shape my stakeholder engagement and cross-cultural collaboration than any training program ever did. They built the Senior Change and Transformation Leader I am today, and I expect they will keep fueling the next half of this career.
+
+## The Turn
+
+Somewhere in that pattern of careful, deliberate business travel, something else was quietly forming, and it had very little to do with delivery metrics.
+
+## The Personal Half
+
+The trips that were entirely mine taught me something the business trips could only gesture at. On a work trip, you meet people through the frame of an outcome. On a personal trip, you meet people through nothing at all, no agenda, no deliverable, just two people trying to understand each other across a language gap or a cultural assumption neither of you fully realized you were carrying.
+
+What struck me, again and again, across enough countries that it stopped feeling like coincidence, is how similar the underlying human experience is once you get past the surface differences. People everywhere are managing the same handful of things: work that asks too much of them, relationships they are trying to get right, a sense of whether their life is adding up to something. The language changes. The specific customs change. The thing underneath does not change nearly as much as I expected it to before I had seen it firsthand.
+
+I found I genuinely loved this part. Not tourism in the postcard sense, but the actual work of connecting with someone whose starting assumptions about the world were different from mine, and finding that we still landed in the same place on the things that mattered. It made me wonder, more than once, whether my ease with cross-cultural collaboration at work was ever really a skill I built on the job. I think it might have just been this, carried over.
+
+## What I Take From Both
+
+Nineteen years of enterprise experience and twenty-six countries of travel have taught me the same lesson from two different directions: presence has to be earned, not assumed. Whether that is showing up at a partner site because the work genuinely needs you there, or showing up in someone else's country and taking the time to actually meet them rather than pass through.
+
+I am on a deliberate pause right now, thinking about what the next chapter of this looks like. I do not know yet exactly where it leads. But I know it will involve both halves of what travel taught me: the discipline to only show up where it counts, and the curiosity to actually connect once I am there.
+
+That combination has served me well so far. I see no reason to leave either half behind.
+
+---
+
+*Selvakumar Jayakrishnan is a Senior Change & Transformation Leader with 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies across EMEA, APJ, and the Americas.*`,
+    linkedInUrl: '',
+    tags: ['Personal Journey', 'Travel', 'Change Management', 'Cross-Cultural Collaboration'],
+  },
 ]
