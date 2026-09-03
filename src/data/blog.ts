@@ -1240,7 +1240,7 @@ When I sat down with an onsite team, I was not someone who had flown in to obser
 
 I did not fully understand it then, but every one of those decisions, going or not going, spending carefully or not, was change management. Just applied to myself first, before I ever applied it to anyone else.
 
-What I built on those trips was never just a delivered outcome. It was an unbroken thread of trust, program teams knowing I would be available at every step of a major deployment or transition, not just for the parts that were easy to schedule. That trust is what turned people from participants in a change into advocates for it.
+What I built when I was onsite was never just outcomes. It was an unbroken trust that I was available at every step of these major change deployments and transitions. That trust is what turned them into advocates of the transformation it was bringing.
 
 Looking back, those onsite trips did more to shape my stakeholder engagement and cross-cultural collaboration than any training program ever did. They built the Senior Change and Transformation Leader I am today, and I expect they will keep fueling the next half of this career.
 
