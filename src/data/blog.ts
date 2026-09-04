@@ -1222,7 +1222,7 @@ If you're sitting inside your own version of this decision right now, whether it
     date: '2026-09-15T03:00:00Z',
     readTime: '5 min',
     summary: 'Twenty-six countries, twelve for business and fourteen for wanderlust, taught me the same lesson about change management, applied to myself first: presence has to be earned, not assumed.',
-    content: `![Presence has to be earned, not assumed. Whether showing up at a partner site because the work genuinely needs you, or showing up in someone else's country and taking the time to actually meet them.](/P29_Image.png)
+    content: `![Presence has to be earned, not assumed. Whether showing up at a partner site because the work genuinely needs you, or showing up in someone else's country and taking the time to actually meet them.](/P29_Image.jpg)
 
 I have traveled to twenty-six countries. Twelve of those trips were for business, spread across the last ten years of my career. The other trips were personal travel, chosen for no reason except that I wanted to go, pure wanderlust, nothing more strategic than that. For a long time, I thought of these as two separate parts of my life: work travel and personal travel, filed under different headings, valued for different reasons.
 

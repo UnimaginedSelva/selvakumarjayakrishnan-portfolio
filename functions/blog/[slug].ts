@@ -99,7 +99,7 @@ const POSTS: Record<string, PostMeta> = {
     title: 'Twenty-Six Countries, One Question I Kept Asking Myself',
     description:
       "Twenty-six countries, twelve for business and fourteen for wanderlust, taught me the same lesson about change management, applied to myself first: presence has to be earned, not assumed.",
-    image: '/P29_Image.png',
+    image: '/P29_Image.jpg',
   },
 };
 
