@@ -1270,4 +1270,66 @@ That combination has served me well so far. I see no reason to leave either half
     linkedInUrl: '',
     tags: ['Personal Journey', 'Travel', 'Change Management', 'Cross-Cultural Collaboration'],
   },
+  {
+    id: 'one-framework-three-seats-2026-gcc-transition',
+    title: 'One Framework, Three Seats: How ASCEND™ Shows Up in a 2026 GCC Transition',
+    subtitle: "A disclosure, not a case study: how I would approach the Transition Leader, Transformation Leader, and Business Sponsor seats in a GCC transition happening right now",
+    framework: 'ASCEND™',
+    frameworkTag: 'ASCEND™',
+    series: 'Framework in Practice',
+    date: '2026-09-22',
+    readTime: '6 min',
+    summary: "A disclosure, not a case study: how I would approach the Transition Leader, Transformation Leader, and Business Sponsor seats in a GCC transition happening right now",
+    content: `I want to open with a disclosure, not a credential. I have not personally led a Build-Operate-Transfer or Build-Operate-Optimize-Transfer GCC transition. What follows is not a case study of something I delivered. It is how I would approach three specific seats in a transition happening in the market right now, using ASCEND™ as the throughline. I think that distinction matters more than usual here, because GCC transitions are having a very current moment, and it would be easy to borrow authority from history instead of earning it by engaging with what is actually happening in 2026.
+
+So this is current on purpose. Every example below is from the last few months, some from the last few days.
+
+![One Framework, Three Seats: how ASCEND™ shows up across the Transition Leader, Transformation Leader, and Business Sponsor roles in a 2026 GCC transition](/P30_Image.png)
+
+## Why This Moment Is Different
+
+Three things have shifted in how these transitions get built and handed over, compared to even two years ago.
+
+First, the timelines have compressed. What used to be a 24 to 36 month BOT lifecycle is increasingly running 12 to 18 months, as GCC-as-a-Service and modular build-out models decouple the workspace and entity setup from the talent engine. Second, the thing being handed over has changed. A transition in 2026 is rarely just people, desks, and SLAs. It is data estates, agentic AI systems, and the governance around them. Third, the sponsor's decision at the center of it all is no longer a binary build-versus-buy question. It looks more like a menu of staged, modular structures.
+
+Three seats sit inside every one of these transitions, and ASCEND speaks to all three.
+
+## Seat 1: The Transition Leader
+
+**What this seat owns:** closing the gap between what the handover plan says and what the operating reality actually requires, before that gap becomes someone else's emergency.
+
+The clearest live example of this right now is TCS taking over Best Buy's India GCC operations in Bengaluru. TCS beat out Accenture and Wipro for a five-year engagement reported at roughly ₹2,000 crore, covering the 600-person center Best Buy built in 2024 as an innovation hub for its digital and AI-driven commerce work. What makes this a genuinely 2026 example, and not just a routine vendor swap, is what's actually being handed over. It isn't only headcount and a lease. It's the continuity of AI-driven platforms and the data estates underneath them, with SLAs and productivity commitments built around automated efficiency rather than the headcount-based metrics that used to define these deals.
+
+This is ASCEND's early-stage discipline in a new form. Governance and decision rights have always needed to be defined before build starts, not discovered during it. What's new is the object of that governance: system provenance, model behavior, and data lineage now sit alongside the traditional milestone gates and service-readiness criteria. A Transition Leader stepping into a 2026 handover needs fluency in both.
+
+## Seat 2: The Transformation Leader
+
+**What this seat owns:** making sure the workforce is actually built for what the center is becoming, not what it used to be.
+
+The number that frames this seat right now comes from the EY-AMCHAM whitepaper "The Agentic AI-First Global Capability Center," drawing on EY's 2025 GCC Pulse Survey: 83 percent of GCCs are already engaging with GenAI adoption, while 58 percent are actively building agentic AI capability. Sit with the gap between those two figures for a second. The vast majority of centers have moved past experimentation with generative tools. A smaller, but still substantial, majority are already building the harder thing: systems that act autonomously, not just assist.
+
+That gap is a workforce problem before it is a technology problem. A Transformation Leader's job in this environment isn't to run a generic upskilling program. It's to close the specific distance between "we use AI tools" and "we can govern and operate autonomous AI systems," inside a workforce that increasingly looks like a diamond rather than a pyramid, dense with domain specialists rather than stacked with entry-level intake. This is the people-readiness discipline ASCEND has always emphasized, applied to a skills curve that is moving faster than most retention playbooks were built to handle.
+
+## Seat 3: The Business Sponsor
+
+**What this seat owns:** the structure and timing of the transfer itself, and increasingly, whether "transfer" is even the right word anymore.
+
+This week, Zinnov advised Akkodis on its acquisition of the aerospace engineering services business from AXISCADES Technologies. The structure is worth paying attention to: Akkodis is acquiring 51 percent of the aerospace unit immediately, with the remaining 49 percent to be acquired over a 24 to 30 month period, run as a joint venture during that transition window. In the same announcement, Akkodis separately acquired 100 percent of AXISCADES' heavy engineering, energy, and automotive units outright. Two different ownership structures, in the same deal, for two different pieces of the same business.
+
+That's the real signal for this seat in 2026. The old framing of a Business Sponsor's decision, build it yourself, buy a provider's capability, or run a BOT and transfer later, was always a bit too binary even when it was accurate. What Akkodis and Zinnov structured here is a sponsor decision that stages ownership deliberately, matching the structure to the risk and integration complexity of each specific piece of the business, rather than applying one deal shape to the whole transaction. ASCEND's early anchoring stage was always about defining the mandate and the ownership boundaries before execution starts. In 2026, that mandate increasingly needs to specify not just whether ownership transfers, but how, and on what schedule, and in what pieces.
+
+![Navigating the 2026 GCC Transition: compressed 12-18 month lifecycles, the shift from headcount to data estates, and the flexible deal shapes now defining the Transition Leader, Transformation Leader, and Business Sponsor seats](/P30_Infographic.png)
+
+## The Throughline
+
+None of these three examples are about the same company, or even the same industry. But they point at the same underlying shift: GCC transitions in 2026 are faster, carry more technical and governance complexity than they used to, and are structured with more deliberate flexibility than a simple build-or-buy decision ever allowed for. A Transition Leader, a Transformation Leader, and a Business Sponsor are all answering a version of the same question right now: how do you move fast without moving carelessly, when what's being handed over is more complicated than it's ever been.
+
+That's the seat I'd want to sit in. All three of them, actually, at different points in a career built on exactly this kind of transition work.
+
+---
+
+*Selvakumar Jayakrishnan is a Senior Change & Transformation Leader with 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies across EMEA, APJ, and the Americas.*`,
+    linkedInUrl: '',
+    tags: ['Framework', 'ASCEND™', 'GCC', 'Global Capability Centers', 'Transition Leadership'],
+  },
 ]

@@ -101,6 +101,12 @@ const POSTS: Record<string, PostMeta> = {
       "Twenty-six countries, twelve for business and fourteen for wanderlust, taught me the same lesson about change management, applied to myself first: presence has to be earned, not assumed.",
     image: '/P29_Image.jpg',
   },
+  'one-framework-three-seats-2026-gcc-transition': {
+    title: 'One Framework, Three Seats: How ASCEND™ Shows Up in a 2026 GCC Transition',
+    description:
+      "A disclosure, not a case study: how I would approach the Transition Leader, Transformation Leader, and Business Sponsor seats in a GCC transition happening right now.",
+    image: '/P30_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {
