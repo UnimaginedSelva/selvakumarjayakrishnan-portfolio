@@ -13,20 +13,20 @@ export const hero = {
   linkedin: 'https://www.linkedin.com/in/passionateselva',
   phone: '+91 9036000220',
   location: 'Bengaluru, India',
-  resumeFile: '/Selvakumar_Jayakrishnan_Resume_Detailed_2026_V3.pdf',
+  resumeFile: '/Selvakumar_Jayakrishnan_Resume_Detailed_2026_V4.pdf',
 }
 
 export const about = {
   subtitle: `19 years of enterprise transformation across EMEA, APAC & Americas`,
   intro: `What I am seeing is that every leader today is drowning in the same problem: AI, orchestration, governance, adoption, moving faster than most organizations can translate into decisions. I close that gap, taking complex, fast-moving change and making it clear enough for a CHRO, a CTO, or a generalist exec to act on immediately.`,
-  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
+  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Across every program, I have held transformation design and change management adoption as one accountable seat, not sequential handoffs between disciplines, from the operating model decision through sustained adoption. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
   keyOutcomes: [
     'Delivered more than $6M in annual business value, including approximately $5M in logistics cost savings and $1M in AI-driven productivity gains (2023–2025).',
     'Drove 25% to 35% operational efficiency improvements across global customer support ecosystems, alongside a 30% reduction in system issues at scale (2023–2025).',
     'Led 10+ high-impact Transformation programs impacting up to 12,000 users across multiple partner and Dell sites (2014–2025).',
-    'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 processes. Scaled the organization from 0 to 115 FTEs in 14 months (generating $2.1M in value), then led the unit — 49 direct and 66 indirect via peer-managed supervisors — for an additional 18 months (2011–2014).',
+    'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 processes. Scaled the organization from 0 to 115 FTEs in 14 months, generating $2.1M in value, then led the unit, 49 direct and 66 indirect via peer-managed supervisors, for an additional 18 months (2011–2014).',
   ],
-  frameworksParagraph: `The result of this practitioner experience: 8 published frameworks (including one co-authored with Ashish Sharma). These cover Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, and Cybersecurity Workforce Transformation. They are supplementary playbooks designed to enhance current industry standards, not replace them.`,
+  frameworksParagraph: `The result of this practitioner experience: 8 published frameworks, including one co-authored with Ashish Sharma. These cover Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, and Cybersecurity Workforce Transformation. They are supplementary playbooks designed to enhance current industry standards, not replace them.`,
   focusAreas: [
     'Transformation Governance',
     'Change Management (ADKAR Practitioner)',
@@ -36,7 +36,7 @@ export const about = {
     'Transition Leadership',
   ],
   readiness: `I am an immediate joiner with no notice period, ready to partner as an employee or consultant.`,
-  closingCta: `If you are building or scaling a transformation practice, running large-scale transitions, or need a senior practitioner with delivery credentials and published IP, I would love to connect.`,
+  closingCta: `If you are building or scaling a transformation practice, running large-scale transitions, or need a senior practitioner with delivery credentials and published IP, I'd love to connect.`,
 }
 
 export const experience = [
