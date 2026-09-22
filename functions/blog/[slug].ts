@@ -107,6 +107,12 @@ const POSTS: Record<string, PostMeta> = {
       "A disclosure, not a case study: how I would approach the Transition Leader, Transformation Leader, and Business Sponsor seats in a GCC transition happening right now.",
     image: '/P30_Image.png',
   },
+  'why-80-percent-dont-become-37-percent': {
+    title: 'Why 80% Feel More Productive and Only 37% of Companies See It',
+    description:
+      "McKinsey's 2026 State of AI survey confirms an adoption gap the OPERATE Framework™ was built to close.",
+    image: '/P31_Image.jpg',
+  },
 };
 
 function escapeHtml(s: string): string {

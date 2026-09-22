@@ -1332,4 +1332,60 @@ That's the seat I'd want to sit in. All three of them, actually, at different po
     linkedInUrl: '',
     tags: ['Framework', 'ASCEND™', 'GCC', 'Global Capability Centers', 'Transition Leadership'],
   },
+  {
+    id: 'why-80-percent-dont-become-37-percent',
+    title: 'Why 80% Feel More Productive and Only 37% of Companies See It',
+    subtitle: "McKinsey's 2026 State of AI survey confirms an adoption gap the OPERATE Framework™ was built to close",
+    framework: 'OPERATE™',
+    frameworkTag: 'OPERATE™',
+    series: 'Framework in Practice',
+    date: '2026-09-29',
+    readTime: '6 min',
+    summary: "McKinsey's 2026 State of AI survey confirms an adoption gap the OPERATE Framework™ was built to close",
+    content: `![Why 80% feel more productive and only 37% of companies see it in EBIT: the McKinsey 2026 State of AI adoption gap, mapped against the OPERATE Framework's four-stage intervention](/P31_Image.jpg)
+
+McKinsey published its 2026 State of AI survey in August, drawing on 1,719 respondents across 97 countries. Two numbers in it sit next to each other uncomfortably.
+
+Eighty percent of respondents say AI has made them individually more productive. Thirty seven percent say AI has moved their company's EBIT, and that number has not shifted since last year, despite organizations scaling AI adoption more broadly than ever. Forty four percent now report AI scaling across the enterprise, up from 38 percent. The technology is spreading. The financial return is not following it.
+
+Only 6 percent of respondents qualify as what McKinsey calls AI high performers, defined as attributing at least 5 percent of EBIT to AI use. That share is also flat versus 2025.
+
+This is not a story about whether AI works. Eight in ten people already believe it does, for them personally. It is a story about why individual belief has stopped translating into enterprise value, at scale, across a full year of continued investment. That question is exactly what the OPERATE Framework™ was built to answer, and McKinsey's own breakdown of what separates the 6 percent from everyone else reads like a field validation of it.
+
+## The gap has a name, and it is not new
+
+The OPERATE Framework™ names this pattern the Last Mile Adoption Gap. It is one of four documented failure modes the framework is built around, and the mechanism is simple. Organizations grant licenses, run generic training, and declare adoption complete. Individuals use the tool in isolated, personal ways. The organization never redesigns the workflow the tool sits inside. Productivity gets captured at the individual level and evaporates before it reaches the P&L, because nothing about how the business actually operates has changed.
+
+McKinsey's own prior research backs this up with a specific multiplier. Organizations that deliberately delay AI deployment to rebuild their end to end workflows first are 3.6 times more likely to achieve transformational EBIT impact above 5 percent. That statistic comes from a separate 2025 McKinsey study, cited in the OPERATE Framework's research base, and it lines up almost exactly with what the 2026 survey found independently: 74 percent of AI high performers report fundamentally redesigning workflows because of their AI use, versus just 25 percent of everyone else. Two different surveys, a year apart, pointing at the same lever.
+
+## What the 6 percent are actually doing differently
+
+McKinsey's high performer breakdown is not vague. It names specific, repeatable behaviors, and each one maps onto a stage OPERATE already treats as load bearing.
+
+**They define the business case before the technology.** High performers are twice as likely to report senior leadership commitment to AI initiatives and to have defined processes for measuring impact. This is OPERATE's Outcomes Before Algorithms stage in practice: the discipline of expressing an AI initiative in financial terms, owned by a named business leader, before any tool is selected. Organizations that skip this stage do not fail immediately. They fail quietly, six months in, when nobody can say what P&L lever the AI initiative was supposed to move.
+
+**They treat adoption as engineering, not communication.** The 74 versus 25 percent workflow redesign gap is the clearest single data point in the survey, and it is precisely what OPERATE's Adoption Architecture stage is designed to force. Adoption engineered from Day Zero, using the gap in awareness, desire, knowledge, ability, or reinforcement to diagnose exactly where a user segment is stuck, produces a different outcome than adoption assumed to follow automatically from access.
+
+**They invest more, expecting to invest more still.** High performers are more than twice as likely to spend over 15 percent of their technology budget on AI, and more than half expect to increase that investment by 10 percent or more in the next year, compared to 36 percent of everyone else. That is not recklessness. It is what OPERATE's Embed, Scale & Evolve stage calls for: benefit realization reviewed at 90 days, 6 months, and 12 months, so that investment decisions are made against evidence of value, not against sunk cost or hope.
+
+## The part of the survey that should reassure people, and rarely does
+
+The 2026 survey also found that fear of AI driven job losses has run ahead of the reality. Thirty two percent of last year's respondents expected workforce declines over the following year. Only 14 percent report that AI actually caused a decline. Expectations for the year ahead have risen again, to 39 percent, but the track record so far says those fears are consistently overstated.
+
+That is not an argument that disruption is not real. It is an argument that the disruption is arriving slower and less severely than the narrative around it suggests, which is exactly the kind of signal that gets lost when 80 percent of individual experience is positive and only 37 percent of enterprise experience is measurable. The gap between those two numbers is where most of the anxiety, and most of the wasted investment, actually lives.
+
+## Where this leaves an organization
+
+McKinsey's data does not say AI has failed to deliver. It says most organizations have not yet built the operating architecture that lets individual AI adoption compound into enterprise value. The technology is not the constraint. The 6 percent are not using a fundamentally different model than the 94 percent. They are the ones who built the business case, the workflow redesign, and the measurement discipline that lets the tool's output become the business's outcome.
+
+That is the entire premise the OPERATE Framework™ was built on: most AI projects do not fail in the lab. They fail in the last mile, and the last mile is an organizational problem with a known, sequenced solution, not a technology problem waiting on a better model.
+
+---
+
+*Selvakumar Jayakrishnan is a Senior Change & Transformation Leader with 19 years of enterprise experience, including 11 years of core change management practice as an ADKAR Practitioner. He is the author of the OPERATE Framework™, a 7-stage practitioner's playbook for AI operationalization.*
+
+*Source: McKinsey, "The State of AI in 2026: On the Road to ROI," August 2026.*`,
+    linkedInUrl: '',
+    tags: ['Framework', 'OPERATE™', 'AI Adoption', 'Enterprise AI', 'McKinsey Research'],
+  },
 ]
