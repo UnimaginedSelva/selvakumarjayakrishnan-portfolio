@@ -1350,7 +1350,7 @@ Eighty percent of respondents say AI has made them individually more productive.
 
 Only 6 percent of respondents qualify as what McKinsey calls AI high performers, defined as attributing at least 5 percent of EBIT to AI use. That share is also flat versus 2025.
 
-This is not a story about whether AI works. Eight in ten people already believe it does, for them personally. It is a story about why individual belief has stopped translating into enterprise value, at scale, across a full year of continued investment. That question is exactly what the OPERATE Framework™ was built to answer, and McKinsey's own breakdown of what separates the 6 percent from everyone else reads like a field validation of it.
+This is not a story about whether AI works. Eight in ten people already believe it does, for them personally. It is a story about why individual belief has stopped translating into enterprise value, at scale, across a full year of continued investment. That question is exactly what the [OPERATE Framework™](https://www.linkedin.com/feed/update/urn:li:activity:7460524318989500417/) was built to answer, and McKinsey's own breakdown of what separates the 6 percent from everyone else reads like a field validation of it.
 
 ## The gap has a name, and it is not new
 
@@ -1360,7 +1360,7 @@ McKinsey's own prior research backs this up with a specific multiplier. Organiza
 
 ## What the 6 percent are actually doing differently
 
-McKinsey's high performer breakdown is not vague. It names specific, repeatable behaviors, and each one maps onto a stage OPERATE already treats as load bearing.
+McKinsey's high performer breakdown is not vague. It names specific, repeatable behaviors, and each one maps onto a stage [OPERATE](https://www.linkedin.com/feed/update/urn:li:activity:7460524318989500417/) already treats as load bearing.
 
 **They define the business case before the technology.** High performers are twice as likely to report senior leadership commitment to AI initiatives and to have defined processes for measuring impact. This is OPERATE's Outcomes Before Algorithms stage in practice: the discipline of expressing an AI initiative in financial terms, owned by a named business leader, before any tool is selected. Organizations that skip this stage do not fail immediately. They fail quietly, six months in, when nobody can say what P&L lever the AI initiative was supposed to move.
 
