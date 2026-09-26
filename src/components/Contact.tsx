@@ -34,7 +34,7 @@ export default function Contact() {
           <p className="section-subheading mt-4">Open to Senior Manager / Director roles across India & Overseas</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-4">
             <p className="text-stone-600 leading-relaxed">
               If your organization is driving enterprise-scale digital or AI transformation, I would be glad to connect. I bring 19 years of enterprise experience, including 11 years of core Change Management practice, 8 published practitioner frameworks, and an immediate joiner status.

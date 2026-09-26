@@ -6,9 +6,9 @@ export default function Skills() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section id="skills" className="py-10 px-6 bg-[#faf6ec]">
+    <section id="skills" className="py-8 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-4">
           <h2 className="section-heading gold-underline pb-2">Skills & Certifications</h2>
           <p className="section-subheading mt-4">Tools, expertise, credentials & recognition</p>
         </div>
@@ -16,14 +16,14 @@ export default function Skills() {
         <button
           type="button"
           onClick={() => setIsOpen(o => !o)}
-          className="flex items-center gap-1.5 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors mb-6"
+          className="flex items-center gap-1.5 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors"
         >
           <ChevronDown size={16} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
           {isOpen ? 'Collapse' : 'Expand to know more'}
         </button>
 
         {isOpen && (
-        <div className="space-y-12">
+        <div className="space-y-12 mt-6">
           {/* Tools */}
           <div>
             <div className="flex items-center gap-2 mb-5">
