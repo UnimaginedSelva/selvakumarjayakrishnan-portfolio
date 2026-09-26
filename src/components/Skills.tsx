@@ -1,7 +1,10 @@
-import { Wrench, Award, GraduationCap, Globe } from 'lucide-react'
+import { useState } from 'react'
+import { Wrench, Award, GraduationCap, Globe, ChevronDown } from 'lucide-react'
 import { skills, education } from '../data/content'
 
 export default function Skills() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <section id="skills" className="py-16 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
@@ -10,6 +13,16 @@ export default function Skills() {
           <p className="section-subheading mt-4">Tools, expertise, credentials & recognition</p>
         </div>
 
+        <button
+          type="button"
+          onClick={() => setIsOpen(o => !o)}
+          className="flex items-center gap-1.5 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors mb-8"
+        >
+          <ChevronDown size={16} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          {isOpen ? 'Collapse' : 'Expand to know more'}
+        </button>
+
+        {isOpen && (
         <div className="space-y-12">
           {/* Tools */}
           <div>
@@ -102,6 +115,7 @@ export default function Skills() {
             </div>
           </div>
         </div>
+        )}
       </div>
     </section>
   )

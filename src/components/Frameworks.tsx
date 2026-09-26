@@ -1,7 +1,10 @@
-import { ExternalLink, Layers } from 'lucide-react'
+import { useState } from 'react'
+import { ExternalLink, Layers, ChevronDown } from 'lucide-react'
 import { frameworks } from '../data/content'
 
 export default function Frameworks() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <section id="frameworks" className="py-16 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
@@ -10,7 +13,17 @@ export default function Frameworks() {
           <p className="section-subheading mt-4">Practitioner playbooks published from 19 years of enterprise delivery</p>
         </div>
 
-        {/* Framework Cards — one uniform treatment, no per-card color branching */}
+        <button
+          type="button"
+          onClick={() => setIsOpen(o => !o)}
+          className="flex items-center gap-1.5 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors mb-8"
+        >
+          <ChevronDown size={16} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          {isOpen ? 'Collapse' : 'Expand to know more'}
+        </button>
+
+        {isOpen && (
+        /* Framework Cards — one uniform treatment, no per-card color branching */
         <div className="grid md:grid-cols-2 gap-8">
           {frameworks.map(fw => (
             <div
@@ -41,6 +54,7 @@ export default function Frameworks() {
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   )
