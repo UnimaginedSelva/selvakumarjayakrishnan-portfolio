@@ -13,20 +13,6 @@ export default function About() {
           <div className="space-y-5">
             <p className="text-stone-600 leading-relaxed text-base">{about.intro}</p>
             <p className="text-stone-600 leading-relaxed text-base">{about.background}</p>
-
-            <div>
-              <p className="text-stone-700 font-medium text-sm mb-2">Key outcomes delivered at Dell Technologies:</p>
-              <ul className="space-y-1.5">
-                {about.keyOutcomes.map(item => (
-                  <li key={item} className="text-stone-600 text-sm leading-relaxed flex gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta shrink-0 mt-2" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <p className="text-stone-600 leading-relaxed text-base">{about.frameworksParagraph}</p>
           </div>
 
           <div>
@@ -54,6 +40,20 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        <div className="mt-10">
+          <p className="text-stone-700 font-medium text-sm mb-3">Key outcomes delivered at Dell Technologies:</p>
+          <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-2.5">
+            {about.keyOutcomes.map(item => (
+              <li key={item} className="text-stone-600 text-sm leading-relaxed flex gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-terracotta shrink-0 mt-2" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="mt-6 text-stone-600 leading-relaxed text-base">{about.frameworksParagraph}</p>
 
         <div className="mt-10 pt-8 border-t border-stone-200 space-y-4 max-w-3xl">
           <p className="text-stone-600 leading-relaxed text-base">{about.readiness}</p>
