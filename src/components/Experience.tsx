@@ -61,6 +61,29 @@ export default function Experience() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Media */}
+                  {item.media && (() => {
+                    const mediaList = Array.isArray(item.media) ? item.media : [item.media]
+                    return (
+                      <div className={`mt-4 pt-4 border-t border-stone-100 grid gap-3 ${mediaList.length > 1 ? 'sm:grid-cols-2 lg:grid-cols-3' : ''}`}>
+                        {mediaList.map((m, k) => (
+                          <a
+                            key={k}
+                            href={m.image}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block rounded-lg overflow-hidden border border-stone-200 hover:border-terracotta transition-colors"
+                          >
+                            <img src={m.image} alt={m.caption} className="w-full h-auto" loading="lazy" />
+                            <div className="px-3 py-2 bg-white">
+                              <span className="text-xs text-stone-500">{m.caption}</span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    )
+                  })()}
                 </div>
               </div>
             ))}

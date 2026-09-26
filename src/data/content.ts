@@ -55,6 +55,7 @@ export const experience = [
       '8 published practitioner frameworks: TRANSFORM™ (Digital and AI Transformation), OPERATE™ (AI Operationalization), ASCEND™ (GCC Transformation), EMBED™ (ERP Change Management), BRIDGE™ (ASEAN Digital Transformation), FORGED™ (European Digital Transformation), TRUST™ (FSI Digital Adoption), and STEWARD™ (Cybersecurity Workforce Transformation, co-authored with Ashish Sharma). Frameworks are supplementary to industry standards, not replacements.',
       'Fully recharged and an immediate joiner.',
     ],
+    media: { image: '/experience/career-break.png', caption: 'One Year, Deliberately Invested: Frameworks & Certifications' },
   },
   {
     company: 'Dell Technologies',
@@ -72,6 +73,7 @@ export const experience = [
       'Citrix to VMware Horizon Migration (Apr 2021 – Apr 2023): Change management across 36 partner sites, 7,000 users. 50% ticket reduction, ~$300K annual savings, 30% reduction in vApps issues.',
       'Reduced system issues by 30% through structured UAT governance across Agile sprint cycles.',
     ],
+    media: { image: '/experience/consultant-ppm.png', caption: 'Four Years, Four Programs: Measurable Impact at Dell' },
   },
   {
     company: 'Dell Technologies',
@@ -88,6 +90,7 @@ export const experience = [
       'Established structured governance and engagement models across partner ecosystems, improving delivery consistency and reducing escalations.',
       'Operated in waterfall delivery model (2014–2020): quarterly locked roadmap with structured change management integrated into deployment planning cycles.',
     ],
+    media: { image: '/experience/sr-advisor-partner-management.png', caption: 'Nearly Four Years of Global Partner Transformation' },
   },
   {
     company: 'Dell Technologies',
@@ -103,6 +106,7 @@ export const experience = [
       'Silver Award: Reduced outsourced support costs by ~30%, cutting LATAM SPAM email contribution from 36% to 1% while boosting service efficiency.',
       'Gold Award: Resolved 3 critical tool deployment challenges preventing major business disruptions across global support teams across EMEA, APJ, and the Americas.',
     ],
+    media: { image: '/experience/ppm-advisor.png', caption: 'Bridging IT and Business at Global Scale' },
   },
   {
     company: 'Dell Technologies',
@@ -119,6 +123,7 @@ export const experience = [
       'Tell Dell Rock Star x2: Consistently recognized for high-performance team building and strict adherence to Dell\'s People Strategy (2012, 2013).',
       'This role marks the conclusion of 8 years in Business Operations before transitioning to core Change Management practice from August 2014.',
     ],
+    media: { image: '/experience/it-ops-supervisor.png', caption: 'From 0 to 115: Building a Transition Unit That Lasted' },
   },
   {
     company: 'eClerx Pvt Ltd.',
@@ -132,7 +137,12 @@ export const experience = [
       'Directed a cross-functional team of 24 personnel (19 direct FTEs, 5 indirect) over a two-year period to ensure seamless delivery.',
       'Managed eCommerce operations and product configuration for the Dell Technologies account, overseeing Brand Input, Global Web Store Audits, and XML Feed creation for SEO/SEM and Online Marketing.',
       'Led a team of 10 FTEs executing enterprise-scale product configuration and maintenance for the Dell Technologies account across all major product portfolios.',
-      'Scaled core processes from 1 to 5 FTEs within 6 months, and served as the SME to support the successful scaling of an additional 5-FTE process.',
+      'Maintained core database system configurations across all major hardware categories (Desktops, Laptops, Servers, Storage, Networking) to enable global Marketing & Communication (MARCOM) operations.',
+    ],
+    media: [
+      { image: '/experience/eclerx-associate-process-manager.png', caption: 'First Management Role: Leading 24 Across Two Years' },
+      { image: '/experience/eclerx-senior-analyst.png', caption: 'From Analyst to Team Lead: A Zero-Disruption Transition' },
+      { image: '/experience/eclerx-analyst.png', caption: 'First Job, First Proof: Frontline to Subject Matter Expert' },
     ],
   },
 ]
