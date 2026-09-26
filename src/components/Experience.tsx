@@ -105,9 +105,9 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-16 px-6 bg-[#faf6ec]">
+    <section id="experience" className="py-10 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-10">
+        <div className="mb-8">
           <h2 className="section-heading gold-underline pb-2">Professional Journey</h2>
           <p className="section-subheading mt-4">19 years across Dell Technologies & eClerx</p>
         </div>
@@ -116,7 +116,7 @@ export default function Experience() {
           {/* Timeline line */}
           <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-terracotta via-stone-300 to-transparent" />
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {experience.map((item, i) => {
               const groupKey = `group-${i}`
 

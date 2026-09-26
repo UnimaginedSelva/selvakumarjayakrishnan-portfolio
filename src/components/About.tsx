@@ -2,9 +2,9 @@ import { about } from '../data/content'
 
 export default function About() {
   return (
-    <section id="about" className="py-16 px-6 bg-[#faf6ec]">
+    <section id="about" className="py-10 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-10">
+        <div className="mb-8">
           <h2 className="section-heading gold-underline pb-2">About Me</h2>
           <p className="section-subheading mt-4">{about.subtitle}</p>
         </div>
@@ -41,7 +41,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <p className="text-stone-700 font-medium text-sm mb-3">Key outcomes delivered at Dell Technologies:</p>
           <ul className="space-y-2">
             {about.keyOutcomes.map(item => (
@@ -55,7 +55,7 @@ export default function About() {
 
         <p className="mt-6 text-stone-600 leading-relaxed text-base">{about.frameworksParagraph}</p>
 
-        <div className="mt-10 pt-8 border-t border-stone-200 space-y-4">
+        <div className="mt-8 pt-6 border-t border-stone-200 space-y-4">
           <p className="text-stone-600 leading-relaxed text-base">{about.readiness}</p>
           <p className="text-stone-600 leading-relaxed text-base">{about.closingCta}</p>
         </div>

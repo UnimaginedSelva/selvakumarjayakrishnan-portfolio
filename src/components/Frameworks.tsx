@@ -6,9 +6,9 @@ export default function Frameworks() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section id="frameworks" className="py-16 px-6 bg-[#faf6ec]">
+    <section id="frameworks" className="py-10 px-6 bg-[#faf6ec]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-10">
+        <div className="mb-8">
           <h2 className="section-heading gold-underline pb-2">Original Frameworks™</h2>
           <p className="section-subheading mt-4">Practitioner playbooks published from 19 years of enterprise delivery</p>
         </div>
@@ -16,7 +16,7 @@ export default function Frameworks() {
         <button
           type="button"
           onClick={() => setIsOpen(o => !o)}
-          className="flex items-center gap-1.5 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors mb-8"
+          className="flex items-center gap-1.5 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors mb-6"
         >
           <ChevronDown size={16} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
           {isOpen ? 'Collapse' : 'Expand to know more'}
