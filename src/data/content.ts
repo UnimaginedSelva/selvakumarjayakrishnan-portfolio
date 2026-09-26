@@ -6,8 +6,9 @@ export const hero = {
   stats: [
     { value: '19', label: 'Years Experience' },
     { value: '$6M+', label: 'Annual Business Value' },
-    { value: '≤12K', label: 'Users at Scale' },
-    { value: 'Multiple', label: 'Partner & Dell Sites' },
+    { value: '12,000', label: 'Users at Scale' },
+    { value: '2', label: 'Game Changer Awards' },
+    { value: '50+', label: 'Partner & Dell Sites' },
   ],
   email: 'selvakumar.jayakrishnan@hotmail.com',
   linkedin: 'https://www.linkedin.com/in/passionateselva',
@@ -23,7 +24,7 @@ export const about = {
   keyOutcomes: [
     'Delivered more than $6M in annual business value, including approximately $5M in logistics cost savings and $1M in AI-driven productivity gains (2023–2025).',
     'Drove 25% to 35% operational efficiency improvements across global customer support ecosystems, alongside a 30% reduction in system issues at scale (2023–2025).',
-    'Led 10+ high-impact Transformation programs impacting up to 12,000 users across multiple partner and Dell sites (2014–2025).',
+    'Led 10+ high-impact Transformation programs impacting up to 12,000 users across 50+ partner and Dell sites (2014–2025).',
     'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 processes. Scaled the organization from 0 to 115 FTEs in 14 months, generating $2.1M in value, then led the unit, 49 direct and 66 indirect via peer-managed supervisors, for an additional 18 months (2011–2014).',
   ],
   frameworksParagraph: `The result of this practitioner experience: 8 published frameworks, including one co-authored with Ashish Sharma. These cover Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, and Cybersecurity Workforce Transformation. They are supplementary playbooks designed to enhance current industry standards, not replace them.`,
@@ -41,6 +42,21 @@ export const about = {
 
 export const experience = [
   {
+    company: '',
+    role: 'Health and Well-being Led Career Break',
+    level: '',
+    period: 'Sep 2025 – Present',
+    location: 'Bengaluru, India',
+    duration: '',
+    award: '',
+    highlights: [
+      'I made a deliberate decision to step back to prioritize my health, using the space to fully recharge and build the strategic capabilities I had been thinking about for years.',
+      'Upskilling: Google AI Professional Certificate, Organization Change Management (12 PDUs), and the AI Decision Playbook.',
+      '8 published practitioner frameworks: TRANSFORM™ (Digital and AI Transformation), OPERATE™ (AI Operationalization), ASCEND™ (GCC Transformation), EMBED™ (ERP Change Management), BRIDGE™ (ASEAN Digital Transformation), FORGED™ (European Digital Transformation), TRUST™ (FSI Digital Adoption), and STEWARD™ (Cybersecurity Workforce Transformation, co-authored with Ashish Sharma). Frameworks are supplementary to industry standards, not replacements.',
+      'Fully recharged and an immediate joiner.',
+    ],
+  },
+  {
     company: 'Dell Technologies',
     role: 'Consultant, Project Program Management',
     level: 'Senior Manager Equivalent',
@@ -49,7 +65,7 @@ export const experience = [
     duration: '4 yrs 6 mos',
     award: 'Game Changer Award',
     highlights: [
-      'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas — impacting up to 12,000 users across multiple partner and Dell sites, delivering $6M+ in annual business value.',
+      'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas — impacting up to 12,000 users across 50+ partner and Dell sites, delivering $6M+ in annual business value.',
       'Change Management Approach: ADKAR-based change architecture across all programs, Agile delivery integration from 2020 onwards (waterfall to monthly to 2-week sprints by 2023), executive Facts-and-Alternatives frameworks for leadership decisions, and pilot-led resistance resolution using measurable evidence before full deployment.',
       'Real-Time Service Parts ETA (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
       'AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via shadow-mode pilot across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for millions of customers globally.',

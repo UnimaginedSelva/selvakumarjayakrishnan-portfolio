@@ -40,7 +40,7 @@ export default function Hero() {
         </p>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10 max-w-3xl mx-auto">
           {hero.stats.map(s => (
             <div key={s.label} className="bg-surface border border-terracotta-light shadow-sm shadow-stone-900/5 rounded-xl py-4 px-3">
               <div className="text-2xl md:text-3xl font-extrabold text-terracotta">{s.value}</div>

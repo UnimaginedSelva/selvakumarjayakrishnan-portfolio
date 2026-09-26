@@ -31,8 +31,12 @@ export default function Experience() {
                         <span className="text-xs text-stone-500 italic">{item.level}</span>
                       )}
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-terracotta font-semibold text-sm">{item.company}</span>
-                        <span className="text-stone-400">·</span>
+                        {item.company && (
+                          <>
+                            <span className="text-terracotta font-semibold text-sm">{item.company}</span>
+                            <span className="text-stone-400">·</span>
+                          </>
+                        )}
                         <span className="text-stone-500 text-sm">{item.location}</span>
                       </div>
                     </div>
