@@ -17,7 +17,9 @@ function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
           {post.frameworkTag}
         </span>
       </div>
-      <p className="text-stone-400 text-[11px] uppercase tracking-wider mb-1.5">{post.series}</p>
+      {post.series !== post.frameworkTag && (
+        <p className="text-stone-400 text-[11px] uppercase tracking-wider mb-1.5">{post.series}</p>
+      )}
       <h3 className="font-reading text-stone-900 font-semibold text-xl leading-snug group-hover:text-amber-800 transition-colors mb-2">
         {post.title}
       </h3>
@@ -41,7 +43,9 @@ function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
 function PostDetail({ post }: { post: BlogPost }) {
   return (
     <div className="max-w-2xl mx-auto px-6 py-16">
-      <p className="text-amber-700/80 text-xs uppercase tracking-widest mb-3 font-sans">{post.series}</p>
+      {post.series !== post.frameworkTag && (
+        <p className="text-amber-700/80 text-xs uppercase tracking-widest mb-3 font-sans">{post.series}</p>
+      )}
       <div className="flex items-center gap-2 mb-5 flex-wrap">
         <span className="text-xs font-semibold text-amber-800 bg-amber-100 border border-amber-200 px-2.5 py-1 rounded-full">
           {post.frameworkTag}
