@@ -1509,7 +1509,7 @@ Which of these principles have you seen make the biggest difference in your prog
 - Behavioural Insights Team (2014). *EAST: Four Simple Ways to Apply Behavioural Insights*.
 - Dell'Acqua, F., et al. (2023). Navigating the Jagged Technological Frontier. Harvard Business School Working Paper 24-013.
 
-*Selvakumar Jayakrishnan is a Senior Change & Transformation Leader with 19 years of enterprise experience, including 11 years of core change management practice as an ADKAR Practitioner. He is the author of eight published practitioner frameworks, including TRANSFORM™ and [OPERATE™](#/blog/why-80-percent-dont-become-37-percent).*`,
+*Selvakumar Jayakrishnan is a Senior Change & Transformation Leader with 19 years of enterprise experience, including 11 years of core change management practice as an ADKAR Practitioner. He is the author of eight published practitioner frameworks, including [TRANSFORM™](#/blog/healthcare-gcs-adkar-transform) and [OPERATE™](#/blog/why-80-percent-dont-become-37-percent).*`,
     linkedInUrl: '',
     tags: ['Practitioner Reflection', 'TRANSFORM™', 'OPERATE™', 'Behavioral Science', 'Change Management'],
   },
