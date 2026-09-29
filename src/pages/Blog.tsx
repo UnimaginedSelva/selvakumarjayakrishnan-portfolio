@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { ArrowLeft, ExternalLink, Calendar, Clock, Tag, Download } from 'lucide-react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { blogPosts, type BlogPost } from '../data/blog'
@@ -121,6 +122,14 @@ export default function Blog() {
   const visiblePosts = [...blogPosts]
     .filter(p => new Date(p.date) <= now)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+  // Route navigation (e.g. from the Footer's blog card, or between posts)
+  // doesn't reset scroll on its own -- without this, arriving here from
+  // partway down another page leaves the listing or article scrolled to
+  // that same offset instead of starting at the top.
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [slug])
 
   return (
     <div className="min-h-screen bg-[#faf6ec]">
