@@ -113,6 +113,12 @@ const POSTS: Record<string, PostMeta> = {
       "McKinsey's 2026 State of AI survey confirms an adoption gap the OPERATE Framework™ was built to close.",
     image: '/P31_Image.jpg',
   },
+  'practicing-behavioral-science-before-i-knew-its-name': {
+    title: 'I Was Practicing Behavioral Science Before I Knew Its Name',
+    description:
+      'Mapping eleven years of change management at Dell against the research on how people actually adopt new ways of working.',
+    image: '/P32_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {

@@ -1388,4 +1388,129 @@ That is the entire premise the OPERATE Framework™ was built on: most AI projec
     linkedInUrl: '',
     tags: ['Framework', 'OPERATE™', 'AI Adoption', 'Enterprise AI', 'McKinsey Research'],
   },
+  {
+    id: 'practicing-behavioral-science-before-i-knew-its-name',
+    title: 'I Was Practicing Behavioral Science Before I Knew Its Name',
+    subtitle: 'Mapping eleven years of change management at Dell against the research on how people actually adopt new ways of working',
+    framework: 'TRANSFORM™ + OPERATE™',
+    frameworkTag: 'Practitioner Reflection',
+    series: 'Practitioner Reflection',
+    date: '2026-09-30',
+    readTime: '8 min',
+    summary: 'Mapping eleven years of change management at Dell against the research on how people actually adopt new ways of working',
+    content: `![I Was Practicing Behavioral Science Before I Knew Its Name: mapping eleven years of Dell change management practice against the research on how people actually adopt new ways of working](/P32_Image.png)
+
+For eleven years at Dell Technologies, my job was to get people to work differently. New platforms, new security controls, new AI tools, rolled out to up to 12,000 users across EMEA, APJ, and the Americas. I used ADKAR as my backbone, and I learned the rest the hard way: in pilots, in escalations, and in the quiet moments when a tool went live and nobody used it.
+
+Recently I spent time with the behavioral science research on adoption, expecting to find new techniques. Instead, I kept recognizing things I had already done. The research gave names, and evidence, to decisions I had made on instinct.
+
+This article maps six of those practices to the science behind them. It also covers what the research says about the limits of behavioral tactics, because that part changed how I think about my own work.
+
+## First, the part most articles leave out
+
+Behavioral science is often sold as a bag of clever tricks: change the default, add a nudge, watch adoption climb. The evidence is less generous.
+
+When Stefano DellaVigna and Elizabeth Linos compared 126 nudge trials published by academics with 241 trials run at scale by government nudge units, the average effect fell from 8.7 percentage points in academic studies to 1.4 points in real-world deployments. A separate re-analysis of a large nudge meta-analysis by Maier and colleagues found that once publication bias was corrected for, little to no evidence of an average effect remained.
+
+That does not mean behavioral science fails. It means small interventions on their own rarely move much at scale. They work when the structure around them is right: the pilot design, the support model, the sequencing, the people involved. That structure is what change practitioners actually build. Behavioral science explains why it works.
+
+## 1. Seeing before relying: the shadow-mode pilot
+
+**What we did.** When we operationalized AI-validated work orders inside Salesforce CRM, we did not start by asking support teams to trust the AI. We ran it in shadow mode first, alongside the existing manual process, so users could see its decisions on their own real cases before anyone asked them to rely on it. We tracked override rates as the primary signal of genuine adoption, rather than training completion.
+
+**The result.** About $1M in annual productivity gains through automation and fraud prevention.
+
+**The science.** Research on algorithm aversion, beginning with Dietvorst, Simmons, and Massey, shows that people abandon an algorithm after seeing it make a mistake, even when it outperforms humans overall. We judge machine errors more harshly than human ones. Shadow mode lets errors surface when they cost nothing, so trust is built on evidence rather than on a launch announcement.
+
+## 2. Treating resistance as data: pilots that include the resisters
+
+**What we did.** When a team pushed back, we did not argue harder. We ran controlled pilots that included the resisters, or their teams, alongside neutral users, and we measured customer experience, SLA, and adoption data before scaling. In the AI work order program, a controlled pilot showed that automatic enablement increased customer experience issues and service delays. The evidence reversed the decision in favor of customer-controlled enablement.
+
+**The result.** Buy-in earned with data rather than persuasion, and in at least one case, a better decision than the one we started with.
+
+**The science.** People trust what they experience directly, and they trust peers who report the same results. There is a second lesson here too. Defaults are powerful, and that is exactly why they must serve the people living with them. Madrian and Shea's landmark study showed that automatic enrollment raised retirement plan participation among new hires from 37.4% to 85.9%, yet most people then stayed stuck at the default contribution rate. A default is a decision made on someone's behalf. It should be tested like one.
+
+## 3. The truth the tool told: real-time parts ETA
+
+**What we did.** Before real-time parts visibility, remote support engineers gave customers a simple, comfortable line: a field engineer will come to your site with the part. When the real-time backlog ETA capability arrived, engineers could now see, and had to share, when a part was delayed or when the ETA was longer than the customer needed. Those were harder conversations. Instead of using the ETA, many engineers kept finding faults and escalating.
+
+The resistance was not to the technology. It was to the truth the technology told. So we did two things. We reframed the capability as a planning advantage: engineers could now tell most customers exactly when the repair would happen, which is a better experience than an open-ended promise. And we gave planners direct visibility into the logistics partner's inventory system, so ETAs became more reliable and the difficult conversation became less frequent.
+
+**The result.** Backlog parts SLA improved from 20% to 7%, about $5M in annual logistics savings, and platform adoption rose by about 25%. For engineers, the personal gain was confidence in Dell's parts availability, with more accuracy than before.
+
+**The science.** Karlsson, Loewenstein, and Seppi described the ostrich effect: people avoid information they expect to be painful. Our engineers were not avoiding a tool. They were avoiding the uncomfortable conversation it created. More training would not have fixed that. Making the truth easier to deliver did.
+
+## 4. A safety net with an end date: Citrix to VMware Horizon
+
+**What we did.** Migrating around 7,000 users across 36 partner sites, we kept the old and new platforms running in parallel until the migration was complete and the new platform had no blockers, with a planned cutover built in from the start. We sequenced the migration site by site to avoid simultaneous disruption, made partner site IT coordinators local change champions, and ran two weeks of intensive hypercare at each site after go-live.
+
+Midway through, two EMEA partner sites refused to proceed. Their site coordinators escalated to their own leadership, citing inadequate post-migration support, and the delay put the global cutover schedule at risk. I had no formal authority over either organization. Rather than defending the plan in group forums, where resistance tends to amplify, I spoke with each coordinator individually. The root cause was the same at both sites: fear that support after the migration would be slower than the Citrix support they had relied on for years. We co-designed a dedicated two-week hypercare model for those sites, with daily check-ins, a named Dell contact, and a documented escalation path faster than the standard one. Both sites migrated on schedule, and both became the program's most active champions, briefing other hesitant sites on what the support model looked like.
+
+**The result.** Ticket volumes fell by 50%, and the program delivered about $300K in annual savings. That year, EMEA also showed a stronger improvement in the Horizon experience survey than any other region, a shift that sites like these two likely contributed to alongside others across the region.
+
+**The science.** Losses tend to weigh more heavily than equivalent gains, a finding that runs through Kahneman and Tversky's work, although later research shows the effect varies by context. For users, a migration is first a potential loss: of a system that works, of routines that are familiar. The parallel run lowered that fear. The planned cutover did the other half of the job, stopping the old habit from lingering indefinitely. The two EMEA sites show the same principle at close range. Their objection was not to the new platform. It was to losing a support model they trusted. Once that loss was addressed directly, the former resisters became the most credible voices in the program, because other sites saw people like them making the move.
+
+## 5. People like me: the RSA SecurID rollout
+
+**What we did.** The RSA SecurID multi-factor rollout across 29 partner sites and about 6,000 users was mandatory. A mandate sets the rule, but it does not guarantee consistent behavior, especially under pressure. We paired it with site-specific change sequencing and a local champion model, so each site heard from people inside their own organization.
+
+**The result.** Full compliance with zero critical disruptions.
+
+**The science.** A mandate is not a nudge, and it carries a risk: when people feel their autonomy is being restricted, they can push back or find workarounds, which psychologists call reactance. Social proof is the counterweight. In a well-known field experiment by Goldstein, Cialdini, and Griskevicius, telling hotel guests that most previous guests in their room had reused towels raised reuse from 35.1% to 44.1%. People follow people like them. Our champions made the rule feel like the local norm, not something imposed from far away.
+
+## 6. Small wins in the sprint
+
+**What we did.** Our delivery cadence moved from waterfall to monthly sprints and then to 2-week sprints. I embedded business and change management in the sprint teams from discovery to go-live, so change readiness kept pace with every release instead of arriving in one large wave at the end.
+
+**The science.** Teresa Amabile and Steven Kramer analyzed nearly 12,000 daily diary entries from knowledge workers and found that making progress in meaningful work was present on 76% of people's best days. Small, visible steps keep motivation alive in a way that a single big launch cannot.
+
+## Where ADKAR meets behavioral science
+
+ADKAR remains my backbone. It tracks an individual's journey from Awareness through Desire, Knowledge, Ability, and Reinforcement. The behavioral models add what ADKAR does not name explicitly.
+
+**COM-B**, from Susan Michie and colleagues, adds opportunity. Someone can be aware, willing, and trained, and still be blocked by their environment: workload, tool design, or what their team considers normal.
+
+**The Fogg Behavior Model** adds the prompt. Behavior happens when motivation, ability, and a prompt come together. A person with every ADKAR element in place can still not act, simply because nothing cued them at the moment of work.
+
+**The Behavioural Insights Team's EAST framework** (Easy, Attractive, Social, Timely) turns both into a practical design checklist.
+
+## What changes now: intent, not invention
+
+Most of what I did at Dell was right for the situation. What changes now is intent. Instead of discovering these principles mid-program, I will design for them from day one, and name them so teams can challenge and improve them.
+
+**Diagnose before designing.** Before choosing interventions, map each user segment against capability, opportunity, and motivation. Different gaps need different fixes.
+
+**Design the prompt.** Place cues inside the tools people already use, at the exact moment the new behavior is needed.
+
+**Teach calibrated trust.** With generative AI, the goal is not maximum usage. In a field experiment with 758 BCG consultants, those using GPT-4 on tasks inside the AI's capabilities produced work rated 40% higher in quality. On a task just outside those capabilities, they were 19 percentage points less likely to get the right answer than consultants working without AI. Adoption programs must teach people when to rely on AI and when to check it.
+
+## The ethical line
+
+Behavioral design can help people or pressure them, and the difference matters. Three tests guide me. Would I be comfortable explaining exactly how the design works to the people it affects? Is opting out still easy and free of penalty? Does it serve the people changing their behavior, not just the organization's numbers? If the answer to any of these is no, it is manipulation, not change management.
+
+## Adoption is designed
+
+People do not adopt new ways of working because they understood a presentation. They adopt them when the new way becomes easier, safer, and more rewarding than the old one. I spent eleven years building that on instinct. The research made it deliberate.
+
+Which of these principles have you seen make the biggest difference in your programs?
+
+## Sources
+
+- Madrian, B. C., and Shea, D. F. (2001). The Power of Suggestion: Inertia in 401(k) Participation and Savings Behavior. *Quarterly Journal of Economics*, 116(4), 1149 to 1187. [https://doi.org/10.1162/003355301753265543](https://doi.org/10.1162/003355301753265543)
+- DellaVigna, S., and Linos, E. (2022). RCTs to Scale: Comprehensive Evidence from Two Nudge Units. *Econometrica*, 90(1).
+- Maier, M., et al. (2022). No evidence for nudging after adjusting for publication bias. *Proceedings of the National Academy of Sciences*, 119(31).
+- Dietvorst, B. J., Simmons, J. P., and Massey, C. (2015). Algorithm Aversion: People Erroneously Avoid Algorithms After Seeing Them Err. *Journal of Experimental Psychology: General*, 144(1).
+- Karlsson, N., Loewenstein, G., and Seppi, D. (2009). The ostrich effect: Selective attention to information. *Journal of Risk and Uncertainty*, 38(2).
+- Tversky, A., and Kahneman, D. (1992). Advances in Prospect Theory: Cumulative Representation of Uncertainty. *Journal of Risk and Uncertainty*, 5(4).
+- Goldstein, N. J., Cialdini, R. B., and Griskevicius, V. (2008). A Room with a Viewpoint: Using Social Norms to Motivate Environmental Conservation in Hotels. *Journal of Consumer Research*, 35(3).
+- Amabile, T. M., and Kramer, S. J. (2011). *The Progress Principle*. Harvard Business Review Press.
+- Michie, S., van Stralen, M. M., and West, R. (2011). The behaviour change wheel. *Implementation Science*, 6(42).
+- Fogg, B. J. (2009). A Behavior Model for Persuasive Design. *Proceedings of Persuasive 2009*.
+- Behavioural Insights Team (2014). *EAST: Four Simple Ways to Apply Behavioural Insights*.
+- Dell'Acqua, F., et al. (2023). Navigating the Jagged Technological Frontier. Harvard Business School Working Paper 24-013.
+
+*Selvakumar Jayakrishnan is a Senior Change & Transformation Leader with 19 years of enterprise experience, including 11 years of core change management practice as an ADKAR Practitioner. He is the author of eight published practitioner frameworks, including TRANSFORM™ and [OPERATE™](#/blog/why-80-percent-dont-become-37-percent).*`,
+    linkedInUrl: '',
+    tags: ['Practitioner Reflection', 'TRANSFORM™', 'OPERATE™', 'Behavioral Science', 'Change Management'],
+  },
 ]
