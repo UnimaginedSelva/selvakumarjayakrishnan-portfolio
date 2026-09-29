@@ -1398,7 +1398,7 @@ That is the entire premise the OPERATE Framework™ was built on: most AI projec
     date: '2026-09-30',
     readTime: '8 min',
     summary: 'Mapping eleven years of change management at Dell against the research on how people actually adopt new ways of working',
-    content: `![Six practices mapped to the science behind them: shadow-mode AI pilot to trust through evidence, resisters inside the pilot to experience beats persuasion, parallel run with a planned cutover to a safety net for loss aversion, real-time parts ETA to beating the ostrich effect, local site champions to people following their peers](/P32_Image.png)
+    content: `![Five practices mapped to the science behind them: shadow-mode AI pilot to trust through evidence, resisters inside the pilot to experience beats persuasion, parallel run with a planned cutover to a safety net for loss aversion, real-time parts ETA to beating the ostrich effect, local site champions to people following their peers](/P32_Image.png)
 
 For eleven years at Dell Technologies, my job was to get people to work differently. New platforms, new security controls, new AI tools, rolled out to up to 12,000 users across EMEA, APJ, and the Americas. I used ADKAR as my backbone, and I learned the rest the hard way: in pilots, in escalations, and in the quiet moments when a tool went live and nobody used it.
 

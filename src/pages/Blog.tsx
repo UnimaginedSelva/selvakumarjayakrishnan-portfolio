@@ -6,6 +6,14 @@ import { renderMarkdown } from '../utils/markdown'
 import Carousel from '../components/Carousel'
 import Comments from '../components/Comments'
 
+// A bare 'YYYY-MM-DD' string parses as UTC midnight by the JS Date spec, which
+// would publish a scheduled post 5.5 hours late for IST readers. Every post
+// date on this site means "live at 00:00 IST", so the gate has to parse it
+// with an explicit IST offset rather than relying on the UTC default.
+function isPublished(dateStr: string): boolean {
+  return new Date(`${dateStr}T00:00:00+05:30`) <= new Date()
+}
+
 function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
   return (
     <div
@@ -114,7 +122,6 @@ export default function Blog() {
   const { slug } = useParams()
   const [searchParams] = useSearchParams()
   const previewMode = searchParams.get('preview') === 'true'
-  const now = new Date()
   // Gate direct-link access the same way the listing is gated below -- a
   // future-dated post's id still exists in blogPosts, so without this check
   // /blog/:slug would render the full article even while it's meant to be
@@ -122,9 +129,9 @@ export default function Blog() {
   // for a single direct link (e.g. https://.../blog/some-slug?preview=true)
   // so Selva can proofread a scheduled post before it's publicly visible --
   // it never affects the listing grid, which stays date-gated regardless.
-  const selected = slug ? blogPosts.find(p => p.id === slug && (previewMode || new Date(p.date) <= now)) ?? null : null
+  const selected = slug ? blogPosts.find(p => p.id === slug && (previewMode || isPublished(p.date))) ?? null : null
   const visiblePosts = [...blogPosts]
-    .filter(p => new Date(p.date) <= now)
+    .filter(p => isPublished(p.date))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   // Route navigation (e.g. from the Footer's blog card, or between posts)
