@@ -10,8 +10,11 @@ import Comments from '../components/Comments'
 // would publish a scheduled post 5.5 hours late for IST readers. Every post
 // date on this site means "live at 00:00 IST", so the gate has to parse it
 // with an explicit IST offset rather than relying on the UTC default.
+// Bare 'YYYY-MM-DD' dates go live at IST midnight; full timestamps
+// (e.g. '2026-08-20T13:00:00Z') are used as-is.
 function isPublished(dateStr: string): boolean {
-  return new Date(`${dateStr}T00:00:00+05:30`) <= new Date()
+  const when = dateStr.includes('T') ? dateStr : `${dateStr}T00:00:00+05:30`
+  return new Date(when) <= new Date()
 }
 
 function PostCard({ post, onClick }: { post: BlogPost; onClick: () => void }) {
