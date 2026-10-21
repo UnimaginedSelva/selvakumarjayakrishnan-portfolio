@@ -51,9 +51,9 @@ The shift underway is toward Human-on-the-Loop, or HOTL: the AI operates autonom
 
 This isn't a governance downgrade. Done properly, it's the opposite. It requires:
 
-- **Algorithmic Guardrails** — hard-coded authority thresholds. An AI agent might be authorized to autonomously execute refunds or reallocate a marketing budget up to a defined daily limit, with anything above that threshold escalating automatically.
-- **Decision Summaries** — before executing a bounded action, the system surfaces a clear summary of its logic chain, so the shift from approval to oversight doesn't also mean a loss of auditability.
-- **Post-Action Review** — the human role moves from reviewing 1,000 routine tickets to a focused review of the small number of anomalous decisions the system itself flagged as uncertain.
+- **Algorithmic Guardrails**: hard-coded authority thresholds. An AI agent might be authorized to autonomously execute refunds or reallocate a marketing budget up to a defined daily limit, with anything above that threshold escalating automatically.
+- **Decision Summaries**: before executing a bounded action, the system surfaces a clear summary of its logic chain, so the shift from approval to oversight doesn't also mean a loss of auditability.
+- **Post-Action Review**: the human role moves from reviewing 1,000 routine tickets to a focused review of the small number of anomalous decisions the system itself flagged as uncertain.
 
 This is exactly what OPERATE™'s **Responsible AI Governance** stage is built to formalize: not blanket restriction, and not blanket autonomy, but explicit, tiered decision rights that scale with risk.
 
@@ -75,8 +75,8 @@ The numbers here are stark. 63.4% of independent hotel bookings now flow through
 
 Resistance here isn't ignorance of the technology. It's a rational, protective response to two real fears:
 
-- **"Second OTA" paranoia** — after two decades of watching OTAs extract commission and control the guest relationship, independent operators reasonably fear that handing structured data to an AI platform just trains the next intermediary that will eventually own their direct bookings too
-- **The capture problem** — for a 30-room property, the operational knowledge an AI needs often exists only in the general manager's head or a physical logbook, not because the owner resists AI, but because there's nothing structured yet to feed it
+- **"Second OTA" paranoia**: after two decades of watching OTAs extract commission and control the guest relationship, independent operators reasonably fear that handing structured data to an AI platform just trains the next intermediary that will eventually own their direct bookings too
+- **The capture problem**: for a 30-room property, the operational knowledge an AI needs often exists only in the general manager's head or a physical logbook, not because the owner resists AI, but because there's nothing structured yet to feed it
 
 A central technology platform has zero authoritative mandate over these independent nodes. It cannot simply decree adoption. This is precisely the terrain OPERATE™'s **Ecosystem Co-Creation** stage and TRUST™'s **Terrain & Compliance Architecture** stage are designed to map before any technology gets pushed downstream, understanding the regulatory, commercial, and psychological terrain of the network, not just its technical readiness.
 
@@ -137,7 +137,7 @@ In the space of one call, they have to:
 - Navigate a CRM interface with roughly 20 mandatory fields, designed for generic IT service management, not medical device quality management
 - Do all of this while a laboratory's cardiac troponin or procalcitonin testing capability sits offline, with every minute of delay carrying real clinical consequence
 
-![One agent, one call: four jobs running simultaneously in one human brain — technical troubleshooting, regulatory compliance, MDR screening, and patient safety risk](/P16_Image.jpg)
+![One agent, one call: four jobs running simultaneously in one human brain: technical troubleshooting, regulatory compliance, MDR screening, and patient safety risk](/P16_Image.jpg)
 
 That's not a job. That's a human brain running three specialized roles simultaneously, with zero room for the concurrent technical, emotional, and administrative load to overflow.
 
@@ -199,13 +199,13 @@ ADKAR diagnoses the individual gap accurately. TRANSFORM™ builds the boundarie
   {
     id: 'stop-installing-ai-start-onboarding',
     title: 'Stop Installing AI. Start Onboarding It.',
-    subtitle: "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead",
+    subtitle: "Why 'botsitting' is a symptom of misclassification, not a governance gap, and what OPERATE™ says to do instead",
     framework: 'OPERATE™',
     frameworkTag: 'OPERATE™',
     series: 'Real-World Application of the 8 Frameworks',
     date: '2026-07-07',
     readTime: '7 min',
-    summary: "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead",
+    summary: "Why 'botsitting' is a symptom of misclassification, not a governance gap, and what OPERATE™ says to do instead",
     content: `A 2026 study surveying 6,000 digital knowledge workers across the US, UK, and Australia identified something millions of them already feel: **"botsitting"**, the unpaid, unbudgeted, unrecognized labor of feeding AI the context it's missing, checking its output, debugging its mistakes, and cleaning up after it. On average, workers spend 6.4 hours a week doing it, almost a full working day, every week, just keeping the tool usable.
 
 87% of digital knowledge workers report using AI at work, and they say it saves them 11 hours a week. That figure is real, but it's self-reported and task-level, how fast one job felt. It doesn't count botsitting, because that labor happens off to the side, unlogged, invisible to whoever's measuring "time saved."
@@ -228,7 +228,7 @@ A genuine collaborator does need that context. So does a new hire, until they've
 
 That distinction is the core of what OPERATE™, a 7-stage practitioner framework for AI operationalization, exists to address. Two stages in particular speak directly to why botsitting keeps happening, and what closes the gap.
 
-## Stage 1: Adoption Architecture — Onboard It Like You'd Onboard a Person
+## Stage 1: Adoption Architecture. Onboard It Like You'd Onboard a Person
 
 When a new employee joins a team, they get a role title, a defined scope of responsibility, a manager, a set of collaborators, and time to absorb the organization's context before they're trusted with ambiguous work. Nobody hands a new hire a laptop on day one and expects flawless judgment on a high-stakes decision by lunchtime.
 
@@ -240,9 +240,9 @@ Without that structure, every single interaction starts from zero. The human end
 
 Treating an AI deployment like a hire means drafting the same documentation you'd draft for a new employee:
 
-- **Role Title and Purpose** — a specific functional title and a single core objective, to prevent scope creep. Not "the AI system." Something like "Marketing Content Analyst Agent," with one clearly defined job.
-- **Key Responsibilities** — explicit boundaries on what the system executes, e.g. preliminary research, first-pass synthesis, flagging anomalies, not final judgment calls.
-- **Primary Human Collaborators** — naming exactly who the system interacts with, reports to, and supplies data to, formalizing its position in the actual working structure rather than leaving it as an ambient tool anyone might query.
+- **Role Title and Purpose**: a specific functional title and a single core objective, to prevent scope creep. Not "the AI system." Something like "Marketing Content Analyst Agent," with one clearly defined job.
+- **Key Responsibilities**: explicit boundaries on what the system executes, e.g. preliminary research, first-pass synthesis, flagging anomalies, not final judgment calls.
+- **Primary Human Collaborators**: naming exactly who the system interacts with, reports to, and supplies data to, formalizing its position in the actual working structure rather than leaving it as an ambient tool anyone might query.
 
 ### The case that proves it: a European telecom's 5% vs. 30%
 
@@ -260,7 +260,7 @@ The AI didn't get smarter in between. The organization stopped installing it and
 
 ![Stop Installing AI. Start Onboarding It: the performance gap between the software paradigm (5% productivity gain) and the teammate paradigm (30% productivity gain)](/P17_Image.jpg)
 
-## Stage 2: Ecosystem Co-Creation — Give It a Seat at the Table
+## Stage 2: Ecosystem Co-Creation. Give It a Seat at the Table
 
 The second piece of genuine collaboration is this: real collaborators help define the boundaries of the collaboration itself. They're not handed a rigid spec by a disconnected team and told to comply.
 
@@ -278,7 +278,7 @@ Notice what's actually happening here: DeepMind didn't ask "what can this model 
 
 That's the difference between a query engine and a collaborator. A query engine answers what you ask. A collaborator has a defined role you can push back against, argue with, and rely on precisely because its boundaries are known.
 
-## Stage 3: Trust Engineering — Earned, Not Declared
+## Stage 3: Trust Engineering. Earned, Not Declared
 
 Even with a defined role, collaboration stalls if the human side doesn't know when to rely on the system and when to override it. This is a different problem from governance or accountability, it's about **calibrated trust**: an accurate, evidence-based understanding of what the system is actually good at, built through observed performance rather than blind faith or blanket suspicion.
 
@@ -352,7 +352,7 @@ Existing GCC maturity models are strong diagnostics. BCG's research identifies t
 
 Three ASCEND™ stages speak most directly to what separated Bangalore from Hyderabad, and the same pattern holds up wherever we look next.
 
-### Stage 1: Anchor the Mandate — The Charter Isn't Real Until Someone Can Say No
+### Stage 1: Anchor the Mandate. The Charter Isn't Real Until Someone Can Say No
 
 A mandate becomes real the moment a GCC leader can decline a headquarters request that falls outside the charter without risking their career. That requires a documented decision-rights architecture, outcome-based metrics tied to the center's actual contribution, and board-level sponsorship with a real governance cadence, not an annual town hall.
 
@@ -360,13 +360,13 @@ Hyderabad had all three before it hired a single engineer. Bangalore had none of
 
 The same anchoring shows up in Manila, at a very different scale. JPMorgan Chase didn't quietly expand its Philippines operation, it took sole occupancy of a Bonifacio Global City office tower, renamed it the JPMorgan Chase Center, and committed to a second 70,000-square-meter building on the way to roughly 20,000 employees. That's a structural, capital-backed signal that the center's mandate is permanent, not provisional. A GCC head can say no to an out-of-scope request when leadership has already spent nine figures proving the center matters. That's what anchoring looks like when it's real, and it's the exact commitment Bangalore's insurer never made.
 
-### Stage 2: Empower Local Leadership — Decision Rights Move With Accountability, Not After It
+### Stage 2: Empower Local Leadership. Decision Rights Move With Accountability, Not After It
 
 This is where Bangalore's failure gets most specific, and where the clearest counterexample comes from outside India entirely. Standard Chartered didn't just hire a capable local leader for its Kuala Lumpur hub, it based its global Head of Global Business Services there, physically, rather than in London. That single structural decision eliminated the hub-and-spoke latency that traps most financial services centers, and the KL hub grew into the bank's global command center for cybersecurity, automation, and AI operations across more than 50 markets.
 
 Bangalore's leaders held global titles without global authority. Every product decision still routed back to headquarters regardless of who held the local role. Had Bangalore empowered its leadership the way Kuala Lumpur did, tracking a real ratio of decisions made locally versus escalated rather than issuing a title, the senior engineers hitting that career ceiling would have had somewhere to go without leaving the company.
 
-### Stage 3: Cultivate Cognitive Ownership — FOBO Is a Design Failure, Not a Personality Trait
+### Stage 3: Cultivate Cognitive Ownership. FOBO Is a Design Failure, Not a Personality Trait
 
 Standard maturity models measure knowledge transfer through training hours completed and certifications earned. Those are input metrics. They say nothing about whether an engineer can make a judgment call independently, or whether they feel like they're building something instead of maintaining it.
 
@@ -1091,7 +1091,7 @@ This is exactly the territory my OPERATE™ framework was built for, taking AI f
 **Stage 8, Build:**
 - [McKinsey, The State of AI in 2025: Agents, Innovation, and Transformation](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), source for the 88 percent / 7 percent adoption-versus-scaling figures cited above
 - [Agentic AI with Andrew Ng](https://www.deeplearning.ai/courses/agentic-ai) (DeepLearning.AI), free to audit, the standard starting point once you are ready to get hands-on with code (expects working knowledge of Python)
-- OPERATE™ framework, my 7-stage practitioner framework for AI operationalization ([read the full playbook](https://drive.google.com/file/d/1rwh90EfNPQVbOVHws2xw6SAi1H5_OGD6/view))`,
+- OPERATE™ framework, my 7-stage practitioner framework for AI operationalization ([read the full playbook](https://drive.google.com/file/d/1xwE8S65QQygT1wpQID38ue7VVUQO5LUS/view))`,
     linkedInUrl: '',
     tags: ['Industry Trends', 'AI Governance', 'AI Fluency', 'Professional Development'],
   },

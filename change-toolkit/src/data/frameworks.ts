@@ -630,7 +630,7 @@ export const frameworks: Framework[] = [
   {
     "id": "BRIDGE",
     "fullName": "A Practitioner's Playbook for Digital Transformation Across ASEAN",
-    "tagline": "Ten nations. One framework. Zero copy-paste.",
+    "tagline": "Eleven nations. One framework. Zero copy-paste.",
     "layer": "ASEAN Digital Transformation Layer",
     "kind": "digital-ai",
     "region": "asean",
@@ -715,7 +715,7 @@ export const frameworks: Framework[] = [
       {
         "letter": "G",
         "name": "Govern Across Borders",
-        "principle": "Ten nations. Ten regulatory frameworks. One transformation program.",
+        "principle": "Eleven nations. Eleven regulatory frameworks. One transformation program.",
         "failureMode": "Assuming a unified or federated regulatory environment that doesn't exist",
         "howToApply": [
           "Build a Data Sovereignty Map for every nation in program scope",

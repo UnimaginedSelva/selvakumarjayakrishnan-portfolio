@@ -30,10 +30,10 @@ const LIST_ICONS: Record<string, ReactNode> = {
 }
 
 const PLAYBOOK_PDFS: Record<string, string> = {
-  'TRANSFORM™': 'https://drive.google.com/file/d/1pdYt-XQDsp-rDTiyyQhx3Hn7ptU3EM0H/view?usp=sharing',
-  'OPERATE™': 'https://drive.google.com/file/d/1rwh90EfNPQVbOVHws2xw6SAi1H5_OGD6/view?usp=sharing',
-  'TRUST™': 'https://drive.google.com/file/d/1dxfkQcHU61GnZaO5AEyyseijK0kXx5Ga/view?usp=sharing',
-  'ASCEND™': 'https://drive.google.com/file/d/15YSnoX9jUqrSCgQitT00o9hm0PUTHTx3/view?usp=sharing',
+  'TRANSFORM™': 'https://drive.google.com/file/d/1LRSGHtQ_ilAV8XvhsPNb7SsthaoxRKtA/view?usp=sharing',
+  'OPERATE™': 'https://drive.google.com/file/d/1xwE8S65QQygT1wpQID38ue7VVUQO5LUS/view?usp=sharing',
+  'TRUST™': 'https://drive.google.com/file/d/1LorA0hDLIAPHkJJzrkadhp288qmJ4w9B/view?usp=sharing',
+  'ASCEND™': 'https://drive.google.com/file/d/18xyZFkEggk7H6eks2Z-Wzfvz-ousaJgh/view?usp=sharing',
 }
 
 function resolveBracketLink(label: string): { href: string; external: boolean } | null {

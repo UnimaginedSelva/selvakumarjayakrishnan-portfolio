@@ -4,3 +4,6 @@ dist
 *.local
 .wrangler
 .dev.vars
+
+# Old resume versions kept locally only; anything in public/ would be served live
+public/Previous-Resume-Versions/
