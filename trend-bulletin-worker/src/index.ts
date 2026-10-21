@@ -130,7 +130,7 @@ function parseRssItems(xml: string): { title: string; link: string; excerpt: str
 }
 
 function isFresh(pubDate: string): boolean {
-  if (!pubDate) return true; // no date field on this feed — don't punish it, let the topic gate decide
+  if (!pubDate) return true; // no date field on this feed, don't punish it, let the topic gate decide
   const t = Date.parse(pubDate);
   if (Number.isNaN(t)) return true;
   const ageHours = (Date.now() - t) / (1000 * 60 * 60);
@@ -200,13 +200,14 @@ async function fetchScopedCandidates(source: Source): Promise<Candidate[]> {
 // 4. Gemini summarization — neutral, factual, attributed, Selva's site voice
 // ---------------------------------------------------------------------------
 
-const SYSTEM_PROMPT = `You summarize a single news item for Selvakumar Jayakrishnan's professional website — an Industry Trend Bulletin covering AI, digital transformation, and enterprise technology.
+const SYSTEM_PROMPT = `You summarize a single news item for Selvakumar Jayakrishnan's professional website, an Industry Trend Bulletin covering AI, digital transformation, and enterprise technology.
 
 Rules:
 - Factual and attributed only. Never editorialize, speculate, or take a political or partisan stance.
 - Write in Selva's site voice: concise, professional, American English, no dashes in long sentences (use commas instead).
-- You are sometimes given only a headline with no article excerpt. In that case, restate the headline informatively as a single sentence — do NOT invent statistics, quotes, outcomes, or details that are not present in what you were given.
+- You are sometimes given only a headline with no article excerpt. In that case, restate the headline informatively as a single sentence, do NOT invent statistics, quotes, outcomes, or details that are not present in what you were given.
 - If the item is primarily about elections, war, partisan politics, or social controversy, even if AI or technology is mentioned in passing, respond with exactly: {"skip": true}
+- Never use em dashes (the "—" character) anywhere in your output. Use a comma, colon, semicolon or full stop instead.
 - Otherwise return ONLY this JSON shape, no markdown, no code fences:
 {"headline": "concise, faithful headline, max 110 characters", "summary": "one factual sentence, max 220 characters"}`;
 
@@ -217,7 +218,7 @@ async function summarizeWithGemini(
   try {
     const userText = candidate.excerpt
       ? `SOURCE: ${candidate.sourceName}\nHEADLINE: ${candidate.title}\nEXCERPT: ${candidate.excerpt}`
-      : `SOURCE: ${candidate.sourceName}\nHEADLINE: ${candidate.title}\n(No excerpt available — headline only.)`;
+      : `SOURCE: ${candidate.sourceName}\nHEADLINE: ${candidate.title}\n(No excerpt available, headline only.)`;
 
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key=${apiKey}`,

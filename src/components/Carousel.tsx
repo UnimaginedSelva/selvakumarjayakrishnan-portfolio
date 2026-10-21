@@ -30,7 +30,7 @@ export default function Carousel({ slides, downloadUrl, alt }: CarouselProps) {
     <figure className="my-8 -mx-2 sm:mx-0">
       <div className="mb-3">
         <p className="text-stone-900 font-semibold text-sm">Swipe through the carousel</p>
-        <p className="text-stone-500 text-xs">Bonus content — a visual companion to this article, not a duplicate</p>
+        <p className="text-stone-500 text-xs">Bonus content: a visual companion to this article, not a duplicate</p>
       </div>
 
       <div
@@ -40,7 +40,7 @@ export default function Carousel({ slides, downloadUrl, alt }: CarouselProps) {
       >
         <img
           src={slides[index]}
-          alt={`${alt} — slide ${index + 1} of ${slides.length}`}
+          alt={`${alt}, slide ${index + 1} of ${slides.length}`}
           loading="lazy"
           className="w-full block"
         />

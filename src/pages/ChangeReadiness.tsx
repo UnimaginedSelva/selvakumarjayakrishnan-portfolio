@@ -195,7 +195,7 @@ export default function ChangeReadiness() {
             <textarea
               value={brief}
               onChange={e => setBrief(e.target.value)}
-              placeholder="Describe your change initiative — the type of change, scope, affected stakeholders, timeline, what's been done so far, and any known challenges or resistance..."
+              placeholder="Describe your change initiative: the type of change, scope, affected stakeholders, timeline, what's been done so far, and any known challenges or resistance..."
               rows={7}
               disabled={loading}
               className="w-full bg-white border border-stone-300 rounded-lg p-4 text-stone-900 placeholder-stone-400 text-sm resize-none focus:outline-none focus:border-amber-600/70 transition-colors disabled:opacity-50"
@@ -412,8 +412,8 @@ export default function ChangeReadiness() {
         <div className="text-center mt-16 pt-8 border-t border-stone-200">
           <p className="text-stone-500 text-xs mb-3">
             Prefer something that runs entirely offline, no AI calls, installable as its own app? Try the{' '}
-            <a href="/toolkit/" className="text-amber-700 hover:text-amber-800 transition-colors">Change Framework Navigator</a>{' '}
-            — covers all 8 frameworks against your own maturity checklist.
+            <a href="/toolkit/" className="text-amber-700 hover:text-amber-800 transition-colors">Change Framework Navigator</a>.{' '}
+            It covers all 8 frameworks against your own maturity checklist.
           </p>
           <p className="text-stone-400 text-xs">
             ADKAR® is a registered trademark of Prosci Inc. TRANSFORM™ and OPERATE™ are proprietary frameworks by{' '}

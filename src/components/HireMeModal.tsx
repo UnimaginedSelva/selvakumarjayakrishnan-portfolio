@@ -19,7 +19,7 @@ export default function HireMeModal({ onClose }: Props) {
   }
 
   function handleDraft() {
-    const subject = `${role}${company ? ` — ${company}` : ''} | Opportunity for Selvakumar Jayakrishnan`
+    const subject = `${role}${company ? ` at ${company}` : ''} | Opportunity for Selvakumar Jayakrishnan`
 
     const body = [
       'Hi Selva,',
@@ -58,7 +58,7 @@ export default function HireMeModal({ onClose }: Props) {
         <div className="flex items-center justify-between px-6 py-5 border-b border-stone-200">
           <div>
             <h2 className="text-lg font-semibold text-stone-900">Send an Opportunity</h2>
-            <p className="text-stone-500 text-xs mt-0.5">Fill in the details — we'll draft the email for you</p>
+            <p className="text-stone-500 text-xs mt-0.5">Fill in the details and we'll draft the email for you</p>
           </div>
           <button onClick={onClose} className="text-stone-400 hover:text-stone-700 transition-colors">
             <X size={20} />

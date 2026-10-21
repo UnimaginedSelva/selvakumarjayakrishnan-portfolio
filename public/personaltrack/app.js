@@ -1,4 +1,4 @@
-// LifeArch — Personal Dashboard
+// LifeArch | Personal Dashboard
 // React app compiled via browser Babel (no build step required)
 
 const { useState, useEffect, useCallback } = React;
@@ -308,13 +308,13 @@ function HelpGuide({ onClose }) {
     {
       title: 'Getting Started',
       items: [
-        { label: 'What is LifeArch?', desc: 'LifeArch is your personal financial and health dashboard. Use it to plan your monthly budget, track spending, and build healthy daily habits — all in one place.' },
+        { label: 'What is LifeArch?', desc: 'LifeArch is your personal financial and health dashboard. Use it to plan your monthly budget, track spending, and build healthy daily habits, all in one place.' },
         { label: 'Install on your phone', desc: 'Tap "Install" on the banner (Android) or use your browser\'s "Add to Home Screen" option (iOS Safari). LifeArch works fully offline once installed.' },
         { label: 'Your data stays private', desc: 'All data is saved locally on your device only. Nothing is sent to any server. Clear your browser data and the data will be lost, so treat this as a personal log.' },
       ]
     },
     {
-      title: 'Finance — Overview',
+      title: 'Finance: Overview',
       items: [
         { label: 'Monthly summary', desc: 'The Overview tab shows your total income, planned expenses, actual expenses, and whether you are on track (positive) or over budget (negative) for the selected month.' },
         { label: 'Planned vs Actual saving', desc: 'Planned Saving = Income − Planned Expenses. Actual Saving = Income − Actual Expenses. When actuals come in below plan, your savings go up.' },
@@ -322,7 +322,7 @@ function HelpGuide({ onClose }) {
       ]
     },
     {
-      title: 'Finance — Income',
+      title: 'Finance: Income',
       items: [
         { label: 'Salary', desc: 'Enter your primary salary for the month. This is the base figure used for all savings calculations.' },
         { label: 'Other income', desc: 'Add any extra income (freelance, bonuses, rental, etc.) using the label and amount fields. Each entry is added separately.' },
@@ -330,7 +330,7 @@ function HelpGuide({ onClose }) {
       ]
     },
     {
-      title: 'Finance — Expenses',
+      title: 'Finance: Expenses',
       items: [
         { label: 'Plan your spending', desc: 'At the start of each month, enter your planned amount for each category (e.g., Groceries: 15,000). This is your budget target.' },
         { label: 'Update actuals', desc: 'As you spend during the month, update the Actual field. The remaining amount (Planned − Actual) shows how much budget is left.' },
@@ -339,7 +339,7 @@ function HelpGuide({ onClose }) {
       ]
     },
     {
-      title: 'Finance — Cards',
+      title: 'Finance: Cards',
       items: [
         { label: 'Credit card tracking', desc: 'Add each credit card you use. Set a Planned Spend (your target for the billing cycle) and update the Outstanding amount as you spend.' },
         { label: 'Remaining spend', desc: 'Remaining = Planned − Outstanding. This tells you how much more you can put on the card before exceeding your plan.' },
@@ -348,16 +348,16 @@ function HelpGuide({ onClose }) {
       ]
     },
     {
-      title: 'Finance — Customize',
+      title: 'Finance: Customize',
       items: [
         { label: 'Currency', desc: 'Change your display currency from MYR to any other currency. All amounts will display in the chosen currency.' },
         { label: 'Expense categories', desc: 'Add new categories that fit your lifestyle. Remove any default categories you don\'t use. Changes apply across all months.' },
-        { label: 'Backup & Restore', desc: 'Tap "Export Backup" to download all your data as a JSON file to your device. Tap "Import Backup" to restore from a previously exported file — you will be asked to confirm before any data is overwritten. The last backup date is shown so you always know how recent your backup is.' },
-        { label: 'Check for updates', desc: 'Tap "Check for updates" at the bottom of the Customize tab to get the latest version of LifeArch instantly — no settings, no data loss. Your budget and health data is always preserved.' },
+        { label: 'Backup & Restore', desc: 'Tap "Export Backup" to download all your data as a JSON file to your device. Tap "Import Backup" to restore from a previously exported file. You will be asked to confirm before any data is overwritten. The last backup date is shown so you always know how recent your backup is.' },
+        { label: 'Check for updates', desc: 'Tap "Check for updates" at the bottom of the Customize tab to get the latest version of LifeArch instantly, with no settings and no data loss. Your budget and health data is always preserved.' },
       ]
     },
     {
-      title: 'Health — Today',
+      title: 'Health: Today',
       items: [
         { label: 'Morning rituals', desc: 'Tap each ritual to check it off. The 20:20:20 morning routine covers movement, mindfulness, and journaling. A score shows how many you completed.' },
         { label: 'Evening rituals', desc: 'Wind down with your evening habits. Tap to mark each one done.' },
@@ -366,15 +366,15 @@ function HelpGuide({ onClose }) {
       ]
     },
     {
-      title: 'Health — 28-Day Log',
+      title: 'Health: 28-Day Log',
       items: [
         { label: 'Visual history', desc: 'Each coloured cell represents one day. Green = all done, yellow = partial, grey = nothing recorded.' },
-        { label: 'Edit a past day', desc: 'Tap any cell to open that day\'s editor. You can check or uncheck any ritual or goal for that day — useful if you forgot to log on the day itself.' },
+        { label: 'Edit a past day', desc: 'Tap any cell to open that day\'s editor. You can check or uncheck any ritual or goal for that day, which is useful if you forgot to log on the day itself.' },
         { label: 'Score', desc: 'The percentage shows how many rituals/goals you completed across all 28 days, giving you a habit consistency score.' },
       ]
     },
     {
-      title: 'Health — Customize',
+      title: 'Health: Customize',
       items: [
         { label: 'Morning & Evening rituals', desc: 'Add your own ritual items or remove existing ones. You must keep at least one in each section.' },
         { label: 'Daily goals', desc: 'Add goals like "Drank 2 litres of water" or "Read 20 pages". Remove any goal you no longer track. Goals can be fully cleared.' },
@@ -393,7 +393,7 @@ function HelpGuide({ onClose }) {
   return React.createElement('div', { className: 'help-overlay', onClick: e => { if (e.target.className === 'help-overlay') onClose(); } },
     React.createElement('div', { className: 'help-sheet' },
       React.createElement('div', { className: 'help-header' },
-        React.createElement('div', { className: 'help-title' }, 'LifeArch — User Guide'),
+        React.createElement('div', { className: 'help-title' }, 'LifeArch: User Guide'),
         React.createElement('button', { className: 'help-close', onClick: onClose }, '×')
       ),
       React.createElement('div', { className: 'help-body' },
@@ -582,7 +582,7 @@ function App() {
         React.createElement('div', { className: 'metric' },
           React.createElement('div', { className: 'metric-label' }, 'Actual Savings'),
           React.createElement('div', { className: 'metric-value', style: { color: actualSaving < 0 ? 'var(--danger)' : actual === 0 ? 'var(--faint)' : 'var(--success)' } },
-            actual === 0 ? '—' : fmt(actualSaving, state.currency)
+            actual === 0 ? '-' : fmt(actualSaving, state.currency)
           ),
           React.createElement('div', { className: 'metric-sub' }, actual === 0 ? 'no actuals yet' : actualSaving < 0 ? 'overspent' : 'so far')
         )
@@ -607,10 +607,10 @@ function App() {
               React.createElement('span', { style: { fontSize: 12, fontWeight: 500 } }, name),
               isCard && React.createElement('span', { style: { fontSize: 10, marginLeft: 4, color: 'var(--accent2)' } }, '💳')
             ),
-            React.createElement('span', { style: { fontSize: 12, textAlign: 'right', color: 'var(--muted)' } }, p ? fmt(p, state.currency) : '—'),
-            React.createElement('span', { style: { fontSize: 12, textAlign: 'right' } }, a ? fmt(a, state.currency) : '—'),
+            React.createElement('span', { style: { fontSize: 12, textAlign: 'right', color: 'var(--muted)' } }, p ? fmt(p, state.currency) : '-'),
+            React.createElement('span', { style: { fontSize: 12, textAlign: 'right' } }, a ? fmt(a, state.currency) : '-'),
             React.createElement('span', { style: { fontSize: 12, fontWeight: 600, textAlign: 'right', color: leftColor } },
-              p === 0 ? '—' : overSpent ? `-${fmt(Math.abs(left), state.currency)}` : fmt(left, state.currency)
+              p === 0 ? '-' : overSpent ? `-${fmt(Math.abs(left), state.currency)}` : fmt(left, state.currency)
             )
           );
         })
@@ -628,7 +628,7 @@ function App() {
     const hasNoData = !monthInc.salary && (monthInc.other || []).length === 0;
 
     return React.createElement('div', { className: 'card' },
-      React.createElement('div', { className: 'card-title' }, `Income — ${fmtMonth(selMonth)}`),
+      React.createElement('div', { className: 'card-title' }, `Income: ${fmtMonth(selMonth)}`),
 
       hasNoData && prevInc.salary && React.createElement('div', { className: 'carry-notice' },
         React.createElement('span', { className: 'carry-notice-text' },
@@ -688,19 +688,19 @@ function App() {
       React.createElement('div', { className: 'metric-grid' },
         React.createElement('div', { className: 'metric' },
           React.createElement('div', { className: 'metric-label' }, 'Total Planned'),
-          React.createElement('div', { className: 'metric-value' }, totalP ? fmt(totalP, state.currency) : '—')
+          React.createElement('div', { className: 'metric-value' }, totalP ? fmt(totalP, state.currency) : '-')
         ),
         React.createElement('div', { className: 'metric' },
           React.createElement('div', { className: 'metric-label' }, 'Total Actual'),
           React.createElement('div', { className: 'metric-value', style: { color: totalA > totalP && totalP > 0 ? 'var(--danger)' : 'var(--text)' } },
-            totalA ? fmt(totalA, state.currency) : '—'
+            totalA ? fmt(totalA, state.currency) : '-'
           )
         )
       ),
 
       // Category rows
       React.createElement('div', { className: 'card' },
-        React.createElement('div', { className: 'card-title' }, `Expense categories — ${fmtMonth(selMonth)}`),
+        React.createElement('div', { className: 'card-title' }, `Expense categories: ${fmtMonth(selMonth)}`),
         state.expenses.categories.map(cat => {
           const d = cats[cat] || { planned: '', actual: '' };
           const p = parseFloat(d.planned) || 0;

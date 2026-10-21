@@ -42,7 +42,7 @@ export default function Navbar() {
             href="/Selvakumar_Jayakrishnan_Visitor_Handbook.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            title="Visitor Handbook — a quick guide to this site"
+            title="Visitor Handbook: a quick guide to this site"
             aria-label="Open Visitor Handbook"
             className="text-stone-500 hover:text-terracotta transition-colors"
           >

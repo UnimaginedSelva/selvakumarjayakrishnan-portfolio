@@ -20,7 +20,7 @@ const POSTS: Record<string, PostMeta> = {
   'stop-installing-ai-start-onboarding': {
     title: 'Stop Installing AI. Start Onboarding It.',
     description:
-      "Why 'botsitting' is a symptom of misclassification, not a governance gap — and what OPERATE™ says to do instead.",
+      "Why 'botsitting' is a symptom of misclassification, not a governance gap, and what OPERATE™ says to do instead.",
     image: '/P17_Image.jpg',
   },
   'gcc-permission-problem': {
@@ -56,19 +56,19 @@ const POSTS: Record<string, PostMeta> = {
   'gcc-transition-playbook-receiving-end': {
     title: 'The GCC Transition Playbook Nobody Writes: Lessons From the Receiving End',
     description:
-      "Twice, a decade apart, I inherited a GCC transition I didn't design — and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
+      "Twice, a decade apart, I inherited a GCC transition I didn't design, and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
     image: '/carousels/gcc-transition-playbook-receiving-end/slide-1.png',
   },
   'ai-validation-five-steps': {
     title: 'The Illusion of Confidence: How to Validate AI-Generated Research Before You Publish It',
     description:
-      "Twice in two weeks I caught AI-generated research asserting false claims with total confidence — including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
+      "Twice in two weeks I caught AI-generated research asserting false claims with total confidence, including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
     image: '/P23_Image.jpg',
   },
   'ai-team-personalities': {
     title: '"Everyone\'s Building AI Agents." I Built an AI Team With Personalities.',
     description:
-      "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
+      "Everyone's talking about what AI can do. Very few are talking about who it is to you, and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
     image: '/P24_Image.jpg',
   },
   'self-image-thermostat': {

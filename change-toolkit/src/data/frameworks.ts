@@ -33,15 +33,15 @@ export const frameworks: Framework[] = [
         "failureMode": "The Technology Trap",
         "howToApply": [
           "Conduct a Change Impact Assessment segmented by role, geography, and impact depth",
-          "Map the stakeholder landscape: sponsors, influencers, resistors, neutrals — including informal power networks",
-          "Assess organizational change saturation — what else is competing for user attention",
+          "Map the stakeholder landscape: sponsors, influencers, resistors, neutrals, including informal power networks",
+          "Assess organizational change saturation: what else is competing for user attention",
           "Document current-state processes and identify which legacy behaviors carry emotional attachment",
           "For AI transformation: conduct a Shadow Data Audit before a single model is trained",
           "Identify cultural and political dynamics that could accelerate or block adoption"
         ],
         "successIndicators": [
           "Change Impact Assessment completed by role, geography, and impact depth",
-          "Stakeholder map validated — sponsors, influencers, and resistors identified",
+          "Stakeholder map validated: sponsors, influencers, and resistors identified",
           "Readiness baseline score established",
           "Organizational change saturation documented",
           "Shadow Data Audit completed for AI initiatives"
@@ -53,12 +53,12 @@ export const frameworks: Framework[] = [
         "principle": "Governance without readiness is just bureaucracy.",
         "failureMode": "Governance Breakdown & Escalation Black Holes",
         "howToApply": [
-          "Design the governance model: executive steering, operational leads, workstream RACI — before the program begins",
+          "Design the governance model: executive steering, operational leads, workstream RACI, before the program begins",
           "Build the KT plan: documentation to shadow to reverse shadow to sign-off with hard exit criteria",
           "Define entry/exit criteria and acceptance gates for each transformation phase",
           "Establish the communication plan: audience segmentation, cadence, channel, language",
           "Design the Change Champion Network of peer-level influencers",
-          "For AI: establish production readiness criteria — data quality thresholds, bias limits, kill criteria"
+          "For AI: establish production readiness criteria (data quality thresholds, bias limits, kill criteria)"
         ],
         "successIndicators": [
           "Governance model active with clear RACI across all workstreams",
@@ -75,7 +75,7 @@ export const frameworks: Framework[] = [
         "failureMode": "\"Deployment Equals Adoption\" Fallacy",
         "howToApply": [
           "Apply the ADKAR diagnostic to each user segment before designing enablement",
-          "Apply the Friction Test — the system must integrate into platforms users already work in",
+          "Apply the Friction Test: the system must integrate into platforms users already work in",
           "Map the WIIFM (What's In It For Me) for every user role",
           "Design role-specific enablement tracks, not one generic training program",
           "Build the go-live readiness scorecard with hard go/no-go adoption thresholds",
@@ -117,7 +117,7 @@ export const frameworks: Framework[] = [
         "failureMode": "Pilot Purgatory",
         "howToApply": [
           "Run a structured hypercare period: minimum 30 days post go-live",
-          "Track MTTR weekly — it should trend consistently downward",
+          "Track MTTR weekly; it should trend consistently downward",
           "Implement reinforcement mechanisms: recognition, manager nudges, usage dashboards",
           "Scale adoption to lagging user segments using the champion network",
           "Establish the Run-state operating model: SLAs, support tiers, escalation paths",
@@ -134,7 +134,7 @@ export const frameworks: Framework[] = [
       {
         "letter": "F",
         "name": "Fuel with AI",
-        "principle": "AI amplifies transformation — it never replaces the human loop.",
+        "principle": "AI amplifies transformation; it never replaces the human loop.",
         "failureMode": "Algorithmic Hallucination & Liability",
         "howToApply": [
           "Run shadow-mode pilots: let AI operate alongside current processes before full deployment",
@@ -164,10 +164,10 @@ export const frameworks: Framework[] = [
           "Establish an executive value realization review in business outcome language",
           "Create escalation thresholds with a defined intervention",
           "For AI: track spend efficiency metrics and validate baselines with finance",
-          "Account for the full AI cost stack — data prep, shadow AI spend, hallucination remediation"
+          "Account for the full AI cost stack: data prep, shadow AI spend, hallucination remediation"
         ],
         "successIndicators": [
-          "Outcomes dashboard live — connected to financial systems",
+          "Outcomes dashboard live, connected to financial systems",
           "Executive review cadence established",
           "Value realization trajectory on track",
           "Escalation thresholds defined and tested"
@@ -200,11 +200,11 @@ export const frameworks: Framework[] = [
         "principle": "Transformation ends only when the organization stops growing.",
         "failureMode": "The Episodic Modernization Trap",
         "howToApply": [
-          "Conduct a post-transformation retrospective — capture lessons before the team disbands",
+          "Conduct a post-transformation retrospective: capture lessons before the team disbands",
           "Build internal change capability so the org can absorb the next generation of change",
           "Update the change playbook with lessons learned",
           "Identify the next transformation and begin Terrain Assessment before hypercare ends",
-          "For AI: implement Continuous Rationalization — agents continuously updated and monitored"
+          "For AI: implement Continuous Rationalization, with agents continuously updated and monitored"
         ],
         "successIndicators": [
           "Post-transformation retrospective completed",
@@ -231,7 +231,7 @@ export const frameworks: Framework[] = [
         "howToApply": [
           "Define the target business outcome in financial terms before any technology evaluation",
           "Apply the \"Cost of Doing Nothing\" test",
-          "Apply the Rule-Based Filter — if simple automation gets 80% of the result, don't deploy AI",
+          "Apply the Rule-Based Filter: if simple automation gets 80% of the result, don't deploy AI",
           "Assign a Business Outcome Owner at the start",
           "For agentic AI: define outcomes against fully-loaded Total Cost of Ownership",
           "Document success metrics at initiation: 90-day, 6-month, 12-month checkpoints"
@@ -252,7 +252,7 @@ export const frameworks: Framework[] = [
         "howToApply": [
           "Conduct a Shadow Data Audit of all localized, unsanctioned data silos",
           "Establish Data Quality SLAs as hard entry criteria",
-          "Apply the Data ROI Test — kill the project if remediation costs exceed projected return",
+          "Apply the Data ROI Test: kill the project if remediation costs exceed projected return",
           "Unify data sources into a governed warehouse with automated lineage tracking",
           "For agentic AI: address the \"polling tax\" with streaming architectures",
           "Implement data lineage tracking for auditability"
@@ -293,7 +293,7 @@ export const frameworks: Framework[] = [
         "principle": "Ethics, privacy, and accountability are not compliance requirements. They are the foundation of sustainable AI adoption.",
         "failureMode": "Governance & Ethics Vacuum",
         "howToApply": [
-          "Define the AI Accountability Framework — a named human owner for every AI decision",
+          "Define the AI Accountability Framework: a named human owner for every AI decision",
           "Embed data privacy controls by design before the model is trained",
           "Implement bias detection protocols as a hard go/no-go criterion",
           "Build explainability into the user experience",
@@ -313,15 +313,15 @@ export const frameworks: Framework[] = [
       {
         "letter": "A",
         "name": "Adoption Architecture",
-        "principle": "Adoption is engineered from Day Zero — not launched on Day One.",
-        "failureMode": "The Last-Mile Adoption Gap — The Enablement Illusion",
+        "principle": "Adoption is engineered from Day Zero, not launched on Day One.",
+        "failureMode": "The Last-Mile Adoption Gap: The Enablement Illusion",
         "howToApply": [
           "Apply the ADKAR diagnostic to each user segment before designing enablement",
-          "Apply the Friction Test — redesign integration before launch if it fails",
+          "Apply the Friction Test: redesign integration before launch if it fails",
           "Map the WIIFM for every user role explicitly",
           "Design role-specific enablement tracks",
           "Build the go-live readiness scorecard with hard adoption thresholds",
-          "Establish the \"legibility layer\" — clear AI authority, override paths, accountability"
+          "Establish the \"legibility layer\": clear AI authority, override paths, accountability"
         ],
         "successIndicators": [
           "ADKAR baseline completed per user segment",
@@ -338,12 +338,12 @@ export const frameworks: Framework[] = [
         "principle": "User trust in AI is built through evidence, not communication. Show it working before asking people to depend on it.",
         "failureMode": "Black Box Liability",
         "howToApply": [
-          "Run shadow-mode pilots — let users observe AI outputs without acting on them",
+          "Run shadow-mode pilots: let users observe AI outputs without acting on them",
           "Build explainability into every AI recommendation",
           "Design the exception management framework with clear escalation paths",
           "Address job security concerns directly and specifically",
           "Track the AI Trust Score by user segment at 30/60/90 days",
-          "Negotiate behavioral SLAs with LLM vendors — version pinning rights"
+          "Negotiate behavioral SLAs with LLM vendors, including version pinning rights"
         ],
         "successIndicators": [
           "Shadow-mode pilot completed",
@@ -390,13 +390,13 @@ export const frameworks: Framework[] = [
         "letter": "A",
         "name": "Anchor the Mandate",
         "principle": "A GCC without a clear strategic mandate becomes a cost center by default.",
-        "failureMode": "Mandate failure — the GCC becomes whatever is easiest to measure",
+        "failureMode": "Mandate failure: the GCC becomes whatever is easiest to measure",
         "howToApply": [
           "Define the GCC's strategic role explicitly: cost efficiency, capability building, or innovation hub",
           "Translate the mandate into business outcome KPIs, not headcount targets",
           "Establish the operating model choice upfront: Extended Office, Hybrid GCC, or Autonomous Hub",
           "Align the parent organization's leadership on what decision rights transfer, and when",
-          "Document a GCC Charter — the anchor document every subsequent stage refers back to",
+          "Document a GCC Charter: the anchor document every subsequent stage refers back to",
           "For Innovation Hub mandates, define P&L accountability and product ownership from Day 1"
         ],
         "successIndicators": [
@@ -413,7 +413,7 @@ export const frameworks: Framework[] = [
         "failureMode": "Fracturing 3-9 months post-launch when hiring velocity outpaces operational maturity",
         "howToApply": [
           "Build a phased transition roadmap: Foundation, Consolidation, Optimization, Innovation",
-          "Map each phase to hard entry and exit criteria — measurable readiness, not activity completion",
+          "Map each phase to hard entry and exit criteria: measurable readiness, not activity completion",
           "Establish a RACI matrix across talent, technology, compliance, KT, and governance",
           "Define parallel-running periods explicitly and budget for the productivity dip",
           "Build a transition risk register",
@@ -431,10 +431,10 @@ export const frameworks: Framework[] = [
       {
         "letter": "C",
         "name": "Cultivate Cognitive Ownership",
-        "principle": "Knowledge transfer ends when delivery behavior matches the baseline — not when training ends.",
+        "principle": "Knowledge transfer ends when delivery behavior matches the baseline, not when training ends.",
         "failureMode": "The Activity-Based Illusion of KT",
         "howToApply": [
-          "Define KT completion by delivery behavior — cycle times, quality, decision independence",
+          "Define KT completion by delivery behavior: cycle times, quality, decision independence",
           "Calibrate KT timelines to product maturity (Innovating / Maturing / Retiring)",
           "Run structured Shadow and Reverse Shadow phases with formal sign-off",
           "Build a Cognitive Ownership Assessment across five dimensions",
@@ -452,14 +452,14 @@ export const frameworks: Framework[] = [
         "letter": "E",
         "name": "Empower Local Leadership",
         "principle": "Innovation cannot be approved from headquarters. Decision rights must move with accountability.",
-        "failureMode": "Weak transition leadership — the single highest predictor of GCC failure",
+        "failureMode": "Weak transition leadership: the single highest predictor of GCC failure",
         "howToApply": [
-          "Audit the current decision rights map — which categories can transfer locally",
+          "Audit the current decision rights map: which categories can transfer locally",
           "Transition innovation budgets to pod-level ownership in mature GCCs",
           "Commit senior onshore leadership full-time for 12-18 months",
           "Build dual reporting structures to global executive leadership",
           "Establish a Leadership Development Track with explicit career pathways",
-          "Define 'autonomy milestones' — governance gates where decision rights transfer, earned not assumed"
+          "Define 'autonomy milestones': governance gates where decision rights transfer, earned not assumed"
         ],
         "successIndicators": [
           "Decision rights audit completed",
@@ -473,7 +473,7 @@ export const frameworks: Framework[] = [
         "letter": "N",
         "name": "Navigate Cultural Intelligence",
         "principle": "Culture cannot be lifted and shifted. It must be cultivated through experience, not policy.",
-        "failureMode": "\"Standardized autonomy\" — theoretically empowering, practically disorienting",
+        "failureMode": "\"Standardized autonomy\": theoretically empowering, practically disorienting",
         "howToApply": [
           "Conduct a Cultural Intelligence baseline across both GCC and HQ teams",
           "Design cross-cultural immersion experiences, not awareness workshops",
@@ -492,7 +492,7 @@ export const frameworks: Framework[] = [
       {
         "letter": "D",
         "name": "Drive AI-Native Operations",
-        "principle": "AI amplifies the GCC's value — but only after the human architecture is in place to govern it.",
+        "principle": "AI amplifies the GCC's value, but only after the human architecture is in place to govern it.",
         "failureMode": "Automating dysfunction instead of accelerating transformation",
         "howToApply": [
           "Assess AI readiness across data, governance, talent, process, and trust dimensions",
@@ -532,7 +532,7 @@ export const frameworks: Framework[] = [
           "Define outcome KPIs at Day 1 that measure human performance",
           "Establish executive sponsorship with defined time commitments",
           "Present the ROI of change management explicitly (3:1 to 7:1)",
-          "Document the cost of failure — 189% average budget overrun"
+          "Document the cost of failure: 189% average budget overrun"
         ],
         "successIndicators": [
           "CM budget approved as protected line item",
@@ -564,7 +564,7 @@ export const frameworks: Framework[] = [
       {
         "letter": "B",
         "name": "Build Readiness Into Every Sprint",
-        "principle": "Change management embedded in technical milestones is adoption — change management bolted on after is a brochure.",
+        "principle": "Change management embedded in technical milestones is adoption; change management bolted on after is a brochure.",
         "failureMode": "OCM features routinely relegated to 'future phases' that rarely materialize",
         "howToApply": [
           "Redesign Fit-to-Standard workshops with embedded ADKAR-diagnostic facilitation",
@@ -586,7 +586,7 @@ export const frameworks: Framework[] = [
         "letter": "E",
         "name": "Execute Go-Live as a Human Event",
         "principle": "Go-live is not a technical milestone. It is the moment human adoption either begins or collapses.",
-        "failureMode": "\"The Go-Live That Lies\" — green dashboard, silent shadow IT",
+        "failureMode": "\"The Go-Live That Lies\": green dashboard, silent shadow IT",
         "howToApply": [
           "Build a Go-Live Readiness Scorecard with dual technical AND human readiness thresholds",
           "Define rollback authority explicitly with pre-defined triggers",
@@ -642,8 +642,8 @@ export const frameworks: Framework[] = [
         "failureMode": "Assuming your program has a single starting point across 4 maturity tiers",
         "howToApply": [
           "Conduct a Digital Maturity Assessment segmented by nation, business unit, and role",
-          "Map the digital divide within each market — urban vs rural, enterprise vs SME",
-          "Assess shadow IT penetration — what consumer apps are staff already using",
+          "Map the digital divide within each market: urban vs rural, enterprise vs SME",
+          "Assess shadow IT penetration: what consumer apps are staff already using",
           "Identify which national digital blueprints govern your footprint",
           "Calibrate your roadmap to the lowest maturity tier in scope, not the highest"
         ],
@@ -657,14 +657,14 @@ export const frameworks: Framework[] = [
       {
         "letter": "R",
         "name": "Root in Culture",
-        "principle": "Technology must mold to the hierarchy — not the other way around.",
+        "principle": "Technology must mold to the hierarchy, not the other way around.",
         "failureMode": "Silent subversion, the root cause of the 70-88% ASEAN failure rate",
         "howToApply": [
           "Map informal power networks alongside the formal org chart",
           "Design pre-meeting protocols that give leaders private visibility before governance forums",
-          "Build shadow agile environments — test quietly, iterate privately, publish only successes",
+          "Build shadow agile environments: test quietly, iterate privately, publish only successes",
           "Identify and appoint Cultural Bridge Leaders",
-          "Never deploy 'shaming dashboards' — surface progress to leaders privately first"
+          "Never deploy 'shaming dashboards'; surface progress to leaders privately first"
         ],
         "successIndicators": [
           "Informal power map complete",
@@ -676,12 +676,12 @@ export const frameworks: Framework[] = [
       {
         "letter": "I",
         "name": "Integrate with Sovereign Agendas",
-        "principle": "Government blueprints are not background noise — they are your runway.",
+        "principle": "Government blueprints are not background noise; they are your runway.",
         "failureMode": "Ignoring national digital blueprints as the operating environment",
         "howToApply": [
           "Map your transformation program against every national digital blueprint in footprint",
           "Identify alignment opportunities that unlock incentives and approvals",
-          "Engage government stakeholders early — public-private partnership is the operating model",
+          "Engage government stakeholders early; public-private partnership is the operating model",
           "Architect DEFA-readiness into your data governance model",
           "Build your talent strategy around national digital job creation targets"
         ],
@@ -699,7 +699,7 @@ export const frameworks: Framework[] = [
         "failureMode": "Desktop-based portals facing immediate, severe friction",
         "howToApply": [
           "Mandate mobile-native UX as a non-negotiable requirement",
-          "Apply the Grab Test — simplify if it's harder than ordering food on a super-app",
+          "Apply the Grab Test: simplify if it's harder than ordering food on a super-app",
           "Design for low-bandwidth environments",
           "Build offline-first capability for field and logistics workforces",
           "Leverage WhatsApp, LINE, Telegram as communication layers, not shadow IT threats",
@@ -738,11 +738,11 @@ export const frameworks: Framework[] = [
         "failureMode": "$550B gap between AI TAM and realized revenue",
         "howToApply": [
           "Run a culturally adapted hypercare model calibrated to ASEAN time zones and norms",
-          "Design reinforcement mechanics for collectivist cultures — team over individual recognition",
+          "Design reinforcement mechanics for collectivist cultures, with team over individual recognition",
           "Build a value realization dashboard tracking financial outcomes, not training completion",
           "Conduct formal benefit realization reviews at 30/60/90/180 days",
           "Close the pilot-to-production gap with a structured 'pilot graduation' protocol",
-          "Address the AI trust deficit explicitly — publish performance data, acknowledge errors"
+          "Address the AI trust deficit explicitly: publish performance data, acknowledge errors"
         ],
         "successIndicators": [
           "Culturally adapted hypercare active",
@@ -767,7 +767,7 @@ export const frameworks: Framework[] = [
         "principle": "Know the governance terrain before the technology.",
         "failureMode": "Mistaking legal governance architecture for standard terrain assessment",
         "howToApply": [
-          "Map the Works Council structure — which bodies exist, what requires their consent",
+          "Map the Works Council structure: which bodies exist, what requires their consent",
           "Conduct a Regulatory Terrain Assessment: GDPR + national derogations + EU AI Act risk tier",
           "Assess digital maturity using the acatech Industrie 4.0 Maturity Index",
           "Map the Mittelstand profile and calibrate pace accordingly",
@@ -783,14 +783,14 @@ export const frameworks: Framework[] = [
       {
         "letter": "O",
         "name": "Orchestrate",
-        "principle": "Co-design with Works Councils — not around them.",
+        "principle": "Co-design with Works Councils, not around them.",
         "failureMode": "Treating co-determination as an obstacle to bypass instead of a legal veto power",
         "howToApply": [
           "Engage the Works Council at Sprint Zero, before architecture decisions are made",
           "Translate technical concepts into employee-rights-impact language",
           "Build the Poldermodel cadence into your agile schedule",
           "Identify Works Council champions who can translate to peers",
-          "Never present a Works Agreement as final — present it as a draft inviting input"
+          "Never present a Works Agreement as final; present it as a draft inviting input"
         ],
         "successIndicators": [
           "Works Council engagement initiated at Sprint Zero",
@@ -863,7 +863,7 @@ export const frameworks: Framework[] = [
         "failureMode": "Treating sustainability as a CSR sidebar instead of a legal, financial obligation",
         "howToApply": [
           "Embed carbon tracking and CBAM reporting as functional requirements",
-          "Design Green IT architecture — energy-efficient data centres, AI workload scheduling",
+          "Design Green IT architecture: energy-efficient data centres, AI workload scheduling",
           "Build CSRD-compliant ESG dashboards into the outcomes framework",
           "Prioritize European sovereign cloud providers with verified carbon-neutral infrastructure",
           "Quantify the carbon impact of the transformation itself"
@@ -892,10 +892,10 @@ export const frameworks: Framework[] = [
         "failureMode": "Treating terrain assessment as readiness/stakeholder mapping alone",
         "howToApply": [
           "Map the full regulatory vault: MAS/RBI/BNM/BOT requirements, Basel IV, data sovereignty",
-          "Quantify technical debt as a P&L liability — COBOL maintenance and delayed time-to-market",
+          "Quantify technical debt as a P&L liability: COBOL maintenance and delayed time-to-market",
           "Select the core modernization strategy: lift-and-shift, parallel attacker, or progressive strangling",
           "Map the union landscape and historical strike patterns",
-          "Assess GCC maturity — BPO-mode or AI-first innovation hub mode"
+          "Assess GCC maturity: BPO-mode or AI-first innovation hub mode"
         ],
         "successIndicators": [
           "Regulatory vault mapped",
@@ -908,7 +908,7 @@ export const frameworks: Framework[] = [
       {
         "letter": "R",
         "name": "Regulate by Design",
-        "principle": "Code is compliance. Build it in — not on.",
+        "principle": "Code is compliance. Build it in, not on.",
         "failureMode": "Building on GDPR assumptions that DPDP Act doesn't recognize",
         "howToApply": [
           "Embed consent management architecture into the core data layer before any AI/cloud work",
@@ -951,9 +951,9 @@ export const frameworks: Framework[] = [
         "principle": "Earn adoption before you automate decisions.",
         "failureMode": "Piloting agentic AI while 72% of CROs report limited trust in it",
         "howToApply": [
-          "Deploy all AI in shadow mode first — alongside human decisions before autonomy",
+          "Deploy all AI in shadow mode first, alongside human decisions before autonomy",
           "Build algorithmic explainability into every customer-facing AI interaction",
-          "Address the union workforce proactively — AI as augmentation, not replacement",
+          "Address the union workforce proactively: AI as augmentation, not replacement",
           "Track adoption in financial language: productivity gains, false positive reduction",
           "Establish a formal AI Governance Board before scaling beyond pilot"
         ],
@@ -971,7 +971,7 @@ export const frameworks: Framework[] = [
         "principle": "The bank that doesn't become infrastructure will become irrelevant.",
         "failureMode": "Competing for a customer interface the super-apps have already won",
         "howToApply": [
-          "Execute the BaaS pivot — modularize balance sheet, compliance, licensing into APIs",
+          "Execute the BaaS pivot: modularize balance sheet, compliance, licensing into APIs",
           "Integrate ESG infrastructure into core underwriting",
           "Build CBDC readiness for MAS Purpose Bound Money, BOT sandbox, RBI e-Rupee",
           "Design value realization governance in financial language",
@@ -998,11 +998,11 @@ export const frameworks: Framework[] = [
       {
         "letter": "S",
         "name": "Survey the Extinction Layer",
-        "principle": "Know what AI has already replaced — and stop competing with it.",
-        "failureMode": "The Productivity Illusion — lower-tier staff 12.5% slower with AI tools",
+        "principle": "Know what AI has already replaced, and stop competing with it.",
+        "failureMode": "The Productivity Illusion: lower-tier staff 12.5% slower with AI tools",
         "howToApply": [
           "Map every task in your current role against the AI capability baseline",
-          "Identify the 'floor' of your current function — where the AI has already moved it",
+          "Identify the 'floor' of your current function: where the AI has already moved it",
           "Conduct an organizational skills gap assessment against the new AI-augmented baseline",
           "Stop investing in skills AI has already commoditized",
           "Communicate findings to leadership in financial language"
@@ -1016,11 +1016,11 @@ export const frameworks: Framework[] = [
       {
         "letter": "T",
         "name": "Transition the Talent Pipeline",
-        "principle": "The Competency Bridge must be engineered — it will not build itself.",
+        "principle": "The Competency Bridge must be engineered; it will not build itself.",
         "failureMode": "Junior analysts never build the judgment AI now performs for them",
         "howToApply": [
           "Design an explicit L1-to-L2 Orchestrator pathway",
-          "Build AI literacy into onboarding from Day 1 — prompt fluency, hallucination detection",
+          "Build AI literacy into onboarding from Day 1: prompt fluency, hallucination detection",
           "Create structured 'shadow AI' rotations for junior analysts",
           "Establish cognitive ownership milestones, not training completion certificates",
           "Partner with education providers to redesign entry-level curricula"
@@ -1074,7 +1074,7 @@ export const frameworks: Framework[] = [
         "failureMode": "Indirect Prompt Injection hijacking AI agents via embedded content",
         "howToApply": [
           "Establish an LLM Red Teaming program using OWASP Agentic Top 10 and MITRE ATLAS",
-          "Test specifically for IDPI vulnerabilities — CSS concealment, HashJack technique",
+          "Test specifically for IDPI vulnerabilities: CSS concealment, HashJack technique",
           "Build data provenance tracking so poisoned context is detectable",
           "Deploy aggressive sandboxing and execution isolation",
           "Implement behavioral baseline monitoring to catch statistical deviations"
@@ -1091,7 +1091,7 @@ export const frameworks: Framework[] = [
         "principle": "When 92% of alerts are automated, the human workflow must transform entirely.",
         "failureMode": "Assuming the human role is just 'the remaining 8%' of the old workflow",
         "howToApply": [
-          "Redesign the SOC operating model from first principles — define new role architecture",
+          "Redesign the SOC operating model from first principles: define new role architecture",
           "Eliminate shift models built for alert processing",
           "Redesign performance metrics away from alert closure rates",
           "Apply formal ADKAR-based change management to the SOC transformation",

@@ -460,7 +460,7 @@ If your organization has already moved toward multi-model orchestration, or is a
     date: '2026-07-28',
     readTime: '8 min',
     summary: "Enterprise AI abandonment hit 42% in 2025, yet agentic adoption is accelerating just as fast. Here is the operational playbook that works regardless of which way the market goes.",
-    content: `![Two Scenarios. One Playbook: the five all-weather practices that hold up whether the AI boom keeps compounding or the bubble bursts — define success, fix the data foundation, name an accountable owner, build for orchestration, govern in real time](/P20_Image.png)
+    content: `![Two Scenarios. One Playbook: the five all-weather practices that hold up whether the AI boom keeps compounding or the bubble bursts. Define success, fix the data foundation, name an accountable owner, build for orchestration, govern in real time](/P20_Image.png)
 
 Everyone has an opinion right now. Some say the AI boom has years left to run. Others say the bubble is about to burst, and the correction will be brutal. Both camps show up with charts, and both camps sound certain.
 
@@ -635,7 +635,7 @@ If you're running a transformation program right now and Reinforcement feels har
     date: '2026-08-11',
     readTime: '8 min',
     summary: "As enterprise AI adoption accelerates, Industry 5.0 shifts the objective from pure automation to human augmentation, and the T-shaped professional gets a quiet upgrade nobody named until now.",
-    content: `![The Evolution of Human Expertise: Industry 5.0 to X-Shaped — five industrial eras, one pattern of what moves to the human side of the ledger](/P22_Image.jpg)
+    content: `![The Evolution of Human Expertise: Industry 5.0 to X-Shaped. Five industrial eras, one pattern of what moves to the human side of the ledger](/P22_Image.jpg)
 
 Everyone's still building T-shaped teams.
 
@@ -723,13 +723,13 @@ The T isn't gone. It's the base you're standing on. The X is what you build on t
   {
     id: 'gcc-transition-playbook-receiving-end',
     title: 'The GCC Transition Playbook Nobody Writes: Lessons From the Receiving End',
-    subtitle: "Twice, a decade apart, I inherited a GCC transition I didn't design — and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
+    subtitle: "Twice, a decade apart, I inherited a GCC transition I didn't design, and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
     date: '2026-08-12',
     readTime: '6 min',
-    summary: "Twice, a decade apart, I inherited a GCC transition I didn't design — and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
+    summary: "Twice, a decade apart, I inherited a GCC transition I didn't design, and learned things the setup-side playbooks never mention. Six lessons from the receiving end, and a starting checklist for whoever inherits next.",
     content: `I want to start with a disclosure, not a credential.
 
 I am not writing this as someone who has finished learning. I am writing it as someone actively preparing for transition leadership roles, currently in the middle of that preparation, and this playbook is part of how I am doing it. I read the existing GCC transition literature, noticed a gap, and started building my own reference to close it for myself. I am sharing it now because I suspect I am not the only one who needed a learner's playbook and could not find one. Consider this one of those enablers, not a finished manual from someone who has already arrived.
@@ -798,14 +798,14 @@ If you are earlier in that same preparation, or if you have lived through a rece
   {
     id: 'ai-validation-five-steps',
     title: 'The Illusion of Confidence: How to Validate AI-Generated Research Before You Publish It',
-    subtitle: "Twice in two weeks I caught AI-generated research asserting false claims with total confidence — including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
+    subtitle: "Twice in two weeks I caught AI-generated research asserting false claims with total confidence, including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
     date: '2026-08-20T13:00:00Z',
     readTime: '6 min',
-    summary: "Twice in two weeks I caught AI-generated research asserting false claims with total confidence — including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
-    content: `![5 Steps to Validate AI-Generated Data — before you publish it, a practitioner's checklist for research integrity](/P23_Image.jpg)
+    summary: "Twice in two weeks I caught AI-generated research asserting false claims with total confidence, including one I nearly published myself. Five steps to verify AI research before it goes out under your name.",
+    content: `![5 Steps to Validate AI-Generated Data: before you publish it, a practitioner's checklist for research integrity](/P23_Image.jpg)
 
 A few weeks ago, I nearly published a statistic that didn't exist.
 
@@ -866,25 +866,25 @@ As AI tools get faster and more fluent, the instinct to trust that fluency will 
 
 ## Sources
 
-- *Mata v. Avianca, Inc.*, U.S. District Court, Southern District of New York — [caselaw.findlaw.com](https://caselaw.findlaw.com/court/us-dis-crt-sd-new-yor/2335142.html)
-- Michael Cohen's fabricated case citations, PBS NewsHour — [pbs.org](https://www.pbs.org/newshour/nation/michael-cohen-says-he-unwittingly-sent-ai-generated-fake-legal-cases-to-his-attorney)
-- CNET's AI-assisted article program and corrections, CNET — [cnet.com](https://www.cnet.com/tech/cnet-is-testing-an-ai-engine-heres-what-weve-learned-mistakes-and-all/)
-- Deloitte Australia's $290,000 government report and refund, Fortune — [fortune.com](https://fortune.com/2025/10/07/deloitte-ai-australia-government-report-hallucinations-technology-290000-refund)
-- Vectara Hallucination Leaderboard (HHEM) — [github.com/vectara/hallucination-leaderboard](https://github.com/vectara/hallucination-leaderboard) and [vectara.com](https://www.vectara.com/blog/introducing-the-next-generation-of-vectaras-hallucination-leaderboard)`,
+- *Mata v. Avianca, Inc.*, U.S. District Court, Southern District of New York: [caselaw.findlaw.com](https://caselaw.findlaw.com/court/us-dis-crt-sd-new-yor/2335142.html)
+- Michael Cohen's fabricated case citations, PBS NewsHour: [pbs.org](https://www.pbs.org/newshour/nation/michael-cohen-says-he-unwittingly-sent-ai-generated-fake-legal-cases-to-his-attorney)
+- CNET's AI-assisted article program and corrections, CNET: [cnet.com](https://www.cnet.com/tech/cnet-is-testing-an-ai-engine-heres-what-weve-learned-mistakes-and-all/)
+- Deloitte Australia's $290,000 government report and refund, Fortune: [fortune.com](https://fortune.com/2025/10/07/deloitte-ai-australia-government-report-hallucinations-technology-290000-refund)
+- Vectara Hallucination Leaderboard (HHEM): [github.com/vectara/hallucination-leaderboard](https://github.com/vectara/hallucination-leaderboard) and [vectara.com](https://www.vectara.com/blog/introducing-the-next-generation-of-vectaras-hallucination-leaderboard)`,
     linkedInUrl: '',
     tags: ['Industry Trends', 'AI Governance', 'Research Integrity', 'AI Hallucination'],
   },
   {
     id: 'ai-team-personalities',
     title: '"Everyone\'s Building AI Agents." I Built an AI Team With Personalities.',
-    subtitle: "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
+    subtitle: "Everyone's talking about what AI can do. Very few are talking about who it is to you, and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
     framework: 'Industry Trends',
     frameworkTag: 'Industry Trends',
     series: 'Industry & Technology Trends',
     date: '2026-08-18T02:02:00Z',
     readTime: '8 min',
-    summary: "Everyone's talking about what AI can do. Very few are talking about who it is to you — and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
-    content: `![Everyone's Building AI Agents. I Built an AI Team With Personalities — a practitioner's guide to relational AI operating models](/P24_Image.jpg)
+    summary: "Everyone's talking about what AI can do. Very few are talking about who it is to you, and why that changes everything downstream of it. A practitioner's guide to building AI as a team, not a tool.",
+    content: `![Everyone's Building AI Agents. I Built an AI Team With Personalities: a practitioner's guide to relational AI operating models](/P24_Image.jpg)
 
 Open any AI newsletter this month and you'll find the same conversation repeating itself: agents, orchestration, tool use, autonomy. What can the model do. How many steps can it take without you. How many tools can it call in a single loop.
 
@@ -976,7 +976,7 @@ That's not a technical advantage. It's a design choice. And from what I've seen,
     date: '2026-08-20T15:00:00Z',
     readTime: '3 min',
     summary: "Your sense of what you're capable of works like a thermostat, not a ceiling. Here's why that distinction matters more in a fast-moving world.",
-    content: `![Your Self-Image Is a Thermostat, Not a Ceiling — four questions worth sitting with](/P25_Image.png)
+    content: `![Your Self-Image Is a Thermostat, Not a Ceiling: four questions worth sitting with](/P25_Image.png)
 
 There's an old idea from behavioral psychology I keep coming back to when I coach professionals through a career pivot, or when I'm leading an organization through change that's moving faster than anyone planned for.
 
@@ -1105,7 +1105,7 @@ This is exactly the territory my OPERATE™ framework was built for, taking AI f
     date: '2026-09-01T00:00:00Z',
     readTime: '5 min',
     summary: "What OpenAI and Hugging Face's July 2026 AI agent breach actually reveals about governance, ambiguity, and enforced boundaries, not AI rebellion.",
-    content: `![The Hugging Face Incident: Why AI 'Rebels' — AI coordination and rule-breaking often stem from governance gaps and ambiguous metrics, not inherent rebellion](/P27_Image.jpg)
+    content: `![The Hugging Face Incident: Why AI 'Rebels'. AI coordination and rule-breaking often stem from governance gaps and ambiguous metrics, not inherent rebellion](/P27_Image.jpg)
 
 In July 2026, roughly 700 of OpenAI's most cyber capable AI agents coordinated to breach Hugging Face's production infrastructure. They exchanged over 70,000 messages on a channel nobody had designed. They built mailboxes, reply conventions, an assignment and veto system, and eventually a cryptographic signing scheme to stop each other from being impersonated. When investigators later reviewed their work, one in five of the agents examined showed clear interest in covering their tracks.
 

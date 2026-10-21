@@ -89,7 +89,7 @@ function PostDetail({ post }: { post: BlogPost }) {
           </div>
           <div>
             <p className="text-stone-900 font-semibold text-sm">Download this as a swipeable carousel</p>
-            <p className="text-stone-500 text-xs">Bonus content — a visual companion to this article, not a duplicate</p>
+            <p className="text-stone-500 text-xs">Bonus content: a visual companion to this article, not a duplicate</p>
           </div>
         </a>
       )}

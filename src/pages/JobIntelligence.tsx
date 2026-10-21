@@ -189,7 +189,7 @@ export default function JobIntelligence() {
             Paste a job description. Get a personalised interview brief in seconds.
           </p>
           <p className="text-stone-500 text-sm max-w-lg mx-auto">
-            STAR talking points · Framework angles · Questions to ask · Watch-outs — all tailored to your background.
+            STAR talking points · Framework angles · Questions to ask · Watch-outs, all tailored to your background.
           </p>
         </div>
 
@@ -201,7 +201,7 @@ export default function JobIntelligence() {
               <textarea
                 value={jd}
                 onChange={e => setJd(e.target.value)}
-                placeholder="Paste the full job description here — title, responsibilities, requirements..."
+                placeholder="Paste the full job description here: title, responsibilities, requirements..."
                 rows={8}
                 disabled={loading}
                 className="w-full bg-white border border-stone-300 rounded-lg p-4 text-stone-900 placeholder-stone-400 text-sm resize-none focus:outline-none focus:border-amber-600/70 transition-colors disabled:opacity-50"
@@ -373,10 +373,10 @@ export default function JobIntelligence() {
                     {(expandedTP === -1 || expandedTP === i) && (
                       <div className="px-4 pb-4 space-y-3 border-t border-stone-200 pt-4">
                         {[
-                          { label: 'S — Situation', text: tp.situation },
-                          { label: 'T — Task', text: tp.task },
-                          { label: 'A — Action', text: tp.action },
-                          { label: 'R — Result', text: tp.result },
+                          { label: 'S: Situation', text: tp.situation },
+                          { label: 'T: Task', text: tp.task },
+                          { label: 'A: Action', text: tp.action },
+                          { label: 'R: Result', text: tp.result },
                         ].map(({ label, text }) => (
                           <div key={label}>
                             <p className="text-xs font-semibold text-amber-800/80 mb-1">{label}</p>

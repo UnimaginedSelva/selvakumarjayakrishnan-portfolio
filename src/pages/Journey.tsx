@@ -49,9 +49,9 @@ function AskForm() {
 
   function handleSubmit() {
     if (!question.trim()) return
-    const subject = encodeURIComponent('Question for Selva — AI Consultant Journey')
+    const subject = encodeURIComponent('Question for Selva: AI Consultant Journey')
     const body = encodeURIComponent(
-      `Hi Selva,\n\nI have a question for your Journey series:\n\n"${question}"\n\n— ${name || 'Anonymous'}`
+      `Hi Selva,\n\nI have a question for your Journey series:\n\n"${question}"\n\nRegards,\n${name || 'Anonymous'}`
     )
     window.location.href = `mailto:selvakumar.jayakrishnan@hotmail.com?subject=${subject}&body=${body}`
     setSent(true)
@@ -61,14 +61,14 @@ function AskForm() {
     <div className="card mt-12">
       <h3 className="text-stone-900 font-semibold text-lg mb-1">Ask a Question</h3>
       <p className="text-stone-500 text-sm mb-5">
-        Submit a real-world scenario or challenge — Selva answers the best ones in this journal.
+        Submit a real-world scenario or challenge, and Selva answers the best ones in this journal.
       </p>
       {sent ? (
         <div className="text-center py-6">
           <div className="w-12 h-12 rounded-full bg-terracotta-light flex items-center justify-center mx-auto mb-3">
             <Send size={18} className="text-terracotta" />
           </div>
-          <p className="text-stone-700 font-medium">Question submitted — thank you.</p>
+          <p className="text-stone-700 font-medium">Question submitted. Thank you.</p>
           <p className="text-stone-400 text-sm mt-1">Selva will answer the best questions in future entries.</p>
         </div>
       ) : (
@@ -128,7 +128,7 @@ export default function Journey() {
           <h1 className="text-4xl font-bold text-stone-900 mb-3">The Journey</h1>
           <div className="w-12 h-0.5 bg-terracotta mb-5" />
           <p className="text-stone-500 text-lg">
-            Real scenarios. Honest answers. How a Senior Change & Transformation Leader thinks, works, and evolves — on the road to becoming one of the best AI Consultants by 2030.
+            Real scenarios. Honest answers. How a Senior Change & Transformation Leader thinks, works, and evolves, on the road to becoming one of the best AI Consultants by 2030.
           </p>
         </div>
 
@@ -156,7 +156,7 @@ export default function Journey() {
             </div>
             <h3 className="text-stone-700 font-semibold text-lg mb-2">First entry coming soon</h3>
             <p className="text-stone-400 text-sm max-w-sm mx-auto">
-              Real-world Q&A from 19 years of enterprise transformation — published as the journey unfolds.
+              Real-world Q&A from 19 years of enterprise transformation, published as the journey unfolds.
             </p>
           </div>
         ) : (

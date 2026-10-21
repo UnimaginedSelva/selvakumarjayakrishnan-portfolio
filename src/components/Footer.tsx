@@ -21,7 +21,7 @@ export default function Footer() {
                 <span className="text-stone-900 font-semibold text-sm">Thought Leadership Blog</span>
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-terracotta bg-terracotta-light px-1.5 py-0.5 rounded-full">Live</span>
               </div>
-              <p className="text-stone-500 text-xs leading-relaxed">Real-world application of 8 practitioner frameworks — published from 30 June 2026.</p>
+              <p className="text-stone-500 text-xs leading-relaxed">Real-world application of 8 practitioner frameworks, published from 30 June 2026.</p>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-stone-900 font-semibold text-sm">The Journey — Q&A</span>
+                <span className="text-stone-900 font-semibold text-sm">The Journey: Q&A</span>
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-terracotta bg-terracotta-light px-1.5 py-0.5 rounded-full">Live</span>
               </div>
               <p className="text-stone-500 text-xs leading-relaxed">Real scenarios. Honest answers. The road to becoming one of the best AI Consultants by 2030.</p>
@@ -53,7 +53,7 @@ export default function Footer() {
                 <span className="text-stone-900 font-semibold text-sm">Industry Trend Bulletin</span>
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-terracotta bg-terracotta-light px-1.5 py-0.5 rounded-full">Live</span>
               </div>
-              <p className="text-stone-500 text-xs leading-relaxed">AI, digital transformation, and enterprise tech stories — refreshed daily.</p>
+              <p className="text-stone-500 text-xs leading-relaxed">AI, digital transformation, and enterprise tech stories, refreshed daily.</p>
             </div>
           </div>
 

@@ -13,10 +13,10 @@ const Q1_OPTIONS: { id: Q1; label: string; needsQ2?: boolean }[] = [
 ]
 
 const Q2_OPTIONS: { id: Q2; label: string }[] = [
-  { id: 'fsi', label: 'Financial services — banking, insurance, or FSI' },
+  { id: 'fsi', label: 'Financial services: banking, insurance, or FSI' },
   { id: 'asean', label: 'Primarily across ASEAN' },
   { id: 'europe', label: 'Primarily across Europe' },
-  { id: 'global', label: 'None of these — other region or global' },
+  { id: 'global', label: 'None of these (other region or global)' },
 ]
 
 function resolveFramework(q1: Q1, q2: Q2 | null): Framework {

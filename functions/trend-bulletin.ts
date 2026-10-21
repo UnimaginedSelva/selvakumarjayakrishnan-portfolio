@@ -3,7 +3,7 @@
 // functions/blog/[slug].ts: LinkedIn (and other scrapers) need a real path to
 // get a correct preview card, since a bare #/ fragment isn't scraped.
 
-const TITLE = 'Industry Trend Bulletin — Updated Daily';
+const TITLE = 'Industry Trend Bulletin | Updated Daily';
 const DESCRIPTION =
   'AI, digital transformation, and enterprise technology stories, refreshed daily from a locked set of free-access sources through a governed AI pipeline.';
 

@@ -2,7 +2,7 @@ export const hero = {
   name: 'Selvakumar Jayakrishnan',
   title: 'Senior Change & Transformation Leader',
   subtitle: 'Digital & AI Transformation | Change Management & Governance',
-  tagline: 'Open to Senior Manager / Director roles across India & Overseas — Immediate Joiner',
+  tagline: 'Open to Senior Manager / Director roles across India & Overseas · Immediate Joiner',
   stats: [
     { value: '19', label: 'Years Experience' },
     { value: '$6M+', label: 'Annual Business Value' },
@@ -70,7 +70,7 @@ export const experience = [
         duration: '4 yrs 6 mos',
         award: 'Game Changer Award',
         highlights: [
-          'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas — impacting up to 12,000 users across 50+ partner and Dell sites, delivering $6M+ in annual business value.',
+          'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas, impacting up to 12,000 users across 50+ partner and Dell sites, delivering $6M+ in annual business value.',
           'Change Management Approach: ADKAR-based change architecture across all programs, Agile delivery integration from 2020 onwards (waterfall to monthly to 2-week sprints by 2023), executive Facts-and-Alternatives frameworks for leadership decisions, and pilot-led resistance resolution using measurable evidence before full deployment.',
           'Real-Time Service Parts ETA (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
           'AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via shadow-mode pilot across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for millions of customers globally.',
@@ -119,7 +119,7 @@ export const experience = [
         award: 'Silver Award | Tell Dell Rock Star x2',
         highlights: [
           'Led the receiving-end onboarding of a major Dell Chennai transition program, scaling the regional organization from 0 to 115 FTEs in 14 months and establishing a high-performing unit generating $2.1M in revenue value.',
-          'Silver Award — Transition & Onboarding: Partnered with a Transition Manager to hire, train, and launch 10 core operational processes across 6 practices, curated from roughly 20 internal pitches.',
+          'Silver Award (Transition & Onboarding): Partnered with a Transition Manager to hire, train, and launch 10 core operational processes across 6 practices, curated from roughly 20 internal pitches.',
           'Operational Scale: Governed the newly established organization for an additional 18 months, directly managing 49 personnel and overseeing 66 indirect reports via peer-managed supervisors.',
           'Tell Dell Rock Star x2: Consistently recognized for high-performance team building and strict adherence to Dell\'s People Strategy (2012, 2013).',
           'This role marks the conclusion of 8 years in Business Operations before transitioning to core Change Management practice from August 2014.',
@@ -310,7 +310,7 @@ export const education = [
     note: 'College Topper · Ranked 24th in Mumbai University',
   },
   {
-    degree: 'Diploma — Computer Hardware & Networking',
+    degree: 'Diploma in Computer Hardware & Networking',
     institution: 'YCMOU',
     period: '2003–2005',
     note: 'Topper of the batch',
