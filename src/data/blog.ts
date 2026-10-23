@@ -1414,13 +1414,13 @@ When Stefano DellaVigna and Elizabeth Linos compared 126 nudge trials published 
 
 That does not mean behavioral science fails. It means small interventions on their own rarely move much at scale. They work when the structure around them is right: the pilot design, the support model, the sequencing, the people involved. That structure is what change practitioners actually build. Behavioral science explains why it works.
 
-## 1. Seeing before relying: the shadow-mode pilot
+## 1. Seeing before relying: the 90-day parallel run
 
-**What we did.** When we operationalized AI-validated work orders inside Salesforce CRM, we did not start by asking support teams to trust the AI. We ran it in shadow mode first, alongside the existing manual process, so users could see its decisions on their own real cases before anyone asked them to rely on it. We tracked override rates as the primary signal of genuine adoption, rather than training completion.
+**What we did.** When we operationalized AI-validated work orders inside Salesforce CRM, we did not start by asking support teams to trust the AI. We ran it in a 90-day parallel run first, alongside the existing manual process, so users could see its decisions on their own real cases before anyone asked them to rely on it. We tracked override rates as the primary signal of genuine adoption, rather than training completion.
 
 **The result.** About $1M in annual productivity gains through automation and fraud prevention.
 
-**The science.** Research on algorithm aversion, beginning with Dietvorst, Simmons, and Massey, shows that people abandon an algorithm after seeing it make a mistake, even when it outperforms humans overall. We judge machine errors more harshly than human ones. Shadow mode lets errors surface when they cost nothing, so trust is built on evidence rather than on a launch announcement.
+**The science.** Research on algorithm aversion, beginning with Dietvorst, Simmons, and Massey, shows that people abandon an algorithm after seeing it make a mistake, even when it outperforms humans overall. We judge machine errors more harshly than human ones. A parallel run lets errors surface when they cost nothing, so trust is built on evidence rather than on a launch announcement.
 
 ## 2. Treating resistance as data: pilots that include the resisters
 
