@@ -73,7 +73,7 @@ export const experience = [
           'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas, impacting up to 12,000 users across 50+ partner and Dell sites, delivering $6M+ in annual business value.',
           'Change Management Approach: ADKAR-based change architecture across all programs, Agile delivery integration from 2020 onwards (waterfall to monthly to 2-week sprints by 2023), executive Facts-and-Alternatives frameworks for leadership decisions, and pilot-led resistance resolution using measurable evidence before full deployment.',
           'Real-Time Service Parts ETA (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
-          'AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via shadow-mode pilot across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for millions of customers globally.',
+          'AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via 90-day parallel run across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for customers globally.',
           'Citrix to VMware Horizon Migration (Apr 2021 – Apr 2023): Change management across 36 partner sites, 7,000 users. 50% ticket reduction, ~$300K annual savings, 30% reduction in vApps issues.',
           'Reduced system issues by 30% through structured UAT governance across Agile sprint cycles.',
         ],
