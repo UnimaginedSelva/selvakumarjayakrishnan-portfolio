@@ -1,3 +1,5 @@
+import { generateWithFallback } from '../_lib/gemini';
+
 interface Env {
   GEMINI_API_KEY: string;
 }
@@ -85,43 +87,25 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       });
     }
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${context.env.GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents: [{ role: 'user', parts: [{ text: `Assess the change readiness for this project:\n\n${brief}` }] }],
-          generationConfig: {
-            responseMimeType: 'application/json',
-            // gemini-flash-latest spends part of the token budget on internal reasoning
-            // before writing the JSON, so this needs real headroom above the ~2.5k the
-            // JSON body itself takes.
-            maxOutputTokens: 8000,
-          },
-        }),
-      }
-    );
+    const gemini = await generateWithFallback(context.env.GEMINI_API_KEY, {
+      systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      contents: [{ role: 'user', parts: [{ text: `Assess the change readiness for this project:\n\n${brief}` }] }],
+      generationConfig: {
+        responseMimeType: 'application/json',
+        // gemini-flash-latest spends part of the token budget on internal reasoning
+        // before writing the JSON, so this needs real headroom above the ~2.5k the
+        // JSON body itself takes.
+        maxOutputTokens: 8000,
+      },
+    });
 
-    if (!response.ok) {
-      const errText = await response.text();
-      return new Response(JSON.stringify({ error: `Assessment service unavailable (Gemini ${response.status}): ${errText.slice(0, 300)}` }), {
-        status: 502,
+    if (!gemini.ok) {
+      return new Response(JSON.stringify({ error: gemini.error }), {
+        status: gemini.status,
         headers: { 'Content-Type': 'application/json' },
       });
     }
-
-    const data = await response.json() as {
-      candidates?: { content: { parts: { text: string }[] } }[];
-    };
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-    if (!text) {
-      return new Response(JSON.stringify({ error: 'Empty response from Gemini. Please try again.' }), {
-        status: 502,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
+    const text = gemini.text;
 
     const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
     const result = JSON.parse(cleaned);

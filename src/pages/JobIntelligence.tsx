@@ -140,7 +140,7 @@ export default function JobIntelligence() {
           body: JSON.stringify({ jd, companyContext }),
         }).then(async r => {
           const text = await r.text();
-          try { return JSON.parse(text); } catch { return { error: `Unexpected response: ${text.slice(0, 150)}` }; }
+          try { return JSON.parse(text); } catch { return { error: "The AI service didn't respond in time (it may be busy). Please try again in a minute." }; }
         }),
         animateSteps(),
       ]);
