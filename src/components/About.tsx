@@ -56,8 +56,7 @@ export default function About() {
         <p className="mt-6 text-stone-600 leading-relaxed text-base">{about.frameworksParagraph}</p>
 
         <div className="mt-8 pt-6 border-t border-stone-200 space-y-4">
-          <p className="text-stone-600 leading-relaxed text-base">{about.readiness}</p>
-          <p className="text-stone-600 leading-relaxed text-base">{about.closingCta}</p>
+          <p className="text-stone-600 leading-relaxed text-base">{about.readiness} {about.closingCta}</p>
         </div>
       </div>
     </section>
