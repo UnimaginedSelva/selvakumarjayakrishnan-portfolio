@@ -1436,7 +1436,7 @@ That does not mean behavioral science fails. It means small interventions on the
 
 The resistance was not to the technology. It was to the truth the technology told. So we did two things. We reframed the capability as a planning advantage: engineers could now tell most customers exactly when the repair would happen, which is a better experience than an open-ended promise. And we gave planners direct visibility into the logistics partner's inventory system, so ETAs became more reliable and the difficult conversation became less frequent.
 
-**The result.** Backlog parts SLA improved from 20% to 7%, about $5M in annual logistics savings, and platform adoption rose by about 25%. For engineers, the personal gain was confidence in Dell's parts availability, with more accuracy than before.
+**The result.** Backlog parts SLA improved from 20% to 7%, with about $5M in annual logistics savings. For engineers, the personal gain was confidence in Dell's parts availability, with more accuracy than before.
 
 **The science.** Karlsson, Loewenstein, and Seppi described the ostrich effect: people avoid information they expect to be painful. Our engineers were not avoiding a tool. They were avoiding the uncomfortable conversation it created. More training would not have fixed that. Making the truth easier to deliver did.
 

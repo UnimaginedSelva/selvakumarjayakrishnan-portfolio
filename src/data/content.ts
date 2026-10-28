@@ -20,12 +20,12 @@ export const hero = {
 export const about = {
   subtitle: `19 years of enterprise transformation across EMEA, APAC & Americas`,
   intro: `What I am seeing is that every leader today is drowning in the same problem: AI, orchestration, governance, adoption, moving faster than most organizations can translate into decisions. I close that gap, taking complex, fast-moving change and making it clear enough for a CHRO, a CTO, or a generalist exec to act on immediately.`,
-  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Across every program, I have held transformation design and change management adoption as one accountable seat, not sequential handoffs between disciplines, from the operating model decision through sustained adoption. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
+  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Across every program, I have held transformation design and change management adoption as one accountable seat, not sequential handoffs between disciplines, from the operating model decision through sustained adoption. I bring a consulting and problem-solving mindset, from RFP solution design and business reviews to advising 10 organizations without direct authority. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
   keyOutcomes: [
     'Delivered more than $6M in annual business value, including approximately $5M in logistics cost savings and $1M in AI-driven productivity gains (2023–2025).',
     'Drove 25% to 35% operational efficiency improvements across global customer support ecosystems, alongside a 30% reduction in system issues at scale (2023–2025).',
     'Led 10+ high-impact Transformation programs impacting up to 12,000 users across 50+ partner and Dell sites (2014–2025).',
-    'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 processes. Scaled the organization from 0 to 115 FTEs in 14 months, generating $2.1M in value, then led the unit, 49 direct and 66 indirect via peer-managed supervisors, for an additional 18 months (2011–2014).',
+    'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 processes. Scaled the organization from 0 to 115 FTEs in 14 months, generating $2.1M in revenue, then led the unit, 49 direct and 66 indirect via peer-managed supervisors, for an additional 18 months (2011–2014).',
   ],
   frameworksParagraph: `The result of this practitioner experience: 8 published frameworks, including one co-authored with Ashish Sharma. These cover Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, and Cybersecurity Workforce Transformation. They are supplementary playbooks designed to enhance current industry standards, not replace them.`,
   focusAreas: [
@@ -35,6 +35,7 @@ export const about = {
     'AI Operationalization',
     'Global Program Delivery',
     'Transition Leadership',
+    'Problem Solving & Consulting',
   ],
   readiness: `I am an immediate joiner with no notice period, ready to partner as an employee or consultant.`,
   closingCta: `If you are building or scaling a transformation practice, running large-scale transitions, or need a senior practitioner with delivery credentials and published IP, I'd love to connect.`,
@@ -72,10 +73,11 @@ export const experience = [
         highlights: [
           'Senior Change and Transformation Leader with 11 years of core ADKAR-based Change Management practice at Dell Technologies, leading enterprise-scale digital, AI, and operational transformation programs across EMEA, APJ, and the Americas, impacting up to 12,000 users across 50+ partner and Dell sites, delivering $6M+ in annual business value.',
           'Change Management Approach: ADKAR-based change architecture across all programs, Agile delivery integration from 2020 onwards (waterfall to monthly to 2-week sprints by 2023), executive Facts-and-Alternatives frameworks for leadership decisions, and pilot-led resistance resolution using measurable evidence before full deployment.',
-          'Real-Time Service Parts ETA (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
+          'Game Changer Award: one award covering both Real-Time Service Parts ETA and AI-Validated Work Orders together (Oct 2023 – Aug 2025).',
+          'Real-Time Service Parts ETA (Parts Locator) (Oct 2023 – Feb 2025): Resolved chronic backlog SLA failure across 12,000 CSG users. Backlog Parts SLA improved from 20% to 7%, ~$5M annual logistics savings, improved customer experience.',
           'AI-Validated Work Orders (Jan 2025 – Aug 2025): Led AI operationalization via 90-day parallel run across Salesforce CRM. ~$1M annual productivity gains, AI self-service live for customers globally.',
-          'Citrix to VMware Horizon Migration (Apr 2021 – Apr 2023): Change management across 36 partner sites, 7,000 users. 50% ticket reduction, ~$300K annual savings, 30% reduction in vApps issues.',
-          'Reduced system issues by 30% through structured UAT governance across Agile sprint cycles.',
+          'Citrix to VMware Horizon Migration (Apr 2021 – Apr 2023): Change management across 36 partner sites, 7,000 users. 50% reduction in single-user tickets, ~$300K annual savings.',
+          'UAT governance across programs: reduced overall system issues by 30% through structured UAT governance across Agile sprint cycles.',
         ],
         media: { image: '/experience/consultant-ppm.png', caption: 'Four Years, Four Programs: Measurable Impact at Dell' },
       },
@@ -89,7 +91,7 @@ export const experience = [
         highlights: [
           'Game Changer Award: Managed transformation programs across multiple global partner sites impacting ~7,000 users across multiple partner organizations, enhancing operational performance, delivery consistency, and user experience.',
           'Delivered global Work-From-Home enablement for ~6,000 users during COVID-19 in 72 hours, sustaining ~80% service levels and avoiding ~$1.5M in additional operational costs.',
-          'Led RSA SecurID MFA cybersecurity rollout across 29 partner sites impacting ~6,000 users, achieving full compliance with zero critical disruptions through site-specific change sequencing and local champion model.',
+          'Led RSA SecurID MFA cybersecurity rollout, with local Salesforce Lightning enablement, across 29 partner sites impacting ~6,000 users, achieving full compliance with zero critical disruptions through site-specific change sequencing and local champion model.',
           'Established structured governance and engagement models across partner ecosystems, improving delivery consistency and reducing escalations.',
           'Operated in waterfall delivery model (2014–2020): quarterly locked roadmap with structured change management integrated into deployment planning cycles.',
         ],
@@ -103,7 +105,7 @@ export const experience = [
         duration: '2 yrs 11 mos',
         award: 'Gold Award + Silver Award',
         highlights: [
-          'Led change delivery for enterprise tools impacting ~10,000 users, enhancing adoption rates and ensuring operational stability.',
+          'Business owner and change lead for contact center tools (Moxie, Qfiniti, Citrix, Oracle Knowledge Base) for ~10,000 tech support users, owning requirements, UAT and change requests.',
           'Facilitated and led UAT for tool patches and releases, acting as liaison between IT and Business teams across enhancement cycles.',
           'Silver Award: Reduced outsourced support costs by ~30%, cutting LATAM SPAM email contribution from 36% to 1% while boosting service efficiency.',
           'Gold Award: Resolved 3 critical tool deployment challenges preventing major business disruptions across global support teams across EMEA, APJ, and the Americas.',
@@ -121,6 +123,7 @@ export const experience = [
           'Led the receiving-end onboarding of a major Dell Chennai transition program, scaling the regional organization from 0 to 115 FTEs in 14 months and establishing a high-performing unit generating $2.1M in revenue value.',
           'Silver Award (Transition & Onboarding): Partnered with a Transition Manager to hire, train, and launch 10 core operational processes across 6 practices, curated from roughly 20 internal pitches.',
           'Operational Scale: Governed the newly established organization for an additional 18 months, directly managing 49 personnel and overseeing 66 indirect reports via peer-managed supervisors.',
+          'Presales and business development: Built delivery and operations frameworks for 23 RFPs, presented 12 QBRs to business owners as process owner, and won a new Global Dell Field Services project worth $92,000.',
           'Tell Dell Rock Star x2: Consistently recognized for high-performance team building and strict adherence to Dell\'s People Strategy (2012, 2013).',
           'This role marks the conclusion of 8 years in Business Operations before transitioning to core Change Management practice from August 2014.',
         ],
@@ -141,6 +144,7 @@ export const experience = [
       'Managed eCommerce operations and product configuration for the Dell Technologies account, overseeing Brand Input, Global Web Store Audits, and XML Feed creation for SEO/SEM and Online Marketing.',
       'Led a team of 10 FTEs executing enterprise-scale product configuration and maintenance for the Dell Technologies account across all major product portfolios.',
       'Maintained core database system configurations across all major hardware categories (Desktops, Laptops, Servers, Storage, Networking) to enable global Marketing & Communication (MARCOM) operations.',
+      'Six Sigma Yellow Belt certified (eClerx internal certification): applied VSM, FMEA and CTQ work, cutting process output errors from 14 to 1 a quarter, and supported 6 client QBRs as SME.',
     ],
     media: [
       { image: '/experience/eclerx-associate-process-manager.png', caption: 'First Management Role: Leading 24 Across Two Years' },
@@ -171,6 +175,7 @@ export const skills = {
     'Automation',
     'Prompt Engineering',
     'Data-driven Decision Making',
+    'Problem Solving & Consulting',
   ],
   tools: [
     'Salesforce CRM', 'VMware Horizon View', 'Citrix XenApp', 'Power BI',
@@ -180,11 +185,22 @@ export const skills = {
     { lang: 'English', level: 'Full Professional' },
     { lang: 'Tamil', level: 'Native' },
     { lang: 'Hindi', level: 'Full Professional' },
-    { lang: 'Marathi', level: 'Limited Working' },
-    { lang: 'Kannada', level: 'Limited Working' },
-    { lang: 'German', level: 'Learning (A1)' },
+    { lang: 'Marathi', level: 'Limited' },
+    { lang: 'Kannada', level: 'Limited' },
   ],
   certifications: [
+    {
+      name: 'German Language A1',
+      issuer: 'In progress',
+      date: '',
+      detail: '',
+    },
+    {
+      name: 'SAP Fundamentals, and Consulting Approach to Problem Solving (Emory University)',
+      issuer: 'Coursera · In progress',
+      date: 'Nov 2026',
+      detail: '',
+    },
     {
       name: 'Google AI Professional Certificate',
       issuer: 'Google',
@@ -218,10 +234,10 @@ export const skills = {
   ],
   awards: [
     { name: 'Game Changer Award x2', org: 'Dell Technologies · Apr 2025 · Sep 2019' },
-    { name: 'Silver Award x3', org: 'Dell Technologies · Aug 2016 · Aug 2015 · Jul 2013' },
+    { name: 'Silver Award x2', org: 'Dell Technologies · LATAM spam reduction · Chennai transition onboarding' },
     { name: 'Gold Award', org: 'Dell Technologies · Jan 2016' },
     { name: 'FY15 Services ACE Champion', org: 'Dell Technologies · Jul 2014' },
-    { name: 'Tell Dell Rock Star x2', org: 'Dell Technologies · 2013 · 2014' },
+    { name: 'Tell Dell Rock Star x2', org: 'Dell Technologies · 2012 · 2013' },
     { name: 'Topper of the Batch with 75.75%', org: 'Birla College · Jun 2006' },
     { name: 'Topper of the Batch with 78%', org: 'YCMOU – Kalyan Batch · Dec 2005' },
   ],
