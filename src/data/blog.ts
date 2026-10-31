@@ -1513,4 +1513,219 @@ Which of these principles have you seen make the biggest difference in your prog
     linkedInUrl: '',
     tags: ['Practitioner Reflection', 'TRANSFORM™', 'OPERATE™', 'Behavioral Science', 'Change Management'],
   },
+  {
+    id: 'one-of-a-hundred-options',
+    title: 'One of a Hundred Options',
+    subtitle: 'A reflection on my 19-year enterprise journey',
+    framework: 'Career Story',
+    frameworkTag: 'Career Story',
+    series: 'Career Story',
+    date: '2026-11-05',
+    readTime: '8 min',
+    summary: 'A reflection on my 19-year enterprise journey',
+    content: `After completing 20 years since my pivot from an aspiring scientist to a corporate professional, I shared my career story on LinkedIn in four parts. Here, I have stitched them together so you can experience it end to end: from a 20-year-old who set aside a dream to the leader I am today.
+
+## Part 1: One of a hundred options
+
+A youngster who wanted to be a scientist had to leave that dream and start working at 20 to support his family financially.
+
+He had two offers in hand. He chose the one that meant he would not have to borrow money to buy shoes and professional shirts. He didn't know that decision would pay off.
+
+He was lucky enough to be part of pilot processes in 2006, engaging with clients from Malaysia to run those processes from Mumbai on the front line.
+
+The energy he carried was contagious. He not only played a role in scaling his team from 1 to 5 in 9 months, he also supported other processes and grew into one of the two SMEs for the APJ account.
+
+His first promotion came at eClerx in 10 months and 16 days. It surprised his fellow team members, because a senior with more than 2 years of experience was the one everyone expected to be promoted.
+
+One of them asked him whether he was scared of the competition.
+
+He smiled a little before answering. Yes, he was competing, but not with his colleagues at eClerx. When he sat at his desk and worked on the PC, he was competing with the hundreds of options Dell could replace eClerx with. The only thing on his mind was to do the work so well that Dell would always choose eClerx.
+
+Back then, these hundred options were vendors. Today, one of them is AI.
+
+By competing with external players, he never had to compete internally. Rare wisdom from a 21-year-old who had set aside his academic dream to take care of his family.
+
+On October 16, 2026, he completed 20 years since that pivot into an early professional career. That youngster was me.
+
+## Part 2: Carrying the weight alone
+
+I almost lost a best friend.
+
+I created a painful memory for him without realizing I had been misdirected and misguided by people at home and in my office. I am not sure whether he still remembers that moment, but it got etched in my soul: never be an arrow on someone else's bow. The arrow could break itself, or it could hit your dear ones, and you only find out later.
+
+Some of my worst calls didn't come from missing facts. They came from carrying the weight alone in a pool of misinformation.
+
+Looking back, I made enough mistakes trying different things, and the course corrections are what made me mature.
+
+An AI partner wouldn't have carried these burdens. It would have helped me see them clearly, and maybe I could have avoided the situation with my friend as well. I will never know; it's just one of those "what if" moments.
+
+That happened during my years at Dell Chennai.
+
+I was lucky enough to become a people manager at 23, and I joined Dell as a first-level people leader in 2011, at 25. What followed over 3 years and 4 months made me not only an adaptive leader but also a more mature human being.
+
+I was fortunate to play the receiving-end Ops leader role, working closely with the transition manager, who gave me much-needed visibility into presales, solution design, RFPs and SOWs.
+
+We scaled the org from 0 to 115 FTEs in 14 months. I took the first-round technical fit interviews for both supervisors who joined, and later peer-managed them on delivery for 18 months, when I led the entire org as delivery lead.
+
+The best outcome I remember from this time is progressing the right people: 30-plus promotions and helping the team accelerate their careers within Dell and outside it.
+
+In my last years at Dell Chennai, I became a leader who stands by his statements, trusts his own gut, and filters the information around him so that process and people thrive in his teams.
+
+## Part 3A: Starting over at the same company
+
+I chose a role that took me through a metamorphosis.
+
+How does one break from their comfort? In my case, leading people with authority and delivering results as a team had become a well-practiced skill, and after over five years in people leader roles, a comfort zone. The question now was: could I do it alone, and lead without authority?
+
+While I was weighing this, Dell Bangalore had an opening. Dell Global Consumer Tech Support was seeking a Tools Program Manager in its newly created Operational Excellence org, to lead tech enablement projects, including owning change management and adoption.
+
+I had no clue about the technical support or contact center world. I got selected because the hiring team was seeking someone tech savvy from outside technical support, who could bring a new pair of eyes and adapt quickly.
+
+I entered this unknown world in August 2014 and began a long metamorphosis: from people leader to individual contributor, in a role where anyone could beat me on process knowledge.
+
+In the first 12 months, I started my career over again. Reading process documents, sitting with the frontline, asking the most basic questions of everyone around me. It was horrifying. There were so many days I thought I had made a bad decision, jumping into a dark space without carrying a torch.
+
+Today, an AI partner can become the headlight on a dark path, showing the way while you are at the wheel. Back then, I had to do it alone.
+
+Then resilience kicked in. I reached out to more people, read more, asked more, failed more, worked in a structured way and documented where nothing existed. By the end of the first year, I could see things changing for the better.
+
+The progress showed across all four of my programs, impacting about 10,000 users. The Partner Enablement Director took note of my way of solving problems.
+
+Then came a challenge: higher billing from the LATAM email support team at our partner sites. As I managed the Moxie program, I was asked to check if the tool was at fault.
+
+The first finding: partners got paid for every processed email, which was really the count of deleted emails, since every actioned email had to be deleted. And 36% of those deleted emails were spam. Every other region was around 1%. No one, including IT, had an answer.
+
+One action found the root cause. Sitting in Bengaluru, I switched Google Search to the Brazil site and searched for our support email IDs. Bingo. The LATAM product detail pages featured those email IDs, and as they were not support pages, Services had no idea. I reached out to the online merchandising team in Sales to remove them, and we changed the mailbox names and mapped them to contact forms. A few weeks later, the new mailbox was at the same 1% spam as everyone else.
+
+That one piece of problem solving opened the gate to the Partner Enablement team.
+
+## Part 3B: Leading without a title
+
+*Doing the right thing and delivering results.*
+
+From 2017, I continued to engage in solving unknowns while enabling technology. Some of these problems had been active for months, some for years, and solving them was like a mini metamorphosis.
+
+It didn't stop at problem solving. Many of them meant figuring out how to do something for the first time, as Partner IT and the environment were quite unfamiliar to most. These uncharted waters helped me learn to navigate ambiguity and find solutions that work.
+
+This learning first showed at scale with RSA 2FA enablement for 6,000 users across 29 Partner sites, where I had to identify product-level changes to make it work for Partners.
+
+If anyone asks me whether I can deliver under pressure, the answer is this: after the COVID lockdown in 2020, I designed and deployed a Work from Home solution within 3 days, ensuring Partner users could use their own systems to support Dell customers. My short-term solution design shaped the long-term solution, which I enabled at Partner sites with IT and Cybersecurity teams. Both the RSA and WFH deployments were firsts at Dell, and our enablement procedures became the reference for other BUs.
+
+From 2021, my scope scaled to 50 plus Dell and Partner sites and 12,000 users.
+
+In my last 4 years at Dell, I led the change and adoption for the Citrix to Horizon migration, real-time parts availability while booking a Service Work Order, and AI validations on Service Work Orders.
+
+The success of these programs didn't come only from knowing what to do or using a framework like ADKAR. These things mattered more:
+
+1. Engaging key stakeholders for feedback before the design was finalized
+2. Influencing leaders with data-driven facts and viable alternatives
+3. Structuring and documenting the overall program end-to-end
+4. Steering and governing the programs with disciplined cadence
+5. Tracking not only user adoption but also benefit realization and KPIs
+6. Flagging risks and findings in real time, even when it meant more effort or rework
+7. Reaching out directly to impacted users for high and critical defects
+8. Interviewing users across stakeholder groups to learn what worked and what to improve
+9. Looking at upstream and downstream team impacts to foster a One Dell Way attitude
+10. Bringing a consulting and collaborative problem-solving mindset
+
+From navigating dark spaces without a torch to making changes across multiple organizations, departments from IT to Cybersecurity, multiple BUs, hundreds of leaders and thousands of touchpoints, I built a personal brand as a go-to problem solver enabling technology solutions.
+
+And I led it all without a title.
+
+These rewarding years at Dell shaped me into someone stakeholders trust to do the right thing and deliver results. They also taught me that we can go through metamorphosis as many times as we want.
+
+## The pause
+
+After reading my journey, you may feel that I have been through every metamorphosis I needed. That is NOT true. The realization came when 19 years of sitting at a desk needed dedicated attention: the metamorphosis into a healthier version of me was still missing. This made me take a deliberate career break in September 2025 to focus on my health and well-being. I was absolutely clear when I took the decision, and I still am: we need to be healthy enough to deliver outcomes with utmost focus. With that clarity, by March 2026 I had completed the needed remediation to become a healthier and fitter version of me.
+
+From April 2026, my intentional second metamorphosis began: upskilling and becoming AI fluent, to build a team of AI partners with personalities. This led to publishing 8 frameworks that complement industry frameworks like ADKAR. They are the result of my personal research and the lessons from 19 years of enterprise experience. I also realized that this intentional transformation is something I have to keep fueling until I retire from the corporate world.
+
+In Part 1, you read what "one of a hundred options" meant for me. Today, each of us is one of a thousand options with a similar skill set for any opportunity. So the focus has to be on creating the enterprise value that is needed, with a passion for solving problems and a curiosity to fuel our personal transformation.
+
+I am fully ready for the next chapter, whatever awaits.
+
+*"Every rejection gives us one of two things: a lesson that makes us better, or people who now know what we are seeking."*`,
+    linkedInUrl: '',
+    tags: ['Career Story', 'Career Journey', 'Change Management', 'Leadership'],
+  },
+  {
+    id: 'review-continuously-change-deliberately',
+    title: 'Review Continuously, Change Deliberately',
+    subtitle: 'Why the pace of AI tools should not set the pace of change inside an organization',
+    framework: 'OPERATE™ + TRANSFORM™',
+    frameworkTag: 'Practitioner Reflection',
+    series: 'Practitioner Reflection',
+    date: '2026-11-10',
+    readTime: '6 min',
+    summary: 'Why the pace of AI tools should not set the pace of change inside an organization',
+    content: `![Review continuously, pass the threshold, change deliberately. Exceptions: security, compliance, end of life.](/P34_Image.png)
+
+Every week brings multiple new AI models, a new assistant, a new agent that promises to do the work better than the one we adopted last quarter. Most organizations respond in one of two ways. Some chase every release, and their people spend more time learning tools than doing the work. Others freeze, wait for the market to settle, and fall behind the teams that kept learning.
+
+Both responses treat the decision as a technology question. In my experience, it is mostly a people question.
+
+## The cost of change is more than the license
+
+When a new tool looks better, the comparison usually stops at features and price. The real cost of switching is much larger: integration, process rework, retraining, new governance, and a period where output drops while people relearn how to work.
+
+There is one more cost that rarely appears in a business case. I call it the human absorption cost: the attention, confidence and trust people need to spend every time the way they work changes. Teams can only absorb so much change at once. Every new change competes with the one before it that has not fully landed yet.
+
+I saw a version of this in my previous role. When fiscal roadmaps were approved, carried-over work from previous years took most of the capacity, and only a small share was left for new asks. Unfinished change does not disappear. It sits in the queue and takes the space the next idea needs.
+
+## The stance
+
+So my position is simple: **review continuously, change deliberately.**
+
+Review new AI models and tools all the time. Watch them, test them, run contained pilots. Reviewing is cheap, and not reviewing is how organizations fall behind.
+
+But change how people work only when the value clearly exceeds the full cost of change, including the human absorption cost. Not when a tool is newer. Not when a demo is impressive. When the value is clearly larger than everything the switch will ask of the organization and its people.
+
+## Two questions, one decision
+
+This is where I think most organizations split a decision that should be made together.
+
+Business process improvement asks: **is this worth doing?** It looks at the process, the outcome and the value.
+
+Change management asks: **can the organization absorb it?** It looks at readiness, saturation and how much change is already in flight.
+
+When these two questions are answered by different teams at different times, you get approved changes that people cannot absorb, or ready teams waiting on changes that were never worth making. When they are answered together, before the roadmap locks, you get one threshold: change happens when the value is clear and the organization can carry it.
+
+## What reviewing looks like in practice
+
+Reviewing continuously does not mean doing nothing. On the programs I led, it took a few concrete forms.
+
+**Run it alongside, not instead.** On AI-Validated Work Orders, the AI ran in parallel with the agents' manual process for 90 days before go-live. That period built the agents' confidence and told us exactly when a human should step in. Override rates became the signal of whether adoption was real.
+
+**Let evidence reverse the plan.** On Customer Self Scheduling, a pilot showed that switching the feature on automatically created more customer experience issues and delays. The evidence moved the rollout to customer-controlled enablement. The pilot did its job: it stopped a change that looked good on paper.
+
+**Do not apply one approach everywhere.** On the Citrix to Horizon migration, the sites that struggled most were the ones where a uniform change approach was applied first. Absorption capacity is not the same in every team, site or region.
+
+## The exceptions
+
+Some changes are not optional. Security, compliance and end-of-life changes bypass the threshold, because the cost of not changing is higher than any cost of change.
+
+Citrix to Horizon was one of these. The Citrix infrastructure was at end of life, so the question was never whether to move, only how. In those cases, the job of change management shifts from deciding whether to deciding how to make the move as absorbable as possible: hypercare, champions, parallel running and a planned sunset.
+
+## What is not new, and what is
+
+I want to be clear about where this sits. Technology radars, with rings such as adopt, trial, assess and hold, already give organizations a disciplined way to review emerging tools. Change management research already describes change saturation and fatigue. Economics already explains switching costs.
+
+What I am adding is the combination: one threshold that weighs technology value and human absorption cost together, judged jointly by process improvement and change management rather than in separate rooms. The radar tells you what is ready. Absorption tells you whether your people are.
+
+## Before the next switch
+
+When a better tool appears, these are the questions I would ask before changing anything:
+
+1. What does the current way of working cost us today, and what will the new tool genuinely improve?
+2. What is the full cost of switching, including retraining, rework and lost output during the transition?
+3. How much change is this team already carrying, and what is still not fully adopted?
+4. Can we prove it in a contained pilot or a parallel run first?
+5. Is this a security, compliance or end-of-life change that we cannot defer?
+
+AI can amplify an organization's ability to improve. It can also amplify its fatigue. The tools will keep changing every week. The people using them should not have to pay for every one of those changes.
+
+Review continuously. Change deliberately.`,
+    linkedInUrl: '',
+    tags: ['Practitioner Reflection', 'OPERATE™', 'TRANSFORM™', 'Change Management', 'AI Adoption'],
+  },
 ]

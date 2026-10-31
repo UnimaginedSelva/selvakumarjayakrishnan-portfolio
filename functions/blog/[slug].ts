@@ -1,7 +1,8 @@
 interface PostMeta {
   title: string;
   description: string;
-  image: string;
+  /** Optional: a text-only post shares as a summary card without an image. */
+  image?: string;
 }
 
 const POSTS: Record<string, PostMeta> = {
@@ -119,6 +120,16 @@ const POSTS: Record<string, PostMeta> = {
       'Mapping eleven years of change management at Dell against the research on how people actually adopt new ways of working.',
     image: '/P32_Image.png',
   },
+  'one-of-a-hundred-options': {
+    title: 'One of a Hundred Options',
+    description: 'A reflection on my 19-year enterprise journey.',
+  },
+  'review-continuously-change-deliberately': {
+    title: 'Review Continuously, Change Deliberately',
+    description:
+      'Why the pace of AI tools should not set the pace of change inside an organization.',
+    image: '/P34_Image.png',
+  },
 };
 
 function escapeHtml(s: string): string {
@@ -139,7 +150,7 @@ export const onRequestGet: PagesFunction = async ({ params, request }) => {
   }
 
   const canonicalUrl = `${origin}/blog/${slug}`;
-  const imageUrl = `${origin}${post.image}`;
+  const imageUrl = post.image ? `${origin}${post.image}` : '';
   // Forward query params (e.g. ?preview=true for a scheduled/hidden post)
   // through to the hash-routed SPA -- dropping them here silently defeats
   // any query-param-driven behavior in Blog.tsx, since the redirect target
@@ -158,15 +169,15 @@ export const onRequestGet: PagesFunction = async ({ params, request }) => {
 <meta property="og:type" content="article" />
 <meta property="og:title" content="${escapeHtml(post.title)}" />
 <meta property="og:description" content="${escapeHtml(post.description)}" />
-<meta property="og:image" content="${imageUrl}" />
-<meta property="og:url" content="${canonicalUrl}" />
+${imageUrl ? `<meta property="og:image" content="${imageUrl}" />
+` : ''}<meta property="og:url" content="${canonicalUrl}" />
 <meta property="og:site_name" content="Selvakumar Jayakrishnan" />
 
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="${imageUrl ? 'summary_large_image' : 'summary'}" />
 <meta name="twitter:title" content="${escapeHtml(post.title)}" />
 <meta name="twitter:description" content="${escapeHtml(post.description)}" />
-<meta name="twitter:image" content="${imageUrl}" />
-
+${imageUrl ? `<meta name="twitter:image" content="${imageUrl}" />
+` : ''}
 <meta http-equiv="refresh" content="0; url=${redirectTarget}" />
 <script>window.location.replace(${JSON.stringify(redirectTarget)});</script>
 </head>

@@ -108,6 +108,7 @@ export function renderMarkdown(content: string): ReactNode {
   const blocks: ReactNode[] = []
   let paragraphBuffer: string[] = []
   let listBuffer: string[] = []
+  let listOrdered = false
   let key = 0
 
   const flushParagraph = () => {
@@ -122,7 +123,17 @@ export function renderMarkdown(content: string): ReactNode {
   }
 
   const flushList = () => {
-    if (listBuffer.length) {
+    if (listBuffer.length && listOrdered) {
+      blocks.push(
+        <ol key={`ol-${key}`} className="mb-6 pl-6 space-y-2.5 list-decimal marker:text-amber-700 marker:font-semibold">
+          {listBuffer.map((item, idx) => (
+            <li key={`li-${key}-${idx}`} className="leading-relaxed pl-1">{parseInline(item, `li-${key}-${idx}`)}</li>
+          ))}
+        </ol>
+      )
+      key++
+      listBuffer = []
+    } else if (listBuffer.length) {
       blocks.push(
         <ul key={`ul-${key}`} className="mb-6 pl-5 space-y-2.5 list-disc marker:text-amber-600">
           {listBuffer.map((item, idx) => {
@@ -191,7 +202,15 @@ export function renderMarkdown(content: string): ReactNode {
       continue
     } else if (line.startsWith('- ')) {
       flushParagraph()
+      if (listOrdered) flushList()
+      listOrdered = false
       listBuffer.push(line.slice(2))
+    } else if (/^\d+\. /.test(line)) {
+      // Numbered list line ("1. text"); numbering comes from the <ol> itself.
+      flushParagraph()
+      if (!listOrdered) flushList()
+      listOrdered = true
+      listBuffer.push(line.replace(/^\d+\. /, ''))
     } else {
       flushList()
       paragraphBuffer.push(line)
