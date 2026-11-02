@@ -123,6 +123,7 @@ const POSTS: Record<string, PostMeta> = {
   'one-of-a-hundred-options': {
     title: 'One of a Hundred Options',
     description: 'A reflection on my 19-year enterprise journey.',
+    image: '/Career_Story_Shelf.png',
   },
   'review-continuously-change-deliberately': {
     title: 'Review Continuously, Change Deliberately',
