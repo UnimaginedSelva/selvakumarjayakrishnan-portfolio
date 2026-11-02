@@ -120,9 +120,9 @@ const POSTS: Record<string, PostMeta> = {
       'Mapping eleven years of change management at Dell against the research on how people actually adopt new ways of working.',
     image: '/P32_Image.png',
   },
-  'one-of-a-hundred-options': {
-    title: 'One of a Hundred Options',
-    description: 'A reflection on my 19-year enterprise journey.',
+  'four-chapters-20-years': {
+    title: 'Four Chapters, 20 Years, and a Deliberate Pause',
+    description: 'Preparing for what comes next.',
     image: '/Career_Story_Shelf.png',
   },
   'review-continuously-change-deliberately': {

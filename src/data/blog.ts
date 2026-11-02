@@ -1514,15 +1514,15 @@ Which of these principles have you seen make the biggest difference in your prog
     tags: ['Practitioner Reflection', 'TRANSFORM™', 'OPERATE™', 'Behavioral Science', 'Change Management'],
   },
   {
-    id: 'one-of-a-hundred-options',
-    title: 'One of a Hundred Options',
-    subtitle: 'A reflection on my 19-year enterprise journey',
+    id: 'four-chapters-20-years',
+    title: 'Four Chapters, 20 Years, and a Deliberate Pause',
+    subtitle: 'Preparing for what comes next',
     framework: 'Career Story',
     frameworkTag: 'Career Story',
     series: 'Career Story',
     date: '2026-11-05',
     readTime: '8 min',
-    summary: 'A reflection on my 19-year enterprise journey',
+    summary: 'Preparing for what comes next',
     content: `![Four chapters from 2006 to 2026, and the next one still to come.](/Career_Story_Shelf.png)
 
 After completing 20 years since my pivot from an aspiring scientist to a corporate professional, I shared my career story on LinkedIn in four parts. Here, I have stitched them together so you can experience it end to end: from a 20-year-old who set aside a dream to the leader I am today.
