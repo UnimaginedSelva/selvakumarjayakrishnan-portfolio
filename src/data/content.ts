@@ -197,8 +197,14 @@ export const skills = {
       detail: '',
     },
     {
-      name: 'SAP Fundamentals, and Consulting Approach to Problem Solving (Emory University)',
-      issuer: 'Coursera',
+      name: 'SAP Fundamentals',
+      issuer: 'SAP',
+      date: 'Nov 2026',
+      detail: '',
+    },
+    {
+      name: 'Consulting Approach to Problem Solving',
+      issuer: 'Emory University via Coursera',
       date: 'Nov 2026',
       detail: '',
     },
