@@ -1,7 +1,7 @@
 export const hero = {
   name: 'Selvakumar Jayakrishnan',
   title: 'Senior Change & Transformation Leader',
-  subtitle: 'Digital & AI Transformation | Change Management & Governance',
+  subtitle: 'Digital & AI Transformation | Consulting | Change Management (OCM)',
   tagline: 'Open to Senior Manager / Director roles across India & Overseas · Immediate Joiner',
   stats: [
     { value: '19', label: 'Years Experience' },
@@ -18,14 +18,14 @@ export const hero = {
 }
 
 export const about = {
-  subtitle: `19 years of enterprise transformation across EMEA, APAC & Americas`,
+  subtitle: `19 years of enterprise transformation across EMEA, APJ & Americas`,
   intro: `What I am seeing is that every leader today is drowning in the same problem: AI, orchestration, governance, adoption, moving faster than most organizations can translate into decisions. I close that gap, taking complex, fast-moving change and making it clear enough for a CHRO, a CTO, or a generalist exec to act on immediately.`,
-  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Across every program, I have held transformation design and change management adoption as one accountable seat, not sequential handoffs between disciplines, from the operating model decision through sustained adoption. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
+  background: `That instinct comes from 19 years of enterprise experience, including 11 years of core Change Management (OCM) practice at Dell Technologies, where I learned to move large organizations through disruption long before AI was the disruption in question. Across every program, I have held transformation design and change management adoption as one accountable seat, not sequential handoffs between disciplines, from the operating model decision through sustained adoption. Two of those years were on the AI Enablement front line, figuring out what AI adoption actually looks like inside a real enterprise. I used my recent career break deliberately, prioritizing my health since September 2025, and intentionally investing that time to become fully AI-fluent. That foundation is now a capability, not a footnote.`,
   keyOutcomes: [
     'Delivered more than $6M in annual business value, including approximately $5M in logistics cost savings and $1M in AI-driven productivity gains (2023–2025).',
     'Drove 25% to 35% operational efficiency improvements across global customer support ecosystems, alongside a 30% reduction in system issues at scale (2023–2025).',
     'Led 10+ high-impact Transformation programs impacting up to 12,000 users across 50+ partner and Dell sites (2014–2025).',
-    'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 processes. Scaled the organization from 0 to 115 FTEs in 14 months, generating $2.1M in revenue, then led the unit, 49 direct and 66 indirect via peer-managed supervisors, for an additional 18 months (2011–2014).',
+    'Served as the receiving-end onboarding lead for a Dell Chennai transition, partnering with a Transition Manager to hire, train, and launch 10 transition projects. Scaled the organization from 0 to 115 FTEs in 14 months, generating $2.1M in revenue, then led the unit, 49 direct and 66 indirect via peer-managed supervisors, for an additional 18 months (2011–2014).',
   ],
   frameworksParagraph: `The result of this practitioner experience: 8 published frameworks, including one co-authored with Ashish Sharma. These cover Digital and AI Transformation, AI Operationalization, GCC Transformation, ERP Change Management, and Cybersecurity Workforce Transformation. They are supplementary playbooks designed to enhance current industry standards, not replace them.`,
   focusAreas: [
@@ -37,7 +37,7 @@ export const about = {
     'Transition Leadership',
     'Problem Solving and Consulting',
   ],
-  readiness: `I am an immediate joiner with no notice period, ready to partner as employee or consultant. I bring a consulting and problem-solving mindset, from RFP solution design and business reviews to advising 10 organizations without direct authority.`,
+  readiness: `I am an immediate joiner with no notice period, ready to partner as employee or consultant. I am a trusted advisor and problem solver, from RFP solution design and business reviews to advising 10 organizations without direct authority.`,
   closingCta: `If you are building or scaling a transformation practice, running large-scale transitions, or need a senior practitioner with delivery credentials and published IP, I would love to connect.`,
 }
 
@@ -121,7 +121,7 @@ export const experience = [
         award: 'Silver Award | Tell Dell Rock Star x2',
         highlights: [
           'Led the receiving-end onboarding of a major Dell Chennai transition program, scaling the regional organization from 0 to 115 FTEs in 14 months and establishing a high-performing unit generating $2.1M in revenue value.',
-          'Silver Award (Transition & Onboarding): Partnered with a Transition Manager to hire, train, and launch 10 core operational processes across 6 practices, selected from 23 RFPs.',
+          'Silver Award (Transition & Onboarding): Partnered with a Transition Manager to hire, train, and launch 10 transition projects across 6 practices.',
           'Operational Scale: Governed the newly established organization for an additional 18 months, directly managing 49 personnel and overseeing 66 indirect reports via peer-managed supervisors.',
           'Presales and business development: Built delivery and operations frameworks for 23 RFPs, presented 12 QBRs to business owners as process owner, and won a new Global Dell Field Services project worth $92,000.',
           'Tell Dell Rock Star x2: Consistently recognized for high-performance team building and strict adherence to Dell\'s People Strategy (2012, 2013).',
@@ -197,7 +197,7 @@ export const skills = {
     },
     {
       name: 'SAP Fundamentals, and Consulting Approach to Problem Solving (Emory University)',
-      issuer: 'Coursera · In progress',
+      issuer: 'Coursera',
       date: 'Nov 2026',
       detail: '',
     },

@@ -34,7 +34,7 @@ export default function Contact() {
             <h2 className="section-heading gold-underline pb-2">Let's Connect</h2>
             <p className="section-subheading">Open to Senior Manager / Director roles across India & Overseas</p>
             <p className="text-stone-600 leading-relaxed">
-              If your organization is driving enterprise-scale digital or AI transformation, I would be glad to connect. I bring 19 years of enterprise experience, including 11 years of core Change Management practice, 8 published practitioner frameworks, and an immediate joiner status.
+              If your organization is driving enterprise-scale digital or AI transformation, I would be glad to connect. I bring 19 years of enterprise experience, including 11 years of core Change Management (OCM) practice, 8 published practitioner frameworks, and an immediate joiner status.
             </p>
             <div className="flex items-center gap-2 text-stone-500 text-sm">
               <MapPin size={14} className="text-terracotta" />
