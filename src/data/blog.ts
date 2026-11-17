@@ -1436,7 +1436,7 @@ That does not mean behavioral science fails. It means small interventions on the
 
 The resistance was not to the technology. It was to the truth the technology told. So we did two things. We reframed the capability as a planning advantage: engineers could now tell most customers exactly when the repair would happen, which is a better experience than an open-ended promise. And we gave planners direct visibility into the logistics partner's inventory system, so ETAs became more reliable and the difficult conversation became less frequent.
 
-**The result.** Backlog parts SLA improved from 20% to 7%, with about $5M in annual logistics savings. For engineers, the personal gain was confidence in Dell's parts availability, with more accuracy than before.
+**The result.** Backlog SLA failures were cut from 20% to 7%, with about $5M in annual logistics savings. For engineers, the personal gain was confidence in Dell's parts availability, with more accuracy than before.
 
 **The science.** Karlsson, Loewenstein, and Seppi described the ostrich effect: people avoid information they expect to be painful. Our engineers were not avoiding a tool. They were avoiding the uncomfortable conversation it created. More training would not have fixed that. Making the truth easier to deliver did.
 
@@ -1454,7 +1454,7 @@ Midway through, two EMEA partner sites refused to proceed. Their site coordinato
 
 **What we did.** The RSA SecurID multi-factor rollout across 29 partner sites and about 6,000 users was mandatory. A mandate sets the rule, but it does not guarantee consistent behavior, especially under pressure. We paired it with site-specific change sequencing and a local champion model, so each site heard from people inside their own organization.
 
-**The result.** Full compliance with zero critical disruptions.
+**The result.** The rollout reached about 6,000 users across 29 partner sites.
 
 **The science.** A mandate is not a nudge, and it carries a risk: when people feel their autonomy is being restricted, they can push back or find workarounds, which psychologists call reactance. Social proof is the counterweight. In a well-known field experiment by Goldstein, Cialdini, and Griskevicius, telling hotel guests that most previous guests in their room had reused towels raised reuse from 35.1% to 44.1%. People follow people like them. Our champions made the rule feel like the local norm, not something imposed from far away.
 
